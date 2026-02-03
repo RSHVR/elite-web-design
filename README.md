@@ -19,7 +19,12 @@ A collection of specialized skills for Claude Code that enable premium, award-wi
 ## Installation
 
 ```bash
-# Clone to your Claude skills directory
+npx skills add RSHVR/elite-web-design
+```
+
+Or clone manually:
+
+```bash
 git clone https://github.com/RSHVR/elite-web-design.git ~/.claude/skills/elite-web-design
 ```
 
