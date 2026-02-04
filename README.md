@@ -13,8 +13,9 @@ A collection of specialized skills for Claude Code that enable premium, award-wi
 | **elite-performance** | 60fps optimization, Vite setup, debugging | ~2,500 |
 | **elite-accessibility** | prefers-reduced-motion, WCAG, focus management | ~1,600 |
 | **elite-inspiration** | Curated Awwwards/FWA references by pattern | ~2,500 |
+| **elite-ux-strategy** | Conversion optimization, psychology, copywriting, pricing pages | ~4,400 |
 
-**Total: ~17,700 lines** of specialized knowledge
+**Total: ~22,100 lines** of specialized knowledge
 
 ## Installation
 
@@ -46,6 +47,7 @@ Each skill activates on specific keywords:
 - `"60fps"`, `"performance"`, `"Vite"` → elite-performance
 - `"reduced motion"`, `"accessibility"` → elite-accessibility
 - `"inspiration"`, `"Awwwards"` → elite-inspiration
+- `"conversion"`, `"CRO"`, `"pricing page"`, `"CTA"` → elite-ux-strategy
 
 ## License
 

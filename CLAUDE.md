@@ -13,6 +13,7 @@ A collection of specialized skills for producing premium, award-winning frontend
 | `elite-performance` | "performance", "60fps", "Core Web Vitals", "Vite" | Build and optimization |
 | `elite-accessibility` | "prefers-reduced-motion", "WCAG", "a11y" | Motion accessibility |
 | `elite-inspiration` | "inspiration", "Awwwards", "FWA", "reference sites" | Curated site examples |
+| `elite-ux-strategy` | "conversion", "CRO", "pricing page", "CTA", "copywriting" | Conversion optimization |
 
 ## Code Style Guidelines
 
@@ -63,6 +64,7 @@ When working on animations → also load `elite-accessibility`
 When setting up a project → also load `elite-performance`
 When choosing techniques → start with `elite-design-core` decision frameworks
 When seeking direction → load `elite-inspiration`
+When optimizing for conversion → load `elite-ux-strategy`
 
 ## Design Philosophy
 
@@ -74,3 +76,4 @@ Elite web design is characterized by:
 4. **Typography hierarchy** - Type creates visual structure
 5. **Performance parity** - Sophistication never sacrifices 60fps
 6. **Accessible by default** - Reduced motion alternatives always provided
+7. **Conversion-conscious** - Beautiful design that also converts

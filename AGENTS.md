@@ -90,6 +90,9 @@ Load skills based on the task:
 | "Make it accessible" | elite-accessibility | - |
 | "CSS-only solution" | elite-css-animations | elite-accessibility |
 | "Bento grid layout" | elite-layouts | elite-design-core |
+| "Optimize for conversion" | elite-ux-strategy | elite-design-core |
+| "Pricing page design" | elite-ux-strategy | elite-layouts |
+| "CTA optimization" | elite-ux-strategy | - |
 
 ## Common Pitfalls to Avoid
 
@@ -99,3 +102,4 @@ Load skills based on the task:
 4. **Over-animating** - More animation ≠ better design
 5. **Generic easing** - Use appropriate easing for the interaction type
 6. **Skipping the design system** - Establish spacing/typography tokens first
+7. **Beauty without purpose** - Always consider conversion impact of design choices
