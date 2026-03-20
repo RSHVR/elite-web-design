@@ -1,0 +1,72 @@
+{
+  "skill_name": "elite-web-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build me a SaaS landing page with scroll animations and a pricing section that converts well. I'm using vanilla HTML/CSS/JS.",
+      "expected_output": "Should route to multiple skills: elite-design-core (tokens/hierarchy), elite-layouts (page structure), elite-gsap (scroll animations), elite-accessibility (required with GSAP), and elite-ux-strategy (pricing/conversion). Should NOT skip any dependency.",
+      "files": [],
+      "expectations": [
+        "Invokes elite-design-core skill",
+        "Invokes elite-gsap skill for scroll animations",
+        "Invokes elite-accessibility skill (required dependency of elite-gsap)",
+        "Invokes elite-layouts skill for page structure",
+        "Invokes elite-ux-strategy skill for pricing/conversion optimization",
+        "Does NOT invoke elite-brand-design (no brand task mentioned)",
+        "Does NOT invoke elite-audit (not reviewing existing work)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I want a hover effect that scales the card up slightly and reveals a gradient overlay, pure CSS only please",
+      "expected_output": "Should route to elite-css-animations (CSS micro-interactions) + elite-accessibility (dependency). Should NOT route to elite-gsap since user explicitly asked for CSS-only.",
+      "files": [],
+      "expectations": [
+        "Invokes elite-css-animations skill",
+        "Invokes elite-accessibility skill (required dependency of elite-css-animations)",
+        "Does NOT invoke elite-gsap (user said CSS only)",
+        "Does NOT invoke elite-layouts (this is a component effect, not layout)",
+        "Produces working CSS hover effect code with scale and gradient"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We're rebranding our startup — help me define brand identity (colors, typography, tone of voice) and then apply it to our homepage",
+      "expected_output": "Should route to elite-brand-design first (brand discovery), then elite-design-core (token implementation). Should recognize the sequential workflow.",
+      "files": [],
+      "expectations": [
+        "Invokes elite-brand-design skill for brand identity creation",
+        "Invokes elite-design-core skill (dependency of elite-brand-design AND needed for token implementation)",
+        "Addresses brand personality, color psychology, and tone of voice",
+        "Connects brand decisions to concrete design tokens or CSS variables"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "My portfolio site is finished but it feels janky scrolling on mobile and I'm worried about accessibility — can you check it?",
+      "expected_output": "Should route to elite-performance (jank/mobile perf) and elite-accessibility (a11y concerns). Could also reasonably include elite-audit. Should NOT load layout or animation creation skills.",
+      "files": [],
+      "expectations": [
+        "Invokes elite-performance skill (jank, mobile performance)",
+        "Invokes elite-accessibility skill (explicit accessibility concern)",
+        "Does NOT invoke elite-gsap or elite-css-animations (not adding animations)",
+        "Does NOT invoke elite-layouts (not restructuring layout)",
+        "Provides actionable performance or accessibility diagnostics"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I need a horizontal scroll section with pinned elements that reveal content as the user scrolls, for my portfolio's project showcase",
+      "expected_output": "Should route to elite-gsap (pinning requires ScrollTrigger) + elite-accessibility (GSAP dependency) + elite-layouts (horizontal scroll layout pattern) + elite-design-core (layout dependency). The pinning aspect makes GSAP the right choice over CSS-only.",
+      "files": [],
+      "expectations": [
+        "Invokes elite-gsap skill (pinned elements require ScrollTrigger)",
+        "Invokes elite-accessibility skill (required dependency of elite-gsap)",
+        "Invokes elite-layouts skill (horizontal scroll is a layout pattern)",
+        "Invokes elite-design-core skill (dependency of elite-layouts)",
+        "Uses ScrollTrigger pin: true pattern for the pinned section",
+        "Does NOT primarily route to elite-css-animations (pinning needs GSAP)"
+      ]
+    }
+  ]
+}

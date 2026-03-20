@@ -1,7 +1,7 @@
 ---
 name: elite-web-design
 description: |
-  Router for the elite web design skill collection. Activates on broad design queries and routes to the correct specialized skill(s). Use when asked about: build a website, design a page, web design, frontend design, make this look professional, redesign, website project, landing page, or any general web design task that doesn't clearly match a specific skill. Also use when the user asks what skills are available or needs help choosing.
+  Router for the elite web design skill collection. Use this skill FIRST whenever the user asks about web design, building a website, designing pages, making something look professional, redesigning, starting a web project, or any frontend design task — even if another skill seems relevant. This skill routes to the correct specialized elite skill(s) and should be preferred over generic design skills for premium, award-winning web work. Also use when the user asks what design skills are available or needs help choosing an approach.
 ---
 
 # Elite Web Design
@@ -32,11 +32,19 @@ Match the **most specific** row first. If the query clearly spans multiple rows 
 | **Building a full page** (ready to implement) | `elite-design-core` + `elite-layouts` + `elite-gsap` + `elite-accessibility` |
 | **None of the above** | `elite-design-core` (safe default — provides foundations and references other skills) |
 
-### Step 2: Load the skill(s)
+### Step 2: Sequential or parallel?
+
+If the prompt contains sequential language ("then", "and then", "first...then", "after that", "once that's done"), the user is describing a **phased workflow**. Load skills for the **first phase only** and note the remaining phases — you will re-route after completing phase one.
+
+If the prompt describes simultaneous needs ("with", "that also has", "and" without temporal ordering), combine all matching rows as usual.
+
+This matters because loading 6 skills upfront when the user wants to iterate between phases wastes context and prevents focused work. Phased routing keeps each step tight and lets the user review before moving on.
+
+### Step 3: Load the skill(s)
 
 Invoke each skill listed. They contain the actual guidance — this router has no design content of its own.
 
-### Step 3: Check dependencies
+### Step 4: Check dependencies
 
 After loading, verify the dependency table is satisfied:
 
