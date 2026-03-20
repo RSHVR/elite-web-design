@@ -1,7 +1,7 @@
 ---
 name: elite-design-core
 description: |
-  Entry point for elite web design. Covers design philosophy, visual systems, and the design-to-code process. Use when asked about: premium website design, award-winning aesthetics, design systems, visual hierarchy, spacing, typography, color theory, data visualization, or "how to make this look professional". This skill provides the foundational thinking that informs all other elite-web-design skills. Start here for new projects or when establishing design direction. When loaded alongside animation skills (elite-gsap, elite-css-animations), provides the token foundation they reference. Load first for new projects.
+  Foundation for elite web design. Covers design philosophy, visual systems, and the design-to-code process. Use when asked about: premium website design, award-winning aesthetics, design systems, visual hierarchy, spacing, typography, color theory, data visualization, or "how to make this look professional". This skill provides the foundational thinking that informs all other elite-web-design skills. When loaded alongside animation skills (elite-gsap, elite-css-animations), provides the token foundation they reference.
 ---
 
 # Elite Design Core
