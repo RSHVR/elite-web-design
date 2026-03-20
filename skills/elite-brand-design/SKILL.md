@@ -1,7 +1,7 @@
 ---
 name: elite-brand-design
 description: |
-  Brand identity creation and visual identity strategy. Covers defining brand personality, positioning, tone of voice, color psychology, typography as voice, visual identity systems, and living brand documentation. Use when asked about: brand design, visual identity, logo, brand guidelines, brand system, brand strategy, branding, brand colors, brand typography, style guide, brand refresh, brand personality, tone of voice, brand identity, logo design, brand consistency, visual branding, brand guidelines creation, or when translating a brand brief into web design decisions. Brand decisions translate to implementation via elite-design-core (tokens), elite-gsap (motion language), and elite-ux-strategy (conversion copy).
+  Brand identity creation and visual identity strategy. Covers defining brand personality, positioning, tone of voice, color psychology, typography as voice, visual identity systems, and living brand documentation. Use when asked about: brand design, visual identity, logo, brand guidelines, brand system, brand strategy, branding, brand colors, brand typography, style guide, brand refresh, brand personality, tone of voice, brand identity, logo design, brand consistency, visual branding, brand guidelines creation, brand package, generate brand assets, brand deliverables, brand identity package, or when translating a brand brief into web design decisions. Brand decisions translate to implementation via elite-design-core (tokens), elite-gsap (motion language), and elite-ux-strategy (conversion copy).
 ---
 
 # Elite Brand Design
@@ -21,6 +21,7 @@ Strategic brand identity creation — from personality definition to visual syst
 | Brand touchpoints | [brand-touchpoints.md](references/brand-touchpoints.md) |
 | Brand evolution | [brand-evolution.md](references/brand-evolution.md) |
 | Accessible branding | [brand-accessibility.md](references/brand-accessibility.md) |
+| Brand package generator | [brand-package.md](references/brand-package.md) |
 
 ## Related Skills
 
@@ -103,3 +104,21 @@ Five production archetypes showing how brand personality maps to design:
 5. **Ignoring accessibility** — A brand that can't be perceived by all users isn't a complete brand.
 6. **Decoration over purpose** — Every brand element should communicate something. If it's just decoration, remove it.
 7. **Skipping verbal identity** — Tone of voice is as important as visual identity. A beautiful site with generic copy feels hollow.
+
+---
+
+## Generating the Brand Package
+
+After completing brand discovery (Phases 1-5), generate a complete `brand-assets/` folder with all deliverables:
+
+→ See [brand-package.md](references/brand-package.md)
+
+This produces:
+- Design tokens (Tailwind v4 @theme + semantic layer)
+- Logo placeholders (icon, wordmark, combination SVGs)
+- Favicon set (SVG favicon + Apple touch icon)
+- Social templates (OG image + profile image)
+- Starter CSS (base styles + component library)
+- Brand guidelines document
+
+All branded with the user's discovery answers — not generic templates.
