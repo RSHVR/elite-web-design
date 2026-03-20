@@ -599,3 +599,59 @@ useLayoutEffect(() => {
   gsap.to(ref.current, { ... }); // ref might not be ready
 }, []);
 ```
+
+---
+
+## Svelte 5 Action Pattern
+
+Svelte actions are the most ergonomic way to use GSAP in Svelte. An action is a function that receives a DOM node and returns `{ destroy() }` — which is exactly what our GSAP utilities already return.
+
+### How It Works
+
+```javascript
+// gsap-utils.js — each utility IS a Svelte action
+export function reveal(node, opts = {}) {
+  const ctx = gsap.context(() => {
+    // ... animation setup
+  });
+
+  return {
+    destroy() {
+      ctx.revert();
+    }
+  };
+}
+```
+
+### Usage in Components
+
+```svelte
+<script>
+  import { reveal, staggerReveal, splitReveal, parallax } from '$lib/utils/gsap';
+</script>
+
+<!-- Single element reveal -->
+<div use:reveal>Fades up on scroll</div>
+<div use:reveal={{ delay: 0.2, y: 50 }}>With options</div>
+
+<!-- Children stagger -->
+<div use:staggerReveal={{ stagger: 0.1 }}>
+  <div>Card 1</div>
+  <div>Card 2</div>
+  <div>Card 3</div>
+</div>
+
+<!-- SplitText reveal -->
+<h1 use:splitReveal>Hero Headline</h1>
+<h2 use:splitReveal={{ type: 'chars', mask: false }}>Character Reveal</h2>
+
+<!-- Parallax -->
+<img use:parallax={{ speed: 0.2 }} src="hero.jpg" alt="" />
+```
+
+### Key Benefits
+
+1. **Automatic cleanup**: Svelte calls `destroy()` on component unmount — `gsap.context().revert()` cleans up all animations and ScrollTriggers
+2. **Reactive options**: Pass different opts per instance
+3. **No lifecycle boilerplate**: No `onMount`/`onDestroy` needed
+4. **Composable**: Stack multiple actions on one element: `<div use:reveal use:parallax>`

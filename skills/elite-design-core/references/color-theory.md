@@ -406,3 +406,129 @@ Black (#000000) background:
 - [ ] Dark mode properly designed (not just inverted)
 - [ ] Color is never the only indicator of meaning
 - [ ] Accent color used sparingly (10% rule)
+
+---
+
+## Production Color System Examples
+
+Real-world color architectures from production sites, showing how token systems scale.
+
+### Tailwind v4 @theme Token Pattern
+
+Tailwind v4 uses `@theme {}` inside CSS (replacing `tailwind.config.js`). Tokens become utility classes automatically:
+
+```css
+@import 'tailwindcss';
+
+@theme {
+  --color-void: #1a1614;
+  --color-void-soft: #221e1b;
+  --color-surface: #f5f3ef;
+  --color-accent: #f97316;
+  --color-accent-hover: #ea580c;
+  --color-accent-glow: rgba(249, 115, 22, 0.15);
+  --color-highlight: #D5FA71;
+
+  --color-text-light: #f5f3ef;
+  --color-text-light-muted: rgba(245, 243, 239, 0.55);
+  --color-text-dark: #1a1614;
+  --color-border-dark: rgba(245, 243, 239, 0.12);
+}
+```
+
+This generates Tailwind utilities like `bg-void`, `text-accent`, `border-border-dark` etc.
+
+### Dual-Layer Token Architecture (Primitive + Semantic)
+
+The most scalable pattern separates raw color values (primitives) from purpose-driven aliases (semantic):
+
+```css
+/* Layer 1: Primitives in @theme (generates utilities) */
+@theme {
+  --color-plum-50: #f5f3fa;
+  --color-plum-100: #eae7f4;
+  /* ... full 50-950 scale ... */
+  --color-plum-900: #28213e;
+  --color-plum-950: #18142a;
+
+  --color-sage-500: #5e9a7f;
+  --color-lavender-400: #b8a9c9;
+  --color-cream: #faf6f1;
+}
+
+/* Layer 2: Semantic aliases in :root (reference primitives) */
+:root {
+  --color-text-primary: var(--color-plum-900);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-on-dark: var(--color-cream);
+
+  --color-bg-primary: var(--color-cream);
+  --color-bg-dark: var(--color-plum-950);
+  --color-bg-elevated: #ffffff;
+
+  --color-accent: var(--color-plum-600);
+  --color-accent-hover: var(--color-plum-700);
+  --color-focus: var(--color-lavender-400);
+}
+```
+
+Components reference only semantic tokens (`var(--color-text-primary)`), never raw values. Retheming means changing only the `:root` mappings.
+
+### Category Color Coding
+
+When products have distinct categories, assign each a unique hue for instant visual grouping:
+
+```css
+:root {
+  /* Scent family colors for a fragrance e-commerce site */
+  --color-family-citrus: #d4a843;
+  --color-family-floral: #c47088;
+  --color-family-woody: #8b6e4e;
+  --color-family-oriental: #b85c3e;
+  --color-family-fresh: #5e9e9b;
+  --color-family-gourmand: #a0664b;
+}
+```
+
+This pattern works for any product taxonomy — blog categories, service tiers, team departments. The semantic connection between color and content helps users build mental models faster.
+
+### Brand-Tinted Shadows
+
+Replace pure black shadows with brand-colored shadows for cohesion:
+
+```css
+@theme {
+  /* Shadows tinted with brand plum — softer than pure black */
+  --shadow-xs: 0 1px 2px rgba(40, 33, 62, 0.03);
+  --shadow-sm: 0 2px 4px rgba(40, 33, 62, 0.04);
+  --shadow-md: 0 4px 12px rgba(40, 33, 62, 0.06);
+  --shadow-lg: 0 8px 24px rgba(40, 33, 62, 0.08);
+  --shadow-xl: 0 16px 40px rgba(40, 33, 62, 0.1);
+}
+```
+
+The `rgba(40, 33, 62, ...)` uses the brand's plum base instead of `rgba(0, 0, 0, ...)`. The result is visually softer and more harmonious — shadows feel "warm" rather than harsh.
+
+### Selection Color Customization
+
+An often-missed brand touchpoint:
+
+```css
+/* Digital studio: accent glow selection */
+::selection {
+  background: rgba(249, 115, 22, 0.15);
+  color: #f5f3ef;
+}
+
+/* Mental health clinic: lavender selection */
+::selection {
+  background: #e1d9ee;
+  color: #28213e;
+}
+
+/* Luxury e-commerce: warm gold selection */
+::selection {
+  background: #e8ddd0;
+  color: #1a1a1a;
+}
+```

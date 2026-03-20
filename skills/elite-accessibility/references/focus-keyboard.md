@@ -482,3 +482,74 @@ menu.addEventListener('keydown', (e) => {
 - [ ] Custom components support keyboard navigation
 - [ ] Arrow keys work in composite widgets (tabs, menus)
 - [ ] Escape closes modals and menus
+
+---
+
+## Custom Focus Ring Patterns
+
+### Brand-Tinted Focus Rings
+
+Replace the default browser blue focus ring with brand-appropriate colors:
+
+```css
+/* Digital studio — coral accent */
+:focus-visible {
+  outline: 2px solid var(--color-accent);  /* #f97316 */
+  outline-offset: 2px;
+}
+
+/* Mental health clinic — lavender (calming) */
+:focus-visible {
+  outline: 2px solid var(--color-lavender-400);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Legal firm — gold (premium, authoritative) */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+```
+
+### Focus Ring with Glow
+
+For brands that want a softer, more prominent focus indicator:
+
+```css
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(184, 169, 201, 0.3);
+}
+```
+
+The `box-shadow` adds a translucent glow beyond the outline, making focus state more visible without being harsh.
+
+### Skip-to-Content Pattern
+
+Every production site includes this for keyboard navigation:
+
+```css
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+```
+
+```html
+<a class="skip-to-content" href="#main-content">Skip to content</a>
+```
+
+Placed as the first focusable element in the body. Invisible until focused via Tab key.

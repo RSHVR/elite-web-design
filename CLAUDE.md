@@ -14,6 +14,8 @@ A collection of specialized skills for producing premium, award-winning frontend
 | `elite-accessibility` | "prefers-reduced-motion", "WCAG", "a11y" | Motion accessibility |
 | `elite-inspiration` | "inspiration", "Awwwards", "FWA", "reference sites" | Curated site examples |
 | `elite-ux-strategy` | "conversion", "CRO", "pricing page", "CTA", "copywriting" | Conversion optimization |
+| `elite-brand-design` | "brand design", "visual identity", "logo", "brand guidelines", "tone of voice" | Brand identity creation |
+| `elite-audit` | "audit", "review", "QA", "pre-launch", "check quality", "is this ready" | Quality verification & remediation |
 
 ## Code Style Guidelines
 
@@ -58,13 +60,25 @@ NEVER animate: `width`, `height`, `top`, `left`, `margin`, `padding`
 
 Code examples should be complete and working. Include all necessary imports, setup, and cleanup.
 
-## Cross-Skill References
+## Cross-Skill Loading Rules
 
-When working on animations → also load `elite-accessibility`
-When setting up a project → also load `elite-performance`
-When choosing techniques → start with `elite-design-core` decision frameworks
-When seeking direction → load `elite-inspiration`
-When optimizing for conversion → load `elite-ux-strategy`
+When a skill is loaded, also load its dependencies for complete coverage:
+
+| When this skill loads | Also load | Why |
+|-----------------------|-----------|-----|
+| `elite-gsap` | `elite-accessibility` | Every animation needs reduced-motion handling |
+| `elite-css-animations` | `elite-accessibility` | Every animation needs reduced-motion handling |
+| `elite-design-core` | — | Foundation; loads standalone |
+| `elite-layouts` | `elite-design-core` | Layouts depend on spacing/container tokens |
+| `elite-performance` | — | Loads standalone |
+| `elite-accessibility` | — | Loads standalone |
+| `elite-inspiration` | `elite-design-core` | Archetypes reference design tokens and typography |
+| `elite-ux-strategy` | `elite-design-core` | Conversion patterns depend on visual hierarchy |
+| `elite-brand-design` | `elite-design-core` | Brand decisions map to design tokens |
+| `elite-audit` | (triggers teaching skills on failure) | Orchestrates fixes via relevant skill |
+
+When starting a new project, load `elite-design-core` first to establish foundations.
+When building charts/dashboards, load `elite-design-core` (data-visualization reference).
 
 ## Design Philosophy
 

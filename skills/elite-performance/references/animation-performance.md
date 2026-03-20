@@ -574,3 +574,89 @@ console.log(`Animation took: ${measure.duration}ms`);
 3. **Rendering**: No paint flashing during animation
 4. **Memory**: No memory growth over time
 5. **Network**: Initial load < 200KB gzipped
+
+---
+
+## ScrollTrigger.batch() for Grid Performance
+
+For grids with 20+ items, `ScrollTrigger.batch()` creates ONE observer instead of individual ScrollTriggers per item:
+
+```javascript
+// GOOD: Single observer for entire grid
+gsap.set(items, { opacity: 0, y: 30 });
+
+ScrollTrigger.batch(items, {
+  start: 'top 90%',
+  onEnter: (batch) => {
+    gsap.to(batch, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.08,
+      ease: 'power3.out',
+      overwrite: true
+    });
+  },
+  once: true
+});
+
+// BAD: Individual ScrollTrigger per item (20+ triggers)
+items.forEach(item => {
+  gsap.from(item, {
+    opacity: 0, y: 30,
+    scrollTrigger: { trigger: item, start: 'top 90%' }
+  });
+});
+```
+
+The `overwrite: true` prevents animation conflicts when batch callbacks fire for the same element.
+
+### content-visibility for Off-Screen Sections
+
+Skip rendering for sections not in the viewport:
+
+```css
+.section-lazy {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
+
+.contain-card {
+  contain: layout style paint;
+}
+```
+
+- `content-visibility: auto` tells the browser to skip rendering until the section nears the viewport
+- `contain-intrinsic-size: 0 600px` provides a placeholder height to prevent layout jumps
+- `contain: layout style paint` on individual cards isolates their rendering costs
+
+---
+
+## matchMedia() for Responsive Animation
+
+Use `gsap.matchMedia()` to create different animations for different viewports with automatic cleanup:
+
+```javascript
+const mm = gsap.matchMedia();
+
+// Desktop: horizontal scroll
+mm.add('(prefers-reduced-motion: no-preference) and (min-width: 769px)', () => {
+  gsap.to(track, {
+    x: -totalWidth,
+    scrollTrigger: { trigger: section, pin: true, scrub: 1 }
+  });
+  // Auto-reverted when viewport shrinks below 769px
+});
+
+// Mobile: vertical stack with simple reveals
+mm.add('(max-width: 768px), (prefers-reduced-motion: reduce)', () => {
+  gsap.from(cards, {
+    opacity: 0, y: 30,
+    stagger: 0.12,
+    scrollTrigger: { trigger: section, start: 'top 85%', once: true }
+  });
+  // Auto-reverted when viewport grows above 768px
+});
+```
+
+`matchMedia()` auto-reverts animations when conditions change — no manual cleanup needed. This is critical for horizontal scroll sections that should become vertical stacks on mobile.

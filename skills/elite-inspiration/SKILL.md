@@ -1,7 +1,7 @@
 ---
 name: elite-inspiration
 description: |
-  Curated collection of award-winning websites organized by pattern and technique. Use when asked about: inspiration, examples, Awwwards, FWA, reference sites, what do top sites look like, or when researching how leading studios approach specific patterns.
+  Curated collection of award-winning websites organized by pattern and technique. Use when asked about: inspiration, examples, Awwwards, FWA, reference sites, what do top sites look like, or when researching how leading studios approach specific patterns. Archetype case studies cross-reference patterns from elite-gsap, elite-css-animations, elite-layouts, elite-design-core, and elite-ux-strategy.
 ---
 
 # Elite Inspiration
@@ -19,6 +19,7 @@ Curated references from Awwwards, FWA, and CSS Design Awards.
 | Product Configurators | [product-configurators.md](references/product-configurators.md) |
 | Agency Portfolios | [agency-portfolios.md](references/agency-portfolios.md) |
 | Micro-interactions | [micro-interactions.md](references/micro-interactions.md) |
+| Archetype case studies | [archetype-case-studies.md](references/archetype-case-studies.md) |
 
 ---
 

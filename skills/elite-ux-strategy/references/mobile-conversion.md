@@ -351,3 +351,75 @@ Testing tools:
 - Various screen sizes
 - Both iOS and Android
 ```
+
+---
+
+## Mobile Bottom Bar CTA
+
+A fixed bottom bar for service businesses (legal, medical, trades) where phone calls are high-intent actions:
+
+```css
+.mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+body {
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .mobile-bar { display: none; }
+  body { padding-bottom: 0; }
+}
+```
+
+Split-grid pattern: "Call Now" (tel: link) + "Book Consultation" (form/calendar link). The two-button layout lets users choose their comfort level — a phone call is higher intent, a booking form is lower pressure.
+
+### When to use:
+- Service businesses where phone is the primary conversion channel
+- Mobile users represent >50% of traffic
+- The primary CTA requires a phone interaction (legal, medical, emergency services)
+
+---
+
+## Sticky Add-to-Cart
+
+Mobile-only sticky CTA that slides in when the main product CTA scrolls out of view:
+
+```css
+.sticky-atc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 40;
+  padding: 0.75rem 1rem;
+  background: white;
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.sticky-atc.visible {
+  transform: translateY(0);
+}
+```
+
+```javascript
+// Toggle visibility with IntersectionObserver
+const observer = new IntersectionObserver(([entry]) => {
+  stickyBar.classList.toggle('visible', !entry.isIntersecting);
+}, { threshold: 0 });
+
+observer.observe(mainCtaButton);
+```
+
+Includes product name, price, and button states (add to cart, adding..., added, sold out). Toggle `aria-hidden` to match visibility for screen readers.

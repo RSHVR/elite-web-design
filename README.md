@@ -14,8 +14,10 @@ A collection of specialized skills for Claude Code that enable premium, award-wi
 | **elite-accessibility** | prefers-reduced-motion, WCAG, focus management | ~1,600 |
 | **elite-inspiration** | Curated Awwwards/FWA references by pattern | ~2,500 |
 | **elite-ux-strategy** | Conversion optimization, psychology, copywriting, pricing pages | ~4,400 |
+| **elite-brand-design** | Brand identity, personality, color psychology, typography as voice, tone of voice | ~2,800 |
+| **elite-audit** | Quality audit with ~190 rules, remediation loop, pre-launch checklist | ~2,500 |
 
-**Total: ~22,100 lines** of specialized knowledge
+**Total: ~30,500 lines** of specialized knowledge
 
 ## Installation
 
@@ -48,6 +50,8 @@ Each skill activates on specific keywords:
 - `"reduced motion"`, `"accessibility"` → elite-accessibility
 - `"inspiration"`, `"Awwwards"` → elite-inspiration
 - `"conversion"`, `"CRO"`, `"pricing page"`, `"CTA"` → elite-ux-strategy
+- `"brand design"`, `"visual identity"`, `"logo"`, `"tone of voice"` → elite-brand-design
+- `"audit"`, `"review"`, `"QA"`, `"pre-launch"`, `"is this ready"` → elite-audit
 
 ## License
 

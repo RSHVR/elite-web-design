@@ -664,3 +664,68 @@ document.addEventListener('keydown', (e) => {
   </div>
 </section>
 ```
+
+---
+
+## Mobile-Specific Sticky Elements
+
+### Sticky Add-to-Cart Bar
+
+Slides in from below when the main product CTA scrolls out of view (e-commerce pattern):
+
+```css
+.sticky-atc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 40;
+  padding: 0.75rem 1rem;
+  background: white;
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.sticky-atc.visible {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-atc {
+    transition: none;
+  }
+}
+```
+
+Toggled via IntersectionObserver on the main CTA button — when it exits the viewport, the sticky bar becomes visible.
+
+### Mobile Bottom CTA Bar
+
+Fixed bottom bar for service businesses where phone calls are high-intent:
+
+```css
+.mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--color-dark);
+}
+
+/* Account for bar height in body */
+body {
+  padding-bottom: 4rem; /* Match bar height */
+}
+
+/* Hide on desktop */
+@media (min-width: 768px) {
+  .mobile-bar { display: none; }
+  body { padding-bottom: 0; }
+}
+```

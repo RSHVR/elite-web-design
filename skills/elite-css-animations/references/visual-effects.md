@@ -450,3 +450,285 @@ element.addEventListener('mousemove', (e) => {
 - **mask-image**: Use `-webkit-mask-image` for Safari
 - **backdrop-filter**: Full support; provide fallback background
 - **mix-blend-mode**: Full support; may affect stacking contexts
+
+---
+
+## Production Animation Patterns
+
+### Shimmer Loading Skeleton
+
+A placeholder animation for content loading states:
+
+```css
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-alt, #f2f2f2) 25%,
+    var(--color-border-soft, #efefef) 50%,
+    var(--color-surface-alt, #f2f2f2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+    background: var(--color-surface-alt, #f2f2f2);
+  }
+}
+```
+
+### Hover-Lift Card
+
+Subtle elevation on hover for interactive cards:
+
+```css
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift:hover {
+    transform: none;
+  }
+}
+```
+
+### CSS-Only Ticker/Marquee
+
+Infinite horizontal scroll for testimonial strips, partner logos, or announcement bars:
+
+```css
+.ticker {
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 40s linear infinite;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+```
+
+Duplicate the content inside `.ticker-track` so there's no visible gap when the animation loops. The `-50%` translation moves exactly one full copy's width.
+
+### Pulse Dot (Urgency Indicator)
+
+For live status indicators or scarcity badges:
+
+```css
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot {
+    animation: none;
+  }
+}
+```
+
+---
+
+## Micro-Interaction Patterns
+
+Production CSS micro-interactions that create premium feel. All use CSS transitions (no JavaScript).
+
+### Rolling Text Hover
+
+Nav links with dual-layer text that reveals on hover — the bottom label slides up as the top slides away:
+
+```css
+.rolling-text {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.rolling-text span {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.rolling-text span:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+}
+
+.rolling-text:hover span:first-child {
+  transform: translateY(-100%);
+}
+
+.rolling-text:hover span:last-child {
+  transform: translateY(0);
+}
+```
+
+```html
+<a class="rolling-text" href="/about">
+  <span>About</span>
+  <span>About</span>
+</a>
+```
+
+### Icon Rotation on Hover
+
+SVG icon rotates on button/link hover:
+
+```css
+.icon-rotate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-rotate svg {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-rotate:hover svg {
+  transform: rotate(90deg);
+}
+```
+
+### Condensing Navbar
+
+Navbar shrinks in height and width on scroll (controlled by a scroll-state class in JS):
+
+```css
+.navbar {
+  height: 5rem;
+  max-width: 100%;
+  padding: 0.75rem 2rem;
+  border-radius: 0;
+  transition:
+    height 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar.condensed {
+  height: 3.25rem;
+  max-width: 48rem;
+  padding: 0.375rem 1.5rem;
+  border-radius: 9999px;
+  background: rgba(26, 22, 20, 0.85);
+  backdrop-filter: blur(12px);
+}
+```
+
+### Accordion with grid-template-rows
+
+Smooth accordion open/close without JavaScript height calculation:
+
+```css
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content > div {
+  overflow: hidden;
+}
+
+.accordion-icon {
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.accordion.open .accordion-icon {
+  transform: rotate(45deg);
+}
+```
+
+The `grid-template-rows: 0fr → 1fr` trick enables smooth height animation without knowing the content height. The inner `overflow: hidden` div prevents content from being visible during the 0fr state.
+
+### Form Input Underline Focus
+
+Input focus effect using border-bottom transition:
+
+```css
+.input-underline {
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  background: transparent;
+  padding: 0.75rem 0;
+  transition: border-color 0.3s;
+}
+
+.input-underline:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+```
+
+### Pill Toggle Selection
+
+Interactive pill/tag selection with instant color flip:
+
+```css
+.pill {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.pill.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+```
+
+### Key Easing Values
+
+Production sites converge on two primary easing curves:
+
+| Easing | Value | Use |
+|--------|-------|-----|
+| **Primary ease-out** | `cubic-bezier(0.22, 1, 0.36, 1)` | Nav transitions, accordion, hover |
+| **Standard** | `cubic-bezier(0.4, 0, 0.2, 1)` | Button and icon transitions |
+| **Spring** | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful bounces, badges |

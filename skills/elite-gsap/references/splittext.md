@@ -515,3 +515,93 @@ SplitText works best with block-level text elements. For inline elements:
   display: inline-block;  /* or block */
 }
 ```
+
+---
+
+## SplitText Mask Mode (GSAP 3.14+)
+
+GSAP 3.14 introduced built-in mask support for SplitText, eliminating the need for manual `overflow: hidden` wrapper divs.
+
+### How Mask Works
+
+```javascript
+const split = new SplitText(element, {
+  type: 'words',
+  mask: 'words'  // Creates overflow mask per word
+});
+
+// Slide words up from below the mask
+gsap.from(split.words, {
+  yPercent: 110,    // 110% pushes text fully below mask
+  duration: 0.8,
+  stagger: 0.04,
+  ease: 'power4.out'
+});
+```
+
+With `mask: 'words'`, each word gets an `overflow: hidden` container automatically. Animating `yPercent: 110` slides the text up from behind this mask — no `opacity` change needed.
+
+### Mask vs Non-Mask Comparison
+
+```javascript
+// MASK MODE: Clean "reveal from behind" effect
+gsap.from(split.words, {
+  yPercent: 110,         // No opacity needed
+  duration: 0.8,
+  stagger: 0.04,
+  ease: 'power4.out'
+});
+
+// NON-MASK MODE: Traditional fade + slide
+gsap.from(split.words, {
+  y: 20,
+  opacity: 0,           // Opacity needed
+  duration: 0.8,
+  stagger: 0.04,
+  ease: 'power4.out'
+});
+```
+
+**Mask mode** creates a more polished, editorial reveal. The text appears to slide into place from a hidden position, with a sharp clip edge rather than a soft opacity fade.
+
+### Production Pattern with Reduced Motion
+
+```javascript
+function splitReveal(element, opts = {}) {
+  const { mask = true, type = 'words' } = opts;
+  let split = null;
+
+  const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      split = new SplitText(element, {
+        type,
+        ...(mask && { mask: type })
+      });
+
+      const targets = type === 'chars' ? split.chars :
+                      type === 'lines' ? split.lines : split.words;
+
+      gsap.from(targets, {
+        ...(mask ? { yPercent: 110 } : { y: 20, opacity: 0 }),
+        duration: 0.8,
+        stagger: 0.04,
+        ease: 'power4.out'
+      });
+
+      return () => split?.revert();
+    });
+
+    mm.add('(prefers-reduced-motion: reduce)', () => {
+      // Instant appearance
+      gsap.from(element, { opacity: 0, duration: 0.01 });
+    });
+  });
+
+  return () => {
+    split?.revert();
+    ctx.revert();
+  };
+}
+```

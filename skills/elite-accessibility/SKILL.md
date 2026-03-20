@@ -1,7 +1,7 @@
 ---
 name: elite-accessibility
 description: |
-  Motion accessibility and WCAG compliance for web animations. CRITICAL: This skill should be loaded whenever implementing animations. Covers prefers-reduced-motion (CSS and GSAP patterns), WCAG contrast requirements, APCA, focus management, keyboard navigation, and screen reader considerations. Use when asked about: reduced motion, motion sensitivity, vestibular disorders, accessibility, a11y, WCAG, contrast ratios, focus styles, or making animations accessible.
+  Motion accessibility and WCAG compliance for web animations. CRITICAL: This skill should be co-loaded with elite-gsap or elite-css-animations whenever implementing animations. Covers prefers-reduced-motion (CSS and GSAP patterns), WCAG contrast requirements, APCA, focus management, keyboard navigation, touch interaction patterns, and screen reader considerations. Use when asked about: reduced motion, motion sensitivity, vestibular disorders, accessibility, a11y, WCAG, contrast ratios, focus styles, touch targets, safe areas, gesture accessibility, or making animations accessible. Also covers touch interaction patterns for mobile.
 ---
 
 # Elite Accessibility
@@ -15,6 +15,8 @@ Making motion-rich websites accessible to everyone.
 | Reduced motion | [reduced-motion.md](references/reduced-motion.md) |
 | WCAG contrast | [wcag-contrast.md](references/wcag-contrast.md) |
 | Focus & keyboard | [focus-keyboard.md](references/focus-keyboard.md) |
+| Inclusive aesthetics | [inclusive-aesthetics.md](references/inclusive-aesthetics.md) |
+| Touch interaction | [touch-interaction.md](references/touch-interaction.md) |
 
 ---
 

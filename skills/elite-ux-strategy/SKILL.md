@@ -1,7 +1,7 @@
 ---
 name: elite-ux-strategy
 description: |
-  Conversion optimization and UX strategy for premium websites. Use when asked about: conversion rate optimization (CRO), signup flows, checkout optimization, pricing pages, CTAs, headlines, copywriting, A/B testing, lead generation, cart abandonment, onboarding, retention, social proof, testimonials, trust signals, urgency, scarcity, growth, viral loops, or when you need to make design decisions that impact business outcomes. This skill provides the "why" behind design choices.
+  Conversion optimization and UX strategy for premium websites. Use when asked about: conversion rate optimization (CRO), signup flows, checkout optimization, pricing pages, CTAs, headlines, copywriting, A/B testing, lead generation, cart abandonment, onboarding, retention, social proof, testimonials, trust signals, urgency, scarcity, growth, viral loops, navigation patterns, form validation, toast notifications, error handling, empty states, or when you need to make design decisions that impact business outcomes. This skill provides the "why" behind design choices. References elite-design-core for visual hierarchy. Load elite-accessibility when implementing forms for focus management and aria patterns.
 ---
 
 # Elite UX Strategy
@@ -22,6 +22,8 @@ Beautiful design means nothing if it doesn't convert. This skill bridges psychol
 | Mobile Conversion | [mobile-conversion.md](references/mobile-conversion.md) |
 | Ethical Boundaries | [ethical-boundaries.md](references/ethical-boundaries.md) |
 | Modern Patterns | [modern-patterns.md](references/modern-patterns.md) |
+| Navigation patterns | [navigation-patterns.md](references/navigation-patterns.md) |
+| Forms & feedback | [forms-feedback.md](references/forms-feedback.md) |
 
 ---
 
@@ -243,6 +245,9 @@ Priority order:
 4. Add to cart (prominent, sticky on mobile)
 5. Trust signals (shipping, returns, security)
 6. Cross-sells/upsells (post add-to-cart)
+7. Scarcity badges for real inventory status
+→ See mobile-conversion.md: Sticky Add-to-Cart
+→ See social-proof-trust.md: Scarcity Badges
 ```
 
 ### Lead Generation
@@ -254,6 +259,22 @@ Priority order:
 3. Social proof (number of subscribers, testimonials)
 4. Clear privacy assurance
 5. Expectation setting (what happens next)
+
+Advanced: Quiz-based lead gen (40-60% completion rates)
+→ See forms-ctas.md: Quiz-Based Lead Generation
+```
+
+### Service Business (Legal, Medical, Trades)
+
+```
+Priority order:
+1. Trust signals (credentials, trust strips)
+2. Clear service descriptions
+3. Mobile bottom bar CTA (call + book)
+4. Social proof (testimonials, reviews)
+5. FAQ addressing common concerns
+→ See mobile-conversion.md: Mobile Bottom Bar CTA
+→ See social-proof-trust.md: Trust Strips and Credential Logos
 ```
 
 ### Enterprise/B2B

@@ -419,3 +419,60 @@ if ('ScrollTimeline' in window) {
 
 **Use CSS for**: Simple reveals, progress indicators, parallax
 **Use GSAP for**: Pinning, complex sequences, callbacks, cross-browser
+
+---
+
+## Production CSS Scroll-Driven Patterns
+
+### Scroll Progress Bar
+
+A page-level reading progress indicator using `animation-timeline: scroll()`:
+
+```css
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  transform-origin: left;
+  z-index: 50;
+  animation: scroll-progress linear;
+  animation-timeline: scroll();
+}
+
+@keyframes scroll-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+```
+
+Uses `scaleX` (GPU-accelerated) rather than `width` (triggers layout). The `scroll()` timeline maps 0-100% scroll to 0-100% animation progress.
+
+### Reveal on Scroll with View Timeline
+
+Elements fade up as they enter the viewport — entirely CSS, no JavaScript:
+
+```css
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on-scroll {
+    animation: fade-up 0.6s both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+```
+
+The `animation-range: entry 0% cover 30%` means the animation plays from when the element starts entering the viewport to when 30% of it is covered — a natural reveal timing.

@@ -433,3 +433,99 @@ Generally true:
 - Near CTA > far from CTA
 - Similar customer > aspirational
 ```
+
+---
+
+## Trust Strips and Credential Logos
+
+A horizontal row of third-party logos that immediately signal credibility:
+
+**Healthcare example:** "Covered by" label + insurance provider logos (Sun Life, Manulife, etc.)
+**Legal example:** Bar association badges, awards, media appearances
+**SaaS example:** "Trusted by" + company logos
+
+### Implementation Pattern
+
+```css
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.trust-strip img {
+  height: 2rem;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.6;
+  filter: grayscale(100%);
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.trust-strip img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+```
+
+Greyscale logos with hover colorization keeps the strip visually quiet while still communicating trust. Consistent heights ensure visual balance.
+
+### Placement
+
+Most effective positions:
+1. Below the hero section (immediate credibility)
+2. Above the fold on pricing pages (reduces anxiety)
+3. Near contact/booking forms (final push)
+
+---
+
+## Scarcity Badges
+
+Tiered urgency indicators for real inventory status. **Ethics note:** Only use with real data. Fabricated scarcity damages trust and may violate regulations. → See [ethical-boundaries.md](ethical-boundaries.md).
+
+### Tiered Urgency System
+
+```css
+.scarcity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+/* Critical: < 5 items */
+.scarcity-critical {
+  background: color-mix(in srgb, var(--color-error) 8%, transparent);
+  color: var(--color-error);
+}
+
+/* Warning: 5-10 items */
+.scarcity-warning {
+  background: color-mix(in srgb, var(--color-warning) 8%, transparent);
+  color: var(--color-warning);
+}
+
+/* Low: 10-15 items */
+.scarcity-low {
+  background: color-mix(in srgb, var(--color-warning) 5%, transparent);
+  color: var(--color-ink-soft);
+}
+```
+
+### Accessibility
+
+```html
+<span class="scarcity-badge scarcity-critical" aria-live="polite">
+  <span class="pulse-dot"></span>
+  Only 3 left
+</span>
+```
+
+- `aria-live="polite"` announces inventory changes to screen readers
+- `color-mix()` creates tinted backgrounds that work across color schemes
+- Pulse dot animation for critical urgency (with `prefers-reduced-motion` fallback)

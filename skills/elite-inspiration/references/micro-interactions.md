@@ -400,3 +400,38 @@ When studying these sites:
 4. Does it work without motion?
 5. Is it consistent across the site?
 6. Does it feel purposeful or decorative?
+
+---
+
+## Production Micro-Interaction Patterns
+
+Real-world micro-interactions from a modern digital studio site, showing the timing and easing values that create premium feel.
+
+### Rolling Text Nav Hover
+
+Dual-layer text where the bottom label slides up as the top slides away. Pure CSS, no JavaScript. Uses `cubic-bezier(0.22, 1, 0.36, 1)` at 0.35s for a snappy-but-smooth feel.
+
+### Condensing Navbar on Scroll
+
+Nav pill shrinks from 5rem to 3.25rem height with backdrop blur appearing. Transitions use `cubic-bezier(0.22, 1, 0.36, 1)` at 0.8s — intentionally slow for a premium, unhurried feel.
+
+### Grid-Template-Rows Accordion
+
+FAQ accordion using `grid-template-rows: 0fr → 1fr` for smooth height animation without JavaScript height calculation. Plus icon rotates 45° to become an X. Both at 300ms with `cubic-bezier(0.22, 1, 0.36, 1)`.
+
+### Icon Rotation on Hover
+
+Star icon on button rotates 90° on hover. 0.35s with `cubic-bezier(0.4, 0, 0.2, 1)`. Subtle enough to notice, fast enough to feel responsive.
+
+### Form Input Underline Focus
+
+Border-bottom transitions from muted to accent color on focus. 0.3s, simple ease. Clean feedback that the field is active.
+
+### Key Timing Principles
+
+- **0.2-0.35s**: Interactive elements (buttons, links, icons) — fast, responsive
+- **0.3s**: State changes (focus, active, selected) — noticeable but not sluggish
+- **0.5-0.8s**: Layout transitions (navbar, accordion) — deliberate, premium
+- **Two easings cover everything**: `cubic-bezier(0.22, 1, 0.36, 1)` for layout, `cubic-bezier(0.4, 0, 0.2, 1)` for interaction
+
+→ See **elite-css-animations/visual-effects.md** for complete CSS implementations.

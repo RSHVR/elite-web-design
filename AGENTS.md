@@ -93,6 +93,20 @@ Load skills based on the task:
 | "Optimize for conversion" | elite-ux-strategy | elite-design-core |
 | "Pricing page design" | elite-ux-strategy | elite-layouts |
 | "CTA optimization" | elite-ux-strategy | - |
+| "Brand identity" | elite-brand-design | elite-design-core |
+| "Brand colors" | elite-brand-design | elite-design-core |
+| "Style guide" | elite-brand-design | - |
+| "Logo design" | elite-brand-design | elite-gsap |
+| "Tone of voice" | elite-brand-design | elite-ux-strategy |
+| "Navigation patterns" | elite-ux-strategy | - |
+| "Form validation" | elite-ux-strategy | elite-accessibility |
+| "Toast/feedback" | elite-ux-strategy | - |
+| "Touch targets" | elite-accessibility | - |
+| "Charts/data viz" | elite-design-core | - |
+| "Audit this page" | elite-audit | - |
+| "Pre-launch check" | elite-audit | - |
+| "Review accessibility" | elite-audit | elite-accessibility |
+| "Is this ready to ship" | elite-audit | - |
 
 ## Common Pitfalls to Avoid
 

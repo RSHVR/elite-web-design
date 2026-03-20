@@ -434,3 +434,156 @@ Always provide fallbacks:
 49px (4xl)   → Page titles
 61px (5xl)   → Hero headlines
 ```
+
+---
+
+## Real-World Font Pairing Examples
+
+Production font pairings from five industry archetypes, each demonstrating how type choices reinforce brand personality.
+
+### Modern/Bold Digital Studio
+
+```css
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/inter';
+
+:root {
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.text-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 2rem + 5vw, 7rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.text-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+```
+
+**Why it works:** Space Grotesk's geometric personality signals technical confidence. Tight letter-spacing on display (-0.03em) creates density and impact. Mono labels with wide tracking (0.15em) provide counterpoint rhythm.
+
+### Luxury Serif E-commerce
+
+```css
+@import '@fontsource-variable/cormorant-garamond';
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+
+:root {
+  --font-heading: 'Cormorant Garamond Variable', Georgia, serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
+  --font-accent: 'Cormorant Garamond Variable', Georgia, serif;
+
+  --text-hero: clamp(3.5rem, 2rem + 5vw, 6rem);
+  --text-4xl: clamp(2.25rem, 1.5rem + 2.5vw, 3.5rem);
+}
+
+.text-accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+}
+```
+
+**Why it works:** Cormorant Garamond's thin strokes and high contrast evoke luxury. Poppins as body provides modern legibility without competing with the serif's elegance. The italic accent font creates editorial flair for feature text.
+
+### Warm/Inclusive Clinic
+
+```css
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/inter';
+
+:root {
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-variation-settings: 'opsz' 32, 'WONK' 0, 'SOFT' 50;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 1.75rem + 2.5vw, 3.815rem);
+  font-weight: 600;
+}
+```
+
+**Why it works:** Fraunces is a variable font with optical size (`opsz`), wonkiness (`WONK`), and softness (`SOFT`) axes. Setting `SOFT: 50` rounds the letterforms for a warm, approachable feel — the typography itself communicates safety. Inter as body provides clinical clarity without coldness.
+
+### Authoritative Legal Practice
+
+```css
+:root {
+  --font-serif: 'Gelasio', Georgia, serif;
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+}
+
+.text-hero {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 2rem + 4vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.text-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+```
+
+**Why it works:** Gelasio's sturdy serifs project authority and permanence. Combined with globally enforced sharp corners (`border-radius: 0`), the typography reinforces an editorial, no-nonsense aesthetic. Gold-colored labels add premium signaling without softening the tone.
+
+### Professional Healthcare
+
+```css
+@import '@fontsource/dm-serif-display';
+@import '@fontsource-variable/dm-sans';
+
+:root {
+  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans Variable', system-ui, sans-serif;
+}
+```
+
+**Why it works:** DM Serif Display + DM Sans is a built-to-pair combination from the same type family. The serif's warmth avoids the coldness of clinical settings while maintaining professionalism. DM Sans provides exceptional legibility at body sizes.
+
+### Fluid Type Scale Comparison
+
+| Level | Digital Studio | Luxury E-commerce | Clinic | Legal |
+|-------|---------------|-------------------|--------|-------|
+| Hero | `clamp(2.75rem, 2rem + 5vw, 7rem)` | `clamp(3.5rem, 2rem + 5vw, 6rem)` | `clamp(2.25rem, 1.75rem + 2.5vw, 3.815rem)` | `clamp(3rem, 2rem + 4vw, 5rem)` |
+| H2 | `clamp(1.75rem, 1.25rem + 2vw, 3rem)` | `clamp(2.25rem, 1.5rem + 2.5vw, 3.5rem)` | `clamp(1.75rem, 1.4rem + 1.75vw, 2.441rem)` | `clamp(2.25rem, 1.5rem + 3vw, 3.5rem)` |
+| Body | `clamp(1rem, 0.95rem + 0.25vw, 1.125rem)` | `1rem` (static) | `1rem` (via scale) | `clamp(1rem, 0.95rem + 0.25vw, 1.125rem)` |
+
+### @fontsource-variable Import Pattern
+
+Self-hosted fonts via `@fontsource-variable` eliminate external requests and FOUT:
+
+```css
+/* Variable fonts — single file, all weights */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/fraunces';
+
+/* Static fonts — import only weights you need */
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/600.css';
+```
+
+Variable fonts are preferred: one file covers the full weight range, enabling precise `font-weight: 650` values and axis control via `font-variation-settings`.

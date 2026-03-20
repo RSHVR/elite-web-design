@@ -347,3 +347,78 @@ gsap.to('#converted-circle', {
   duration: 1
 });
 ```
+
+---
+
+## Real-World DrawSVG: Hand-Drawn Arrow
+
+A production pattern combining DrawSVG with center-based stagger for a playful, organic animation sequence (used on a mental health clinic site to convey warmth).
+
+### The Animation Sequence
+
+1. Specialty pills stagger in from center outward
+2. Hand-drawn SVG arrow draws itself with `drawSVG`
+3. Logo card springs in with `back.out` easing
+
+```javascript
+const ctx = gsap.context(() => {
+  const mm = gsap.matchMedia();
+
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 70%',
+        once: true
+      }
+    });
+
+    // 1. Pills stagger from center
+    tl.from(pills, {
+      opacity: 0,
+      y: 15,
+      scale: 0.9,
+      duration: 0.5,
+      stagger: { each: 0.08, from: 'center' },
+      ease: 'power3.out'
+    });
+
+    // 2. Hand-drawn arrow draws itself
+    tl.from(arrowPaths, {
+      drawSVG: '0%',
+      duration: 0.6,
+      stagger: 0.3,
+      ease: 'power2.inOut'
+    }, '-=0.2');
+
+    // 3. Logo card springs in
+    tl.from(logoCard, {
+      scale: 0,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'back.out(1.7)'
+    }, '-=0.3');
+  });
+});
+```
+
+### Center-Based Stagger
+
+```javascript
+stagger: { each: 0.08, from: 'center' }
+```
+
+Items animate outward from the center of the array. Creates a natural, organic expansion effect — particularly effective for tag/pill clusters where a linear left-to-right stagger feels mechanical.
+
+### SVG Path for Hand-Drawn Arrow
+
+```html
+<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path class="arrow-path" d="M10 40 C30 38, 60 35, 90 40 C95 40, 100 42, 105 45"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+  <path class="arrow-path" d="M95 35 L105 45 L98 52"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+```
+
+Use `stroke-linecap="round"` and `stroke-linejoin="round"` for a hand-drawn feel. The wiggly curve path (using cubic Bezier control points) reinforces the organic quality.

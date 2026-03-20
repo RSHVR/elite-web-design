@@ -299,3 +299,99 @@ Safe grays on black:
 - [ ] Text over images has consistent contrast
 - [ ] Tested with automated tools (axe, WAVE)
 - [ ] Tested manually with color contrast checkers
+
+---
+
+## Additional Accessibility Rules
+
+Rules that complement contrast requirements for a fully accessible interface.
+
+### Alt Text
+
+```html
+<!-- Meaningful image: descriptive alt -->
+<img src="team-photo.jpg" alt="Our team of five designers collaborating at a whiteboard" />
+
+<!-- Decorative image: empty alt -->
+<img src="decorative-wave.svg" alt="" />
+
+<!-- Icon in button: button has label, icon is decorative -->
+<button aria-label="Close dialog">
+  <svg aria-hidden="true"><!-- X icon --></svg>
+</button>
+```
+
+Rule: If removing the image would lose information, it needs descriptive alt text. If it's decorative, use `alt=""` and optionally `aria-hidden="true"`.
+
+### Color Not Only
+
+Never convey information by color alone — always supplement with icon, text, or pattern:
+
+```html
+<!-- BAD: Color-only status -->
+<span class="dot-green"></span>
+
+<!-- GOOD: Color + text -->
+<span class="status status-success">
+  <svg aria-hidden="true"><!-- checkmark --></svg>
+  Active
+</span>
+
+<!-- GOOD: Color + pattern (for charts) -->
+<!-- Use stripes, dots, or crosshatch in addition to color -->
+```
+
+### Escape Routes
+
+Every overlay, modal, and multi-step flow must provide escape:
+
+- **Escape key** closes modals and popovers
+- **Click outside** (on scrim) dismisses overlays
+- **Visible close button** always present
+- **Back navigation** in multi-step flows
+- **Swipe-down to dismiss** on mobile sheets
+
+### Dynamic Type / Text Scaling
+
+Support system text scaling without layout breakage:
+
+- Use `rem`/`em` units, never `px` for text sizes
+- Test at 200% text zoom (WCAG requirement)
+- Avoid `overflow: hidden` on text containers (allows truncation at large sizes)
+- Use `clamp()` for fluid sizing that still scales with user preferences
+- Avoid fixed-height containers for text content
+
+### Heading Hierarchy
+
+Sequential h1→h6, no level skips:
+
+```html
+<!-- GOOD -->
+<h1>Page Title</h1>
+  <h2>Section</h2>
+    <h3>Subsection</h3>
+
+<!-- BAD: Skipping h2 -->
+<h1>Page Title</h1>
+  <h3>Subsection</h3>
+```
+
+Screen readers use heading levels for page navigation — skipping levels breaks this landmark system.
+
+### aria-live for Dynamic Content
+
+```html
+<!-- Error messages that appear after user action -->
+<p id="email-error" aria-live="polite" role="alert">
+  Please enter a valid email address
+</p>
+
+<!-- Live updating content (stock prices, notifications) -->
+<div aria-live="polite" aria-atomic="true">
+  Updated: 3 new messages
+</div>
+```
+
+- `aria-live="polite"` — Waits for user to finish current task before announcing
+- `aria-live="assertive"` — Interrupts immediately (use sparingly, only for critical alerts)
+- `role="alert"` — Equivalent to `aria-live="assertive"` with `aria-atomic="true"`

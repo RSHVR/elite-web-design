@@ -1,7 +1,7 @@
 ---
 name: elite-performance
 description: |
-  Performance optimization for premium animated websites. Use when asked about: animation performance, 60fps, Core Web Vitals, Vite setup, bundle optimization, lazy loading, will-change, GPU acceleration, layout thrashing, debugging jank, or performance budgets.
+  Performance optimization for premium animated websites. Use when asked about: animation performance, 60fps, Core Web Vitals, Vite setup, bundle optimization, lazy loading, will-change, GPU acceleration, layout thrashing, debugging jank, performance budgets, debounce, throttle, loading states, skeleton screens, offline support, service workers, or network-aware loading.
 ---
 
 # Elite Performance

@@ -507,3 +507,97 @@ toggle.addEventListener('click', () => {
 - [ ] Verify ScrollTrigger animations have alternatives
 - [ ] Check that parallax effects are disabled
 - [ ] Ensure horizontal scroll has vertical fallback
+
+---
+
+## Production Reduced Motion Patterns
+
+Real-world patterns showing how production sites handle reduced motion across different animation types.
+
+### Global CSS Killswitch
+
+Every production site uses this as a safety net:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+```
+
+This catches any animation that slips through without a manual check. `0.01ms` (not `0ms`) ensures `animationend`/`transitionend` events still fire, preventing broken JavaScript that listens for these events.
+
+### GSAP matchMedia Dual-Branch
+
+Every GSAP utility provides both a `no-preference` and `reduce` branch:
+
+```javascript
+const mm = gsap.matchMedia();
+
+mm.add('(prefers-reduced-motion: no-preference)', () => {
+  gsap.from(element, { opacity: 0, y: 30, duration: 0.7 });
+});
+
+mm.add('(prefers-reduced-motion: reduce)', () => {
+  // Instant appearance — content still visible
+  gsap.from(element, { opacity: 0, duration: 0.01 });
+});
+```
+
+### Horizontal Scroll Fallback
+
+Desktop horizontal scroll becomes a vertical stack with simple reveals:
+
+```javascript
+// Desktop: pinned horizontal scroll
+mm.add('(prefers-reduced-motion: no-preference) and (min-width: 769px)', () => {
+  gsap.to(track, { x: -totalWidth, scrollTrigger: { pin: true, scrub: 1 } });
+});
+
+// Mobile OR reduced motion: vertical reveal
+mm.add('(max-width: 768px), (prefers-reduced-motion: reduce)', () => {
+  gsap.from(cards, { opacity: 0, y: 30, stagger: 0.12, ease: 'power3.out' });
+});
+```
+
+### Typewriter Effect Fallback
+
+Shows static first word instead of typing animation:
+
+```javascript
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  element.textContent = words[0]; // Show first word, no animation
+  return;
+}
+// Otherwise: run typing animation
+```
+
+### Ticker/Marquee Fallback
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+```
+
+Content becomes static — still visible, just not scrolling.
+
+### Hover-Lift Fallback
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift:hover {
+    transform: none;
+  }
+}
+```
+
+Card still receives hover state (cursor change, potential color shift) but no vertical movement.

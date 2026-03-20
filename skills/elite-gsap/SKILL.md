@@ -1,7 +1,7 @@
 ---
 name: elite-gsap
 description: |
-  Complete GSAP (GreenSock Animation Platform) reference for elite web animations. Covers ScrollTrigger, SplitText, Flip, MorphSVG, DrawSVG, MotionPath, Observer, Draggable, timelines, and framework integration. 2026 UPDATE: All GSAP plugins are now 100% FREE (Webflow acquisition). Use when asked about: GSAP, gsap, GreenSock, ScrollTrigger, scroll animations, SplitText, text animations, Flip plugin, layout animations, MorphSVG, DrawSVG, SVG animations, complex animations, animation library, pinned sections, horizontal scroll, parallax effects, or any sophisticated web animation needs.
+  Complete GSAP (GreenSock Animation Platform) reference for elite web animations. Covers ScrollTrigger, SplitText, Flip, MorphSVG, DrawSVG, MotionPath, Observer, Draggable, timelines, Lenis smooth scroll, and framework integration. 2026 UPDATE: All GSAP plugins are now 100% FREE (Webflow acquisition). Use when asked about: GSAP, gsap, GreenSock, ScrollTrigger, scroll animations, SplitText, text animations, Flip plugin, layout animations, MorphSVG, DrawSVG, SVG animations, complex animations, animation library, pinned sections, horizontal scroll, parallax effects, smooth scroll, Lenis, or any sophisticated web animation needs. IMPORTANT: Always load elite-accessibility alongside this skill for reduced-motion patterns. References elite-design-core for design tokens.
 ---
 
 # Elite GSAP
@@ -35,6 +35,8 @@ No more licensing restrictions.
 | MorphSVG & DrawSVG | [morphsvg-drawsvg.md](references/morphsvg-drawsvg.md) |
 | Timelines | [timelines.md](references/timelines.md) |
 | Framework integration | [framework-integration.md](references/framework-integration.md) |
+| Utility library | [utility-library.md](references/utility-library.md) |
+| Smooth scroll (Lenis) | [smooth-scroll.md](references/smooth-scroll.md) |
 
 ---
 
@@ -519,6 +521,16 @@ See [framework-integration.md](references/framework-integration.md) for:
 - Vue composition API patterns
 - Svelte lifecycle patterns
 - Vanilla JS module patterns
+
+---
+
+## Related Skills
+
+- **elite-accessibility** - Motion accessibility and prefers-reduced-motion patterns
+- **elite-performance** - Build optimization and Core Web Vitals
+- **elite-css-animations** - CSS-native animation alternatives
+- **elite-layouts** - Layout patterns (bento grids, horizontal scroll, sticky sections)
+- **elite-brand-design** - Brand identity and visual systems
 
 ---
 

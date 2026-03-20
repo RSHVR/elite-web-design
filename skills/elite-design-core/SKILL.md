@@ -1,7 +1,7 @@
 ---
 name: elite-design-core
 description: |
-  Entry point for elite web design. Covers design philosophy, visual systems, and the design-to-code process. Use when asked about: premium website design, award-winning aesthetics, design systems, visual hierarchy, spacing, typography, color theory, or "how to make this look professional". This skill provides the foundational thinking that informs all other elite-web-design skills. Start here for new projects or when establishing design direction.
+  Entry point for elite web design. Covers design philosophy, visual systems, and the design-to-code process. Use when asked about: premium website design, award-winning aesthetics, design systems, visual hierarchy, spacing, typography, color theory, data visualization, or "how to make this look professional". This skill provides the foundational thinking that informs all other elite-web-design skills. Start here for new projects or when establishing design direction. When loaded alongside animation skills (elite-gsap, elite-css-animations), provides the token foundation they reference. Load first for new projects.
 ---
 
 # Elite Design Core
@@ -16,6 +16,8 @@ The foundation for creating premium, award-winning web experiences.
 | Spacing systems | [spacing-systems.md](references/spacing-systems.md) |
 | Typography | [typography.md](references/typography.md) |
 | Color theory | [color-theory.md](references/color-theory.md) |
+| Design tokens | [design-tokens.md](references/design-tokens.md) |
+| Data visualization | [data-visualization.md](references/data-visualization.md) |
 
 ## Related Skills
 
@@ -25,6 +27,21 @@ The foundation for creating premium, award-winning web experiences.
 - **elite-performance** - Build setup, 60fps optimization
 - **elite-accessibility** - prefers-reduced-motion, WCAG compliance
 - **elite-inspiration** - Curated Awwwards/FWA references
+- **elite-brand-design** - Brand identity, personality, visual systems
+
+## Real-World Archetypes
+
+Five production archetypes demonstrate how design decisions map to industry and audience:
+
+| Archetype | Type Pairing | Palette | Aesthetic |
+|-----------|-------------|---------|-----------|
+| Digital Studio | Space Grotesk + Inter | Charcoal + Coral/Lime | Modern, bold, geometric |
+| Luxury Fragrance E-commerce | Cormorant Garamond + Poppins | Ink + Arabian Gold | Refined, editorial, sensory |
+| Mental Health Clinic | Fraunces + Inter | Plum/Sage/Lavender on Cream | Warm, inclusive, soft |
+| Criminal Defense Firm | Gelasio + Inter | Navy/Midnight + Gold | Authoritative, sharp, editorial |
+| Community Pharmacy | DM Serif Display + DM Sans | Professional tones | Trustworthy, approachable |
+
+These archetypes appear throughout the reference files as production examples. See [typography.md](references/typography.md), [color-theory.md](references/color-theory.md), and [design-tokens.md](references/design-tokens.md) for detailed implementations.
 
 ---
 

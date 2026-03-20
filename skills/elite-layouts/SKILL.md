@@ -1,7 +1,7 @@
 ---
 name: elite-layouts
 description: |
-  Modern CSS layout patterns for premium web experiences. Use when asked about: bento grids, horizontal scrolling sections, sticky/parallax layouts, container queries, CSS grid, asymmetric layouts, magazine layouts, responsive grid systems, scroll-snap, or layout + animation integration.
+  Modern CSS layout patterns for premium web experiences. Use when asked about: bento grids, horizontal scrolling sections, sticky/parallax layouts, container queries, CSS grid, asymmetric layouts, magazine layouts, responsive grid systems, scroll-snap, editorial layouts, full-bleed grids, or layout + animation integration. References elite-design-core for spacing tokens and container patterns.
 ---
 
 # Elite Layouts
@@ -16,6 +16,7 @@ Premium layout patterns that define modern award-winning websites.
 | Horizontal Scroll | [horizontal-scroll.md](references/horizontal-scroll.md) |
 | Sticky & Parallax | [sticky-parallax.md](references/sticky-parallax.md) |
 | Container Queries | [container-queries.md](references/container-queries.md) |
+| Editorial patterns | [editorial-patterns.md](references/editorial-patterns.md) |
 
 ---
 

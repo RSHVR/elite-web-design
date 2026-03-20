@@ -419,3 +419,55 @@ Form analytics:
 - Time to complete
 - Error rate by field
 ```
+
+---
+
+## Quiz-Based Lead Generation
+
+A multi-phase interactive flow that qualifies leads before asking for contact information. Higher completion rates than direct forms because users get value (personalized recommendations) before giving information.
+
+### Flow Structure
+
+```
+Phase 1: Quiz Questions (3-5 questions)
+  → Phase 2: Personalized Results
+    → Phase 3: Preferences/Refinement
+      → Phase 4: Contact Form (name, email, phone)
+        → Phase 5: Success/Next Steps
+```
+
+### Design Principles
+
+1. **One question per screen** — Progressive disclosure, not a long form
+2. **Auto-advance on single-select** — Tap an option, immediately move to next
+3. **Manual continue on multi-select** — Users need to indicate they're done selecting
+4. **Progress bar with back navigation** — Users can revise previous answers
+5. **Results before contact** — Show the personalized recommendation BEFORE asking for info
+6. **Clear "why"** — Explain why you need each piece of information
+
+### Implementation Pattern
+
+State machine with derived progress:
+
+```javascript
+const phases = ['quiz', 'results', 'preferences', 'form', 'success'];
+let currentPhase = 'quiz';
+let quizStep = 0;
+const totalQuizSteps = 5;
+
+// Progress calculation
+function getProgress() {
+  const phaseIndex = phases.indexOf(currentPhase);
+  if (currentPhase === 'quiz') {
+    return (quizStep / totalQuizSteps) * 0.4; // Quiz is 40% of total
+  }
+  return 0.4 + (phaseIndex - 1) * 0.15; // Remaining phases split rest
+}
+```
+
+### Conversion Insights
+
+- Quizzes typically achieve 40-60% completion rates (vs 5-15% for direct forms)
+- Showing personalized results before the contact form increases form completion by 2-3x
+- The quiz itself serves as qualification — unqualified leads self-select out
+- Mobile-first design is critical — most quiz completions happen on mobile

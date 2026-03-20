@@ -1,7 +1,7 @@
 ---
 name: elite-css-animations
 description: |
-  CSS-native animation techniques including Scroll-Driven Animations API, View Transitions, @property rule, and visual effects. Use when asked about: CSS animations, scroll-driven animations, CSS scroll timeline, view transitions, page transitions, @property, animating CSS variables, clip-path animations, backdrop-filter, mix-blend-mode, CSS masks, CSS-only animations, no-JavaScript animations, or when GSAP is not needed/wanted. Includes decision guide for CSS vs GSAP.
+  CSS-native animation techniques including Scroll-Driven Animations API, View Transitions, @property rule, visual effects, and micro-interaction patterns. Use when asked about: CSS animations, scroll-driven animations, CSS scroll timeline, view transitions, page transitions, @property, animating CSS variables, clip-path animations, backdrop-filter, mix-blend-mode, CSS masks, CSS-only animations, no-JavaScript animations, micro-interactions, hover effects, accordion animations, or when GSAP is not needed/wanted. Includes decision guide for CSS vs GSAP. IMPORTANT: Always load elite-accessibility alongside this skill for reduced-motion patterns.
 ---
 
 # Elite CSS Animations
