@@ -4,20 +4,21 @@ A collection of specialized skills for Claude Code that enable premium, award-wi
 
 ## Skills
 
-| Skill | Description | Lines |
-|-------|-------------|-------|
-| **elite-design-core** | Design philosophy, visual hierarchy, spacing, typography, color | ~2,000 |
-| **elite-gsap** | Complete GSAP reference (all plugins free since 2026) | ~3,500 |
-| **elite-css-animations** | Scroll-driven API, View Transitions, @property | ~2,000 |
-| **elite-layouts** | Bento grids, horizontal scroll, sticky/parallax, container queries | ~3,400 |
-| **elite-performance** | 60fps optimization, Vite setup, debugging | ~2,500 |
-| **elite-accessibility** | prefers-reduced-motion, WCAG, focus management | ~1,600 |
-| **elite-inspiration** | Curated Awwwards/FWA references by pattern | ~2,500 |
-| **elite-ux-strategy** | Conversion optimization, psychology, copywriting, pricing pages | ~4,400 |
-| **elite-brand-design** | Brand identity, personality, color psychology, typography as voice, tone of voice | ~2,800 |
-| **elite-audit** | Quality audit with ~190 rules, remediation loop, pre-launch checklist | ~2,500 |
+| Skill                    | Description                                                                                                                                                                       | Lines   |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **elite-design-core**    | Design philosophy, visual hierarchy, spacing, typography, color                                                                                                                   | ~2,000  |
+| **elite-gsap**           | Complete GSAP reference (all plugins free since 2026)                                                                                                                             | ~3,500  |
+| **elite-css-animations** | Scroll-driven API, View Transitions, @property                                                                                                                                    | ~2,000  |
+| **elite-layouts**        | Bento grids, horizontal scroll, sticky/parallax, container queries                                                                                                                | ~3,400  |
+| **elite-performance**    | 60fps optimization, Vite setup, debugging                                                                                                                                         | ~2,500  |
+| **elite-accessibility**  | prefers-reduced-motion, WCAG, focus management                                                                                                                                    | ~1,600  |
+| **elite-inspiration**    | Curated Awwwards/FWA references by pattern                                                                                                                                        | ~2,500  |
+| **elite-ux-strategy**    | Conversion optimization, psychology, copywriting, pricing pages                                                                                                                   | ~4,400  |
+| **elite-brand-design**   | Brand identity, personality, color psychology, typography as voice, tone of voice                                                                                                 | ~2,800  |
+| **elite-audit**          | Quality audit with ~190 rules, remediation loop, pre-launch checklist                                                                                                             | ~2,500  |
+| **elite-copywriting**    | Canon, persuasion science, sales methodology, audience research, decision-makers, objection prediction, channels, voice, AI-era workflow, teardowns, audit-existing-copy workflow | ~15,300 |
 
-**Total: ~30,500 lines** of specialized knowledge
+**Total: ~45,800 lines** of specialized knowledge
 
 ## Installation
 
@@ -52,6 +53,7 @@ Each skill activates on specific keywords:
 - `"conversion"`, `"CRO"`, `"pricing page"`, `"CTA"` → elite-ux-strategy
 - `"brand design"`, `"visual identity"`, `"logo"`, `"tone of voice"` → elite-brand-design
 - `"audit"`, `"review"`, `"QA"`, `"pre-launch"`, `"is this ready"` → elite-audit
+- `"copywriting"`, `"headline"`, `"hero copy"`, `"landing page copy"`, `"sales page"`, `"cold email"`, `"positioning"`, `"objection handling"`, `"voice of customer"` → elite-copywriting
 
 ## License
 
