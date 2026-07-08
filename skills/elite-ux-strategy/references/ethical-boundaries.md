@@ -37,15 +37,15 @@ If ANY answer is no, reconsider.
 
 ### Persuasion vs Manipulation
 
-| Persuasion (Ethical) | Manipulation (Unethical) |
-|----------------------|--------------------------|
-| Highlights genuine value | Creates false perception |
-| Respects user autonomy | Exploits cognitive biases unfairly |
-| Transparent about intent | Hides true intent |
-| User genuinely benefits | Only company benefits |
-| Builds long-term trust | Damages trust when discovered |
-| Helps informed decisions | Prevents informed decisions |
-| Honest about limitations | Hides or minimizes limitations |
+| Persuasion (Ethical)     | Manipulation (Unethical)           |
+| ------------------------ | ---------------------------------- |
+| Highlights genuine value | Creates false perception           |
+| Respects user autonomy   | Exploits cognitive biases unfairly |
+| Transparent about intent | Hides true intent                  |
+| User genuinely benefits  | Only company benefits              |
+| Builds long-term trust   | Damages trust when discovered      |
+| Helps informed decisions | Prevents informed decisions        |
+| Honest about limitations | Hides or minimizes limitations     |
 
 ### The Long-Term View
 

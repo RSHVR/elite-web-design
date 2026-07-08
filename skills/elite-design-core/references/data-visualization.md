@@ -16,17 +16,17 @@ Condensed guide for accessible, effective charts and data display on the web.
 
 Match the data relationship to the right chart type:
 
-| Data Relationship | Chart Type | Example |
-|-------------------|-----------|---------|
-| Trend over time | Line chart | Revenue over 12 months |
-| Comparison | Bar chart (vertical or horizontal) | Sales by region |
-| Proportion | Donut/pie (≤5 categories only) | Market share |
-| Distribution | Histogram, box plot | Age distribution |
-| Correlation | Scatter plot | Price vs demand |
-| Hierarchy | Treemap | Budget allocation |
-| Flow/conversion | Funnel chart | Signup → purchase |
-| Progress | Progress bar, gauge | Task completion |
-| Geographic | Choropleth map | Sales by country |
+| Data Relationship | Chart Type                         | Example                |
+| ----------------- | ---------------------------------- | ---------------------- |
+| Trend over time   | Line chart                         | Revenue over 12 months |
+| Comparison        | Bar chart (vertical or horizontal) | Sales by region        |
+| Proportion        | Donut/pie (≤5 categories only)     | Market share           |
+| Distribution      | Histogram, box plot                | Age distribution       |
+| Correlation       | Scatter plot                       | Price vs demand        |
+| Hierarchy         | Treemap                            | Budget allocation      |
+| Flow/conversion   | Funnel chart                       | Signup → purchase      |
+| Progress          | Progress bar, gauge                | Task completion        |
+| Geographic        | Choropleth map                     | Sales by country       |
 
 **Rule:** Use bar charts instead of pie/donut for >5 categories. Pie charts become unreadable past 5 slices.
 
@@ -44,19 +44,40 @@ Match the data relationship to the right chart type:
 
 ```html
 <figure>
-  <div class="chart" role="img" aria-label="Revenue grew 23% from Q1 to Q4 2025, reaching $4.2M">
+  <div
+    class="chart"
+    role="img"
+    aria-label="Revenue grew 23% from Q1 to Q4 2025, reaching $4.2M"
+  >
     <!-- Chart rendered here -->
   </div>
   <figcaption>Quarterly Revenue, 2025</figcaption>
   <details>
     <summary>View as table</summary>
     <table>
-      <thead><tr><th>Quarter</th><th>Revenue</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Quarter</th>
+          <th>Revenue</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>Q1</td><td>$3.4M</td></tr>
-        <tr><td>Q2</td><td>$3.6M</td></tr>
-        <tr><td>Q3</td><td>$3.9M</td></tr>
-        <tr><td>Q4</td><td>$4.2M</td></tr>
+        <tr>
+          <td>Q1</td>
+          <td>$3.4M</td>
+        </tr>
+        <tr>
+          <td>Q2</td>
+          <td>$3.6M</td>
+        </tr>
+        <tr>
+          <td>Q3</td>
+          <td>$3.9M</td>
+        </tr>
+        <tr>
+          <td>Q4</td>
+          <td>$4.2M</td>
+        </tr>
       </tbody>
     </table>
   </details>
@@ -102,7 +123,12 @@ Use skeleton/shimmer placeholder while data loads — not an empty axis frame:
 
 ```css
 .chart-skeleton {
-  background: linear-gradient(90deg, var(--color-bg-secondary) 25%, var(--color-border) 50%, var(--color-bg-secondary) 75%);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-secondary) 25%,
+    var(--color-border) 50%,
+    var(--color-bg-secondary) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: var(--radius-md);
@@ -121,18 +147,18 @@ Data load failure → error message + retry button, not a broken/empty chart.
 
 ## Best Practices
 
-| Rule | Do | Don't |
-|------|----|----|
-| **Direct labeling** | Label values on the chart for small datasets | Force users to cross-reference legend for every data point |
-| **Subtle gridlines** | Low-contrast lines (gray-200) | Heavy gridlines that compete with data |
-| **Limit density** | One insight per chart; split if needed | Cram multiple stories into one chart |
-| **Tabular figures** | Use `font-variant-numeric: tabular-nums` for numbers | Let proportional figures misalign columns |
-| **Interactive legends** | Click to toggle series visibility | Static legends with no interaction |
-| **Trend over decoration** | Emphasize the data trend | Heavy gradients/shadows that obscure data |
-| **Export option** | Offer CSV/image export for data-heavy products | Lock users into view-only charts |
-| **Time clarity** | Label time granularity (day/week/month), allow switching | Ambiguous time axis |
-| **Sortable tables** | Support sorting with `aria-sort` attribute | Unsortable data tables |
-| **Drill-down** | Clear back-path and breadcrumb for drill-down | Deep drill-down with no way back |
+| Rule                      | Do                                                       | Don't                                                      |
+| ------------------------- | -------------------------------------------------------- | ---------------------------------------------------------- |
+| **Direct labeling**       | Label values on the chart for small datasets             | Force users to cross-reference legend for every data point |
+| **Subtle gridlines**      | Low-contrast lines (gray-200)                            | Heavy gridlines that compete with data                     |
+| **Limit density**         | One insight per chart; split if needed                   | Cram multiple stories into one chart                       |
+| **Tabular figures**       | Use `font-variant-numeric: tabular-nums` for numbers     | Let proportional figures misalign columns                  |
+| **Interactive legends**   | Click to toggle series visibility                        | Static legends with no interaction                         |
+| **Trend over decoration** | Emphasize the data trend                                 | Heavy gradients/shadows that obscure data                  |
+| **Export option**         | Offer CSV/image export for data-heavy products           | Lock users into view-only charts                           |
+| **Time clarity**          | Label time granularity (day/week/month), allow switching | Ambiguous time axis                                        |
+| **Sortable tables**       | Support sorting with `aria-sort` attribute               | Unsortable data tables                                     |
+| **Drill-down**            | Clear back-path and breadcrumb for drill-down            | Deep drill-down with no way back                           |
 
 ```css
 /* Tabular figures for data alignment */

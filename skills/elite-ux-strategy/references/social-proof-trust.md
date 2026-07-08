@@ -31,12 +31,14 @@ From strongest to weakest impact:
 ### Video Testimonials
 
 **Why they work:**
+
 - Hardest to fake
 - Emotional connection
 - Body language builds trust
 - 39% conversion boost vs text-only
 
 **Best practices:**
+
 ```
 Structure:
 1. Who they are (relatability)
@@ -53,6 +55,7 @@ Format:
 ```
 
 **Placement:**
+
 - Near major CTAs
 - Landing page mid-section
 - Pricing page
@@ -61,6 +64,7 @@ Format:
 ### Written Testimonials
 
 **Anatomy of a strong testimonial:**
+
 ```
 "[Specific result/outcome]. [What they tried before].
 [Why this product was different]. [Emotional impact]."
@@ -70,6 +74,7 @@ Format:
 ```
 
 **Example:**
+
 ```
 "We increased our conversion rate by 47% in 3 months.
 We'd tried 4 other tools that promised similar results
@@ -81,6 +86,7 @@ Our team finally trusts our data."
 ```
 
 **What makes testimonials weak:**
+
 - Anonymous ("A satisfied customer")
 - Vague praise ("Great product!")
 - No specific outcome
@@ -90,6 +96,7 @@ Our team finally trusts our data."
 ### Real-Time Activity
 
 **Types:**
+
 ```
 Purchase notifications:
 "John from Texas just purchased..."
@@ -107,6 +114,7 @@ Activity feeds:
 **Effectiveness:** 18% average conversion lift
 
 **Best practices:**
+
 - Must be real (fake = destroys trust)
 - Don't overdo frequency (annoying)
 - Include location for relatability
@@ -115,6 +123,7 @@ Activity feeds:
 ### Star Ratings
 
 **Format:**
+
 ```
 ★★★★★ 4.8/5 from 2,847 reviews
 
@@ -122,6 +131,7 @@ Link to full reviews →
 ```
 
 **Platform integration:**
+
 - G2, Capterra (B2B SaaS)
 - Trustpilot (E-commerce)
 - Google Reviews (Local)
@@ -130,6 +140,7 @@ Link to full reviews →
 ### Logo Walls
 
 **Best practices:**
+
 ```
 Structure:
 "Trusted by [category] at"
@@ -146,6 +157,7 @@ Tips:
 ### User Counts
 
 **Formats:**
+
 ```
 Strong (specific):
 "Join 47,832 marketers"
@@ -461,7 +473,9 @@ A horizontal row of third-party logos that immediately signal credibility:
   object-fit: contain;
   opacity: 0.6;
   filter: grayscale(100%);
-  transition: opacity 0.3s, filter 0.3s;
+  transition:
+    opacity 0.3s,
+    filter 0.3s;
 }
 
 .trust-strip img:hover {
@@ -475,6 +489,7 @@ Greyscale logos with hover colorization keeps the strip visually quiet while sti
 ### Placement
 
 Most effective positions:
+
 1. Below the hero section (immediate credibility)
 2. Above the fold on pricing pages (reduces anxiety)
 3. Near contact/booking forms (final push)

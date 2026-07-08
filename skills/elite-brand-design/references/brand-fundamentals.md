@@ -39,7 +39,7 @@ Before any visual work, answer:
 **Verbal tone:** Short sentences. Active voice. No hedging.
 **Visual translation:** Geometric sans-serif, dark backgrounds, saturated accents, tight letter-spacing, grain texture for depth
 
-*Production example — a digital studio:*
+_Production example — a digital studio:_
 Space Grotesk for display (geometric confidence), Inter for body (clinical clarity), coral/lime accent system on warm charcoal. Monospace labels in uppercase with 0.15em tracking signal technical precision.
 
 ### Luxury/Editorial
@@ -49,7 +49,7 @@ Space Grotesk for display (geometric confidence), Inter for body (clinical clari
 **Verbal tone:** Evocative. Sensory language. Selective detail.
 **Visual translation:** High-contrast serif, warm metallics (gold, bronze), generous whitespace, italic accent for editorial flair
 
-*Production example — a fragrance e-commerce site:*
+_Production example — a fragrance e-commerce site:_
 Cormorant Garamond for headings (thin strokes = luxury), Poppins for body (modern legibility), Arabian gold accent. Category colors map to product attributes (citrus, floral, woody), creating a semantic connection between color and content.
 
 ### Warm/Inclusive
@@ -59,7 +59,7 @@ Cormorant Garamond for headings (thin strokes = luxury), Poppins for body (moder
 **Verbal tone:** Reassuring. "You" centered. Gentle calls to action.
 **Visual translation:** Soft variable serif, muted expanded palette, plum-tinted shadows, generous border-radius, cream backgrounds
 
-*Production example — a mental health clinic:*
+_Production example — a mental health clinic:_
 Fraunces with `font-variation-settings: 'SOFT' 50` (literally softening the letterforms), plum/sage/lavender/rose on cream. Shadows use `rgba(40, 33, 62, 0.06)` — brand plum instead of black — for warmth. Everything communicates "this is a safe space."
 
 ### Authoritative/Editorial
@@ -69,7 +69,7 @@ Fraunces with `font-variation-settings: 'SOFT' 50` (literally softening the lett
 **Verbal tone:** Declarative. Evidence-based. No unnecessary words.
 **Visual translation:** Sturdy serif, traditional power colors (navy/gold), zero border-radius, editorial container guides, sharp geometric layout
 
-*Production example — a criminal defense firm:*
+_Production example — a criminal defense firm:_
 Gelasio serif for headlines, gold accent on navy/midnight. `border-radius: 0 !important` globally enforces sharp corners. Fixed vertical container-frame guides create editorial alignment — the visual equivalent of "attention to detail."
 
 ### Professional/Trustworthy
@@ -79,18 +79,19 @@ Gelasio serif for headlines, gold accent on navy/midnight. `border-radius: 0 !im
 **Verbal tone:** Friendly but informed. Clear explanations. No condescension.
 **Visual translation:** Matched serif+sans from same family, clean functional palette, moderate spacing, professional imagery
 
-*Production example — a community pharmacy:*
+_Production example — a community pharmacy:_
 DM Serif Display + DM Sans (same type family = visual harmony), warm neutral background, moderate spacing density. The design doesn't try to impress — it tries to be trustworthy.
 
 ---
 
 ## Positioning
 
-### The "Only ___" Exercise
+### The "Only \_\_\_" Exercise
 
-Complete this sentence: "We are the only ___ that ___."
+Complete this sentence: "We are the only **\_ that _**."
 
 Examples:
+
 - "We are the only **digital studio** that **builds AI-powered brands for professional service firms**."
 - "We are the only **fragrance retailer** that **guides customers through scent discovery by fragrance family**."
 - "We are the only **therapy practice** that **matches patients to therapists through a guided quiz**."
@@ -112,10 +113,10 @@ Your brand exists in relation to others. Map your space:
 
 The brand's personality should mirror what the audience needs to feel:
 
-| Audience Need | Brand Should Feel | Archetype Match |
-|---------------|-------------------|-----------------|
-| "I need someone who gets cutting-edge tech" | Confident, bold, technically sharp | Modern/Bold |
-| "I want something special, not mass-market" | Refined, exclusive, curated | Luxury/Editorial |
-| "I need to feel safe and understood" | Warm, empathetic, non-judgmental | Warm/Inclusive |
-| "I need someone serious about my situation" | Authoritative, trustworthy, experienced | Authoritative |
-| "I need reliable everyday expertise" | Competent, friendly, professional | Professional |
+| Audience Need                               | Brand Should Feel                       | Archetype Match  |
+| ------------------------------------------- | --------------------------------------- | ---------------- |
+| "I need someone who gets cutting-edge tech" | Confident, bold, technically sharp      | Modern/Bold      |
+| "I want something special, not mass-market" | Refined, exclusive, curated             | Luxury/Editorial |
+| "I need to feel safe and understood"        | Warm, empathetic, non-judgmental        | Warm/Inclusive   |
+| "I need someone serious about my situation" | Authoritative, trustworthy, experienced | Authoritative    |
+| "I need reliable everyday expertise"        | Competent, friendly, professional       | Professional     |

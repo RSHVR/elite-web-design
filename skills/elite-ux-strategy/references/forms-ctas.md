@@ -63,6 +63,7 @@ Incentivize with features
 ### Form UX Patterns
 
 **Labels:**
+
 ```
 Above field (best):
 Email
@@ -78,6 +79,7 @@ Avoid:
 ```
 
 **Inline Validation:**
+
 ```
 Real-time feedback:
 ✓ Valid email format
@@ -88,6 +90,7 @@ Don't validate empty required fields until submit
 ```
 
 **Smart Defaults:**
+
 ```
 - Pre-select country from IP
 - Default phone format to local
@@ -96,6 +99,7 @@ Don't validate empty required fields until submit
 ```
 
 **Error States:**
+
 ```
 Helpful error messages:
 "Please enter a valid email (like: you@example.com)"
@@ -133,6 +137,7 @@ Logical grouping:
 ### Copy Formulas
 
 **Action + Benefit:**
+
 ```
 "Start growing" > "Sign up"
 "Get my free guide" > "Download"
@@ -141,6 +146,7 @@ Logical grouping:
 ```
 
 **First-Person:**
+
 ```
 "Start my trial" > "Start your trial"
 "Get my results" > "Get results"
@@ -148,6 +154,7 @@ Logical grouping:
 ```
 
 **Specificity:**
+
 ```
 "Download the 2024 Report" > "Download"
 "Get your free audit" > "Submit"
@@ -179,22 +186,38 @@ Tertiary:
 
 ```css
 /* Rest state */
-.btn { background: #007bff; }
+.btn {
+  background: #007bff;
+}
 
 /* Hover - subtle feedback */
-.btn:hover { background: #0056b3; transform: translateY(-1px); }
+.btn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
 
 /* Active - pressed */
-.btn:active { transform: translateY(0); }
+.btn:active {
+  transform: translateY(0);
+}
 
 /* Focus - keyboard users */
-.btn:focus-visible { outline: 2px solid #007bff; outline-offset: 2px; }
+.btn:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
 
 /* Disabled */
-.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 /* Loading */
-.btn.loading { opacity: 0.8; cursor: wait; }
+.btn.loading {
+  opacity: 0.8;
+  cursor: wait;
+}
 ```
 
 ### CTA Placement
@@ -450,15 +473,15 @@ Phase 1: Quiz Questions (3-5 questions)
 State machine with derived progress:
 
 ```javascript
-const phases = ['quiz', 'results', 'preferences', 'form', 'success'];
-let currentPhase = 'quiz';
+const phases = ["quiz", "results", "preferences", "form", "success"];
+let currentPhase = "quiz";
 let quizStep = 0;
 const totalQuizSteps = 5;
 
 // Progress calculation
 function getProgress() {
   const phaseIndex = phases.indexOf(currentPhase);
-  if (currentPhase === 'quiz') {
+  if (currentPhase === "quiz") {
     return (quizStep / totalQuizSteps) * 0.4; // Quiz is 40% of total
   }
   return 0.4 + (phaseIndex - 1) * 0.15; // Remaining phases split rest

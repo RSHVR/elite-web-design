@@ -95,7 +95,9 @@ Predictable, accessible navigation is foundational to usability. These patterns 
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .drawer { transition: none; }
+  .drawer {
+    transition: none;
+  }
 }
 ```
 
@@ -105,11 +107,11 @@ Predictable, accessible navigation is foundational to usability. These patterns 
 
 Navigation pattern should adapt to screen size:
 
-| Screen Size | Pattern |
-|-------------|---------|
-| Mobile (<768px) | Bottom nav (3-5 items) + hamburger drawer for secondary |
-| Tablet (768-1023px) | Top nav with condensed items or bottom nav |
-| Desktop (≥1024px) | Persistent sidebar or top nav bar |
+| Screen Size         | Pattern                                                 |
+| ------------------- | ------------------------------------------------------- |
+| Mobile (<768px)     | Bottom nav (3-5 items) + hamburger drawer for secondary |
+| Tablet (768-1023px) | Top nav with condensed items or bottom nav              |
+| Desktop (≥1024px)   | Persistent sidebar or top nav bar                       |
 
 ```css
 .sidebar-nav {
@@ -186,7 +188,7 @@ Use for hierarchies 3+ levels deep. Essential for e-commerce and content-heavy s
 }
 
 .breadcrumbs li:not(:last-child)::after {
-  content: '/';
+  content: "/";
   margin-left: 0.5rem;
   color: var(--color-text-muted);
 }
@@ -231,7 +233,7 @@ All key screens must be reachable via URL for sharing and notifications:
 
 /* Indicator bar */
 .nav-item.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;

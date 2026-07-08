@@ -375,14 +375,19 @@ body {
 }
 
 @media (min-width: 768px) {
-  .mobile-bar { display: none; }
-  body { padding-bottom: 0; }
+  .mobile-bar {
+    display: none;
+  }
+  body {
+    padding-bottom: 0;
+  }
 }
 ```
 
 Split-grid pattern: "Call Now" (tel: link) + "Book Consultation" (form/calendar link). The two-button layout lets users choose their comfort level — a phone call is higher intent, a booking form is lower pressure.
 
 ### When to use:
+
 - Service businesses where phone is the primary conversion channel
 - Mobile users represent >50% of traffic
 - The primary CTA requires a phone interaction (legal, medical, emergency services)
@@ -415,9 +420,12 @@ Mobile-only sticky CTA that slides in when the main product CTA scrolls out of v
 
 ```javascript
 // Toggle visibility with IntersectionObserver
-const observer = new IntersectionObserver(([entry]) => {
-  stickyBar.classList.toggle('visible', !entry.isIntersecting);
-}, { threshold: 0 });
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    stickyBar.classList.toggle("visible", !entry.isIntersecting);
+  },
+  { threshold: 0 },
+);
 
 observer.observe(mainCtaButton);
 ```

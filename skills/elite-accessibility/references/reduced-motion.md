@@ -60,7 +60,9 @@ Complete implementation patterns for respecting `prefers-reduced-motion`.
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .reveal.visible {
@@ -92,7 +94,9 @@ Complete implementation patterns for respecting `prefers-reduced-motion`.
   .animated-element {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
   }
 
   .animated-element.visible {
@@ -109,7 +113,9 @@ Sometimes reduce instead of disable entirely:
 ```css
 /* Full animation */
 .button {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .button:hover {
@@ -120,11 +126,11 @@ Sometimes reduce instead of disable entirely:
 /* Reduced: keep feedback, remove movement */
 @media (prefers-reduced-motion: reduce) {
   .button {
-    transition: box-shadow 0.15s ease;  /* Shorter, simpler */
+    transition: box-shadow 0.15s ease; /* Shorter, simpler */
   }
 
   .button:hover {
-    transform: none;  /* No movement */
+    transform: none; /* No movement */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 }
@@ -139,42 +145,42 @@ Sometimes reduce instead of disable entirely:
 The correct way to handle motion preferences in GSAP:
 
 ```javascript
-import gsap from 'gsap';
+import gsap from "gsap";
 
 const mm = gsap.matchMedia();
 
 // Full animations
-mm.add('(prefers-reduced-motion: no-preference)', () => {
-  gsap.from('.hero-title', {
+mm.add("(prefers-reduced-motion: no-preference)", () => {
+  gsap.from(".hero-title", {
     opacity: 0,
     y: 50,
     duration: 1,
-    ease: 'power3.out'
+    ease: "power3.out",
   });
 
-  gsap.from('.hero-description', {
+  gsap.from(".hero-description", {
     opacity: 0,
     y: 30,
     duration: 0.8,
     delay: 0.3,
-    ease: 'power3.out'
+    ease: "power3.out",
   });
 
-  gsap.from('.hero-cta', {
+  gsap.from(".hero-cta", {
     opacity: 0,
     y: 20,
     duration: 0.6,
     delay: 0.6,
-    ease: 'power3.out'
+    ease: "power3.out",
   });
 });
 
 // Reduced motion: instant or simple fade
-mm.add('(prefers-reduced-motion: reduce)', () => {
+mm.add("(prefers-reduced-motion: reduce)", () => {
   // Option 1: Instant (no animation at all)
-  gsap.set('.hero-title, .hero-description, .hero-cta', {
+  gsap.set(".hero-title, .hero-description, .hero-cta", {
     opacity: 1,
-    y: 0
+    y: 0,
   });
 
   // Option 2: Simple fade only
@@ -191,10 +197,10 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add('(prefers-reduced-motion: no-preference)', () => {
+mm.add("(prefers-reduced-motion: no-preference)", () => {
   const ctx = gsap.context(() => {
     // Animations here
-    gsap.from('.element', { opacity: 0, y: 50 });
+    gsap.from(".element", { opacity: 0, y: 50 });
   });
 
   // Cleanup function - called when media query no longer matches
@@ -207,26 +213,29 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add({
-  isMotionOK: '(prefers-reduced-motion: no-preference)',
-  isMotionReduced: '(prefers-reduced-motion: reduce)'
-}, (context) => {
-  const { isMotionOK, isMotionReduced } = context.conditions;
+mm.add(
+  {
+    isMotionOK: "(prefers-reduced-motion: no-preference)",
+    isMotionReduced: "(prefers-reduced-motion: reduce)",
+  },
+  (context) => {
+    const { isMotionOK, isMotionReduced } = context.conditions;
 
-  const tl = gsap.timeline();
+    const tl = gsap.timeline();
 
-  if (isMotionOK) {
-    tl.from('.title', { opacity: 0, y: 50, duration: 1 })
-      .from('.subtitle', { opacity: 0, y: 30, duration: 0.8 }, '-=0.5')
-      .from('.content', { opacity: 0, duration: 0.6 }, '-=0.3');
-  }
+    if (isMotionOK) {
+      tl.from(".title", { opacity: 0, y: 50, duration: 1 })
+        .from(".subtitle", { opacity: 0, y: 30, duration: 0.8 }, "-=0.5")
+        .from(".content", { opacity: 0, duration: 0.6 }, "-=0.3");
+    }
 
-  if (isMotionReduced) {
-    tl.from('.title, .subtitle, .content', { opacity: 0, duration: 0.3 });
-  }
+    if (isMotionReduced) {
+      tl.from(".title, .subtitle, .content", { opacity: 0, duration: 0.3 });
+    }
 
-  return () => tl.revert();
-});
+    return () => tl.revert();
+  },
+);
 ```
 
 ---
@@ -236,33 +245,33 @@ mm.add({
 ### Scroll-Triggered Reveals
 
 ```javascript
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const mm = gsap.matchMedia();
 
-mm.add('(prefers-reduced-motion: no-preference)', () => {
-  gsap.utils.toArray('.reveal-section').forEach(section => {
-    gsap.from(section.querySelectorAll('.reveal-item'), {
+mm.add("(prefers-reduced-motion: no-preference)", () => {
+  gsap.utils.toArray(".reveal-section").forEach((section) => {
+    gsap.from(section.querySelectorAll(".reveal-item"), {
       opacity: 0,
       y: 40,
       stagger: 0.15,
       duration: 0.8,
-      ease: 'power3.out',
+      ease: "power3.out",
       scrollTrigger: {
         trigger: section,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
-      }
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
     });
   });
 });
 
-mm.add('(prefers-reduced-motion: reduce)', () => {
+mm.add("(prefers-reduced-motion: reduce)", () => {
   // Content is visible by default (no animation needed)
-  gsap.set('.reveal-item', { opacity: 1, y: 0 });
+  gsap.set(".reveal-item", { opacity: 1, y: 0 });
 });
 ```
 
@@ -271,16 +280,16 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add('(prefers-reduced-motion: no-preference)', () => {
-  gsap.to('.parallax-bg', {
+mm.add("(prefers-reduced-motion: no-preference)", () => {
+  gsap.to(".parallax-bg", {
     y: -100,
-    ease: 'none',
+    ease: "none",
     scrollTrigger: {
-      trigger: '.parallax-section',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
-    }
+      trigger: ".parallax-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+    },
   });
 });
 
@@ -293,25 +302,28 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add('(prefers-reduced-motion: no-preference)', () => {
-  const panels = gsap.utils.toArray('.panel');
+mm.add("(prefers-reduced-motion: no-preference)", () => {
+  const panels = gsap.utils.toArray(".panel");
 
   gsap.to(panels, {
     xPercent: -100 * (panels.length - 1),
-    ease: 'none',
+    ease: "none",
     scrollTrigger: {
-      trigger: '.horizontal-wrapper',
+      trigger: ".horizontal-wrapper",
       pin: true,
       scrub: 1,
       snap: 1 / (panels.length - 1),
-      end: () => '+=' + document.querySelector('.horizontal-wrapper').offsetWidth
-    }
+      end: () =>
+        "+=" + document.querySelector(".horizontal-wrapper").offsetWidth,
+    },
   });
 });
 
-mm.add('(prefers-reduced-motion: reduce)', () => {
+mm.add("(prefers-reduced-motion: reduce)", () => {
   // Convert to vertical scroll layout
-  document.querySelector('.horizontal-wrapper').classList.add('vertical-fallback');
+  document
+    .querySelector(".horizontal-wrapper")
+    .classList.add("vertical-fallback");
 });
 ```
 
@@ -375,7 +387,9 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
 }
 
 @keyframes progress {
-  to { transform: scaleX(1); }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* But still respect the preference */
@@ -396,7 +410,9 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
 
 ```javascript
 // Check current preference
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
 
 if (prefersReducedMotion) {
   // Skip animation setup
@@ -408,7 +424,7 @@ if (prefersReducedMotion) {
 ### Listening for Changes
 
 ```javascript
-const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function handleMotionPreference(event) {
   if (event.matches) {
@@ -424,7 +440,7 @@ function handleMotionPreference(event) {
 handleMotionPreference(motionQuery);
 
 // Listen for changes
-motionQuery.addEventListener('change', handleMotionPreference);
+motionQuery.addEventListener("change", handleMotionPreference);
 ```
 
 ---
@@ -469,28 +485,31 @@ Some users may not know about the system setting. Provide an in-app toggle:
 ### JavaScript
 
 ```javascript
-const toggle = document.getElementById('motion-toggle');
+const toggle = document.getElementById("motion-toggle");
 const root = document.documentElement;
 
 // Check saved preference or system preference
-const savedPreference = localStorage.getItem('reduced-motion');
-const systemPreference = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const reducedMotion = savedPreference === 'true' || (savedPreference === null && systemPreference);
+const savedPreference = localStorage.getItem("reduced-motion");
+const systemPreference = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+const reducedMotion =
+  savedPreference === "true" || (savedPreference === null && systemPreference);
 
 // Apply initial state
 if (reducedMotion) {
-  root.dataset.reducedMotion = 'true';
-  toggle.setAttribute('aria-pressed', 'true');
+  root.dataset.reducedMotion = "true";
+  toggle.setAttribute("aria-pressed", "true");
 }
 
 // Handle toggle
-toggle.addEventListener('click', () => {
-  const isReduced = root.dataset.reducedMotion === 'true';
+toggle.addEventListener("click", () => {
+  const isReduced = root.dataset.reducedMotion === "true";
   const newState = !isReduced;
 
   root.dataset.reducedMotion = newState;
-  toggle.setAttribute('aria-pressed', newState);
-  localStorage.setItem('reduced-motion', newState);
+  toggle.setAttribute("aria-pressed", newState);
+  localStorage.setItem("reduced-motion", newState);
 
   // If using GSAP matchMedia, it will automatically respond
 });
@@ -540,11 +559,11 @@ Every GSAP utility provides both a `no-preference` and `reduce` branch:
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add('(prefers-reduced-motion: no-preference)', () => {
+mm.add("(prefers-reduced-motion: no-preference)", () => {
   gsap.from(element, { opacity: 0, y: 30, duration: 0.7 });
 });
 
-mm.add('(prefers-reduced-motion: reduce)', () => {
+mm.add("(prefers-reduced-motion: reduce)", () => {
   // Instant appearance — content still visible
   gsap.from(element, { opacity: 0, duration: 0.01 });
 });
@@ -556,13 +575,13 @@ Desktop horizontal scroll becomes a vertical stack with simple reveals:
 
 ```javascript
 // Desktop: pinned horizontal scroll
-mm.add('(prefers-reduced-motion: no-preference) and (min-width: 769px)', () => {
+mm.add("(prefers-reduced-motion: no-preference) and (min-width: 769px)", () => {
   gsap.to(track, { x: -totalWidth, scrollTrigger: { pin: true, scrub: 1 } });
 });
 
 // Mobile OR reduced motion: vertical reveal
-mm.add('(max-width: 768px), (prefers-reduced-motion: reduce)', () => {
-  gsap.from(cards, { opacity: 0, y: 30, stagger: 0.12, ease: 'power3.out' });
+mm.add("(max-width: 768px), (prefers-reduced-motion: reduce)", () => {
+  gsap.from(cards, { opacity: 0, y: 30, stagger: 0.12, ease: "power3.out" });
 });
 ```
 
@@ -571,7 +590,7 @@ mm.add('(max-width: 768px), (prefers-reduced-motion: reduce)', () => {
 Shows static first word instead of typing animation:
 
 ```javascript
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   element.textContent = words[0]; // Show first word, no animation
   return;
 }

@@ -19,9 +19,9 @@ Production-tested animation utilities for scroll-driven websites. Each utility h
 ## Setup
 
 ```javascript
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 ```
@@ -34,18 +34,18 @@ Fade-up a single element when it scrolls into view.
 
 ```javascript
 function reveal(element, opts = {}) {
-  const { delay = 0, y = 30, duration = 0.7, start = 'top 85%' } = opts;
+  const { delay = 0, y = 30, duration = 0.7, start = "top 85%" } = opts;
 
   const ctx = gsap.context(() => {
     const mm = gsap.matchMedia();
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.from(element, {
         opacity: 0,
         y,
         delay,
         duration,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: element, start, once: true }
+        ease: "power3.out",
+        scrollTrigger: { trigger: element, start, once: true },
       });
     });
   });
@@ -54,7 +54,7 @@ function reveal(element, opts = {}) {
 }
 
 // Usage
-const cleanup = reveal(document.querySelector('.hero-title'));
+const cleanup = reveal(document.querySelector(".hero-title"));
 // Later: cleanup();
 ```
 
@@ -70,8 +70,8 @@ function staggerReveal(container, opts = {}) {
     stagger = 0.08,
     y = 30,
     duration = 0.6,
-    start = 'top 85%',
-    selector = ':scope > *'
+    start = "top 85%",
+    selector = ":scope > *",
   } = opts;
 
   const children = container.querySelectorAll(selector);
@@ -79,14 +79,14 @@ function staggerReveal(container, opts = {}) {
 
   const ctx = gsap.context(() => {
     const mm = gsap.matchMedia();
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.from(children, {
         opacity: 0,
         y,
         duration,
         stagger,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: container, start, once: true }
+        ease: "power3.out",
+        scrollTrigger: { trigger: container, start, once: true },
       });
     });
   });
@@ -107,8 +107,8 @@ function batchReveal(container, opts = {}) {
     y = 30,
     duration = 0.5,
     stagger = 0.08,
-    start = 'top 90%',
-    selector = ':scope > *'
+    start = "top 90%",
+    selector = ":scope > *",
   } = opts;
 
   const items = container.querySelectorAll(selector);
@@ -116,7 +116,7 @@ function batchReveal(container, opts = {}) {
 
   const ctx = gsap.context(() => {
     const mm = gsap.matchMedia();
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.set(items, { opacity: 0, y });
 
       ScrollTrigger.batch(items, {
@@ -127,11 +127,11 @@ function batchReveal(container, opts = {}) {
             y: 0,
             duration,
             stagger,
-            ease: 'power3.out',
-            overwrite: true
+            ease: "power3.out",
+            overwrite: true,
           });
         },
-        once: true
+        once: true,
       });
     });
   });
@@ -141,6 +141,7 @@ function batchReveal(container, opts = {}) {
 ```
 
 **When to use batch vs stagger:**
+
 - **staggerReveal**: Container with 3-15 children that enter view together
 - **batchReveal**: Grids with 20+ items that enter view at different scroll positions
 
@@ -156,9 +157,9 @@ function splitReveal(element, opts = {}) {
     delay = 0,
     duration = 0.8,
     stagger = 0.04,
-    type = 'words',      // 'words' | 'chars' | 'lines'
+    type = "words", // 'words' | 'chars' | 'lines'
     scrollTriggered = false,
-    mask = true           // GSAP 3.14+ mask mode
+    mask = true, // GSAP 3.14+ mask mode
   } = opts;
 
   let split = null;
@@ -166,16 +167,18 @@ function splitReveal(element, opts = {}) {
   const ctx = gsap.context(() => {
     const mm = gsap.matchMedia();
 
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       split = new SplitText(element, {
         type,
-        ...(mask && { mask: type })
+        ...(mask && { mask: type }),
       });
 
       const targets =
-        type === 'chars' ? split.chars :
-        type === 'lines' ? split.lines :
-        split.words;
+        type === "chars"
+          ? split.chars
+          : type === "lines"
+            ? split.lines
+            : split.words;
 
       gsap.from(targets, {
         // Mask mode: slide up from below (no opacity needed)
@@ -184,20 +187,20 @@ function splitReveal(element, opts = {}) {
         duration,
         stagger,
         delay,
-        ease: 'power4.out',
+        ease: "power4.out",
         ...(scrollTriggered && {
           scrollTrigger: {
             trigger: element,
-            start: 'top 85%',
-            once: true
-          }
-        })
+            start: "top 85%",
+            once: true,
+          },
+        }),
       });
 
       return () => split?.revert();
     });
 
-    mm.add('(prefers-reduced-motion: reduce)', () => {
+    mm.add("(prefers-reduced-motion: reduce)", () => {
       gsap.from(element, { opacity: 0, duration: 0.01 });
     });
   });
@@ -225,16 +228,16 @@ function parallax(element, opts = {}) {
 
   const ctx = gsap.context(() => {
     const mm = gsap.matchMedia();
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.to(element, {
         yPercent: speed * 100,
-        ease: 'none',
+        ease: "none",
         scrollTrigger: {
           trigger: element.parentElement,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
       });
     });
   });
@@ -254,44 +257,47 @@ Pinned horizontal scroll on desktop with vertical stack fallback on mobile.
 
 ```javascript
 function horizontalScroll(section, opts = {}) {
-  const { end = '+=300%', ease = 'none' } = opts;
+  const { end = "+=300%", ease = "none" } = opts;
 
   const ctx = gsap.context(() => {
     const mm = gsap.matchMedia();
 
     // Desktop: horizontal scroll
-    mm.add('(prefers-reduced-motion: no-preference) and (min-width: 769px)', () => {
-      const track = section.querySelector('[data-scroll-track]');
-      if (!track) return;
+    mm.add(
+      "(prefers-reduced-motion: no-preference) and (min-width: 769px)",
+      () => {
+        const track = section.querySelector("[data-scroll-track]");
+        if (!track) return;
 
-      const totalWidth = track.scrollWidth - section.clientWidth;
+        const totalWidth = track.scrollWidth - section.clientWidth;
 
-      gsap.to(track, {
-        x: -totalWidth,
-        ease,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end,
-          pin: true,
-          pinSpacing: true,
-          scrub: 1,
-          anticipatePin: 1
-        }
-      });
-    });
+        gsap.to(track, {
+          x: -totalWidth,
+          ease,
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end,
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+            anticipatePin: 1,
+          },
+        });
+      },
+    );
 
     // Mobile or reduced motion: vertical stack with reveals
-    mm.add('(max-width: 768px), (prefers-reduced-motion: reduce)', () => {
-      const cards = section.querySelectorAll('[data-scroll-card]');
+    mm.add("(max-width: 768px), (prefers-reduced-motion: reduce)", () => {
+      const cards = section.querySelectorAll("[data-scroll-card]");
       if (cards.length) {
         gsap.from(cards, {
           opacity: 0,
           y: 30,
           duration: 0.6,
           stagger: 0.12,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: section, start: 'top 85%', once: true }
+          ease: "power3.out",
+          scrollTrigger: { trigger: section, start: "top 85%", once: true },
         });
       }
     });
@@ -302,6 +308,7 @@ function horizontalScroll(section, opts = {}) {
 ```
 
 **HTML structure:**
+
 ```html
 <section class="horizontal-section">
   <div data-scroll-track class="flex gap-8">
@@ -321,28 +328,28 @@ Animated number counter that preserves prefix/suffix (e.g., "$1.2M", "99%").
 ```javascript
 function countUp(element, opts = {}) {
   const { duration = 1.5 } = opts;
-  const text = element.textContent?.trim() ?? '';
-  const num = parseFloat(text.replace(/[^0-9.]/g, ''));
-  const prefix = text.match(/^[^0-9]*/)?.[0] ?? '';
-  const suffix = text.match(/[^0-9]*$/)?.[0] ?? '';
+  const text = element.textContent?.trim() ?? "";
+  const num = parseFloat(text.replace(/[^0-9.]/g, ""));
+  const prefix = text.match(/^[^0-9]*/)?.[0] ?? "";
+  const suffix = text.match(/[^0-9]*$/)?.[0] ?? "";
 
   if (isNaN(num)) return () => {};
 
   const ctx = gsap.context(() => {
     const mm = gsap.matchMedia();
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       const obj = { val: 0 };
       gsap.to(obj, {
         val: num,
         duration,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: element, start: 'top 85%', once: true },
+        ease: "power2.out",
+        scrollTrigger: { trigger: element, start: "top 85%", once: true },
         onUpdate() {
           const display = Number.isInteger(num)
             ? Math.round(obj.val)
             : obj.val.toFixed(1);
           element.textContent = `${prefix}${display}${suffix}`;
-        }
+        },
       });
     });
   });
@@ -396,13 +403,13 @@ function useGsapReveal(ref, opts = {}) {
 
 ```javascript
 // Directive
-app.directive('reveal', {
+app.directive("reveal", {
   mounted(el, binding) {
     el._gsapCleanup = reveal(el, binding.value || {});
   },
   unmounted(el) {
     el._gsapCleanup?.();
-  }
+  },
 });
 ```
 
@@ -418,10 +425,15 @@ Exit animations should be 60-70% of enter duration. Users are done with the elem
 
 ```javascript
 // Enter: 0.3s
-gsap.from(modal, { opacity: 0, scale: 0.95, duration: 0.3, ease: 'power3.out' });
+gsap.from(modal, {
+  opacity: 0,
+  scale: 0.95,
+  duration: 0.3,
+  ease: "power3.out",
+});
 
 // Exit: 0.2s (67% of enter)
-gsap.to(modal, { opacity: 0, scale: 0.95, duration: 0.2, ease: 'power2.in' });
+gsap.to(modal, { opacity: 0, scale: 0.95, duration: 0.2, ease: "power2.in" });
 ```
 
 ### Interruptible Animations
@@ -431,7 +443,7 @@ User tap/gesture must cancel in-progress animations immediately:
 ```javascript
 // Kill any running animation on this element before starting new one
 gsap.killTweensOf(element);
-gsap.to(element, { /* new animation */ });
+gsap.to(element, {/* new animation */});
 ```
 
 Never block user input during an animation — UI must stay interactive.
@@ -442,13 +454,13 @@ Subtle scale on press for tappable cards and buttons:
 
 ```javascript
 // Press: scale down slightly
-element.addEventListener('pointerdown', () => {
-  gsap.to(element, { scale: 0.96, duration: 0.1, ease: 'power2.out' });
+element.addEventListener("pointerdown", () => {
+  gsap.to(element, { scale: 0.96, duration: 0.1, ease: "power2.out" });
 });
 
 // Release: spring back
-element.addEventListener('pointerup', () => {
-  gsap.to(element, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
+element.addEventListener("pointerup", () => {
+  gsap.to(element, { scale: 1, duration: 0.3, ease: "back.out(2)" });
 });
 ```
 
@@ -463,7 +475,7 @@ Don't linger below opacity 0.2 — elements should either be visible or gone:
 gsap.to(element, { opacity: 0, duration: 2 }); // Spends ~1.5s below 0.2
 
 // GOOD: Fast fade, clean exit
-gsap.to(element, { opacity: 0, duration: 0.3, ease: 'power2.in' });
+gsap.to(element, { opacity: 0, duration: 0.3, ease: "power2.in" });
 ```
 
 ### Modal Motion
@@ -477,23 +489,29 @@ const rect = triggerButton.getBoundingClientRect();
 gsap.from(modal, {
   scale: 0.8,
   opacity: 0,
-  transformOrigin: `${rect.left + rect.width/2}px ${rect.top + rect.height/2}px`,
+  transformOrigin: `${rect.left + rect.width / 2}px ${rect.top + rect.height / 2}px`,
   duration: 0.3,
-  ease: 'power3.out'
+  ease: "power3.out",
 });
 ```
 
 ### Navigation Direction
 
 Maintain spatial consistency:
+
 - **Forward navigation**: Content enters from right/below
 - **Backward navigation**: Content enters from left/above
 
 ```javascript
-function pageTransition(direction = 'forward') {
-  const xFrom = direction === 'forward' ? 50 : -50;
-  gsap.from(newPage, { x: xFrom, opacity: 0, duration: 0.3, ease: 'power3.out' });
-  gsap.to(oldPage, { x: -xFrom, opacity: 0, duration: 0.2, ease: 'power2.in' });
+function pageTransition(direction = "forward") {
+  const xFrom = direction === "forward" ? 50 : -50;
+  gsap.from(newPage, {
+    x: xFrom,
+    opacity: 0,
+    duration: 0.3,
+    ease: "power3.out",
+  });
+  gsap.to(oldPage, { x: -xFrom, opacity: 0, duration: 0.2, ease: "power2.in" });
 }
 ```
 
@@ -502,7 +520,8 @@ function pageTransition(direction = 'forward') {
 Use for content replacement within the same container:
 
 ```javascript
-gsap.timeline()
+gsap
+  .timeline()
   .to(oldContent, { opacity: 0, duration: 0.15 })
   .from(newContent, { opacity: 0, duration: 0.15 });
 ```
@@ -518,13 +537,13 @@ Drag, swipe, and pinch must provide real-time visual response tracking the finge
 **GSAP Draggable:**
 
 ```javascript
-import { Draggable } from 'gsap/Draggable';
+import { Draggable } from "gsap/Draggable";
 gsap.registerPlugin(Draggable);
 
 Draggable.create(card, {
-  type: 'x,y',
+  type: "x,y",
   bounds: container,
-  inertia: true,          // Momentum after release
+  inertia: true, // Momentum after release
   onDrag() {
     // Real-time: element follows finger every frame
     const progress = this.x / container.offsetWidth;
@@ -535,36 +554,37 @@ Draggable.create(card, {
     if (Math.abs(this.x) > threshold) {
       gsap.to(card, { x: this.x > 0 ? 300 : -300, opacity: 0, duration: 0.3 });
     } else {
-      gsap.to(card, { x: 0, y: 0, duration: 0.4, ease: 'back.out(2)' });
+      gsap.to(card, { x: 0, y: 0, duration: 0.4, ease: "back.out(2)" });
     }
-  }
+  },
 });
 ```
 
 **GSAP Observer (for custom gesture handling):**
 
 ```javascript
-import { Observer } from 'gsap/Observer';
+import { Observer } from "gsap/Observer";
 gsap.registerPlugin(Observer);
 
 Observer.create({
   target: element,
-  type: 'touch,pointer',
+  type: "touch,pointer",
   onDrag(self) {
     // self.deltaX, self.deltaY — frame-by-frame movement
     gsap.set(element, {
       x: `+=${self.deltaX}`,
-      y: `+=${self.deltaY}`
+      y: `+=${self.deltaY}`,
     });
   },
   onDragEnd(self) {
     // self.velocityX, self.velocityY — for inertia
     gsap.to(element, {
-      x: 0, y: 0,
+      x: 0,
+      y: 0,
       duration: 0.5,
-      ease: 'power3.out'
+      ease: "power3.out",
     });
-  }
+  },
 });
 ```
 
@@ -582,12 +602,12 @@ Use translate/scale direction to express hierarchy depth:
 ```javascript
 // Drill-down: child enters from below
 function drillDown(child) {
-  gsap.from(child, { y: 60, opacity: 0, duration: 0.35, ease: 'power3.out' });
+  gsap.from(child, { y: 60, opacity: 0, duration: 0.35, ease: "power3.out" });
 }
 
 // Return: parent enters from above
 function drillUp(parent) {
-  gsap.from(parent, { y: -40, opacity: 0, duration: 0.25, ease: 'power2.out' });
+  gsap.from(parent, { y: -40, opacity: 0, duration: 0.25, ease: "power2.out" });
 }
 ```
 
@@ -595,20 +615,21 @@ This differs from Navigation Direction (forward/backward = horizontal). Hierarch
 
 ### Duration Budget
 
-| Category | Duration | Examples |
-|----------|----------|---------|
-| Micro-interactions | 100-200ms | Button press, toggle, icon rotation |
-| State transitions | 200-300ms | Hover, focus, accordion, tab switch |
-| Reveals & entrances | 300-500ms | Scroll reveal, modal enter, page section |
-| Complex sequences | 400-800ms | Horizontal scroll, multi-step timeline |
-| Page transitions | 300-500ms | Route change, view transition |
-| **Never exceed** | **>800ms** | Feels sluggish; user loses causal connection |
+| Category            | Duration   | Examples                                     |
+| ------------------- | ---------- | -------------------------------------------- |
+| Micro-interactions  | 100-200ms  | Button press, toggle, icon rotation          |
+| State transitions   | 200-300ms  | Hover, focus, accordion, tab switch          |
+| Reveals & entrances | 300-500ms  | Scroll reveal, modal enter, page section     |
+| Complex sequences   | 400-800ms  | Horizontal scroll, multi-step timeline       |
+| Page transitions    | 300-500ms  | Route change, view transition                |
+| **Never exceed**    | **>800ms** | Feels sluggish; user loses causal connection |
 
 **Exit = 60-70% of enter.** If enter is 300ms, exit is 180-210ms.
 
 ### Layout Shift Prevention
 
 Animations must never cause reflow or Cumulative Layout Shift:
+
 - Use `transform` for position changes (never `top/left/margin`)
 - Use `opacity` for visibility (never `display/visibility`)
 - Pre-allocate space for entering elements before animating them in

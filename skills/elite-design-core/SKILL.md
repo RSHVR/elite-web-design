@@ -10,13 +10,13 @@ The foundation for creating premium, award-winning web experiences.
 
 ## Quick Reference
 
-| Topic | Reference File |
-|-------|---------------|
-| Visual hierarchy | [visual-hierarchy.md](references/visual-hierarchy.md) |
-| Spacing systems | [spacing-systems.md](references/spacing-systems.md) |
-| Typography | [typography.md](references/typography.md) |
-| Color theory | [color-theory.md](references/color-theory.md) |
-| Design tokens | [design-tokens.md](references/design-tokens.md) |
+| Topic              | Reference File                                            |
+| ------------------ | --------------------------------------------------------- |
+| Visual hierarchy   | [visual-hierarchy.md](references/visual-hierarchy.md)     |
+| Spacing systems    | [spacing-systems.md](references/spacing-systems.md)       |
+| Typography         | [typography.md](references/typography.md)                 |
+| Color theory       | [color-theory.md](references/color-theory.md)             |
+| Design tokens      | [design-tokens.md](references/design-tokens.md)           |
 | Data visualization | [data-visualization.md](references/data-visualization.md) |
 
 ## Related Skills
@@ -33,13 +33,13 @@ The foundation for creating premium, award-winning web experiences.
 
 Five production archetypes demonstrate how design decisions map to industry and audience:
 
-| Archetype | Type Pairing | Palette | Aesthetic |
-|-----------|-------------|---------|-----------|
-| Digital Studio | Space Grotesk + Inter | Charcoal + Coral/Lime | Modern, bold, geometric |
-| Luxury Fragrance E-commerce | Cormorant Garamond + Poppins | Ink + Arabian Gold | Refined, editorial, sensory |
-| Mental Health Clinic | Fraunces + Inter | Plum/Sage/Lavender on Cream | Warm, inclusive, soft |
-| Criminal Defense Firm | Gelasio + Inter | Navy/Midnight + Gold | Authoritative, sharp, editorial |
-| Community Pharmacy | DM Serif Display + DM Sans | Professional tones | Trustworthy, approachable |
+| Archetype                   | Type Pairing                 | Palette                     | Aesthetic                       |
+| --------------------------- | ---------------------------- | --------------------------- | ------------------------------- |
+| Digital Studio              | Space Grotesk + Inter        | Charcoal + Coral/Lime       | Modern, bold, geometric         |
+| Luxury Fragrance E-commerce | Cormorant Garamond + Poppins | Ink + Arabian Gold          | Refined, editorial, sensory     |
+| Mental Health Clinic        | Fraunces + Inter             | Plum/Sage/Lavender on Cream | Warm, inclusive, soft           |
+| Criminal Defense Firm       | Gelasio + Inter              | Navy/Midnight + Gold        | Authoritative, sharp, editorial |
+| Community Pharmacy          | DM Serif Display + DM Sans   | Professional tones          | Trustworthy, approachable       |
 
 These archetypes appear throughout the reference files as production examples. See [typography.md](references/typography.md), [color-theory.md](references/color-theory.md), and [design-tokens.md](references/design-tokens.md) for detailed implementations.
 
@@ -50,24 +50,31 @@ These archetypes appear throughout the reference files as production examples. S
 Elite web design is distinguished by:
 
 ### 1. Restraint Over Excess
+
 Every element earns its place. Remove until it breaks, then add back one thing.
 
 ### 2. Intentional Motion
+
 Animations guide attention and communicate state - never decoration. Each animation answers: "What does this help the user understand?"
 
 ### 3. Whitespace Confidence
+
 Empty space is a design element. Premium brands use more whitespace. It signals quality and gives content room to breathe.
 
 ### 4. Typography as Structure
+
 Type creates visual hierarchy before color or imagery. Headlines command attention, body text recedes, creating clear information architecture.
 
 ### 5. System Thinking
+
 Design decisions follow a system (spacing scale, type scale, color tokens). Consistency compounds into perceived quality.
 
 ### 6. Performance as Feature
+
 60fps animations, fast load times, and smooth interactions are design requirements, not technical afterthoughts.
 
 ### 7. Accessible by Default
+
 Reduced motion alternatives, proper contrast, keyboard navigation - accessibility is invisible when done right.
 
 ---
@@ -93,23 +100,23 @@ Establish tokens before building:
 
 ```css
 /* Spacing Scale (8px base) */
---space-1: 0.25rem;   /* 4px - tight */
---space-2: 0.5rem;    /* 8px - default small */
---space-3: 0.75rem;   /* 12px */
---space-4: 1rem;      /* 16px - default medium */
---space-6: 1.5rem;    /* 24px */
---space-8: 2rem;      /* 32px - default large */
---space-12: 3rem;     /* 48px - section padding small */
---space-16: 4rem;     /* 64px - section padding medium */
---space-24: 6rem;     /* 96px - section padding large */
---space-32: 8rem;     /* 128px - hero spacing */
+--space-1: 0.25rem; /* 4px - tight */
+--space-2: 0.5rem; /* 8px - default small */
+--space-3: 0.75rem; /* 12px */
+--space-4: 1rem; /* 16px - default medium */
+--space-6: 1.5rem; /* 24px */
+--space-8: 2rem; /* 32px - default large */
+--space-12: 3rem; /* 48px - section padding small */
+--space-16: 4rem; /* 64px - section padding medium */
+--space-24: 6rem; /* 96px - section padding large */
+--space-32: 8rem; /* 128px - hero spacing */
 
 /* Type Scale (1.25 ratio) */
---text-xs: 0.75rem;   /* 12px */
---text-sm: 0.875rem;  /* 14px */
---text-base: 1rem;    /* 16px */
---text-lg: 1.25rem;   /* 20px */
---text-xl: 1.563rem;  /* 25px */
+--text-xs: 0.75rem; /* 12px */
+--text-sm: 0.875rem; /* 14px */
+--text-base: 1rem; /* 16px */
+--text-lg: 1.25rem; /* 20px */
+--text-xl: 1.563rem; /* 25px */
 --text-2xl: 1.953rem; /* 31px */
 --text-3xl: 2.441rem; /* 39px */
 --text-4xl: 3.052rem; /* 49px */
@@ -130,12 +137,12 @@ See [spacing-systems.md](references/spacing-systems.md) and [typography.md](refe
 
 Choose layout patterns based on project type:
 
-| Project Type | Recommended Layouts |
-|--------------|---------------------|
-| Marketing/Landing | Bento grids, sticky reveals, full-bleed heroes |
-| Portfolio/Creative | Horizontal scroll, full-page sections, asymmetric |
+| Project Type       | Recommended Layouts                                |
+| ------------------ | -------------------------------------------------- |
+| Marketing/Landing  | Bento grids, sticky reveals, full-bleed heroes     |
+| Portfolio/Creative | Horizontal scroll, full-page sections, asymmetric  |
 | Product/E-commerce | Grid systems, sticky product views, smooth filters |
-| Agency/Studio | Experimental layouts, page transitions, bold type |
+| Agency/Studio      | Experimental layouts, page transitions, bold type  |
 
 See **elite-layouts** skill for implementation patterns.
 
@@ -144,12 +151,14 @@ See **elite-layouts** skill for implementation patterns.
 Determine animation approach:
 
 **Use CSS Scroll-Driven Animations when:**
+
 - Simple parallax or reveal effects
 - Progress indicators
 - Performance is critical
 - Safari support isn't required (or polyfill acceptable)
 
 **Use GSAP ScrollTrigger when:**
+
 - Complex multi-element sequences
 - Pin/sticky behavior
 - Horizontal scrolling
@@ -221,6 +230,7 @@ What's the user journey?
 ### Marketing/Landing Page
 
 **Key patterns:**
+
 - Full-bleed hero with scroll-triggered reveal
 - Bento grid for features
 - Sticky section for product showcase
@@ -229,6 +239,7 @@ What's the user journey?
 **Skills to load:** elite-layouts, elite-gsap, elite-accessibility
 
 **Design focus:**
+
 - Strong visual hierarchy (one clear CTA)
 - Whitespace to let product breathe
 - Motion that guides to conversion
@@ -236,6 +247,7 @@ What's the user journey?
 ### Portfolio/Creative
 
 **Key patterns:**
+
 - Horizontal scroll gallery
 - Full-page project sections
 - Text animations (SplitText reveals)
@@ -244,6 +256,7 @@ What's the user journey?
 **Skills to load:** elite-gsap, elite-layouts, elite-inspiration
 
 **Design focus:**
+
 - Let work speak (minimal UI)
 - Unique navigation patterns
 - Memorable interactions
@@ -251,6 +264,7 @@ What's the user journey?
 ### Product Configurator
 
 **Key patterns:**
+
 - Sticky product view
 - Smooth state transitions (Flip plugin)
 - Interactive bento for options
@@ -259,6 +273,7 @@ What's the user journey?
 **Skills to load:** elite-gsap (Flip plugin), elite-layouts
 
 **Design focus:**
+
 - Clear option states
 - Responsive to all inputs
 - Performance under interaction
@@ -266,6 +281,7 @@ What's the user journey?
 ### Agency/Studio Website
 
 **Key patterns:**
+
 - Experimental navigation
 - Page transitions (with Barba.js)
 - Bold typography animations
@@ -274,6 +290,7 @@ What's the user journey?
 **Skills to load:** elite-gsap, elite-layouts, elite-inspiration
 
 **Design focus:**
+
 - Showcase craft and capability
 - Push boundaries intentionally
 - Balance experimental with usable
@@ -283,24 +300,31 @@ What's the user journey?
 ## Common Pitfalls
 
 ### 1. Animation Without Purpose
+
 Every animation must answer: "What does this help the user understand?" If you can't answer, remove it.
 
 ### 2. Inconsistent Spacing
+
 Use the spacing scale. Random pixel values create visual noise. Stick to the system.
 
 ### 3. Too Many Focal Points
+
 One primary action per screen. Competing CTAs reduce conversion.
 
 ### 4. Ignoring Performance
+
 Test on real devices. 60fps on MacBook Pro doesn't mean 60fps on budget Android.
 
 ### 5. Forgetting Reduced Motion
+
 Always provide `prefers-reduced-motion` alternatives. It's not optional.
 
 ### 6. Over-designing
+
 The best designs feel inevitable, not clever. Simplify until it breaks, then add back one thing.
 
 ### 7. Skipping the System
+
 Establish design tokens first. Building without a system creates inconsistency that compounds.
 
 ---
@@ -308,12 +332,14 @@ Establish design tokens first. Building without a system creates inconsistency t
 ## Resources
 
 ### Design Principles Deep Dives
+
 - [visual-hierarchy.md](references/visual-hierarchy.md) - Scale, weight, contrast, grouping
 - [spacing-systems.md](references/spacing-systems.md) - 8px grid, spacing relationships
 - [typography.md](references/typography.md) - Type scales, fluid type, pairing
 - [color-theory.md](references/color-theory.md) - Tokens, contrast, dark mode
 
 ### External Resources
+
 - [Awwwards](https://awwwards.com) - Award-winning site inspiration
 - [Typescale](https://typescale.com) - Interactive type scale calculator
 - [Realtime Colors](https://realtimecolors.com) - Color palette visualization

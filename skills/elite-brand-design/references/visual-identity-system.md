@@ -16,12 +16,12 @@ The visible elements that carry your brand across every touchpoint.
 
 ### Types
 
-| Type | Description | When to Use |
-|------|-------------|-------------|
-| **Wordmark** | Brand name in custom typography | When the name itself is distinctive |
-| **Symbol/Mark** | Abstract or pictorial icon | When the brand is well-established |
-| **Combination** | Symbol + wordmark together | Most versatile — works at all sizes |
-| **Lettermark** | Initials only | When the name is long or complex |
+| Type            | Description                     | When to Use                         |
+| --------------- | ------------------------------- | ----------------------------------- |
+| **Wordmark**    | Brand name in custom typography | When the name itself is distinctive |
+| **Symbol/Mark** | Abstract or pictorial icon      | When the brand is well-established  |
+| **Combination** | Symbol + wordmark together      | Most versatile — works at all sizes |
+| **Lettermark**  | Initials only                   | When the name is long or complex    |
 
 ### Logo Variations
 
@@ -35,6 +35,7 @@ A complete logo system includes:
 ### Responsive Logo Behavior
 
 Logo should adapt to context:
+
 - **Desktop header**: Full combination mark
 - **Mobile header**: Icon + abbreviated wordmark
 - **Favicon**: Icon only, simplified (16×16 must be legible)
@@ -51,12 +52,14 @@ Define minimum clear space as a proportion of the logo (e.g., the height of the 
 ### Minimum Size
 
 Set a minimum display size below which the logo becomes illegible. Typically:
+
 - **Print**: 25mm wide
 - **Digital**: 80px wide (combination), 24px (icon only)
 
 ### Backgrounds
 
 Define approved background combinations:
+
 - Logo on primary brand color
 - Logo on white/light
 - Logo on dark/black
@@ -89,6 +92,7 @@ Subtle textures create depth and signal quality:
 ### Photography Style
 
 Define the brand's photography guidelines:
+
 - **Lighting**: Bright/natural vs moody/dramatic
 - **Color treatment**: Warm/cool, saturated/muted
 - **Composition**: Centered/symmetric vs dynamic/off-center
@@ -97,12 +101,12 @@ Define the brand's photography guidelines:
 
 ### Illustration vs Photography
 
-| Context | Photography | Illustration |
-|---------|-------------|-------------|
-| Trust-building (healthcare, legal) | Strong choice — real faces build trust | Can feel impersonal |
-| Conceptual content (tech, SaaS) | Stock photos feel generic | Custom illustration differentiates |
-| Luxury/lifestyle | Essential for aspiration | Feels too casual |
-| Warmth/approachability | Works if authentic | Works if style matches brand |
+| Context                            | Photography                            | Illustration                       |
+| ---------------------------------- | -------------------------------------- | ---------------------------------- |
+| Trust-building (healthcare, legal) | Strong choice — real faces build trust | Can feel impersonal                |
+| Conceptual content (tech, SaaS)    | Stock photos feel generic              | Custom illustration differentiates |
+| Luxury/lifestyle                   | Essential for aspiration               | Feels too casual                   |
+| Warmth/approachability             | Works if authentic                     | Works if style matches brand       |
 
 ---
 
@@ -119,6 +123,7 @@ Define the brand's photography guidelines:
 ### Icon as Brand Expression
 
 Icons carry brand personality:
+
 - **Modern/Bold**: Geometric, filled, sharp angles
 - **Warm/Inclusive**: Rounded, stroke-only, generous corners
 - **Authoritative**: Clean, minimal, uniform stroke

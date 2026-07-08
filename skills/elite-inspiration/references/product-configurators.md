@@ -7,10 +7,12 @@ Award-winning product customization and configuration experiences.
 ## Automotive
 
 ### Porsche Configurator
+
 **URL**: https://www.porsche.com/configurator
 **Award**: UX awards, industry standard
 
 **What to study**:
+
 - 3D model real-time updates
 - Color/option switching
 - Interior/exterior views
@@ -21,10 +23,12 @@ Award-winning product customization and configuration experiences.
 ---
 
 ### Tesla Design Studio
+
 **URL**: https://www.tesla.com/model3/design
 **Award**: Industry benchmark
 
 **What to study**:
+
 - Streamlined option flow
 - Price updates
 - Image-based vs 3D
@@ -35,10 +39,12 @@ Award-winning product customization and configuration experiences.
 ---
 
 ### BMW Configurator
+
 **URL**: https://www.bmw.com/configurator
 **Award**: Multiple UX awards
 
 **What to study**:
+
 - 3D rotation controls
 - Layer-based customization
 - Accessory addition
@@ -51,10 +57,12 @@ Award-winning product customization and configuration experiences.
 ## Fashion/Apparel
 
 ### Nike By You
+
 **URL**: https://www.nike.com/nike-by-you
 **Award**: Design innovation
 
 **What to study**:
+
 - 3D shoe customization
 - Color picker UX
 - Material selection
@@ -65,10 +73,12 @@ Award-winning product customization and configuration experiences.
 ---
 
 ### Vans Custom
+
 **URL**: https://www.vans.com/custom-shoes
 **Award**: E-commerce excellence
 
 **What to study**:
+
 - Part-by-part customization
 - Pattern/text addition
 - Sharing features
@@ -81,10 +91,12 @@ Award-winning product customization and configuration experiences.
 ## Technology
 
 ### Apple (iPhone, MacBook)
+
 **URL**: https://www.apple.com/shop/buy-iphone
 **Award**: Industry standard
 
 **What to study**:
+
 - Clean option selection
 - Size/color comparison
 - Price building
@@ -95,10 +107,12 @@ Award-winning product customization and configuration experiences.
 ---
 
 ### Framework Laptop
+
 **URL**: https://frame.work/products/laptop
 **Award**: Product innovation
 
 **What to study**:
+
 - Module selection
 - DIY vs pre-built paths
 - Spec building
@@ -111,10 +125,12 @@ Award-winning product customization and configuration experiences.
 ## Home/Interior
 
 ### Sonos
+
 **URL**: https://www.sonos.com
 **Award**: Design awards
 
 **What to study**:
+
 - Room visualization
 - Multi-product systems
 - Audio preview
@@ -125,10 +141,12 @@ Award-winning product customization and configuration experiences.
 ---
 
 ### Herman Miller
+
 **URL**: https://www.hermanmiller.com/products/seating/office-chairs/aeron-chairs/
 **Award**: UX excellence
 
 **What to study**:
+
 - Material selection
 - Size guidance
 - Color coordination
@@ -199,10 +217,11 @@ Update pattern:
 ## Implementation Reference
 
 ### Option Selector
+
 ```javascript
 // FLIP-based option change
 function selectOption(optionId) {
-  const state = Flip.getState('.product-image');
+  const state = Flip.getState(".product-image");
 
   // Update state
   config.selectedOption = optionId;
@@ -211,12 +230,13 @@ function selectOption(optionId) {
   // Animate change
   Flip.from(state, {
     duration: 0.4,
-    ease: 'power2.inOut'
+    ease: "power2.inOut",
   });
 }
 ```
 
 ### Color Swatch
+
 ```html
 <div class="color-swatches">
   <button
@@ -239,7 +259,9 @@ function selectOption(optionId) {
   border: 2px solid transparent;
   background: var(--swatch-color);
   cursor: pointer;
-  transition: border-color 0.2s, transform 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
 }
 
 .swatch.selected {
@@ -253,42 +275,47 @@ function selectOption(optionId) {
 ```
 
 ### Price Animation
+
 ```javascript
 // Animate price changes
 function updatePrice(newPrice) {
-  const priceEl = document.querySelector('.price-value');
+  const priceEl = document.querySelector(".price-value");
   const currentPrice = parseInt(priceEl.textContent);
 
-  gsap.to({ value: currentPrice }, {
-    value: newPrice,
-    duration: 0.5,
-    ease: 'power2.out',
-    onUpdate: function() {
-      priceEl.textContent = Math.round(this.targets()[0].value);
-    }
-  });
+  gsap.to(
+    { value: currentPrice },
+    {
+      value: newPrice,
+      duration: 0.5,
+      ease: "power2.out",
+      onUpdate: function () {
+        priceEl.textContent = Math.round(this.targets()[0].value);
+      },
+    },
+  );
 }
 ```
 
 ### Deep Link State
+
 ```javascript
 // Encode config to URL
 function saveToUrl(config) {
   const params = new URLSearchParams();
-  params.set('model', config.model);
-  params.set('color', config.color);
-  params.set('options', JSON.stringify(config.options));
+  params.set("model", config.model);
+  params.set("color", config.color);
+  params.set("options", JSON.stringify(config.options));
 
-  history.replaceState(null, '', `?${params.toString()}`);
+  history.replaceState(null, "", `?${params.toString()}`);
 }
 
 // Load from URL
 function loadFromUrl() {
   const params = new URLSearchParams(window.location.search);
   return {
-    model: params.get('model') || defaultModel,
-    color: params.get('color') || defaultColor,
-    options: JSON.parse(params.get('options') || '{}')
+    model: params.get("model") || defaultModel,
+    color: params.get("color") || defaultColor,
+    options: JSON.parse(params.get("options") || "{}"),
   };
 }
 ```

@@ -39,7 +39,7 @@ document.startViewTransition(async () => {
 if (document.startViewTransition) {
   document.startViewTransition(() => updateDOM());
 } else {
-  updateDOM();  // Fallback: instant update
+  updateDOM(); // Fallback: instant update
 }
 ```
 
@@ -71,13 +71,21 @@ View transitions create these pseudo-elements:
 }
 
 @keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 ```
 
@@ -93,11 +101,15 @@ View transitions create these pseudo-elements:
 }
 
 @keyframes slide-out {
-  to { transform: translateX(-100%); }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes slide-in {
-  from { transform: translateX(100%); }
+  from {
+    transform: translateX(100%);
+  }
 }
 ```
 
@@ -174,13 +186,13 @@ Transition specific elements independently.
 ```html
 <!-- List page -->
 <article class="card" style="view-transition-name: card-1;">
-  <img src="product.jpg" style="view-transition-name: card-1-image;">
+  <img src="product.jpg" style="view-transition-name: card-1-image;" />
   <h2 style="view-transition-name: card-1-title;">Product Name</h2>
 </article>
 
 <!-- Detail page -->
 <article class="product-detail">
-  <img src="product.jpg" style="view-transition-name: card-1-image;">
+  <img src="product.jpg" style="view-transition-name: card-1-image;" />
   <h1 style="view-transition-name: card-1-title;">Product Name</h1>
 </article>
 ```
@@ -199,7 +211,7 @@ Transition specific elements independently.
 ### React Router Example
 
 ```jsx
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
 
 function useViewTransitionNavigate() {
   const navigate = useNavigate();
@@ -250,23 +262,23 @@ async function navigateTo(url) {
   const response = await fetch(url);
   const html = await response.text();
   const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
-  const newContent = doc.querySelector('main');
+  const doc = parser.parseFromString(html, "text/html");
+  const newContent = doc.querySelector("main");
 
   if (document.startViewTransition) {
     await document.startViewTransition(() => {
-      document.querySelector('main').replaceWith(newContent);
-      history.pushState({}, '', url);
+      document.querySelector("main").replaceWith(newContent);
+      history.pushState({}, "", url);
     }).finished;
   } else {
-    document.querySelector('main').replaceWith(newContent);
-    history.pushState({}, '', url);
+    document.querySelector("main").replaceWith(newContent);
+    history.pushState({}, "", url);
   }
 }
 
 // Handle links
-document.addEventListener('click', (e) => {
-  if (e.target.matches('a[data-spa]')) {
+document.addEventListener("click", (e) => {
+  if (e.target.matches("a[data-spa]")) {
     e.preventDefault();
     navigateTo(e.target.href);
   }
@@ -306,6 +318,7 @@ The header transitions smoothly between pages.
 ### Same-Origin Only
 
 Cross-document transitions only work for:
+
 - Same origin
 - HTTPS
 - Pages that opt-in via CSS
@@ -320,15 +333,17 @@ Cross-document transitions only work for:
 // Track navigation direction
 let isBack = false;
 
-window.addEventListener('popstate', () => {
+window.addEventListener("popstate", () => {
   isBack = true;
 });
 
-document.startViewTransition(() => {
-  updatePage();
-}).finished.then(() => {
-  isBack = false;
-});
+document
+  .startViewTransition(() => {
+    updatePage();
+  })
+  .finished.then(() => {
+    isBack = false;
+  });
 ```
 
 ```css
@@ -372,11 +387,11 @@ document.startViewTransition(() => {
 ## Browser Support
 
 | Browser | Same-Document | Cross-Document |
-|---------|--------------|----------------|
-| Chrome | ✓ 111+ | ✓ 126+ |
-| Safari | ✓ 18+ | ✓ 18+ |
-| Firefox | ✗ | ✗ |
-| Edge | ✓ 111+ | ✓ 126+ |
+| ------- | ------------- | -------------- |
+| Chrome  | ✓ 111+        | ✓ 126+         |
+| Safari  | ✓ 18+         | ✓ 18+          |
+| Firefox | ✗             | ✗              |
+| Edge    | ✓ 111+        | ✓ 126+         |
 
 ### Polyfill
 

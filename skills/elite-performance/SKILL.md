@@ -10,12 +10,12 @@ Maintain 60fps animations while hitting Core Web Vitals targets.
 
 ## Quick Reference
 
-| Topic | Reference File |
-|-------|---------------|
-| Vite Setup | [vite-setup.md](references/vite-setup.md) |
+| Topic                 | Reference File                                                  |
+| --------------------- | --------------------------------------------------------------- |
+| Vite Setup            | [vite-setup.md](references/vite-setup.md)                       |
 | Animation Performance | [animation-performance.md](references/animation-performance.md) |
-| Asset Optimization | [asset-optimization.md](references/asset-optimization.md) |
-| Debugging | [debugging.md](references/debugging.md) |
+| Asset Optimization    | [asset-optimization.md](references/asset-optimization.md)       |
+| Debugging             | [debugging.md](references/debugging.md)                         |
 
 ---
 
@@ -23,28 +23,28 @@ Maintain 60fps animations while hitting Core Web Vitals targets.
 
 ### Core Web Vitals Targets
 
-| Metric | Good | Needs Work | Poor |
-|--------|------|------------|------|
-| **LCP** (Largest Contentful Paint) | ≤ 2.5s | ≤ 4.0s | > 4.0s |
-| **INP** (Interaction to Next Paint) | ≤ 200ms | ≤ 500ms | > 500ms |
-| **CLS** (Cumulative Layout Shift) | ≤ 0.1 | ≤ 0.25 | > 0.25 |
+| Metric                              | Good    | Needs Work | Poor    |
+| ----------------------------------- | ------- | ---------- | ------- |
+| **LCP** (Largest Contentful Paint)  | ≤ 2.5s  | ≤ 4.0s     | > 4.0s  |
+| **INP** (Interaction to Next Paint) | ≤ 200ms | ≤ 500ms    | > 500ms |
+| **CLS** (Cumulative Layout Shift)   | ≤ 0.1   | ≤ 0.25     | > 0.25  |
 
 ### Animation Targets
 
-| Metric | Target |
-|--------|--------|
-| Frame rate | 60fps (16.67ms/frame) |
-| Frame budget | < 10ms for JS/layout |
-| Animation start | < 100ms response |
-| Scroll jank | 0 dropped frames |
+| Metric          | Target                |
+| --------------- | --------------------- |
+| Frame rate      | 60fps (16.67ms/frame) |
+| Frame budget    | < 10ms for JS/layout  |
+| Animation start | < 100ms response      |
+| Scroll jank     | 0 dropped frames      |
 
 ### Bundle Targets
 
-| Asset | Target |
-|-------|--------|
-| Initial JS | < 100KB (gzipped) |
-| Initial CSS | < 50KB (gzipped) |
-| GSAP core | ~25KB (gzipped) |
+| Asset         | Target            |
+| ------------- | ----------------- |
+| Initial JS    | < 100KB (gzipped) |
+| Initial CSS   | < 50KB (gzipped)  |
+| GSAP core     | ~25KB (gzipped)   |
 | Total initial | < 200KB (gzipped) |
 
 ---
@@ -55,8 +55,7 @@ Maintain 60fps animations while hitting Core Web Vitals targets.
 
 ```css
 /* GPU composited - FAST */
-transform: translateX() translateY() translateZ()
-           scale() rotate() skew();
+transform: translateX() translateY() translateZ() scale() rotate() skew();
 opacity: 0 to 1;
 filter: blur() brightness() contrast();
 
@@ -89,7 +88,9 @@ text-shadow
   animation: moveLeft 1s;
 }
 @keyframes moveLeft {
-  to { left: 100px; }
+  to {
+    left: 100px;
+  }
 }
 
 /* GOOD - GPU composited */
@@ -97,7 +98,9 @@ text-shadow
   animation: moveLeft 1s;
 }
 @keyframes moveLeft {
-  to { transform: translateX(100px); }
+  to {
+    transform: translateX(100px);
+  }
 }
 ```
 
@@ -109,8 +112,8 @@ text-shadow
 
 ```html
 <!-- Native lazy loading -->
-<img src="hero.jpg" alt="Hero" loading="eager">
-<img src="feature.jpg" alt="Feature" loading="lazy">
+<img src="hero.jpg" alt="Hero" loading="eager" />
+<img src="feature.jpg" alt="Feature" loading="lazy" />
 
 <!-- Intersection Observer for components -->
 <div class="lazy-section" data-component="heavy-animation">
@@ -124,7 +127,7 @@ text-shadow
 /* Skip rendering off-screen sections */
 .section {
   content-visibility: auto;
-  contain-intrinsic-size: 0 500px;  /* Estimated height */
+  contain-intrinsic-size: 0 500px; /* Estimated height */
 }
 ```
 
@@ -160,14 +163,14 @@ text-shadow
 
 ```javascript
 // BAD - Fires on every scroll event
-window.addEventListener('scroll', handleScroll);
+window.addEventListener("scroll", handleScroll);
 
 // GOOD - Passive listener, no preventDefault
-window.addEventListener('scroll', handleScroll, { passive: true });
+window.addEventListener("scroll", handleScroll, { passive: true });
 
 // BETTER - Use ScrollTrigger (already optimized)
-gsap.to('.element', {
-  scrollTrigger: { /* ... */ }
+gsap.to(".element", {
+  scrollTrigger: {/* ... */},
 });
 ```
 
@@ -180,8 +183,8 @@ gsap.to('.element', {
 ```javascript
 // Prevents memory leaks
 const ctx = gsap.context(() => {
-  gsap.to('.element', { x: 100 });
-  ScrollTrigger.create({ /* ... */ });
+  gsap.to(".element", { x: 100 });
+  ScrollTrigger.create({/* ... */});
 });
 
 // On unmount
@@ -192,12 +195,13 @@ ctx.revert();
 
 ```javascript
 // Process multiple items efficiently
-ScrollTrigger.batch('.item', {
-  onEnter: batch => gsap.to(batch, {
-    opacity: 1,
-    y: 0,
-    stagger: 0.1
-  })
+ScrollTrigger.batch(".item", {
+  onEnter: (batch) =>
+    gsap.to(batch, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.1,
+    }),
 });
 ```
 
@@ -206,8 +210,8 @@ ScrollTrigger.batch('.item', {
 ```javascript
 // Control refresh order
 ScrollTrigger.create({
-  trigger: '.section',
-  refreshPriority: -1  // Refresh after others
+  trigger: ".section",
+  refreshPriority: -1, // Refresh after others
 });
 ```
 
@@ -218,17 +222,17 @@ ScrollTrigger.create({
 const createTrigger = (element) => {
   ScrollTrigger.create({
     trigger: element,
-    start: 'top 80%',
+    start: "top 80%",
     onEnter: () => {
       // Create animation only when needed
       gsap.from(element, { opacity: 0, y: 50 });
     },
-    once: true
+    once: true,
   });
 };
 
 // Create triggers as needed
-gsap.utils.toArray('.section').forEach(createTrigger);
+gsap.utils.toArray(".section").forEach(createTrigger);
 ```
 
 ---
@@ -268,7 +272,9 @@ gsap.utils.toArray('.section').forEach(createTrigger);
 ```css
 /* Apply just before animation */
 .card {
-  transition: transform 0.3s, opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 .card:hover {
@@ -289,7 +295,7 @@ gsap.utils.toArray('.section').forEach(createTrigger);
 ```css
 /* Force new layer when needed */
 .animated-element {
-  transform: translateZ(0);  /* or translate3d(0,0,0) */
+  transform: translateZ(0); /* or translate3d(0,0,0) */
 }
 
 /* Better: Use will-change temporarily */
@@ -307,14 +313,21 @@ gsap.utils.toArray('.section').forEach(createTrigger);
 ```html
 <head>
   <!-- Critical CSS inline -->
-  <style>/* Above-fold styles */</style>
+  <style>
+    /* Above-fold styles */
+  </style>
 
   <!-- Preload critical assets -->
-  <link rel="preload" href="hero.webp" as="image">
-  <link rel="preload" href="font.woff2" as="font" crossorigin>
+  <link rel="preload" href="hero.webp" as="image" />
+  <link rel="preload" href="font.woff2" as="font" crossorigin />
 
   <!-- Async non-critical CSS -->
-  <link rel="stylesheet" href="full.css" media="print" onload="this.media='all'">
+  <link
+    rel="stylesheet"
+    href="full.css"
+    media="print"
+    onload="this.media='all'"
+  />
 </head>
 
 <body>
@@ -331,13 +344,13 @@ gsap.utils.toArray('.section').forEach(createTrigger);
 ```javascript
 // Load GSAP plugins only when needed
 const loadScrollTrigger = async () => {
-  const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+  const { ScrollTrigger } = await import("gsap/ScrollTrigger");
   gsap.registerPlugin(ScrollTrigger);
   return ScrollTrigger;
 };
 
 // Load on interaction or visibility
-const section = document.querySelector('.scroll-section');
+const section = document.querySelector(".scroll-section");
 const observer = new IntersectionObserver(async ([entry]) => {
   if (entry.isIntersecting) {
     await loadScrollTrigger();
@@ -352,16 +365,18 @@ observer.observe(section);
 
 ```javascript
 // Check for animation support
-const supportsAnimation = 'animate' in document.documentElement;
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const supportsAnimation = "animate" in document.documentElement;
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
 
 if (supportsAnimation && !prefersReducedMotion) {
   // Load animation library
-  import('./animations.js');
+  import("./animations.js");
 } else {
   // Show final states immediately
-  document.querySelectorAll('.animated').forEach(el => {
-    el.classList.add('animation-complete');
+  document.querySelectorAll(".animated").forEach((el) => {
+    el.classList.add("animation-complete");
   });
 }
 ```
@@ -378,18 +393,14 @@ const animations = [];
 const scrollTriggers = [];
 
 function initAnimations() {
-  animations.push(
-    gsap.to('.element', { x: 100 })
-  );
+  animations.push(gsap.to(".element", { x: 100 }));
 
-  scrollTriggers.push(
-    ScrollTrigger.create({ trigger: '.section' })
-  );
+  scrollTriggers.push(ScrollTrigger.create({ trigger: ".section" }));
 }
 
 function cleanup() {
-  animations.forEach(anim => anim.kill());
-  scrollTriggers.forEach(st => st.kill());
+  animations.forEach((anim) => anim.kill());
+  scrollTriggers.forEach((st) => st.kill());
   animations.length = 0;
   scrollTriggers.length = 0;
 }
@@ -409,20 +420,20 @@ ctx.revert();
 const splits = [];
 
 function initTextAnimations() {
-  document.querySelectorAll('.split-text').forEach(el => {
-    const split = new SplitText(el, { type: 'chars' });
+  document.querySelectorAll(".split-text").forEach((el) => {
+    const split = new SplitText(el, { type: "chars" });
     splits.push(split);
 
     gsap.from(split.chars, {
       opacity: 0,
       y: 20,
-      stagger: 0.02
+      stagger: 0.02,
     });
   });
 }
 
 function cleanup() {
-  splits.forEach(split => split.revert());
+  splits.forEach((split) => split.revert());
   splits.length = 0;
 }
 ```
@@ -433,13 +444,13 @@ function cleanup() {
 // Use AbortController for easy cleanup
 const controller = new AbortController();
 
-window.addEventListener('resize', handleResize, {
-  signal: controller.signal
+window.addEventListener("resize", handleResize, {
+  signal: controller.signal,
 });
 
-window.addEventListener('scroll', handleScroll, {
+window.addEventListener("scroll", handleScroll, {
   passive: true,
-  signal: controller.signal
+  signal: controller.signal,
 });
 
 // Cleanup all at once
@@ -485,7 +496,7 @@ function measureFPS() {
   frameCount++;
   const now = performance.now();
   if (now - lastTime >= 1000) {
-    console.log('FPS:', frameCount);
+    console.log("FPS:", frameCount);
     frameCount = 0;
     lastTime = now;
   }
@@ -497,8 +508,8 @@ measureFPS();
 ```javascript
 // Detect layout thrashing
 const originalGetComputedStyle = window.getComputedStyle;
-window.getComputedStyle = function(...args) {
-  console.trace('getComputedStyle called');
+window.getComputedStyle = function (...args) {
+  console.trace("getComputedStyle called");
   return originalGetComputedStyle.apply(this, args);
 };
 ```
@@ -511,5 +522,5 @@ See [debugging.md](references/debugging.md) for comprehensive debugging techniqu
 
 - [web.dev Performance](https://web.dev/performance/)
 - [Chrome DevTools Performance](https://developer.chrome.com/docs/devtools/performance/)
-- [GSAP Performance Tips](https://gsap.com/docs/v3/GSAP/gsap.ticker())
+- [GSAP Performance Tips](<https://gsap.com/docs/v3/GSAP/gsap.ticker()>)
 - [CSS Triggers](https://csstriggers.com/) - What properties trigger layout/paint

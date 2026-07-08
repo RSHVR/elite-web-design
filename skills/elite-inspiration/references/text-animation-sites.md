@@ -7,10 +7,12 @@ Award-winning sites with exceptional typography in motion.
 ## Character-Level Animation
 
 ### Obys Agency
+
 **URL**: https://obys.agency
 **Award**: Awwwards SOTD, multiple awards
 
 **What to study**:
+
 - Character-by-character reveals
 - Scroll-linked text animation
 - Typography as hero element
@@ -21,10 +23,12 @@ Award-winning sites with exceptional typography in motion.
 ---
 
 ### Locomotive
+
 **URL**: https://locomotive.ca
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Smooth character stagger
 - Masked text reveals
 - Section title animations
@@ -35,10 +39,12 @@ Award-winning sites with exceptional typography in motion.
 ---
 
 ### Aristide Benoist
+
 **URL**: https://aristidebenoist.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Large display typography
 - Character scatter effects
 - Hover-triggered animations
@@ -51,10 +57,12 @@ Award-winning sites with exceptional typography in motion.
 ## Word-Level Animation
 
 ### Basic/Dept
+
 **URL**: https://www.basicagency.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Word-by-word reveals
 - Clean, professional feel
 - Scroll-triggered timing
@@ -65,10 +73,12 @@ Award-winning sites with exceptional typography in motion.
 ---
 
 ### Rally
+
 **URL**: https://rallyinteractive.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Word cascade animations
 - Playful timing
 - Portfolio item titles
@@ -81,10 +91,12 @@ Award-winning sites with exceptional typography in motion.
 ## Line-Level Animation
 
 ### Apple
+
 **URL**: https://www.apple.com/apple-intelligence/
 **Award**: Industry standard
 
 **What to study**:
+
 - Line-by-line reveals
 - Scroll-synchronized timing
 - Headline hierarchy
@@ -95,10 +107,12 @@ Award-winning sites with exceptional typography in motion.
 ---
 
 ### Stripe
+
 **URL**: https://stripe.com
 **Award**: Multiple awards
 
 **What to study**:
+
 - Headline reveals
 - Gradient text animation
 - Code block animations
@@ -111,10 +125,12 @@ Award-winning sites with exceptional typography in motion.
 ## Masked Reveals
 
 ### Elegant Seagulls
+
 **URL**: https://www.elegantseagulls.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Text clip-path reveals
 - Scroll-linked masks
 - Creative typography
@@ -125,10 +141,12 @@ Award-winning sites with exceptional typography in motion.
 ---
 
 ### Monopo London
+
 **URL**: https://monopo.london
 **Award**: Awwwards Honorable Mention
 
 **What to study**:
+
 - Vertical mask reveals
 - Staggered timing
 - Bold typography choices
@@ -141,10 +159,12 @@ Award-winning sites with exceptional typography in motion.
 ## Kinetic Typography
 
 ### Resn
+
 **URL**: https://resn.co.nz
 **Award**: Multiple FWA
 
 **What to study**:
+
 - Playful character physics
 - Interactive text
 - Experimental layouts
@@ -155,10 +175,12 @@ Award-winning sites with exceptional typography in motion.
 ---
 
 ### Active Theory
+
 **URL**: https://activetheory.net
 **Award**: Multiple awards
 
 **What to study**:
+
 - Text distortion effects
 - WebGL-enhanced type
 - Responsive typography
@@ -227,8 +249,9 @@ Playful feel:
 ## Implementation Reference
 
 ### Character Stagger
+
 ```javascript
-const split = new SplitText('.hero-title', { type: 'chars' });
+const split = new SplitText(".hero-title", { type: "chars" });
 
 gsap.from(split.chars, {
   opacity: 0,
@@ -236,38 +259,40 @@ gsap.from(split.chars, {
   rotationX: -90,
   stagger: 0.02,
   duration: 0.8,
-  ease: 'power3.out'
+  ease: "power3.out",
 });
 ```
 
 ### Masked Line Reveal
+
 ```javascript
-const split = new SplitText('.text', {
-  type: 'lines',
-  linesClass: 'line-wrapper'
+const split = new SplitText(".text", {
+  type: "lines",
+  linesClass: "line-wrapper",
 });
 
 // Wrap each line for mask
-split.lines.forEach(line => {
-  const wrapper = document.createElement('div');
-  wrapper.className = 'line-mask';
+split.lines.forEach((line) => {
+  const wrapper = document.createElement("div");
+  wrapper.className = "line-mask";
   line.parentNode.insertBefore(wrapper, line);
   wrapper.appendChild(line);
 });
 
-gsap.from('.line-wrapper > *', {
+gsap.from(".line-wrapper > *", {
   yPercent: 100,
   stagger: 0.1,
   duration: 0.8,
-  ease: 'power3.out',
+  ease: "power3.out",
   scrollTrigger: {
-    trigger: '.text',
-    start: 'top 80%'
-  }
+    trigger: ".text",
+    start: "top 80%",
+  },
 });
 ```
 
 ### Gradient Text Animation
+
 ```css
 .gradient-text {
   background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
@@ -279,8 +304,13 @@ gsap.from('.line-wrapper > *', {
 }
 
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 ```
 

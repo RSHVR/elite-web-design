@@ -10,12 +10,12 @@ UI/UX quality audit orchestrator. ~190 rules across 8 categories, prioritized CR
 
 ## Quick Reference
 
-| File | Priority | Purpose |
-|------|----------|---------|
-| [critical-rules.md](references/critical-rules.md) | CRITICAL | Must-pass before any deployment |
-| [high-rules.md](references/high-rules.md) | HIGH | Should-pass for production quality |
-| [medium-rules.md](references/medium-rules.md) | MEDIUM | Polish and best practices |
-| [pre-launch-checklist.md](references/pre-launch-checklist.md) | Condensed | Binary go/no-go checklist |
+| File                                                          | Priority  | Purpose                            |
+| ------------------------------------------------------------- | --------- | ---------------------------------- |
+| [critical-rules.md](references/critical-rules.md)             | CRITICAL  | Must-pass before any deployment    |
+| [high-rules.md](references/high-rules.md)                     | HIGH      | Should-pass for production quality |
+| [medium-rules.md](references/medium-rules.md)                 | MEDIUM    | Polish and best practices          |
+| [pre-launch-checklist.md](references/pre-launch-checklist.md) | Condensed | Binary go/no-go checklist          |
 
 ---
 
@@ -145,28 +145,28 @@ Condensed inline checklists for rapid scanning. Each item is binary pass/fail. F
 
 When a rule fails, invoke the corresponding teaching skill. The skill provides implementation patterns, code examples, and verification steps.
 
-| Failed Category | Invoke Skill | Key Reference |
-|-----------------|-------------|---------------|
-| Contrast / Color a11y | `elite-accessibility` | wcag-contrast.md |
-| Focus / Keyboard | `elite-accessibility` | focus-keyboard.md |
-| Touch targets / Gestures | `elite-accessibility` | touch-interaction.md |
-| Reduced motion | `elite-accessibility` | reduced-motion.md |
-| Core Web Vitals | `elite-performance` | SKILL.md (budget table) |
-| GPU properties / Animation perf | `elite-performance` | animation-performance.md |
-| Bundle size / Loading | `elite-performance` | asset-optimization.md |
-| GSAP cleanup / Context | `elite-gsap` | utility-library.md |
-| Duration / Easing / UX timing | `elite-gsap` | utility-library.md (Animation UX Rules) |
-| CSS effects / Micro-interactions | `elite-css-animations` | visual-effects.md |
-| Scroll-driven animations | `elite-css-animations` | scroll-driven-api.md |
-| Navigation patterns | `elite-ux-strategy` | navigation-patterns.md |
-| Forms / Feedback / Toasts | `elite-ux-strategy` | forms-feedback.md |
-| Mobile conversion | `elite-ux-strategy` | mobile-conversion.md |
-| Social proof / Trust | `elite-ux-strategy` | social-proof-trust.md |
-| Layout / Responsive / Grid | `elite-layouts` | editorial-patterns.md |
-| Typography / Type scale | `elite-design-core` | typography.md |
-| Color tokens / Design system | `elite-design-core` | design-tokens.md |
-| Charts / Data viz | `elite-design-core` | data-visualization.md |
-| Brand identity / Consistency | `elite-brand-design` | SKILL.md |
+| Failed Category                  | Invoke Skill           | Key Reference                           |
+| -------------------------------- | ---------------------- | --------------------------------------- |
+| Contrast / Color a11y            | `elite-accessibility`  | wcag-contrast.md                        |
+| Focus / Keyboard                 | `elite-accessibility`  | focus-keyboard.md                       |
+| Touch targets / Gestures         | `elite-accessibility`  | touch-interaction.md                    |
+| Reduced motion                   | `elite-accessibility`  | reduced-motion.md                       |
+| Core Web Vitals                  | `elite-performance`    | SKILL.md (budget table)                 |
+| GPU properties / Animation perf  | `elite-performance`    | animation-performance.md                |
+| Bundle size / Loading            | `elite-performance`    | asset-optimization.md                   |
+| GSAP cleanup / Context           | `elite-gsap`           | utility-library.md                      |
+| Duration / Easing / UX timing    | `elite-gsap`           | utility-library.md (Animation UX Rules) |
+| CSS effects / Micro-interactions | `elite-css-animations` | visual-effects.md                       |
+| Scroll-driven animations         | `elite-css-animations` | scroll-driven-api.md                    |
+| Navigation patterns              | `elite-ux-strategy`    | navigation-patterns.md                  |
+| Forms / Feedback / Toasts        | `elite-ux-strategy`    | forms-feedback.md                       |
+| Mobile conversion                | `elite-ux-strategy`    | mobile-conversion.md                    |
+| Social proof / Trust             | `elite-ux-strategy`    | social-proof-trust.md                   |
+| Layout / Responsive / Grid       | `elite-layouts`        | editorial-patterns.md                   |
+| Typography / Type scale          | `elite-design-core`    | typography.md                           |
+| Color tokens / Design system     | `elite-design-core`    | design-tokens.md                        |
+| Charts / Data viz                | `elite-design-core`    | data-visualization.md                   |
+| Brand identity / Consistency     | `elite-brand-design`   | SKILL.md                                |
 
 ### How to Use the Remediation Map
 

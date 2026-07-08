@@ -46,7 +46,9 @@ JavaScript → Style → Layout → Paint → Composite
 /* SLOW - Triggers layout every frame */
 .element {
   position: absolute;
-  transition: top 0.3s, left 0.3s;
+  transition:
+    top 0.3s,
+    left 0.3s;
 }
 .element:hover {
   top: 10px;
@@ -67,7 +69,9 @@ JavaScript → Style → Layout → Paint → Composite
 ```css
 /* SLOW - Layout recalculation */
 .card {
-  transition: width 0.3s, height 0.3s;
+  transition:
+    width 0.3s,
+    height 0.3s;
 }
 .card:hover {
   width: 110%;
@@ -135,14 +139,14 @@ visibility
 
 ```javascript
 // BAD - Causes layout thrashing
-elements.forEach(el => {
-  el.style.width = el.offsetWidth + 10 + 'px';  // Read then write
+elements.forEach((el) => {
+  el.style.width = el.offsetWidth + 10 + "px"; // Read then write
 });
 
 // GOOD - Batch reads, then batch writes
-const widths = elements.map(el => el.offsetWidth);
+const widths = elements.map((el) => el.offsetWidth);
 elements.forEach((el, i) => {
-  el.style.width = widths[i] + 10 + 'px';
+  el.style.width = widths[i] + 10 + "px";
 });
 ```
 
@@ -150,11 +154,11 @@ elements.forEach((el, i) => {
 
 ```javascript
 /* These force layout calculation */
-element.offsetTop, offsetLeft, offsetWidth, offsetHeight
-element.scrollTop, scrollLeft, scrollWidth, scrollHeight
-element.clientTop, clientLeft, clientWidth, clientHeight
-element.getBoundingClientRect()
-window.getComputedStyle()
+(element.offsetTop, offsetLeft, offsetWidth, offsetHeight);
+(element.scrollTop, scrollLeft, scrollWidth, scrollHeight);
+(element.clientTop, clientLeft, clientWidth, clientHeight);
+element.getBoundingClientRect();
+window.getComputedStyle();
 ```
 
 ### Using requestAnimationFrame
@@ -202,15 +206,15 @@ requestAnimationFrame(animate);
 
 ```javascript
 // Apply before animation
-element.style.willChange = 'transform';
+element.style.willChange = "transform";
 
 // Animate
 gsap.to(element, {
   y: -10,
   onComplete: () => {
     // Remove after animation
-    element.style.willChange = 'auto';
-  }
+    element.style.willChange = "auto";
+  },
 });
 ```
 
@@ -229,7 +233,7 @@ gsap.to(element, {
 
 /* NEVER - Always on */
 .animated {
-  will-change: transform;  /* Even when not animating */
+  will-change: transform; /* Even when not animating */
 }
 ```
 
@@ -247,20 +251,20 @@ gsap.to(element, {
 
 ```javascript
 // Add on hover intent
-element.addEventListener('mouseenter', () => {
-  element.style.willChange = 'transform';
+element.addEventListener("mouseenter", () => {
+  element.style.willChange = "transform";
 });
 
 // Animate
-element.addEventListener('click', () => {
+element.addEventListener("click", () => {
   gsap.to(element, { y: -20 });
 });
 
 // Remove when done
-element.addEventListener('mouseleave', () => {
+element.addEventListener("mouseleave", () => {
   // Wait for any animation to complete
   gsap.delayedCall(0.5, () => {
-    element.style.willChange = 'auto';
+    element.style.willChange = "auto";
   });
 });
 ```
@@ -273,13 +277,13 @@ element.addEventListener('mouseleave', () => {
 
 ```javascript
 // GSAP - Always kill animations when done
-const animation = gsap.to('.element', { x: 100 });
+const animation = gsap.to(".element", { x: 100 });
 
 // On component unmount or page leave
 animation.kill();
 
 // Kill all animations on an element
-gsap.killTweensOf('.element');
+gsap.killTweensOf(".element");
 ```
 
 ### ScrollTrigger Cleanup
@@ -291,14 +295,14 @@ const triggers = [];
 function initScrollAnimations() {
   triggers.push(
     ScrollTrigger.create({
-      trigger: '.section',
+      trigger: ".section",
       // ...
-    })
+    }),
   );
 }
 
 function cleanup() {
-  triggers.forEach(st => st.kill());
+  triggers.forEach((st) => st.kill());
   triggers.length = 0;
 }
 ```
@@ -310,10 +314,10 @@ function cleanup() {
 function initPage() {
   const ctx = gsap.context(() => {
     // All animations in this scope
-    gsap.from('.hero', { opacity: 0 });
-    gsap.from('.content', { y: 50 });
+    gsap.from(".hero", { opacity: 0 });
+    gsap.from(".content", { y: 50 });
 
-    ScrollTrigger.create({ trigger: '.section' });
+    ScrollTrigger.create({ trigger: ".section" });
   });
 
   return ctx;
@@ -321,18 +325,18 @@ function initPage() {
 
 // Cleanup is automatic
 const ctx = initPage();
-ctx.revert();  // Kills all animations in context
+ctx.revert(); // Kills all animations in context
 ```
 
 ### SplitText Memory
 
 ```javascript
 // SplitText creates DOM elements
-const split = new SplitText('.text', { type: 'chars' });
+const split = new SplitText(".text", { type: "chars" });
 
 // Always revert when done
 function cleanup() {
-  split.revert();  // Restores original DOM
+  split.revert(); // Restores original DOM
 }
 ```
 
@@ -342,13 +346,13 @@ function cleanup() {
 // Use AbortController
 const controller = new AbortController();
 
-window.addEventListener('scroll', handler, {
+window.addEventListener("scroll", handler, {
   signal: controller.signal,
-  passive: true
+  passive: true,
 });
 
-window.addEventListener('resize', handler, {
-  signal: controller.signal
+window.addEventListener("resize", handler, {
+  signal: controller.signal,
 });
 
 // Cleanup all listeners
@@ -380,10 +384,10 @@ function releaseAnimation(tl) {
 
 ```javascript
 // BAD - Blocks scrolling
-window.addEventListener('scroll', handler);
+window.addEventListener("scroll", handler);
 
 // GOOD - Non-blocking
-window.addEventListener('scroll', handler, { passive: true });
+window.addEventListener("scroll", handler, { passive: true });
 
 // Note: Can't call preventDefault() with passive: true
 ```
@@ -394,7 +398,7 @@ window.addEventListener('scroll', handler, { passive: true });
 // Throttle - Execute at most once per interval
 function throttle(fn, wait) {
   let lastTime = 0;
-  return function(...args) {
+  return function (...args) {
     const now = Date.now();
     if (now - lastTime >= wait) {
       lastTime = now;
@@ -406,15 +410,17 @@ function throttle(fn, wait) {
 // Debounce - Execute after pause in calls
 function debounce(fn, wait) {
   let timeout;
-  return function(...args) {
+  return function (...args) {
     clearTimeout(timeout);
     timeout = setTimeout(() => fn.apply(this, args), wait);
   };
 }
 
 // Usage
-window.addEventListener('scroll', throttle(handleScroll, 16), { passive: true });
-window.addEventListener('resize', debounce(handleResize, 100));
+window.addEventListener("scroll", throttle(handleScroll, 16), {
+  passive: true,
+});
+window.addEventListener("resize", debounce(handleResize, 100));
 ```
 
 ### Use ScrollTrigger Instead
@@ -422,11 +428,11 @@ window.addEventListener('resize', debounce(handleResize, 100));
 ```javascript
 // ScrollTrigger handles optimization automatically
 ScrollTrigger.create({
-  trigger: '.element',
+  trigger: ".element",
   onUpdate: (self) => {
     // This is already optimized
     console.log(self.progress);
-  }
+  },
 });
 
 // Much better than manual scroll listeners
@@ -436,18 +442,21 @@ ScrollTrigger.create({
 
 ```javascript
 // For visibility-based triggers
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, {
-  rootMargin: '50px',
-  threshold: 0.1
-});
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  {
+    rootMargin: "50px",
+    threshold: 0.1,
+  },
+);
 
-document.querySelectorAll('.animate-on-scroll').forEach(el => {
+document.querySelectorAll(".animate-on-scroll").forEach((el) => {
   observer.observe(el);
 });
 ```
@@ -534,19 +543,19 @@ gsap.ticker.add(() => {
 
 ```javascript
 // Mark start
-performance.mark('animation-start');
+performance.mark("animation-start");
 
 // Run animation
-await gsap.to('.element', { x: 100 }).then();
+await gsap.to(".element", { x: 100 }).then();
 
 // Mark end
-performance.mark('animation-end');
+performance.mark("animation-end");
 
 // Measure
-performance.measure('animation-duration', 'animation-start', 'animation-end');
+performance.measure("animation-duration", "animation-start", "animation-end");
 
 // Log
-const measure = performance.getEntriesByName('animation-duration')[0];
+const measure = performance.getEntriesByName("animation-duration")[0];
 console.log(`Animation took: ${measure.duration}ms`);
 ```
 
@@ -586,25 +595,26 @@ For grids with 20+ items, `ScrollTrigger.batch()` creates ONE observer instead o
 gsap.set(items, { opacity: 0, y: 30 });
 
 ScrollTrigger.batch(items, {
-  start: 'top 90%',
+  start: "top 90%",
   onEnter: (batch) => {
     gsap.to(batch, {
       opacity: 1,
       y: 0,
       duration: 0.5,
       stagger: 0.08,
-      ease: 'power3.out',
-      overwrite: true
+      ease: "power3.out",
+      overwrite: true,
     });
   },
-  once: true
+  once: true,
 });
 
 // BAD: Individual ScrollTrigger per item (20+ triggers)
-items.forEach(item => {
+items.forEach((item) => {
   gsap.from(item, {
-    opacity: 0, y: 30,
-    scrollTrigger: { trigger: item, start: 'top 90%' }
+    opacity: 0,
+    y: 30,
+    scrollTrigger: { trigger: item, start: "top 90%" },
   });
 });
 ```
@@ -640,20 +650,21 @@ Use `gsap.matchMedia()` to create different animations for different viewports w
 const mm = gsap.matchMedia();
 
 // Desktop: horizontal scroll
-mm.add('(prefers-reduced-motion: no-preference) and (min-width: 769px)', () => {
+mm.add("(prefers-reduced-motion: no-preference) and (min-width: 769px)", () => {
   gsap.to(track, {
     x: -totalWidth,
-    scrollTrigger: { trigger: section, pin: true, scrub: 1 }
+    scrollTrigger: { trigger: section, pin: true, scrub: 1 },
   });
   // Auto-reverted when viewport shrinks below 769px
 });
 
 // Mobile: vertical stack with simple reveals
-mm.add('(max-width: 768px), (prefers-reduced-motion: reduce)', () => {
+mm.add("(max-width: 768px), (prefers-reduced-motion: reduce)", () => {
   gsap.from(cards, {
-    opacity: 0, y: 30,
+    opacity: 0,
+    y: 30,
     stagger: 0.12,
-    scrollTrigger: { trigger: section, start: 'top 85%', once: true }
+    scrollTrigger: { trigger: section, start: "top 85%", once: true },
   });
   // Auto-reverted when viewport grows above 768px
 });

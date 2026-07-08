@@ -10,20 +10,20 @@ Beautiful design means nothing if it doesn't convert. This skill bridges psychol
 
 ## Quick Reference
 
-| Topic | Reference File |
-|-------|---------------|
+| Topic                   | Reference File                                                    |
+| ----------------------- | ----------------------------------------------------------------- |
 | Psychology & Persuasion | [psychology-foundations.md](references/psychology-foundations.md) |
-| Funnel Strategy | [funnel-strategy.md](references/funnel-strategy.md) |
-| Copywriting | [copywriting.md](references/copywriting.md) |
-| Social Proof & Trust | [social-proof-trust.md](references/social-proof-trust.md) |
-| Pricing Pages | [references/pricing-pages.md](references/pricing-pages.md) |
-| Forms & CTAs | [forms-ctas.md](references/forms-ctas.md) |
-| Testing & Benchmarks | [testing-benchmarks.md](references/testing-benchmarks.md) |
-| Mobile Conversion | [mobile-conversion.md](references/mobile-conversion.md) |
-| Ethical Boundaries | [ethical-boundaries.md](references/ethical-boundaries.md) |
-| Modern Patterns | [modern-patterns.md](references/modern-patterns.md) |
-| Navigation patterns | [navigation-patterns.md](references/navigation-patterns.md) |
-| Forms & feedback | [forms-feedback.md](references/forms-feedback.md) |
+| Funnel Strategy         | [funnel-strategy.md](references/funnel-strategy.md)               |
+| Copywriting             | [copywriting.md](references/copywriting.md)                       |
+| Social Proof & Trust    | [social-proof-trust.md](references/social-proof-trust.md)         |
+| Pricing Pages           | [references/pricing-pages.md](references/pricing-pages.md)        |
+| Forms & CTAs            | [forms-ctas.md](references/forms-ctas.md)                         |
+| Testing & Benchmarks    | [testing-benchmarks.md](references/testing-benchmarks.md)         |
+| Mobile Conversion       | [mobile-conversion.md](references/mobile-conversion.md)           |
+| Ethical Boundaries      | [ethical-boundaries.md](references/ethical-boundaries.md)         |
+| Modern Patterns         | [modern-patterns.md](references/modern-patterns.md)               |
+| Navigation patterns     | [navigation-patterns.md](references/navigation-patterns.md)       |
+| Forms & feedback        | [forms-feedback.md](references/forms-feedback.md)                 |
 
 ---
 
@@ -41,13 +41,13 @@ Beautiful design means nothing if it doesn't convert. This skill bridges psychol
 
 ### When Aesthetics vs Conversion Conflict
 
-| Situation | Decision |
-|-----------|----------|
-| Beautiful animation delays CTA visibility | Reduce/remove animation |
-| Minimal design hides trust signals | Add trust signals strategically |
-| Creative layout confuses scanning | Use proven patterns |
-| Bold design choice feels risky | A/B test it |
-| "Cleaner" means fewer conversion elements | Test removal vs keeping |
+| Situation                                 | Decision                        |
+| ----------------------------------------- | ------------------------------- |
+| Beautiful animation delays CTA visibility | Reduce/remove animation         |
+| Minimal design hides trust signals        | Add trust signals strategically |
+| Creative layout confuses scanning         | Use proven patterns             |
+| Bold design choice feels risky            | A/B test it                     |
+| "Cleaner" means fewer conversion elements | Test removal vs keeping         |
 
 **Default rule:** When in doubt, optimize for clarity over creativity.
 
@@ -85,35 +85,35 @@ See [funnel-strategy.md](references/funnel-strategy.md) for stage-specific patte
 
 ### By Decision Style
 
-| Type | Characteristics | Design Approach |
-|------|-----------------|-----------------|
+| Type           | Characteristics                             | Design Approach                                  |
+| -------------- | ------------------------------------------- | ------------------------------------------------ |
 | **Analytical** | Needs data, compares options, slow decision | Feature tables, specs, case studies with metrics |
-| **Emotional** | Decides by feeling, influenced by stories | Testimonials, imagery, transformation narrative |
-| **Impulsive** | Quick decisions, responds to urgency | Strong CTAs, limited-time offers, social proof |
-| **Methodical** | Process-driven, needs all information | FAQs, detailed documentation, guided tours |
+| **Emotional**  | Decides by feeling, influenced by stories   | Testimonials, imagery, transformation narrative  |
+| **Impulsive**  | Quick decisions, responds to urgency        | Strong CTAs, limited-time offers, social proof   |
+| **Methodical** | Process-driven, needs all information       | FAQs, detailed documentation, guided tours       |
 
 ### By Context
 
-| Context | Buyer Behavior | Strategy |
-|---------|----------------|----------|
-| **B2B** | Multiple stakeholders, longer cycle | ROI focus, case studies, demos, security signals |
-| **B2C** | Individual decision, emotional factors | Benefits over features, lifestyle imagery, reviews |
-| **High-ticket** | Considered purchase, risk averse | Trust signals, guarantees, human touch (calls/chat) |
-| **Low-ticket** | Impulse-friendly, price sensitive | Urgency, social proof, frictionless checkout |
-| **Enterprise** | Committee decision, compliance needs | Custom solutions, SLAs, dedicated support |
-| **SMB** | Speed matters, budget conscious | Quick value, clear pricing, self-serve |
+| Context         | Buyer Behavior                         | Strategy                                            |
+| --------------- | -------------------------------------- | --------------------------------------------------- |
+| **B2B**         | Multiple stakeholders, longer cycle    | ROI focus, case studies, demos, security signals    |
+| **B2C**         | Individual decision, emotional factors | Benefits over features, lifestyle imagery, reviews  |
+| **High-ticket** | Considered purchase, risk averse       | Trust signals, guarantees, human touch (calls/chat) |
+| **Low-ticket**  | Impulse-friendly, price sensitive      | Urgency, social proof, frictionless checkout        |
+| **Enterprise**  | Committee decision, compliance needs   | Custom solutions, SLAs, dedicated support           |
+| **SMB**         | Speed matters, budget conscious        | Quick value, clear pricing, self-serve              |
 
 ---
 
 ## Key Benchmarks (2024-2026)
 
-| Metric | Poor | Average | Good | Excellent |
-|--------|------|---------|------|-----------|
-| Landing page conversion | < 2% | 2-5% | 6-10% | 15%+ |
-| Email capture rate | < 1% | 1-2% | 2-5% | 5%+ |
-| Cart abandonment | > 80% | 70-80% | 60-70% | < 60% |
-| Free trial → Paid (SaaS) | < 5% | 5-10% | 10-20% | 25%+ |
-| Mobile vs Desktop gap | > 2.5x | 2-2.5x | 1.5-2x | < 1.5x |
+| Metric                   | Poor   | Average | Good   | Excellent |
+| ------------------------ | ------ | ------- | ------ | --------- |
+| Landing page conversion  | < 2%   | 2-5%    | 6-10%  | 15%+      |
+| Email capture rate       | < 1%   | 1-2%    | 2-5%   | 5%+       |
+| Cart abandonment         | > 80%  | 70-80%  | 60-70% | < 60%     |
+| Free trial → Paid (SaaS) | < 5%   | 5-10%   | 10-20% | 25%+      |
+| Mobile vs Desktop gap    | > 2.5x | 2-2.5x  | 1.5-2x | < 1.5x    |
 
 ---
 
@@ -123,27 +123,28 @@ Every design decision affects conversion. Here's how the other skills impact bus
 
 ### elite-gsap (Animations)
 
-| Pattern | Conversion Impact |
-|---------|-------------------|
+| Pattern               | Conversion Impact                                     |
+| --------------------- | ----------------------------------------------------- |
 | ScrollTrigger reveals | Progressive disclosure keeps attention → lower bounce |
-| SplitText headlines | Attention capture → increased engagement |
-| Flip filtering | Smooth product browsing → higher AOV |
-| Loading animations | Perceived performance → lower abandonment |
+| SplitText headlines   | Attention capture → increased engagement              |
+| Flip filtering        | Smooth product browsing → higher AOV                  |
+| Loading animations    | Perceived performance → lower abandonment             |
 
 **Warning:** Over-animation delays CTAs and frustrates users. Use purposefully.
 
 ### elite-layouts (Structure)
 
-| Pattern | Conversion Impact |
-|---------|-------------------|
-| Bento grids | Scannable features → faster comprehension |
+| Pattern           | Conversion Impact                             |
+| ----------------- | --------------------------------------------- |
+| Bento grids       | Scannable features → faster comprehension     |
 | Horizontal scroll | Immersive storytelling → emotional connection |
-| Sticky sections | Persistent CTAs → higher click-through |
-| Container queries | Consistent experience → mobile conversion |
+| Sticky sections   | Persistent CTAs → higher click-through        |
+| Container queries | Consistent experience → mobile conversion     |
 
 ### elite-performance (Speed)
 
 **Every second counts:**
+
 - 1s delay = 7% conversion loss
 - 3s load time = 53% mobile bounce
 - LCP > 2.5s = significant ranking penalty
@@ -152,12 +153,12 @@ Speed IS a conversion factor.
 
 ### elite-accessibility
 
-| Practice | Conversion Impact |
-|----------|-------------------|
-| WCAG compliance | Larger addressable audience |
-| Clear focus states | Keyboard users can convert |
-| Accessible forms | Fewer errors, more completions |
-| Trust signal | Signals professionalism |
+| Practice           | Conversion Impact              |
+| ------------------ | ------------------------------ |
+| WCAG compliance    | Larger addressable audience    |
+| Clear focus states | Keyboard users can convert     |
+| Accessible forms   | Fewer errors, more completions |
+| Trust signal       | Signals professionalism        |
 
 ---
 

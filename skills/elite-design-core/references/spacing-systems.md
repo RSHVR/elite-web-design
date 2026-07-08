@@ -26,7 +26,7 @@ Consistent spacing is the foundation of professional design. The 8px grid system
 
 ```css
 :root {
-  --base-unit: 0.5rem;  /* 8px at default font size */
+  --base-unit: 0.5rem; /* 8px at default font size */
 }
 ```
 
@@ -34,10 +34,10 @@ All spacing derives from this base:
 
 ```css
 /* Spacing as multiples of 8px */
---space-1: calc(var(--base-unit) * 0.5);   /* 4px */
---space-2: var(--base-unit);                /* 8px */
---space-3: calc(var(--base-unit) * 1.5);   /* 12px */
---space-4: calc(var(--base-unit) * 2);     /* 16px */
+--space-1: calc(var(--base-unit) * 0.5); /* 4px */
+--space-2: var(--base-unit); /* 8px */
+--space-3: calc(var(--base-unit) * 1.5); /* 12px */
+--space-4: calc(var(--base-unit) * 2); /* 16px */
 ```
 
 ---
@@ -51,46 +51,46 @@ All spacing derives from this base:
   /* Micro spacing (tight relationships) */
   --space-0: 0;
   --space-px: 1px;
-  --space-0.5: 0.125rem;  /* 2px */
-  --space-1: 0.25rem;     /* 4px */
+  --space-0.5: 0.125rem; /* 2px */
+  --space-1: 0.25rem; /* 4px */
 
   /* Small spacing (within components) */
-  --space-2: 0.5rem;      /* 8px */
-  --space-3: 0.75rem;     /* 12px */
-  --space-4: 1rem;        /* 16px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
 
   /* Medium spacing (between elements) */
-  --space-5: 1.25rem;     /* 20px */
-  --space-6: 1.5rem;      /* 24px */
-  --space-8: 2rem;        /* 32px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
 
   /* Large spacing (between groups) */
-  --space-10: 2.5rem;     /* 40px */
-  --space-12: 3rem;       /* 48px */
-  --space-16: 4rem;       /* 64px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
 
   /* Section spacing */
-  --space-20: 5rem;       /* 80px */
-  --space-24: 6rem;       /* 96px */
-  --space-32: 8rem;       /* 128px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
+  --space-32: 8rem; /* 128px */
 
   /* Hero/dramatic spacing */
-  --space-40: 10rem;      /* 160px */
-  --space-48: 12rem;      /* 192px */
-  --space-64: 16rem;      /* 256px */
+  --space-40: 10rem; /* 160px */
+  --space-48: 12rem; /* 192px */
+  --space-64: 16rem; /* 256px */
 }
 ```
 
 ### When to Use Each Size
 
-| Size | Use Case |
-|------|----------|
-| 0-1 (0-4px) | Icon padding, border-like gaps |
-| 2-3 (8-12px) | Tight element relationships (label to input) |
-| 4-6 (16-24px) | Standard element spacing, card padding |
-| 8-12 (32-48px) | Between content groups, section headers |
-| 16-24 (64-96px) | Section padding, major separations |
-| 32+ (128px+) | Hero sections, dramatic whitespace |
+| Size            | Use Case                                     |
+| --------------- | -------------------------------------------- |
+| 0-1 (0-4px)     | Icon padding, border-like gaps               |
+| 2-3 (8-12px)    | Tight element relationships (label to input) |
+| 4-6 (16-24px)   | Standard element spacing, card padding       |
+| 8-12 (32-48px)  | Between content groups, section headers      |
+| 16-24 (64-96px) | Section padding, major separations           |
+| 32+ (128px+)    | Hero sections, dramatic whitespace           |
 
 ---
 
@@ -103,15 +103,15 @@ Related elements should be closer together than unrelated elements.
 ```css
 /* Form field grouping */
 .form-group {
-  margin-bottom: var(--space-6);  /* 24px between groups */
+  margin-bottom: var(--space-6); /* 24px between groups */
 }
 
 .form-label {
-  margin-bottom: var(--space-2);  /* 8px - tight to input */
+  margin-bottom: var(--space-2); /* 8px - tight to input */
 }
 
 .form-input {
-  margin-bottom: var(--space-1);  /* 4px - very tight to helper */
+  margin-bottom: var(--space-1); /* 4px - very tight to helper */
 }
 
 .form-helper {
@@ -140,24 +140,24 @@ Larger containers need more padding:
 ```css
 /* Card sizes with proportional padding */
 .card-sm {
-  padding: var(--space-4);  /* 16px */
+  padding: var(--space-4); /* 16px */
 }
 
 .card-md {
-  padding: var(--space-6);  /* 24px */
+  padding: var(--space-6); /* 24px */
 }
 
 .card-lg {
-  padding: var(--space-8);  /* 32px */
+  padding: var(--space-8); /* 32px */
 }
 
 /* Section padding scales with importance */
 .section {
-  padding-block: var(--space-24);  /* 96px default */
+  padding-block: var(--space-24); /* 96px default */
 }
 
 .section-hero {
-  padding-block: var(--space-32);  /* 128px - more dramatic */
+  padding-block: var(--space-32); /* 128px - more dramatic */
 }
 ```
 
@@ -170,20 +170,20 @@ Larger containers need more padding:
 ```css
 .btn {
   /* Horizontal padding > vertical (2:1 or 3:2 ratio) */
-  padding: var(--space-3) var(--space-6);  /* 12px 24px */
+  padding: var(--space-3) var(--space-6); /* 12px 24px */
 }
 
 .btn-sm {
-  padding: var(--space-2) var(--space-4);  /* 8px 16px */
+  padding: var(--space-2) var(--space-4); /* 8px 16px */
 }
 
 .btn-lg {
-  padding: var(--space-4) var(--space-8);  /* 16px 32px */
+  padding: var(--space-4) var(--space-8); /* 16px 32px */
 }
 
 /* Button groups */
 .btn-group {
-  gap: var(--space-3);  /* 12px between buttons */
+  gap: var(--space-3); /* 12px between buttons */
 }
 ```
 
@@ -191,19 +191,19 @@ Larger containers need more padding:
 
 ```css
 .card {
-  padding: var(--space-6);  /* 24px */
+  padding: var(--space-6); /* 24px */
 }
 
 .card-header {
-  margin-bottom: var(--space-4);  /* 16px */
+  margin-bottom: var(--space-4); /* 16px */
 }
 
 .card-title {
-  margin-bottom: var(--space-2);  /* 8px - tight to description */
+  margin-bottom: var(--space-2); /* 8px - tight to description */
 }
 
 .card-description {
-  margin-bottom: var(--space-4);  /* 16px - before actions */
+  margin-bottom: var(--space-4); /* 16px - before actions */
 }
 
 .card-footer {
@@ -218,19 +218,19 @@ Larger containers need more padding:
 ```css
 /* Stacked list items */
 .list-item {
-  padding-block: var(--space-4);  /* 16px */
+  padding-block: var(--space-4); /* 16px */
   border-bottom: 1px solid var(--color-border);
 }
 
 /* Inline lists */
 .inline-list {
   display: flex;
-  gap: var(--space-6);  /* 24px horizontal gap */
+  gap: var(--space-6); /* 24px horizontal gap */
 }
 
 /* Navigation items */
 .nav-item {
-  padding: var(--space-2) var(--space-4);  /* 8px 16px */
+  padding: var(--space-2) var(--space-4); /* 8px 16px */
 }
 ```
 
@@ -240,18 +240,18 @@ Larger containers need more padding:
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);  /* 24px between form groups */
+  gap: var(--space-6); /* 24px between form groups */
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);  /* 8px between label/input/helper */
+  gap: var(--space-2); /* 8px between label/input/helper */
 }
 
 .form-row {
   display: flex;
-  gap: var(--space-4);  /* 16px between inline fields */
+  gap: var(--space-4); /* 16px between inline fields */
 }
 ```
 
@@ -291,21 +291,21 @@ section {
 ```css
 /* Mobile-first spacing */
 :root {
-  --section-padding: var(--space-12);  /* 48px */
-  --card-padding: var(--space-4);      /* 16px */
+  --section-padding: var(--space-12); /* 48px */
+  --card-padding: var(--space-4); /* 16px */
 }
 
 @media (min-width: 768px) {
   :root {
-    --section-padding: var(--space-16);  /* 64px */
-    --card-padding: var(--space-6);      /* 24px */
+    --section-padding: var(--space-16); /* 64px */
+    --card-padding: var(--space-6); /* 24px */
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --section-padding: var(--space-24);  /* 96px */
-    --card-padding: var(--space-8);      /* 32px */
+    --section-padding: var(--space-24); /* 96px */
+    --card-padding: var(--space-8); /* 32px */
   }
 }
 ```
@@ -318,12 +318,12 @@ section {
 }
 
 .card {
-  padding: var(--space-4);  /* 16px default */
+  padding: var(--space-4); /* 16px default */
 }
 
 @container (min-width: 400px) {
   .card {
-    padding: var(--space-6);  /* 24px when container allows */
+    padding: var(--space-6); /* 24px when container allows */
   }
 }
 ```
@@ -336,16 +336,16 @@ section {
 
 ```css
 .section {
-  padding-block: var(--space-24);  /* 96px vertical */
+  padding-block: var(--space-24); /* 96px vertical */
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: var(--space-16);  /* 64px before content */
+  margin-bottom: var(--space-16); /* 64px before content */
 }
 
 .section-title {
-  margin-bottom: var(--space-4);  /* 16px to description */
+  margin-bottom: var(--space-4); /* 16px to description */
 }
 
 .section-description {
@@ -362,7 +362,7 @@ section {
 
 ```css
 .hero {
-  padding-block: var(--space-32);  /* 128px - dramatic */
+  padding-block: var(--space-32); /* 128px - dramatic */
   min-height: 80vh;
   display: flex;
   align-items: center;
@@ -373,16 +373,16 @@ section {
 }
 
 .hero-title {
-  margin-bottom: var(--space-6);  /* 24px */
+  margin-bottom: var(--space-6); /* 24px */
 }
 
 .hero-description {
-  margin-bottom: var(--space-8);  /* 32px - before CTA */
+  margin-bottom: var(--space-8); /* 32px - before CTA */
 }
 
 .hero-actions {
   display: flex;
-  gap: var(--space-4);  /* 16px between buttons */
+  gap: var(--space-4); /* 16px between buttons */
 }
 ```
 
@@ -392,19 +392,19 @@ section {
 /* Bento grid spacing */
 .bento-grid {
   display: grid;
-  gap: var(--space-4);  /* 16px - tight for bento */
+  gap: var(--space-4); /* 16px - tight for bento */
 }
 
 /* Card grid spacing */
 .card-grid {
   display: grid;
-  gap: var(--space-6);  /* 24px - standard */
+  gap: var(--space-6); /* 24px - standard */
 }
 
 /* Feature grid (more breathing room) */
 .feature-grid {
   display: grid;
-  gap: var(--space-8);  /* 32px - more whitespace */
+  gap: var(--space-8); /* 32px - more whitespace */
 }
 ```
 
@@ -413,12 +413,12 @@ section {
 ```css
 /* Consistent vertical rhythm */
 .content-stack > * + * {
-  margin-top: var(--space-4);  /* 16px between elements */
+  margin-top: var(--space-4); /* 16px between elements */
 }
 
 /* Larger stack for sections */
 .section-stack > * + * {
-  margin-top: var(--space-16);  /* 64px between sections */
+  margin-top: var(--space-16); /* 64px between sections */
 }
 ```
 

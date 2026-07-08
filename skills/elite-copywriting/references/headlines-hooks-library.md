@@ -39,7 +39,7 @@ From _Tested Advertising Methods_ (1932), Chapter 5. The canonical reference. Mo
 6. "Wanted — \_\_\_"
 7. "This \_\_\_"
 8. "Because \_\_\_"
-9. "If **_, then _**"
+9. "If **\_, then _**"
 10. "Advice to \_\_\_"
 
 ### Benefit-focused (11–19)

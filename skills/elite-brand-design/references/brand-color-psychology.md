@@ -17,17 +17,17 @@ Color is the fastest brand signal — people form color-based impressions in 90 
 
 Colors carry cultural associations. These are Western defaults — research your audience's cultural context.
 
-| Color | Associations | Brand Use |
-|-------|-------------|-----------|
-| **Blue** | Trust, stability, professionalism | Finance, healthcare, tech |
-| **Navy/Midnight** | Authority, depth, seriousness | Legal, luxury, corporate |
-| **Green/Sage** | Growth, health, nature, calm | Wellness, sustainability, finance |
-| **Gold** | Premium, achievement, warmth | Luxury, legal, awards |
-| **Coral/Orange** | Energy, creativity, warmth | Creative studios, youth, food |
-| **Plum/Purple** | Wisdom, calm, creativity | Wellness, luxury, education |
-| **Red** | Urgency, passion, energy | Sales, food, entertainment |
-| **Black** | Sophistication, power, luxury | Fashion, tech, luxury |
-| **White/Cream** | Purity, simplicity, space | Healthcare, minimalist brands |
+| Color             | Associations                      | Brand Use                         |
+| ----------------- | --------------------------------- | --------------------------------- |
+| **Blue**          | Trust, stability, professionalism | Finance, healthcare, tech         |
+| **Navy/Midnight** | Authority, depth, seriousness     | Legal, luxury, corporate          |
+| **Green/Sage**    | Growth, health, nature, calm      | Wellness, sustainability, finance |
+| **Gold**          | Premium, achievement, warmth      | Luxury, legal, awards             |
+| **Coral/Orange**  | Energy, creativity, warmth        | Creative studios, youth, food     |
+| **Plum/Purple**   | Wisdom, calm, creativity          | Wellness, luxury, education       |
+| **Red**           | Urgency, passion, energy          | Sales, food, entertainment        |
+| **Black**         | Sophistication, power, luxury     | Fashion, tech, luxury             |
+| **White/Cream**   | Purity, simplicity, space         | Healthcare, minimalist brands     |
 
 ---
 
@@ -54,7 +54,8 @@ Each supporting color should have a purpose:
 
 ### Step 3: Map to Intent
 
-*Mental health clinic example — each color family carries meaning:*
+_Mental health clinic example — each color family carries meaning:_
+
 - **Plum**: Primary brand — wisdom, depth, calm
 - **Lavender**: Decorative accent — softness, serenity
 - **Sage**: Secondary accent — growth, healing
@@ -70,6 +71,7 @@ Each supporting color should have a purpose:
 - **10%**: Accent (CTAs, highlights) — drives attention
 
 In practice:
+
 - 60% cream/white → calm, spacious feel
 - 30% cards, sections with subtle background shift
 - 10% plum/gold/coral CTAs — the eye goes here first
@@ -95,6 +97,7 @@ A production-grade palette needs 10-12 shades per color family:
 ```
 
 Tools to generate consistent scales from a base color:
+
 - **Tailwind CSS Color Generator** (uicolors.app)
 - **Leonardo** (leonardocolor.io) — perceptually uniform scales
 - **Radix Colors** — accessible by default
@@ -119,7 +122,8 @@ The brand should still feel like the same brand — just in a different light.
 
 When products or services have distinct categories, assign each a unique hue for instant visual grouping:
 
-*Fragrance e-commerce example:*
+_Fragrance e-commerce example:_
+
 - Citrus → warm yellow (#d4a843)
 - Floral → soft pink (#c47088)
 - Woody → warm brown (#8b6e4e)

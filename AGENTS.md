@@ -7,6 +7,7 @@ When working with elite web design skills, follow this mindset:
 ### 1. Understand the Vision
 
 Before writing code, understand what the user wants to achieve:
+
 - What feeling should the site evoke?
 - Who is the target audience?
 - What references or inspiration exist?
@@ -17,6 +18,7 @@ Ask clarifying questions rather than making assumptions about design intent.
 ### 2. Elevate the Vision
 
 Don't just implement literally - add professional polish:
+
 - Suggest spacing and typography improvements
 - Recommend animation easing and timing refinements
 - Propose layout alternatives when appropriate
@@ -25,6 +27,7 @@ Don't just implement literally - add professional polish:
 ### 3. Implement with Excellence
 
 Execute with attention to detail:
+
 - Use the 8px spacing grid
 - Apply proper visual hierarchy
 - Ensure 60fps animation performance
@@ -35,12 +38,14 @@ Execute with attention to detail:
 ### CSS vs GSAP Animations
 
 **Use CSS Scroll-Driven Animations when:**
+
 - Simple parallax or reveal effects
 - Progress indicators tied to scroll
 - Safari support isn't critical (or polyfill acceptable)
 - Performance is paramount (off-main-thread)
 
 **Use GSAP ScrollTrigger when:**
+
 - Complex multi-element sequences
 - Pin/sticky behavior required
 - Horizontal scrolling sections
@@ -81,32 +86,32 @@ Before presenting code to users, verify:
 
 Load skills based on the task:
 
-| User Need | Primary Skill | Also Load |
-|-----------|---------------|-----------|
-| "Build a landing page" | elite-design-core | elite-layouts, elite-gsap |
-| "Add scroll animations" | elite-gsap | elite-accessibility |
-| "Optimize performance" | elite-performance | - |
-| "Need inspiration" | elite-inspiration | elite-design-core |
-| "Make it accessible" | elite-accessibility | - |
-| "CSS-only solution" | elite-css-animations | elite-accessibility |
-| "Bento grid layout" | elite-layouts | elite-design-core |
-| "Optimize for conversion" | elite-ux-strategy | elite-design-core |
-| "Pricing page design" | elite-ux-strategy | elite-layouts |
-| "CTA optimization" | elite-ux-strategy | - |
-| "Brand identity" | elite-brand-design | elite-design-core |
-| "Brand colors" | elite-brand-design | elite-design-core |
-| "Style guide" | elite-brand-design | - |
-| "Logo design" | elite-brand-design | elite-gsap |
-| "Tone of voice" | elite-brand-design | elite-ux-strategy |
-| "Navigation patterns" | elite-ux-strategy | - |
-| "Form validation" | elite-ux-strategy | elite-accessibility |
-| "Toast/feedback" | elite-ux-strategy | - |
-| "Touch targets" | elite-accessibility | - |
-| "Charts/data viz" | elite-design-core | - |
-| "Audit this page" | elite-audit | - |
-| "Pre-launch check" | elite-audit | - |
-| "Review accessibility" | elite-audit | elite-accessibility |
-| "Is this ready to ship" | elite-audit | - |
+| User Need                 | Primary Skill        | Also Load                 |
+| ------------------------- | -------------------- | ------------------------- |
+| "Build a landing page"    | elite-design-core    | elite-layouts, elite-gsap |
+| "Add scroll animations"   | elite-gsap           | elite-accessibility       |
+| "Optimize performance"    | elite-performance    | -                         |
+| "Need inspiration"        | elite-inspiration    | elite-design-core         |
+| "Make it accessible"      | elite-accessibility  | -                         |
+| "CSS-only solution"       | elite-css-animations | elite-accessibility       |
+| "Bento grid layout"       | elite-layouts        | elite-design-core         |
+| "Optimize for conversion" | elite-ux-strategy    | elite-design-core         |
+| "Pricing page design"     | elite-ux-strategy    | elite-layouts             |
+| "CTA optimization"        | elite-ux-strategy    | -                         |
+| "Brand identity"          | elite-brand-design   | elite-design-core         |
+| "Brand colors"            | elite-brand-design   | elite-design-core         |
+| "Style guide"             | elite-brand-design   | -                         |
+| "Logo design"             | elite-brand-design   | elite-gsap                |
+| "Tone of voice"           | elite-brand-design   | elite-ux-strategy         |
+| "Navigation patterns"     | elite-ux-strategy    | -                         |
+| "Form validation"         | elite-ux-strategy    | elite-accessibility       |
+| "Toast/feedback"          | elite-ux-strategy    | -                         |
+| "Touch targets"           | elite-accessibility  | -                         |
+| "Charts/data viz"         | elite-design-core    | -                         |
+| "Audit this page"         | elite-audit          | -                         |
+| "Pre-launch check"        | elite-audit          | -                         |
+| "Review accessibility"    | elite-audit          | elite-accessibility       |
+| "Is this ready to ship"   | elite-audit          | -                         |
 
 ## Common Pitfalls to Avoid
 

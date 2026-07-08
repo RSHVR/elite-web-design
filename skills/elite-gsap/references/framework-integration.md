@@ -22,20 +22,22 @@ npm install @gsap/react
 ```
 
 ```jsx
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { useRef } from 'react';
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
 
 gsap.registerPlugin(useGSAP);
 
 function Component() {
   const container = useRef();
 
-  useGSAP(() => {
-    // Animations are automatically cleaned up on unmount
-    gsap.from('.box', { opacity: 0, y: 50, stagger: 0.1 });
-
-  }, { scope: container }); // Scope selector to container
+  useGSAP(
+    () => {
+      // Animations are automatically cleaned up on unmount
+      gsap.from(".box", { opacity: 0, y: 50, stagger: 0.1 });
+    },
+    { scope: container },
+  ); // Scope selector to container
 
   return (
     <div ref={container}>
@@ -52,13 +54,16 @@ function Component() {
 function Component({ isActive }) {
   const container = useRef();
 
-  useGSAP(() => {
-    if (isActive) {
-      gsap.to('.box', { x: 100 });
-    } else {
-      gsap.to('.box', { x: 0 });
-    }
-  }, { scope: container, dependencies: [isActive] });
+  useGSAP(
+    () => {
+      if (isActive) {
+        gsap.to(".box", { x: 100 });
+      } else {
+        gsap.to(".box", { x: 0 });
+      }
+    },
+    { scope: container, dependencies: [isActive] },
+  );
 
   return <div ref={container}>...</div>;
 }
@@ -74,12 +79,14 @@ function Component() {
 
   // Wrap event handlers to ensure they're in context
   const handleClick = contextSafe(() => {
-    gsap.to('.box', { rotation: 360, duration: 1 });
+    gsap.to(".box", { rotation: 360, duration: 1 });
   });
 
   return (
     <div ref={container}>
-      <div className="box" onClick={handleClick}>Click me</div>
+      <div className="box" onClick={handleClick}>
+        Click me
+      </div>
     </div>
   );
 }
@@ -88,25 +95,28 @@ function Component() {
 ### With ScrollTrigger
 
 ```jsx
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Section() {
   const sectionRef = useRef();
 
-  useGSAP(() => {
-    gsap.from('.content', {
-      opacity: 0,
-      y: 50,
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 80%'
-      }
-    });
-  }, { scope: sectionRef });
+  useGSAP(
+    () => {
+      gsap.from(".content", {
+        opacity: 0,
+        y: 50,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section ref={sectionRef}>
@@ -119,15 +129,15 @@ function Section() {
 ### Manual Context (Alternative)
 
 ```jsx
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 function Component() {
   const container = useRef();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.box', { opacity: 0, y: 50 });
+      gsap.from(".box", { opacity: 0, y: 50 });
     }, container);
 
     return () => ctx.revert(); // Cleanup
@@ -145,15 +155,15 @@ function Component() {
 
 ```vue
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import gsap from 'gsap';
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import gsap from "gsap";
 
 const container = ref(null);
 let ctx;
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    gsap.from('.box', { opacity: 0, y: 50, stagger: 0.1 });
+    gsap.from(".box", { opacity: 0, y: 50, stagger: 0.1 });
   }, container.value);
 });
 
@@ -174,9 +184,9 @@ onBeforeUnmount(() => {
 
 ```vue
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -185,13 +195,13 @@ let ctx;
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    gsap.from('.content', {
+    gsap.from(".content", {
       opacity: 0,
       y: 50,
       scrollTrigger: {
         trigger: section.value,
-        start: 'top 80%'
-      }
+        start: "top 80%",
+      },
     });
   }, section.value);
 });
@@ -212,8 +222,8 @@ onBeforeUnmount(() => {
 
 ```vue
 <script setup>
-import { ref, watch, onMounted, onBeforeUnmount } from 'vue';
-import gsap from 'gsap';
+import { ref, watch, onMounted, onBeforeUnmount } from "vue";
+import gsap from "gsap";
 
 const isExpanded = ref(false);
 const box = ref(null);
@@ -228,7 +238,7 @@ watch(isExpanded, (newValue) => {
     gsap.to(box.value, {
       width: newValue ? 400 : 200,
       height: newValue ? 300 : 150,
-      duration: 0.5
+      duration: 0.5,
     });
   });
 });
@@ -239,9 +249,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="box" @click="isExpanded = !isExpanded">
-    Click to toggle
-  </div>
+  <div ref="box" @click="isExpanded = !isExpanded">Click to toggle</div>
 </template>
 ```
 
@@ -375,30 +383,30 @@ onBeforeUnmount(() => {
 
 ```javascript
 // animations.js
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function initPageAnimations(container) {
   const ctx = gsap.context(() => {
     // Hero animation
-    gsap.from('.hero-title', {
+    gsap.from(".hero-title", {
       opacity: 0,
       y: 50,
-      duration: 1
+      duration: 1,
     });
 
     // Scroll-triggered sections
-    gsap.utils.toArray('.section').forEach(section => {
-      gsap.from(section.querySelectorAll('.animate'), {
+    gsap.utils.toArray(".section").forEach((section) => {
+      gsap.from(section.querySelectorAll(".animate"), {
         opacity: 0,
         y: 30,
         stagger: 0.1,
         scrollTrigger: {
           trigger: section,
-          start: 'top 80%'
-        }
+          start: "top 80%",
+        },
       });
     });
   }, container);
@@ -407,7 +415,7 @@ export function initPageAnimations(container) {
 }
 
 // main.js
-import { initPageAnimations } from './animations.js';
+import { initPageAnimations } from "./animations.js";
 
 const cleanup = initPageAnimations(document.body);
 
@@ -420,8 +428,8 @@ const cleanup = initPageAnimations(document.body);
 
 ```javascript
 // AnimationController.js
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -441,23 +449,23 @@ export class AnimationController {
   }
 
   setupHero() {
-    gsap.from('.hero-content', {
+    gsap.from(".hero-content", {
       opacity: 0,
       y: 50,
       duration: 1,
-      ease: 'power3.out'
+      ease: "power3.out",
     });
   }
 
   setupScrollAnimations() {
-    gsap.utils.toArray('.reveal').forEach(el => {
+    gsap.utils.toArray(".reveal").forEach((el) => {
       gsap.from(el, {
         opacity: 0,
         y: 40,
         scrollTrigger: {
           trigger: el,
-          start: 'top 85%'
-        }
+          start: "top 85%",
+        },
       });
     });
   }
@@ -478,7 +486,7 @@ controller.destroy();
 
 ```javascript
 // For vanilla SPAs
-import gsap from 'gsap';
+import gsap from "gsap";
 
 class PageAnimations {
   constructor() {
@@ -492,11 +500,11 @@ class PageAnimations {
 
     // Setup new
     this.currentContext = gsap.context(() => {
-      gsap.from('.page-content', {
+      gsap.from(".page-content", {
         opacity: 0,
         y: 30,
         duration: 0.6,
-        stagger: 0.1
+        stagger: 0.1,
       });
     }, container);
   }
@@ -505,7 +513,7 @@ class PageAnimations {
   leave(container) {
     return gsap.to(container, {
       opacity: 0,
-      duration: 0.3
+      duration: 0.3,
     });
   }
 }
@@ -522,11 +530,11 @@ export const pageAnimations = new PageAnimations();
 export function createAnimation(options) {
   const mm = gsap.matchMedia();
 
-  mm.add('(prefers-reduced-motion: no-preference)', () => {
+  mm.add("(prefers-reduced-motion: no-preference)", () => {
     return options.full();
   });
 
-  mm.add('(prefers-reduced-motion: reduce)', () => {
+  mm.add("(prefers-reduced-motion: reduce)", () => {
     return options.reduced?.() || options.full();
   });
 
@@ -535,8 +543,8 @@ export function createAnimation(options) {
 
 // Usage
 createAnimation({
-  full: () => gsap.from('.hero', { opacity: 0, y: 50, duration: 1 }),
-  reduced: () => gsap.from('.hero', { opacity: 0, duration: 0.3 })
+  full: () => gsap.from(".hero", { opacity: 0, y: 50, duration: 1 }),
+  reduced: () => gsap.from(".hero", { opacity: 0, duration: 0.3 }),
 });
 ```
 
@@ -618,7 +626,7 @@ export function reveal(node, opts = {}) {
   return {
     destroy() {
       ctx.revert();
-    }
+    },
   };
 }
 ```

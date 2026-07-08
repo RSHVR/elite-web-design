@@ -16,12 +16,12 @@ Color contrast requirements for accessible design.
 
 ### Contrast Ratios
 
-| Content Type | Level AA | Level AAA |
-|--------------|----------|-----------|
-| Normal text (<18px) | 4.5:1 | 7:1 |
-| Large text (≥18px or ≥14px bold) | 3:1 | 4.5:1 |
-| UI components & graphics | 3:1 | 3:1 |
-| Focus indicators | 3:1 | 3:1 |
+| Content Type                     | Level AA | Level AAA |
+| -------------------------------- | -------- | --------- |
+| Normal text (<18px)              | 4.5:1    | 7:1       |
+| Large text (≥18px or ≥14px bold) | 3:1      | 4.5:1     |
+| UI components & graphics         | 3:1      | 3:1       |
+| Focus indicators                 | 3:1      | 3:1       |
 
 ### What Counts as "Large Text"
 
@@ -42,13 +42,13 @@ APCA (Advanced Perceptual Contrast Algorithm) is replacing WCAG 2.x contrast. It
 
 ### APCA Values
 
-| Use Case | Minimum Lc |
-|----------|------------|
-| Body text (400 weight) | Lc 75 |
-| Bold body text (700) | Lc 60 |
-| Large headlines | Lc 45-60 |
-| Placeholder text | Lc 60 |
-| Disabled text | Lc 30-45 |
+| Use Case               | Minimum Lc |
+| ---------------------- | ---------- |
+| Body text (400 weight) | Lc 75      |
+| Bold body text (700)   | Lc 60      |
+| Large headlines        | Lc 45-60   |
+| Placeholder text       | Lc 60      |
+| Disabled text          | Lc 30-45   |
 
 ### Key Differences from WCAG
 
@@ -64,6 +64,7 @@ APCA (Advanced Perceptual Contrast Algorithm) is replacing WCAG 2.x contrast. It
 - When fine-tuning contrast for optimal readability
 
 Use WCAG for:
+
 - Legal compliance requirements
 - Broad compatibility
 - When in doubt
@@ -98,13 +99,15 @@ Use WCAG for:
 
 ```javascript
 // Using axe-core
-import axe from 'axe-core';
+import axe from "axe-core";
 
-axe.run(document, {
-  rules: ['color-contrast']
-}).then(results => {
-  console.log(results.violations);
-});
+axe
+  .run(document, {
+    rules: ["color-contrast"],
+  })
+  .then((results) => {
+    console.log(results.violations);
+  });
 ```
 
 ---
@@ -117,17 +120,17 @@ axe.run(document, {
 /* On white (#ffffff) background */
 
 /* Text - All pass AAA */
---text-primary: #171717;     /* 18.2:1 ✓ AAA */
---text-secondary: #404040;   /* 9.0:1 ✓ AAA */
---text-muted: #525252;       /* 7.5:1 ✓ AAA */
---text-subtle: #737373;      /* 4.6:1 ✓ AA */
+--text-primary: #171717; /* 18.2:1 ✓ AAA */
+--text-secondary: #404040; /* 9.0:1 ✓ AAA */
+--text-muted: #525252; /* 7.5:1 ✓ AAA */
+--text-subtle: #737373; /* 4.6:1 ✓ AA */
 
 /* Interactive */
---link: #1d4ed8;             /* 8.6:1 ✓ AAA */
---link-hover: #1e40af;       /* 9.5:1 ✓ AAA */
+--link: #1d4ed8; /* 8.6:1 ✓ AAA */
+--link-hover: #1e40af; /* 9.5:1 ✓ AAA */
 
 /* Buttons - Check both text and background */
---btn-primary-bg: #2563eb;   /* 4.5:1 with white text ✓ AA */
+--btn-primary-bg: #2563eb; /* 4.5:1 with white text ✓ AA */
 --btn-primary-text: #ffffff;
 ```
 
@@ -137,17 +140,17 @@ axe.run(document, {
 /* On near-black (#0a0a0a) background */
 
 /* Text - All pass AAA */
---text-primary: #fafafa;     /* 18.9:1 ✓ AAA */
---text-secondary: #d4d4d4;   /* 11.7:1 ✓ AAA */
---text-muted: #a3a3a3;       /* 7.0:1 ✓ AAA */
---text-subtle: #737373;      /* 4.5:1 ✓ AA */
+--text-primary: #fafafa; /* 18.9:1 ✓ AAA */
+--text-secondary: #d4d4d4; /* 11.7:1 ✓ AAA */
+--text-muted: #a3a3a3; /* 7.0:1 ✓ AAA */
+--text-subtle: #737373; /* 4.5:1 ✓ AA */
 
 /* Interactive - need lighter versions */
---link: #60a5fa;             /* 7.3:1 ✓ AAA */
---link-hover: #93c5fd;       /* 10.1:1 ✓ AAA */
+--link: #60a5fa; /* 7.3:1 ✓ AAA */
+--link-hover: #93c5fd; /* 10.1:1 ✓ AAA */
 
 /* Buttons */
---btn-primary-bg: #3b82f6;   /* 5.1:1 with white text ✓ AA */
+--btn-primary-bg: #3b82f6; /* 5.1:1 with white text ✓ AA */
 --btn-primary-text: #ffffff;
 ```
 
@@ -155,7 +158,7 @@ axe.run(document, {
 
 ```css
 /* On blue (#2563eb) background */
---text-on-blue: #ffffff;     /* 4.5:1 ✓ AA */
+--text-on-blue: #ffffff; /* 4.5:1 ✓ AA */
 
 /* On accent backgrounds, prefer white or very dark text */
 /* Test each combination individually */
@@ -170,12 +173,12 @@ axe.run(document, {
 ```css
 /* BAD - Fails contrast */
 input::placeholder {
-  color: #c0c0c0;  /* ~2.5:1 on white - FAIL */
+  color: #c0c0c0; /* ~2.5:1 on white - FAIL */
 }
 
 /* GOOD - Passes AA */
 input::placeholder {
-  color: #757575;  /* 4.6:1 on white - PASS */
+  color: #757575; /* 4.6:1 on white - PASS */
 }
 ```
 
@@ -185,13 +188,13 @@ input::placeholder {
 /* BAD - Completely invisible */
 button:disabled {
   color: #e0e0e0;
-  background: #f0f0f0;  /* ~1.1:1 - too low */
+  background: #f0f0f0; /* ~1.1:1 - too low */
 }
 
 /* GOOD - Clearly disabled but readable */
 button:disabled {
   color: #9e9e9e;
-  background: #f5f5f5;  /* ~2.5:1 - acceptable for disabled */
+  background: #f5f5f5; /* ~2.5:1 - acceptable for disabled */
 }
 ```
 
@@ -200,12 +203,12 @@ button:disabled {
 ```css
 /* BAD - Hard to see */
 :focus {
-  outline: 1px solid #93c5fd;  /* Light blue, low contrast */
+  outline: 1px solid #93c5fd; /* Light blue, low contrast */
 }
 
 /* GOOD - Clearly visible */
 :focus-visible {
-  outline: 2px solid #2563eb;  /* Strong blue, 4.5:1+ */
+  outline: 2px solid #2563eb; /* Strong blue, 4.5:1+ */
   outline-offset: 2px;
 }
 ```
@@ -225,16 +228,16 @@ button:disabled {
 }
 
 .hero::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
 }
 
 .hero-text {
   position: relative;
   z-index: 1;
-  color: white;  /* Now has consistent contrast */
+  color: white; /* Now has consistent contrast */
 }
 ```
 
@@ -243,23 +246,23 @@ button:disabled {
 ```css
 /* BAD - Links indistinguishable */
 a {
-  color: #333;  /* Same as body text */
+  color: #333; /* Same as body text */
   text-decoration: none;
 }
 
 /* GOOD - Links clearly different */
 a {
-  color: #1d4ed8;  /* Distinct color */
-  text-decoration: underline;  /* Or use underline */
+  color: #1d4ed8; /* Distinct color */
+  text-decoration: underline; /* Or use underline */
 }
 
 /* If removing underline, must have 3:1 contrast with surrounding text */
 a {
-  color: #1d4ed8;  /* Distinct enough from #333 body text */
+  color: #1d4ed8; /* Distinct enough from #333 body text */
   text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;  /* Show on hover */
+  text-decoration: underline; /* Show on hover */
 }
 ```
 
@@ -310,7 +313,10 @@ Rules that complement contrast requirements for a fully accessible interface.
 
 ```html
 <!-- Meaningful image: descriptive alt -->
-<img src="team-photo.jpg" alt="Our team of five designers collaborating at a whiteboard" />
+<img
+  src="team-photo.jpg"
+  alt="Our team of five designers collaborating at a whiteboard"
+/>
 
 <!-- Decorative image: empty alt -->
 <img src="decorative-wave.svg" alt="" />
@@ -368,12 +374,12 @@ Sequential h1→h6, no level skips:
 ```html
 <!-- GOOD -->
 <h1>Page Title</h1>
-  <h2>Section</h2>
-    <h3>Subsection</h3>
+<h2>Section</h2>
+<h3>Subsection</h3>
 
 <!-- BAD: Skipping h2 -->
 <h1>Page Title</h1>
-  <h3>Subsection</h3>
+<h3>Subsection</h3>
 ```
 
 Screen readers use heading levels for page navigation — skipping levels breaks this landmark system.
@@ -387,9 +393,7 @@ Screen readers use heading levels for page navigation — skipping levels breaks
 </p>
 
 <!-- Live updating content (stock prices, notifications) -->
-<div aria-live="polite" aria-atomic="true">
-  Updated: 3 new messages
-</div>
+<div aria-live="polite" aria-atomic="true">Updated: 3 new messages</div>
 ```
 
 - `aria-live="polite"` — Waits for user to finish current task before announcing

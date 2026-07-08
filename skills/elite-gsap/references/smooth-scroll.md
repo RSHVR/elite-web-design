@@ -31,12 +31,12 @@ npm install lenis
 ### Vanilla JS
 
 ```javascript
-import Lenis from 'lenis';
-import 'lenis/dist/lenis.css';
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 
 const lenis = new Lenis({
   duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 });
 
 function raf(time) {
@@ -51,13 +51,13 @@ requestAnimationFrame(raf);
 
 ### Configuration
 
-| Option | Default | Production Value | Notes |
-|--------|---------|-----------------|-------|
-| `duration` | 1.2 | 1.2 | Time in seconds for scroll to settle |
-| `easing` | — | Exponential decay | `(t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))` |
-| `orientation` | `'vertical'` | `'vertical'` | Can be `'horizontal'` |
-| `smoothWheel` | `true` | `true` | Smooth mouse wheel scroll |
-| `touchMultiplier` | `2` | `2` | Touch scroll sensitivity |
+| Option            | Default      | Production Value  | Notes                                              |
+| ----------------- | ------------ | ----------------- | -------------------------------------------------- |
+| `duration`        | 1.2          | 1.2               | Time in seconds for scroll to settle               |
+| `easing`          | —            | Exponential decay | `(t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))` |
+| `orientation`     | `'vertical'` | `'vertical'`      | Can be `'horizontal'`                              |
+| `smoothWheel`     | `true`       | `true`            | Smooth mouse wheel scroll                          |
+| `touchMultiplier` | `2`          | `2`               | Touch scroll sensitivity                           |
 
 The exponential easing `Math.pow(2, -10 * t)` creates a fast initial response with a long, gentle settle — feels natural and premium.
 
@@ -135,15 +135,16 @@ For multi-page SvelteKit apps, scroll to top on navigation:
 ```
 
 Key details:
+
 - `history.scrollRestoration = 'manual'` prevents the browser's default scroll restoration
 - `lenis.scrollTo(0, { immediate: true })` scrolls to top instantly (no smooth animation) on route change
 
 ### React Layout
 
 ```jsx
-import { useEffect, useRef } from 'react';
-import Lenis from 'lenis';
-import 'lenis/dist/lenis.css';
+import { useEffect, useRef } from "react";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 
 export function SmoothScrollProvider({ children }) {
   const lenisRef = useRef(null);
@@ -151,7 +152,7 @@ export function SmoothScrollProvider({ children }) {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
     lenisRef.current = lenis;
 
@@ -187,15 +188,15 @@ The `data-lenis-prevent` attribute tells Lenis to ignore scroll events within th
 
 ## Lenis vs Native Scroll
 
-| Factor | Lenis | Native `scroll-behavior: smooth` |
-|--------|-------|----------------------------------|
-| **Feel** | Momentum-based with easing | Linear interpolation |
-| **Consistency** | Same across all browsers | Varies by browser |
-| **Performance** | RAF loop (main thread) | Browser-native (off thread) |
-| **Customization** | Duration, easing, callbacks | CSS only, limited |
-| **GSAP compatibility** | Automatic | Automatic |
-| **Bundle size** | ~3KB gzipped | 0KB |
-| **Mobile** | Good (touch support) | Native (best) |
+| Factor                 | Lenis                       | Native `scroll-behavior: smooth` |
+| ---------------------- | --------------------------- | -------------------------------- |
+| **Feel**               | Momentum-based with easing  | Linear interpolation             |
+| **Consistency**        | Same across all browsers    | Varies by browser                |
+| **Performance**        | RAF loop (main thread)      | Browser-native (off thread)      |
+| **Customization**      | Duration, easing, callbacks | CSS only, limited                |
+| **GSAP compatibility** | Automatic                   | Automatic                        |
+| **Bundle size**        | ~3KB gzipped                | 0KB                              |
+| **Mobile**             | Good (touch support)        | Native (best)                    |
 
 **Use Lenis when:** The site has heavy scroll-driven animations and the premium scroll feel is important to the brand experience.
 

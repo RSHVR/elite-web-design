@@ -29,7 +29,7 @@ Fixed vertical guide lines at content edges — the web equivalent of a designer
 
 .container-frame::before,
 .container-frame::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -91,13 +91,13 @@ This pattern eliminates the need for negative-margin hacks to break out of conta
 
 Different industries use different spatial density. All use `clamp()` for smooth responsive scaling:
 
-| Archetype | --spacing-section | Density | Mood |
-|-----------|-------------------|---------|------|
-| Digital Studio | `clamp(7rem, 14vw, 12rem)` | Low | Generous, airy, confident |
-| Luxury E-commerce | `clamp(4rem, 8vw, 8rem)` | Medium | Editorial, breathing room |
-| Mental Health Clinic | `clamp(4rem, 10vw, 7rem)` | Medium | Calm, unhurried |
-| Criminal Defense Firm | `clamp(5rem, 10vw, 9rem)` | Medium-Low | Spacious, authoritative |
-| Community Pharmacy | `clamp(3rem, 6vw, 5rem)` | High | Information-dense, efficient |
+| Archetype             | --spacing-section          | Density    | Mood                         |
+| --------------------- | -------------------------- | ---------- | ---------------------------- |
+| Digital Studio        | `clamp(7rem, 14vw, 12rem)` | Low        | Generous, airy, confident    |
+| Luxury E-commerce     | `clamp(4rem, 8vw, 8rem)`   | Medium     | Editorial, breathing room    |
+| Mental Health Clinic  | `clamp(4rem, 10vw, 7rem)`  | Medium     | Calm, unhurried              |
+| Criminal Defense Firm | `clamp(5rem, 10vw, 9rem)`  | Medium-Low | Spacious, authoritative      |
+| Community Pharmacy    | `clamp(3rem, 6vw, 5rem)`   | High       | Information-dense, efficient |
 
 ```css
 .section {
@@ -148,7 +148,7 @@ A contained scrollable area within a page section (for project showcases, code p
 
 /* Gradient overlay hints "there's more below" */
 .scroll-viewport::after {
-  content: '';
+  content: "";
   position: sticky;
   bottom: 0;
   left: 0;
@@ -177,7 +177,7 @@ If using Lenis for smooth scroll, add `data-lenis-prevent` to exclude this viewp
 Required on every page — without it, mobile browsers render at desktop width:
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 ```
 
 **Never disable zoom** — `user-scalable=no` and `maximum-scale=1` are accessibility violations. Users with low vision need zoom.
@@ -211,8 +211,12 @@ html {
 }
 
 @media (min-width: 768px) {
-  body { padding-bottom: 0; }
-  .bottom-bar { display: none; }
+  body {
+    padding-bottom: 0;
+  }
+  .bottom-bar {
+    display: none;
+  }
 }
 ```
 

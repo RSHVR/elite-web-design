@@ -16,8 +16,8 @@ Animate layout changes seamlessly using the FLIP technique (First, Last, Invert,
 ## Basic Usage
 
 ```javascript
-import gsap from 'gsap';
-import { Flip } from 'gsap/Flip';
+import gsap from "gsap";
+import { Flip } from "gsap/Flip";
 
 gsap.registerPlugin(Flip);
 ```
@@ -26,19 +26,19 @@ gsap.registerPlugin(Flip);
 
 ```javascript
 // 1. Capture the FIRST state
-const state = Flip.getState('.items');
+const state = Flip.getState(".items");
 
 // 2. Make DOM changes (the LAST state happens automatically)
-items.forEach(item => container.appendChild(item));  // Reorder
+items.forEach((item) => container.appendChild(item)); // Reorder
 // or
-element.classList.toggle('expanded');  // Style change
+element.classList.toggle("expanded"); // Style change
 // or
-newContainer.appendChild(element);  // Move to new parent
+newContainer.appendChild(element); // Move to new parent
 
 // 3. INVERT and PLAY - Flip handles this
 Flip.from(state, {
   duration: 0.6,
-  ease: 'power2.inOut'
+  ease: "power2.inOut",
 });
 ```
 
@@ -50,15 +50,15 @@ Flip.from(state, {
 
 ```javascript
 // Capture position, size, and transforms
-const state = Flip.getState('.item');
+const state = Flip.getState(".item");
 ```
 
 ### With Specific Properties
 
 ```javascript
-const state = Flip.getState('.item', {
-  props: 'backgroundColor,borderRadius,boxShadow',  // Include these CSS properties
-  simple: true  // Faster, only captures x/y (no scale/rotation)
+const state = Flip.getState(".item", {
+  props: "backgroundColor,borderRadius,boxShadow", // Include these CSS properties
+  simple: true, // Faster, only captures x/y (no scale/rotation)
 });
 ```
 
@@ -69,15 +69,15 @@ const state = Flip.getState('.item', {
 const state = Flip.getState([element1, element2, element3]);
 
 // Mixed selectors and elements
-const state = Flip.getState('.card, .header, #special');
+const state = Flip.getState(".card, .header, #special");
 ```
 
 ### Nested State
 
 ```javascript
 // Capture parent and children separately
-const state = Flip.getState('.container, .container > *', {
-  nested: true  // Track parent-child relationships
+const state = Flip.getState(".container, .container > *", {
+  nested: true, // Track parent-child relationships
 });
 ```
 
@@ -88,16 +88,16 @@ const state = Flip.getState('.container, .container > *', {
 ### Expand/Collapse Card
 
 ```javascript
-const card = document.querySelector('.card');
+const card = document.querySelector(".card");
 
-card.addEventListener('click', () => {
+card.addEventListener("click", () => {
   const state = Flip.getState(card);
 
-  card.classList.toggle('expanded');
+  card.classList.toggle("expanded");
 
   Flip.from(state, {
     duration: 0.5,
-    ease: 'power2.inOut'
+    ease: "power2.inOut",
   });
 });
 ```
@@ -118,18 +118,18 @@ card.addEventListener('click', () => {
 ### Grid to List Toggle
 
 ```javascript
-const toggleBtn = document.querySelector('.toggle-view');
-const container = document.querySelector('.items-container');
+const toggleBtn = document.querySelector(".toggle-view");
+const container = document.querySelector(".items-container");
 
-toggleBtn.addEventListener('click', () => {
-  const state = Flip.getState('.item');
+toggleBtn.addEventListener("click", () => {
+  const state = Flip.getState(".item");
 
-  container.classList.toggle('list-view');
+  container.classList.toggle("list-view");
 
   Flip.from(state, {
     duration: 0.6,
-    ease: 'power2.inOut',
-    stagger: 0.03
+    ease: "power2.inOut",
+    stagger: 0.03,
   });
 });
 ```
@@ -144,7 +144,7 @@ function moveItem(item, targetContainer) {
 
   Flip.from(state, {
     duration: 0.5,
-    ease: 'power2.inOut'
+    ease: "power2.inOut",
   });
 }
 ```
@@ -156,34 +156,36 @@ function moveItem(item, targetContainer) {
 ### Filter Items
 
 ```javascript
-const items = gsap.utils.toArray('.item');
-const filterBtns = gsap.utils.toArray('.filter-btn');
+const items = gsap.utils.toArray(".item");
+const filterBtns = gsap.utils.toArray(".filter-btn");
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
     const filter = btn.dataset.filter;
     const state = Flip.getState(items);
 
-    items.forEach(item => {
-      const matches = filter === 'all' || item.dataset.category === filter;
-      item.style.display = matches ? 'block' : 'none';
+    items.forEach((item) => {
+      const matches = filter === "all" || item.dataset.category === filter;
+      item.style.display = matches ? "block" : "none";
     });
 
     Flip.from(state, {
       duration: 0.6,
-      ease: 'power2.inOut',
+      ease: "power2.inOut",
       stagger: 0.03,
-      absolute: true,  // Use absolute positioning during animation
-      onEnter: elements => gsap.from(elements, {
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.4
-      }),
-      onLeave: elements => gsap.to(elements, {
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.4
-      })
+      absolute: true, // Use absolute positioning during animation
+      onEnter: (elements) =>
+        gsap.from(elements, {
+          opacity: 0,
+          scale: 0.8,
+          duration: 0.4,
+        }),
+      onLeave: (elements) =>
+        gsap.to(elements, {
+          opacity: 0,
+          scale: 0.8,
+          duration: 0.4,
+        }),
     });
   });
 });
@@ -192,27 +194,27 @@ filterBtns.forEach(btn => {
 ### Sort Items
 
 ```javascript
-const container = document.querySelector('.items-container');
-const items = gsap.utils.toArray('.item');
+const container = document.querySelector(".items-container");
+const items = gsap.utils.toArray(".item");
 
-function sortItems(property, direction = 'asc') {
+function sortItems(property, direction = "asc") {
   const state = Flip.getState(items);
 
   // Sort the array
   items.sort((a, b) => {
     const aVal = a.dataset[property];
     const bVal = b.dataset[property];
-    return direction === 'asc' ? aVal - bVal : bVal - aVal;
+    return direction === "asc" ? aVal - bVal : bVal - aVal;
   });
 
   // Reorder DOM
-  items.forEach(item => container.appendChild(item));
+  items.forEach((item) => container.appendChild(item));
 
   // Animate
   Flip.from(state, {
     duration: 0.6,
-    ease: 'power2.inOut',
-    stagger: 0.02
+    ease: "power2.inOut",
+    stagger: 0.02,
   });
 }
 ```
@@ -221,7 +223,7 @@ function sortItems(property, direction = 'asc') {
 
 ```javascript
 function shuffleItems() {
-  const items = gsap.utils.toArray('.item');
+  const items = gsap.utils.toArray(".item");
   const state = Flip.getState(items);
 
   // Fisher-Yates shuffle
@@ -232,8 +234,8 @@ function shuffleItems() {
 
   Flip.from(state, {
     duration: 0.6,
-    ease: 'power2.inOut',
-    stagger: 0.02
+    ease: "power2.inOut",
+    stagger: 0.02,
   });
 }
 ```
@@ -250,23 +252,23 @@ Flip.from(state, {
   stagger: 0.03,
 
   // Elements entering (weren't in original state)
-  onEnter: elements => {
+  onEnter: (elements) => {
     return gsap.from(elements, {
       opacity: 0,
       scale: 0,
       duration: 0.4,
-      stagger: 0.02
+      stagger: 0.02,
     });
   },
 
   // Elements leaving (were in state, now hidden/removed)
-  onLeave: elements => {
+  onLeave: (elements) => {
     return gsap.to(elements, {
       opacity: 0,
       scale: 0,
-      duration: 0.3
+      duration: 0.3,
     });
-  }
+  },
 });
 ```
 
@@ -275,13 +277,14 @@ Flip.from(state, {
 ```javascript
 Flip.from(state, {
   duration: 0.5,
-  onEnter: elements => gsap.from(elements, {
-    opacity: 0,
-    scale: 0.5,
-    rotation: -180,
-    duration: 0.6,
-    ease: 'back.out(1.7)'
-  })
+  onEnter: (elements) =>
+    gsap.from(elements, {
+      opacity: 0,
+      scale: 0.5,
+      rotation: -180,
+      duration: 0.6,
+      ease: "back.out(1.7)",
+    }),
 });
 ```
 
@@ -290,15 +293,16 @@ Flip.from(state, {
 ```javascript
 // When filtering hides elements
 Flip.from(state, {
-  onLeave: elements => gsap.to(elements, {
-    opacity: 0,
-    y: -30,
-    duration: 0.3,
-    onComplete: () => {
-      // Optionally remove from DOM
-      elements.forEach(el => el.remove());
-    }
-  })
+  onLeave: (elements) =>
+    gsap.to(elements, {
+      opacity: 0,
+      y: -30,
+      duration: 0.3,
+      onComplete: () => {
+        // Optionally remove from DOM
+        elements.forEach((el) => el.remove());
+      },
+    }),
 });
 ```
 
@@ -309,46 +313,46 @@ Flip.from(state, {
 ### Scroll-Triggered Layout Change
 
 ```javascript
-const cards = gsap.utils.toArray('.card');
+const cards = gsap.utils.toArray(".card");
 
 ScrollTrigger.create({
-  trigger: '.cards-section',
-  start: 'top center',
+  trigger: ".cards-section",
+  start: "top center",
   onEnter: () => {
     const state = Flip.getState(cards);
 
-    document.querySelector('.cards-container').classList.add('expanded');
+    document.querySelector(".cards-container").classList.add("expanded");
 
     Flip.from(state, {
       duration: 0.8,
-      ease: 'power2.inOut',
-      stagger: 0.05
+      ease: "power2.inOut",
+      stagger: 0.05,
     });
   },
-  once: true
+  once: true,
 });
 ```
 
 ### Reveal with Layout Change
 
 ```javascript
-const items = gsap.utils.toArray('.reveal-item');
+const items = gsap.utils.toArray(".reveal-item");
 
-items.forEach(item => {
+items.forEach((item) => {
   ScrollTrigger.create({
     trigger: item,
-    start: 'top 80%',
+    start: "top 80%",
     onEnter: () => {
       const state = Flip.getState(item);
 
-      item.classList.add('revealed');
+      item.classList.add("revealed");
 
       Flip.from(state, {
         duration: 0.6,
-        ease: 'power3.out'
+        ease: "power3.out",
       });
     },
-    once: true
+    once: true,
   });
 });
 ```
@@ -363,33 +367,33 @@ items.forEach(item => {
 Flip.from(state, {
   // Timing
   duration: 0.6,
-  ease: 'power2.inOut',
+  ease: "power2.inOut",
   stagger: 0.03,
   delay: 0,
 
   // Positioning
-  absolute: true,      // Use absolute positioning during animation
-  scale: true,         // Animate scale changes
-  simple: false,       // Disable rotation/skew detection
+  absolute: true, // Use absolute positioning during animation
+  scale: true, // Animate scale changes
+  simple: false, // Disable rotation/skew detection
 
   // Callbacks
-  onEnter: elements => {},
-  onLeave: elements => {},
+  onEnter: (elements) => {},
+  onLeave: (elements) => {},
   onStart: () => {},
   onUpdate: () => {},
   onComplete: () => {},
 
   // Advanced
-  props: 'backgroundColor,borderRadius',  // Extra CSS properties to animate
-  prune: true,         // Remove elements that haven't changed
-  spin: true,          // Allow rotation > 180deg to take shortest path
-  nested: true,        // Handle nested elements
+  props: "backgroundColor,borderRadius", // Extra CSS properties to animate
+  prune: true, // Remove elements that haven't changed
+  spin: true, // Allow rotation > 180deg to take shortest path
+  nested: true, // Handle nested elements
 
   // ScrollTrigger integration
   scrollTrigger: {
-    trigger: '.section',
-    start: 'top center'
-  }
+    trigger: ".section",
+    start: "top center",
+  },
 });
 ```
 
@@ -397,12 +401,12 @@ Flip.from(state, {
 
 ```javascript
 // Instantly position element to match another element's bounds
-Flip.fit('.element', '.target');
+Flip.fit(".element", ".target");
 
 // With options
-Flip.fit('.element', '.target', {
+Flip.fit(".element", ".target", {
   scale: true,
-  duration: 0  // Instant
+  duration: 0, // Instant
 });
 ```
 
@@ -410,7 +414,7 @@ Flip.fit('.element', '.target', {
 
 ```javascript
 // getState captures current state
-const state = Flip.getState('.items');
+const state = Flip.getState(".items");
 
 // from() animates FROM the captured state TO current
 Flip.from(state, { duration: 0.5 });
@@ -426,10 +430,10 @@ Flip.to(state, { duration: 0.5 });
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add('(prefers-reduced-motion: no-preference)', () => {
+mm.add("(prefers-reduced-motion: no-preference)", () => {
   // Full Flip animations
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
       const state = Flip.getState(items);
       // ... filter logic
       Flip.from(state, { duration: 0.6, stagger: 0.03 });
@@ -437,10 +441,10 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
   });
 });
 
-mm.add('(prefers-reduced-motion: reduce)', () => {
+mm.add("(prefers-reduced-motion: reduce)", () => {
   // Instant layout changes
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
       // Just change the layout without animation
       // ... filter logic
     });
@@ -459,15 +463,15 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
 
 ```javascript
 // GOOD - Single state capture
-const state = Flip.getState('.items');
-item1.classList.add('active');
-item2.classList.remove('active');
+const state = Flip.getState(".items");
+item1.classList.add("active");
+item2.classList.remove("active");
 container.appendChild(newItem);
 Flip.from(state, { duration: 0.5 });
 
 // BAD - Multiple captures
 const state1 = Flip.getState(item1);
-item1.classList.add('active');
+item1.classList.add("active");
 Flip.from(state1);
 // ... repeated for each change
 ```
@@ -479,26 +483,26 @@ Flip.from(state1);
 ### Tab Content Switch
 
 ```javascript
-const tabs = gsap.utils.toArray('.tab');
-const panels = gsap.utils.toArray('.panel');
+const tabs = gsap.utils.toArray(".tab");
+const panels = gsap.utils.toArray(".panel");
 
 tabs.forEach((tab, i) => {
-  tab.addEventListener('click', () => {
+  tab.addEventListener("click", () => {
     const state = Flip.getState(panels);
 
     // Hide all panels
-    panels.forEach(p => p.classList.remove('active'));
-    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach((p) => p.classList.remove("active"));
+    tabs.forEach((t) => t.classList.remove("active"));
 
     // Show selected
-    panels[i].classList.add('active');
-    tab.classList.add('active');
+    panels[i].classList.add("active");
+    tab.classList.add("active");
 
     Flip.from(state, {
       duration: 0.4,
-      ease: 'power2.inOut',
-      onEnter: els => gsap.from(els, { opacity: 0, y: 20 }),
-      onLeave: els => gsap.to(els, { opacity: 0, y: -20 })
+      ease: "power2.inOut",
+      onEnter: (els) => gsap.from(els, { opacity: 0, y: 20 }),
+      onLeave: (els) => gsap.to(els, { opacity: 0, y: -20 }),
     });
   });
 });
@@ -512,11 +516,11 @@ function openLightbox(thumbnail) {
 
   // Move thumbnail to lightbox container
   lightboxContainer.appendChild(thumbnail);
-  thumbnail.classList.add('lightbox-active');
+  thumbnail.classList.add("lightbox-active");
 
   Flip.from(state, {
     duration: 0.6,
-    ease: 'power2.inOut'
+    ease: "power2.inOut",
   });
 }
 
@@ -524,11 +528,11 @@ function closeLightbox(thumbnail, originalContainer) {
   const state = Flip.getState(thumbnail);
 
   originalContainer.appendChild(thumbnail);
-  thumbnail.classList.remove('lightbox-active');
+  thumbnail.classList.remove("lightbox-active");
 
   Flip.from(state, {
     duration: 0.5,
-    ease: 'power2.inOut'
+    ease: "power2.inOut",
   });
 }
 ```

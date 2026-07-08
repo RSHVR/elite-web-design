@@ -22,7 +22,7 @@ Tied to the scroll position of a scrollable container.
 ```css
 .element {
   animation: reveal linear;
-  animation-timeline: scroll();  /* Default: nearest scrollable ancestor */
+  animation-timeline: scroll(); /* Default: nearest scrollable ancestor */
 }
 ```
 
@@ -58,7 +58,9 @@ Tied to element's position within its scroll container viewport.
 }
 
 @keyframes progress {
-  to { transform: scaleX(1); }
+  to {
+    transform: scaleX(1);
+  }
 }
 ```
 
@@ -71,8 +73,12 @@ Tied to element's position within its scroll container viewport.
 }
 
 @keyframes parallax {
-  from { transform: translateY(0); }
-  to { transform: translateY(-20%); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20%);
+  }
 }
 ```
 
@@ -82,12 +88,16 @@ Tied to element's position within its scroll container viewport.
 .hero-content {
   animation: fadeOut linear;
   animation-timeline: scroll();
-  animation-range: 0% 50%;  /* Fade out in first half of scroll */
+  animation-range: 0% 50%; /* Fade out in first half of scroll */
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 ```
 
@@ -140,8 +150,12 @@ Tied to element's position within its scroll container viewport.
 }
 
 @keyframes scaleUp {
-  from { transform: scale(0.8); }
-  to { transform: scale(1); }
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 ```
 
@@ -155,8 +169,12 @@ Tied to element's position within its scroll container viewport.
 }
 
 @keyframes clipReveal {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 ```
 
@@ -164,8 +182,8 @@ Tied to element's position within its scroll container viewport.
 
 ```css
 .element {
-  animation-timeline: view(block);  /* Vertical axis (default) */
-  /* animation-timeline: view(inline); */  /* Horizontal axis */
+  animation-timeline: view(block); /* Vertical axis (default) */
+  /* animation-timeline: view(inline); */ /* Horizontal axis */
   /* animation-timeline: view(x); */
   /* animation-timeline: view(y); */
 }
@@ -263,7 +281,7 @@ For Safari and older browsers:
 ### JavaScript Feature Detection
 
 ```javascript
-if ('ScrollTimeline' in window) {
+if ("ScrollTimeline" in window) {
   // Native support
 } else {
   // Load polyfill or use GSAP
@@ -305,9 +323,15 @@ if ('ScrollTimeline' in window) {
 }
 
 /* Stagger effect via transform origin */
-.item:nth-child(1) { animation-range: entry 0% cover 35%; }
-.item:nth-child(2) { animation-range: entry 5% cover 40%; }
-.item:nth-child(3) { animation-range: entry 10% cover 45%; }
+.item:nth-child(1) {
+  animation-range: entry 0% cover 35%;
+}
+.item:nth-child(2) {
+  animation-range: entry 5% cover 40%;
+}
+.item:nth-child(3) {
+  animation-range: entry 10% cover 45%;
+}
 ```
 
 ### Progress Through Section
@@ -324,7 +348,9 @@ if ('ScrollTimeline' in window) {
 }
 
 @keyframes sectionProgress {
-  to { transform: scaleX(1); }
+  to {
+    transform: scaleX(1);
+  }
 }
 ```
 
@@ -348,7 +374,9 @@ if ('ScrollTimeline' in window) {
 }
 
 @keyframes highlight {
-  to { background-position: 0 0; }
+  to {
+    background-position: 0 0;
+  }
 }
 ```
 
@@ -367,8 +395,12 @@ if ('ScrollTimeline' in window) {
 }
 
 @keyframes scrollProgress {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 ```
 
@@ -407,15 +439,15 @@ if ('ScrollTimeline' in window) {
 
 ## Limitations vs GSAP
 
-| Feature | CSS Scroll-Driven | GSAP ScrollTrigger |
-|---------|-------------------|-------------------|
-| Pin sections | ✗ | ✓ |
-| Snap points | Limited | ✓ Full control |
-| Horizontal scroll | Limited | ✓ |
-| Multiple triggers | Per-element | Flexible |
-| Safari support | Polyfill | Native |
-| Callbacks | ✗ | ✓ |
-| Fine control | Limited | Full |
+| Feature           | CSS Scroll-Driven | GSAP ScrollTrigger |
+| ----------------- | ----------------- | ------------------ |
+| Pin sections      | ✗                 | ✓                  |
+| Snap points       | Limited           | ✓ Full control     |
+| Horizontal scroll | Limited           | ✓                  |
+| Multiple triggers | Per-element       | Flexible           |
+| Safari support    | Polyfill          | Native             |
+| Callbacks         | ✗                 | ✓                  |
+| Fine control      | Limited           | Full               |
 
 **Use CSS for**: Simple reveals, progress indicators, parallax
 **Use GSAP for**: Pinning, complex sequences, callbacks, cross-browser
@@ -443,8 +475,12 @@ A page-level reading progress indicator using `animation-timeline: scroll()`:
 }
 
 @keyframes scroll-progress {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 ```
 

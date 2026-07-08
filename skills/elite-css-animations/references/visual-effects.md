@@ -37,7 +37,7 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 
 /* Inset (Rectangle) */
 .inset-reveal {
-  clip-path: inset(0 100% 0 0);  /* Hidden from right */
+  clip-path: inset(0 100% 0 0); /* Hidden from right */
   transition: clip-path 0.6s ease;
 }
 .inset-reveal.visible {
@@ -96,16 +96,24 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 
 /* Arrow */
 .arrow {
-  clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+  clip-path: polygon(
+    0% 20%,
+    60% 20%,
+    60% 0%,
+    100% 50%,
+    60% 100%,
+    60% 80%,
+    0% 80%
+  );
 }
 
 /* Animated polygon */
 .morph-shape {
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);  /* Diamond */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamond */
   transition: clip-path 0.5s ease;
 }
 .morph-shape:hover {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);  /* Square */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); /* Square */
 }
 ```
 
@@ -119,7 +127,9 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 
 .image-container img {
   clip-path: inset(0);
-  transition: clip-path 0.4s ease, transform 0.4s ease;
+  transition:
+    clip-path 0.4s ease,
+    transform 0.4s ease;
 }
 
 .image-container:hover img {
@@ -150,7 +160,7 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 
 ```css
 .masked-image {
-  mask-image: url('mask.svg');
+  mask-image: url("mask.svg");
   mask-size: cover;
   mask-position: center;
 }
@@ -160,11 +170,7 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 
 ```css
 .reveal-mask {
-  mask-image: linear-gradient(
-    to right,
-    black 0%,
-    transparent 0%
-  );
+  mask-image: linear-gradient(to right, black 0%, transparent 0%);
   mask-size: 200% 100%;
   mask-position: 100% 0;
   transition: mask-position 0.8s ease;
@@ -179,7 +185,7 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 
 ```css
 .text-knockout {
-  background: url('texture.jpg') center/cover;
+  background: url("texture.jpg") center/cover;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -262,11 +268,7 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 
 ```css
 .complex-glass {
-  backdrop-filter:
-    blur(10px)
-    saturate(150%)
-    brightness(1.1)
-    contrast(1.1);
+  backdrop-filter: blur(10px) saturate(150%) brightness(1.1) contrast(1.1);
 }
 ```
 
@@ -295,7 +297,7 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 }
 
 .image-with-overlay::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--color-accent);
@@ -308,29 +310,59 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 
 ```css
 /* Darkening modes */
-.darken { mix-blend-mode: darken; }
-.multiply { mix-blend-mode: multiply; }
-.color-burn { mix-blend-mode: color-burn; }
+.darken {
+  mix-blend-mode: darken;
+}
+.multiply {
+  mix-blend-mode: multiply;
+}
+.color-burn {
+  mix-blend-mode: color-burn;
+}
 
 /* Lightening modes */
-.lighten { mix-blend-mode: lighten; }
-.screen { mix-blend-mode: screen; }
-.color-dodge { mix-blend-mode: color-dodge; }
+.lighten {
+  mix-blend-mode: lighten;
+}
+.screen {
+  mix-blend-mode: screen;
+}
+.color-dodge {
+  mix-blend-mode: color-dodge;
+}
 
 /* Contrast modes */
-.overlay { mix-blend-mode: overlay; }
-.soft-light { mix-blend-mode: soft-light; }
-.hard-light { mix-blend-mode: hard-light; }
+.overlay {
+  mix-blend-mode: overlay;
+}
+.soft-light {
+  mix-blend-mode: soft-light;
+}
+.hard-light {
+  mix-blend-mode: hard-light;
+}
 
 /* Inversion modes */
-.difference { mix-blend-mode: difference; }
-.exclusion { mix-blend-mode: exclusion; }
+.difference {
+  mix-blend-mode: difference;
+}
+.exclusion {
+  mix-blend-mode: exclusion;
+}
 
 /* Component modes */
-.hue { mix-blend-mode: hue; }
-.saturation { mix-blend-mode: saturation; }
-.color { mix-blend-mode: color; }
-.luminosity { mix-blend-mode: luminosity; }
+.hue {
+  mix-blend-mode: hue;
+}
+.saturation {
+  mix-blend-mode: saturation;
+}
+.color {
+  mix-blend-mode: color;
+}
+.luminosity {
+  mix-blend-mode: luminosity;
+}
 ```
 
 ### Duotone Effect
@@ -404,7 +436,7 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 }
 
 .spotlight::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
@@ -418,12 +450,12 @@ CSS visual effects for premium design: clip-path, masks, filters, and blend mode
 
 ```javascript
 // Track mouse for spotlight
-element.addEventListener('mousemove', (e) => {
+element.addEventListener("mousemove", (e) => {
   const rect = element.getBoundingClientRect();
   const x = ((e.clientX - rect.left) / rect.width) * 100;
   const y = ((e.clientY - rect.top) / rect.height) * 100;
-  element.style.setProperty('--mouse-x', `${x}%`);
-  element.style.setProperty('--mouse-y', `${y}%`);
+  element.style.setProperty("--mouse-x", `${x}%`);
+  element.style.setProperty("--mouse-y", `${y}%`);
 });
 ```
 
@@ -472,8 +504,12 @@ A placeholder animation for content loading states:
 }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -490,8 +526,9 @@ Subtle elevation on hover for interactive cards:
 
 ```css
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-lift:hover {
@@ -522,8 +559,12 @@ Infinite horizontal scroll for testimonial strips, partner logos, or announcemen
 }
 
 @keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -549,8 +590,15 @@ For live status indicators or scarcity badges:
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.75); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.75);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -713,7 +761,10 @@ Interactive pill/tag selection with instant color flip:
   border-radius: 9999px;
   background: transparent;
   cursor: pointer;
-  transition: background 0.25s, border-color 0.25s, color 0.25s;
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    color 0.25s;
 }
 
 .pill.active {
@@ -727,8 +778,8 @@ Interactive pill/tag selection with instant color flip:
 
 Production sites converge on two primary easing curves:
 
-| Easing | Value | Use |
-|--------|-------|-----|
-| **Primary ease-out** | `cubic-bezier(0.22, 1, 0.36, 1)` | Nav transitions, accordion, hover |
-| **Standard** | `cubic-bezier(0.4, 0, 0.2, 1)` | Button and icon transitions |
-| **Spring** | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful bounces, badges |
+| Easing               | Value                               | Use                               |
+| -------------------- | ----------------------------------- | --------------------------------- |
+| **Primary ease-out** | `cubic-bezier(0.22, 1, 0.36, 1)`    | Nav transitions, accordion, hover |
+| **Standard**         | `cubic-bezier(0.4, 0, 0.2, 1)`      | Button and icon transitions       |
+| **Spring**           | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful bounces, badges           |

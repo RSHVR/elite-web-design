@@ -59,7 +59,10 @@ The `65ch` measure keeps lines within the 45-75 character optimal range. `line-h
 ### Text Wrapping
 
 ```css
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
 }
 ```

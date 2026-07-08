@@ -10,18 +10,18 @@ Strategic brand identity creation — from personality definition to visual syst
 
 ## Quick Reference
 
-| Topic | Reference File |
-|-------|---------------|
-| Brand fundamentals | [brand-fundamentals.md](references/brand-fundamentals.md) |
-| Visual identity | [visual-identity-system.md](references/visual-identity-system.md) |
-| Color psychology | [brand-color-psychology.md](references/brand-color-psychology.md) |
-| Typography as voice | [brand-typography.md](references/brand-typography.md) |
-| Tone of voice | [brand-tone-voice.md](references/brand-tone-voice.md) |
-| Style guide creation | [brand-style-guide.md](references/brand-style-guide.md) |
-| Brand touchpoints | [brand-touchpoints.md](references/brand-touchpoints.md) |
-| Brand evolution | [brand-evolution.md](references/brand-evolution.md) |
-| Accessible branding | [brand-accessibility.md](references/brand-accessibility.md) |
-| Brand package generator | [brand-package.md](references/brand-package.md) |
+| Topic                   | Reference File                                                    |
+| ----------------------- | ----------------------------------------------------------------- |
+| Brand fundamentals      | [brand-fundamentals.md](references/brand-fundamentals.md)         |
+| Visual identity         | [visual-identity-system.md](references/visual-identity-system.md) |
+| Color psychology        | [brand-color-psychology.md](references/brand-color-psychology.md) |
+| Typography as voice     | [brand-typography.md](references/brand-typography.md)             |
+| Tone of voice           | [brand-tone-voice.md](references/brand-tone-voice.md)             |
+| Style guide creation    | [brand-style-guide.md](references/brand-style-guide.md)           |
+| Brand touchpoints       | [brand-touchpoints.md](references/brand-touchpoints.md)           |
+| Brand evolution         | [brand-evolution.md](references/brand-evolution.md)               |
+| Accessible branding     | [brand-accessibility.md](references/brand-accessibility.md)       |
+| Brand package generator | [brand-package.md](references/brand-package.md)                   |
 
 ## Related Skills
 
@@ -51,22 +51,27 @@ This skill covers creating brand identity from scratch — the strategic decisio
 ## Brand Creation Process
 
 ### Phase 1: Discovery
+
 Who are you? Who are you for? What do you believe?
 → See [brand-fundamentals.md](references/brand-fundamentals.md)
 
 ### Phase 2: Personality
+
 What archetype fits? What traits define your voice?
 → See [brand-fundamentals.md](references/brand-fundamentals.md)
 
 ### Phase 3: Visual Identity
+
 Logo, color, typography, texture — the visible system.
 → See [visual-identity-system.md](references/visual-identity-system.md), [brand-color-psychology.md](references/brand-color-psychology.md), [brand-typography.md](references/brand-typography.md)
 
 ### Phase 4: Verbal Identity
+
 Tone of voice, messaging hierarchy, microcopy.
 → See [brand-tone-voice.md](references/brand-tone-voice.md)
 
 ### Phase 5: Documentation
+
 Living style guide that scales with the team.
 → See [brand-style-guide.md](references/brand-style-guide.md)
 
@@ -76,13 +81,13 @@ Living style guide that scales with the team.
 
 Five production archetypes showing how brand personality maps to design:
 
-| Archetype | Personality | Type Signal | Color Signal | Shape Signal |
-|-----------|-------------|-------------|-------------|--------------|
-| **Modern/Bold** | Confident, direct, technical | Geometric sans (Space Grotesk) | High-contrast dark + saturated accent | Moderate radius |
-| **Luxury/Editorial** | Refined, aspirational, sensory | High-contrast serif (Cormorant Garamond) | Warm metallics on neutral | Soft radius |
-| **Warm/Inclusive** | Safe, empathetic, human | Soft variable serif (Fraunces) | Muted expanded palette (plum/sage/lavender) | Generous radius |
-| **Authoritative** | Commanding, trustworthy, established | Sturdy serif (Gelasio) | Traditional power colors (navy/gold) | Zero radius (sharp) |
-| **Professional** | Competent, reliable, caring | Paired serif+sans (DM family) | Clean, functional neutrals | Standard radius |
+| Archetype            | Personality                          | Type Signal                              | Color Signal                                | Shape Signal        |
+| -------------------- | ------------------------------------ | ---------------------------------------- | ------------------------------------------- | ------------------- |
+| **Modern/Bold**      | Confident, direct, technical         | Geometric sans (Space Grotesk)           | High-contrast dark + saturated accent       | Moderate radius     |
+| **Luxury/Editorial** | Refined, aspirational, sensory       | High-contrast serif (Cormorant Garamond) | Warm metallics on neutral                   | Soft radius         |
+| **Warm/Inclusive**   | Safe, empathetic, human              | Soft variable serif (Fraunces)           | Muted expanded palette (plum/sage/lavender) | Generous radius     |
+| **Authoritative**    | Commanding, trustworthy, established | Sturdy serif (Gelasio)                   | Traditional power colors (navy/gold)        | Zero radius (sharp) |
+| **Professional**     | Competent, reliable, caring          | Paired serif+sans (DM family)            | Clean, functional neutrals                  | Standard radius     |
 
 ### How Personality Translates to Code
 
@@ -114,6 +119,7 @@ After completing brand discovery (Phases 1-5), generate a complete `brand-assets
 → See [brand-package.md](references/brand-package.md)
 
 This produces:
+
 - Design tokens (Tailwind v4 @theme + semantic layer)
 - Logo placeholders (icon, wordmark, combination SVGs)
 - Favicon set (SVG favicon + Apple touch icon)

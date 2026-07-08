@@ -22,6 +22,7 @@ Robert Cialdini's research identifies seven key principles of influence. Here's 
 **Principle:** People feel obligated to return favors.
 
 **Web applications:**
+
 - Free tools, templates, or resources before asking for signup
 - Free trials with full features
 - Valuable content without gate (builds goodwill)
@@ -41,6 +42,7 @@ Example flow:
 **Principle:** Once people commit to something, they're likely to follow through.
 
 **Web applications:**
+
 - Micro-commitments before big asks (quiz → email → purchase)
 - Progress indicators in forms
 - "You're almost there" messaging
@@ -61,6 +63,7 @@ Commitment ladder:
 **Principle:** People look to others' actions to determine their own.
 
 **Web applications:**
+
 - Testimonials and reviews
 - User counts ("Join 50,000+ users")
 - Client logos
@@ -82,6 +85,7 @@ Social proof hierarchy (strongest to weakest):
 **Principle:** People defer to experts and credible sources.
 
 **Web applications:**
+
 - Expert endorsements
 - Certifications and awards
 - Media mentions ("As seen in...")
@@ -103,6 +107,7 @@ Authority signals:
 **Principle:** People prefer to say yes to those they like.
 
 **Web applications:**
+
 - Personable brand voice
 - Team photos and bios
 - Behind-the-scenes content
@@ -124,6 +129,7 @@ Liking factors:
 **Principle:** Things become more desirable when they're rare or diminishing.
 
 **Web applications:**
+
 - Limited-time offers
 - Low stock warnings
 - Exclusive access
@@ -148,6 +154,7 @@ Unethical scarcity (avoid):
 **Principle:** People favor those who share their identity.
 
 **Web applications:**
+
 - Community membership
 - Shared identity language ("We're all...")
 - Tribe-building content
@@ -177,6 +184,7 @@ Daniel Kahneman's dual-process theory explains how people think and decide.
 - Snap judgments
 
 **Design for System 1:**
+
 - Clear visual hierarchy
 - Familiar patterns
 - Emotional imagery
@@ -191,6 +199,7 @@ Daniel Kahneman's dual-process theory explains how people think and decide.
 - Complex decisions
 
 **Design for System 2:**
+
 - Feature comparison tables
 - Detailed specifications
 - Case studies with data
@@ -199,13 +208,13 @@ Daniel Kahneman's dual-process theory explains how people think and decide.
 
 ### When to Target Which
 
-| Product/Decision | Primary System | Approach |
-|------------------|----------------|----------|
-| Low-cost impulse | System 1 | Emotion, urgency, social proof |
-| B2C subscription | System 1 → 2 | Hook emotionally, support rationally |
-| B2B purchase | System 2 → 1 | Logic first, then emotional confirmation |
-| High-ticket | System 2 | Data, comparison, risk mitigation |
-| Commodity | System 1 | Price, convenience, speed |
+| Product/Decision | Primary System | Approach                                 |
+| ---------------- | -------------- | ---------------------------------------- |
+| Low-cost impulse | System 1       | Emotion, urgency, social proof           |
+| B2C subscription | System 1 → 2   | Hook emotionally, support rationally     |
+| B2B purchase     | System 2 → 1   | Logic first, then emotional confirmation |
+| High-ticket      | System 2       | Data, comparison, risk mitigation        |
+| Commodity        | System 1       | Price, convenience, speed                |
 
 ### The Dual Approach
 
@@ -235,6 +244,7 @@ People feel losses more intensely than equivalent gains (roughly 2x).
 ### Applications
 
 **Frame as loss prevention:**
+
 ```
 Weak: "Save $50"
 Strong: "Don't lose $50"
@@ -244,6 +254,7 @@ Strong: "Stop losing leads to competitors"
 ```
 
 **Show what they're missing:**
+
 ```
 "You're currently losing 23% of visitors
 who abandon your checkout"
@@ -253,6 +264,7 @@ $X,XXX on the table every month"
 ```
 
 **Risk reversal:**
+
 ```
 - Money-back guarantees
 - Free trials (nothing to lose)
@@ -320,6 +332,7 @@ With decoy:
 ```
 
 **Pricing application:**
+
 ```
 Basic: $9/mo
 Pro: $29/mo     ← Target tier
@@ -357,6 +370,7 @@ Framing opportunities:
 ### Analytical Buyers
 
 **Characteristics:**
+
 - Research extensively
 - Compare multiple options
 - Need data to decide
@@ -364,6 +378,7 @@ Framing opportunities:
 - Slow, methodical process
 
 **Design approach:**
+
 - Feature comparison tables
 - Detailed specifications
 - Case studies with metrics
@@ -374,6 +389,7 @@ Framing opportunities:
 ### Emotional Buyers
 
 **Characteristics:**
+
 - Decide by feeling
 - Influenced by stories
 - Respond to imagery
@@ -381,6 +397,7 @@ Framing opportunities:
 - Faster decisions
 
 **Design approach:**
+
 - Transformation narratives
 - Video testimonials
 - Lifestyle imagery
@@ -391,6 +408,7 @@ Framing opportunities:
 ### Impulsive Buyers
 
 **Characteristics:**
+
 - Quick decisions
 - Respond to urgency
 - Low research
@@ -398,6 +416,7 @@ Framing opportunities:
 - Social influence
 
 **Design approach:**
+
 - Strong, clear CTAs
 - Scarcity/urgency (ethical)
 - Social proof (real-time)
@@ -408,6 +427,7 @@ Framing opportunities:
 ### Methodical Buyers
 
 **Characteristics:**
+
 - Process-oriented
 - Need all information
 - Risk-averse
@@ -415,6 +435,7 @@ Framing opportunities:
 - Prefer guided experiences
 
 **Design approach:**
+
 - Comprehensive FAQs
 - Guided product tours
 - Step-by-step processes
@@ -430,12 +451,12 @@ Every buyer has objections. Address them before they become blockers.
 
 ### The Four Core Objections
 
-| Objection | Question in Mind | Solution |
-|-----------|------------------|----------|
-| **Trust** | "Can I trust you?" | Social proof, guarantees, security signals |
-| **Price** | "Is it worth it?" | Value demonstration, ROI, comparison |
-| **Timing** | "Why now?" | Urgency, cost of delay, quick wins |
-| **Need** | "Do I really need this?" | Pain agitation, aspiration, FOMO |
+| Objection  | Question in Mind         | Solution                                   |
+| ---------- | ------------------------ | ------------------------------------------ |
+| **Trust**  | "Can I trust you?"       | Social proof, guarantees, security signals |
+| **Price**  | "Is it worth it?"        | Value demonstration, ROI, comparison       |
+| **Timing** | "Why now?"               | Urgency, cost of delay, quick wins         |
+| **Need**   | "Do I really need this?" | Pain agitation, aspiration, FOMO           |
 
 ### Trust Objections
 
@@ -539,12 +560,12 @@ If any answer is no, reconsider.
 
 ### Persuasion vs Manipulation
 
-| Persuasion (Ethical) | Manipulation (Unethical) |
-|----------------------|--------------------------|
-| Highlights genuine value | Creates false perception |
-| Respects user autonomy | Exploits vulnerabilities |
-| Transparent about intent | Hides true intent |
-| User benefits from action | Only company benefits |
-| Builds long-term trust | Damages trust when discovered |
+| Persuasion (Ethical)      | Manipulation (Unethical)      |
+| ------------------------- | ----------------------------- |
+| Highlights genuine value  | Creates false perception      |
+| Respects user autonomy    | Exploits vulnerabilities      |
+| Transparent about intent  | Hides true intent             |
+| User benefits from action | Only company benefits         |
+| Builds long-term trust    | Damages trust when discovered |
 
 See [ethical-boundaries.md](ethical-boundaries.md) for detailed guidelines.

@@ -41,34 +41,34 @@ npm install -D autoprefixer postcss
 ### Basic vite.config.js
 
 ```javascript
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
 export default defineConfig({
   // Dev server
   server: {
     port: 3000,
     open: true,
-    cors: true
+    cors: true,
   },
 
   // Build options
   build: {
-    target: 'esnext',
-    minify: 'terser',
+    target: "esnext",
+    minify: "terser",
     sourcemap: true,
     rollupOptions: {
       output: {
         manualChunks: {
-          gsap: ['gsap']
-        }
-      }
-    }
+          gsap: ["gsap"],
+        },
+      },
+    },
   },
 
   // CSS options
   css: {
-    devSourcemap: true
-  }
+    devSourcemap: true,
+  },
 });
 ```
 
@@ -80,11 +80,11 @@ export default defineConfig({
 
 ```javascript
 // src/main.js
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
-import { Flip } from 'gsap/Flip';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { Flip } from "gsap/Flip";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 // Register all plugins ONCE at app entry
 gsap.registerPlugin(ScrollTrigger, SplitText, Flip, ScrollSmoother);
@@ -104,23 +104,20 @@ export default defineConfig({
       output: {
         manualChunks: {
           // Core GSAP
-          'gsap-core': ['gsap'],
+          "gsap-core": ["gsap"],
           // Scroll plugins
-          'gsap-scroll': [
-            'gsap/ScrollTrigger',
-            'gsap/ScrollSmoother'
-          ],
+          "gsap-scroll": ["gsap/ScrollTrigger", "gsap/ScrollSmoother"],
           // Animation plugins
-          'gsap-animation': [
-            'gsap/SplitText',
-            'gsap/Flip',
-            'gsap/MorphSVGPlugin',
-            'gsap/DrawSVGPlugin'
-          ]
-        }
-      }
-    }
-  }
+          "gsap-animation": [
+            "gsap/SplitText",
+            "gsap/Flip",
+            "gsap/MorphSVGPlugin",
+            "gsap/DrawSVGPlugin",
+          ],
+        },
+      },
+    },
+  },
 });
 ```
 
@@ -129,18 +126,18 @@ export default defineConfig({
 ```javascript
 // Load plugins only when needed
 async function initScrollAnimations() {
-  const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+  const { ScrollTrigger } = await import("gsap/ScrollTrigger");
   gsap.registerPlugin(ScrollTrigger);
 
   // Now use ScrollTrigger
   ScrollTrigger.create({
-    trigger: '.section',
+    trigger: ".section",
     // ...
   });
 }
 
 // Load on route or visibility
-if (document.querySelector('.scroll-section')) {
+if (document.querySelector(".scroll-section")) {
   initScrollAnimations();
 }
 ```
@@ -153,51 +150,51 @@ if (document.querySelector('.scroll-section')) {
 
 ```javascript
 // vite.config.js
-import { defineConfig } from 'vite';
-import { compression } from 'vite-plugin-compression2';
+import { defineConfig } from "vite";
+import { compression } from "vite-plugin-compression2";
 
 export default defineConfig({
   build: {
-    target: 'esnext',
-    minify: 'terser',
+    target: "esnext",
+    minify: "terser",
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true
-      }
+        drop_debugger: true,
+      },
     },
     rollupOptions: {
       output: {
         manualChunks: (id) => {
           // GSAP chunks
-          if (id.includes('gsap')) {
-            if (id.includes('ScrollTrigger') || id.includes('ScrollSmoother')) {
-              return 'gsap-scroll';
+          if (id.includes("gsap")) {
+            if (id.includes("ScrollTrigger") || id.includes("ScrollSmoother")) {
+              return "gsap-scroll";
             }
-            return 'gsap-core';
+            return "gsap-core";
           }
           // Vendor chunk
-          if (id.includes('node_modules')) {
-            return 'vendor';
+          if (id.includes("node_modules")) {
+            return "vendor";
           }
-        }
-      }
+        },
+      },
     },
     // Chunk size warnings
-    chunkSizeWarningLimit: 500
+    chunkSizeWarningLimit: 500,
   },
 
   plugins: [
     // Gzip and Brotli compression
     compression({
-      algorithm: 'gzip',
-      threshold: 1024
+      algorithm: "gzip",
+      threshold: 1024,
     }),
     compression({
-      algorithm: 'brotliCompress',
-      threshold: 1024
-    })
-  ]
+      algorithm: "brotliCompress",
+      threshold: 1024,
+    }),
+  ],
 });
 ```
 
@@ -205,8 +202,8 @@ export default defineConfig({
 
 ```javascript
 // vite.config.js
-import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
 
 export default defineConfig({
   css: {
@@ -214,14 +211,17 @@ export default defineConfig({
       plugins: [
         autoprefixer(),
         cssnano({
-          preset: ['default', {
-            discardComments: { removeAll: true },
-            normalizeWhitespace: true
-          }]
-        })
-      ]
-    }
-  }
+          preset: [
+            "default",
+            {
+              discardComments: { removeAll: true },
+              normalizeWhitespace: true,
+            },
+          ],
+        }),
+      ],
+    },
+  },
 });
 ```
 
@@ -236,18 +236,18 @@ export default defineConfig({
       output: {
         assetFileNames: (assetInfo) => {
           // Organize assets by type
-          const ext = assetInfo.name.split('.').pop();
+          const ext = assetInfo.name.split(".").pop();
           if (/png|jpe?g|svg|gif|webp|avif/.test(ext)) {
-            return 'images/[name]-[hash][extname]';
+            return "images/[name]-[hash][extname]";
           }
           if (/woff2?|ttf|otf/.test(ext)) {
-            return 'fonts/[name]-[hash][extname]';
+            return "fonts/[name]-[hash][extname]";
           }
-          return 'assets/[name]-[hash][extname]';
-        }
-      }
-    }
-  }
+          return "assets/[name]-[hash][extname]";
+        },
+      },
+    },
+  },
 });
 ```
 
@@ -261,15 +261,15 @@ export default defineConfig({
 // src/animations.js
 export function initAnimations() {
   const ctx = gsap.context(() => {
-    gsap.from('.hero-title', {
+    gsap.from(".hero-title", {
       opacity: 0,
       y: 50,
-      duration: 1
+      duration: 1,
     });
 
     ScrollTrigger.create({
-      trigger: '.section',
-      onEnter: () => console.log('Section entered')
+      trigger: ".section",
+      onEnter: () => console.log("Section entered"),
     });
   });
 
@@ -299,7 +299,7 @@ VITE_ENABLE_ANIMATIONS=true
 
 ```javascript
 // Use in code
-const enableAnimations = import.meta.env.VITE_ENABLE_ANIMATIONS === 'true';
+const enableAnimations = import.meta.env.VITE_ENABLE_ANIMATIONS === "true";
 
 if (enableAnimations) {
   initAnimations();
@@ -313,12 +313,12 @@ if (enableAnimations) {
 export default defineConfig({
   server: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:4000',
-        changeOrigin: true
-      }
-    }
-  }
+      "/api": {
+        target: "http://localhost:4000",
+        changeOrigin: true,
+      },
+    },
+  },
 });
 ```
 
@@ -330,8 +330,8 @@ export default defineConfig({
 
 ```javascript
 // vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
@@ -339,20 +339,20 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          react: ['react', 'react-dom'],
-          gsap: ['gsap', '@gsap/react']
-        }
-      }
-    }
-  }
+          react: ["react", "react-dom"],
+          gsap: ["gsap", "@gsap/react"],
+        },
+      },
+    },
+  },
 });
 ```
 
 ```javascript
 // src/main.jsx
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 ```
@@ -361,8 +361,8 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 ```javascript
 // vite.config.js
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
   plugins: [vue()],
@@ -370,12 +370,12 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vue: ['vue'],
-          gsap: ['gsap']
-        }
-      }
-    }
-  }
+          vue: ["vue"],
+          gsap: ["gsap"],
+        },
+      },
+    },
+  },
 });
 ```
 
@@ -383,8 +383,8 @@ export default defineConfig({
 
 ```javascript
 // vite.config.js
-import { defineConfig } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 
 export default defineConfig({
   plugins: [svelte()],
@@ -392,11 +392,11 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          gsap: ['gsap']
-        }
-      }
-    }
-  }
+          gsap: ["gsap"],
+        },
+      },
+    },
+  },
 });
 ```
 
@@ -406,74 +406,74 @@ export default defineConfig({
 
 ```javascript
 // vite.config.js
-import { defineConfig } from 'vite';
-import { compression } from 'vite-plugin-compression2';
-import autoprefixer from 'autoprefixer';
+import { defineConfig } from "vite";
+import { compression } from "vite-plugin-compression2";
+import autoprefixer from "autoprefixer";
 
 export default defineConfig(({ mode }) => ({
   // Base URL
-  base: mode === 'production' ? '/my-app/' : '/',
+  base: mode === "production" ? "/my-app/" : "/",
 
   // Dev server
   server: {
     port: 3000,
     open: true,
-    cors: true
+    cors: true,
   },
 
   // Preview server (for testing production build)
   preview: {
-    port: 4000
+    port: 4000,
   },
 
   // Build
   build: {
-    target: 'esnext',
-    minify: 'terser',
-    sourcemap: mode !== 'production',
+    target: "esnext",
+    minify: "terser",
+    sourcemap: mode !== "production",
     terserOptions: {
       compress: {
-        drop_console: mode === 'production',
-        drop_debugger: mode === 'production'
-      }
+        drop_console: mode === "production",
+        drop_debugger: mode === "production",
+      },
     },
     rollupOptions: {
       output: {
         manualChunks: {
-          'gsap-core': ['gsap'],
-          'gsap-scroll': ['gsap/ScrollTrigger', 'gsap/ScrollSmoother'],
-          'gsap-plugins': ['gsap/SplitText', 'gsap/Flip']
+          "gsap-core": ["gsap"],
+          "gsap-scroll": ["gsap/ScrollTrigger", "gsap/ScrollSmoother"],
+          "gsap-plugins": ["gsap/SplitText", "gsap/Flip"],
         },
-        assetFileNames: 'assets/[name]-[hash][extname]',
-        chunkFileNames: 'js/[name]-[hash].js',
-        entryFileNames: 'js/[name]-[hash].js'
-      }
+        assetFileNames: "assets/[name]-[hash][extname]",
+        chunkFileNames: "js/[name]-[hash].js",
+        entryFileNames: "js/[name]-[hash].js",
+      },
     },
-    chunkSizeWarningLimit: 500
+    chunkSizeWarningLimit: 500,
   },
 
   // CSS
   css: {
     devSourcemap: true,
     postcss: {
-      plugins: [autoprefixer()]
-    }
+      plugins: [autoprefixer()],
+    },
   },
 
   // Plugins
   plugins: [
-    compression({ algorithm: 'gzip' }),
-    compression({ algorithm: 'brotliCompress' })
+    compression({ algorithm: "gzip" }),
+    compression({ algorithm: "brotliCompress" }),
   ],
 
   // Resolve
   resolve: {
     alias: {
-      '@': '/src',
-      '@components': '/src/components',
-      '@animations': '/src/animations'
-    }
-  }
+      "@": "/src",
+      "@components": "/src/components",
+      "@animations": "/src/animations",
+    },
+  },
 }));
 ```
 
@@ -501,15 +501,16 @@ npm install -D rollup-plugin-visualizer
 
 ```javascript
 // vite.config.js
-import { visualizer } from 'rollup-plugin-visualizer';
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig(({ mode }) => ({
   plugins: [
-    mode === 'analyze' && visualizer({
-      open: true,
-      filename: 'stats.html',
-      gzipSize: true
-    })
-  ].filter(Boolean)
+    mode === "analyze" &&
+      visualizer({
+        open: true,
+        filename: "stats.html",
+        gzipSize: true,
+      }),
+  ].filter(Boolean),
 }));
 ```

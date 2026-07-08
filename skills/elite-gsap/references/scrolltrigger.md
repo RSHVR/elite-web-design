@@ -18,8 +18,8 @@ Scroll-based animations with fine-grained control.
 ## Basic Setup
 
 ```javascript
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 ```
@@ -27,15 +27,15 @@ gsap.registerPlugin(ScrollTrigger);
 ### Inline ScrollTrigger
 
 ```javascript
-gsap.from('.element', {
+gsap.from(".element", {
   opacity: 0,
   y: 50,
   duration: 1,
   scrollTrigger: {
-    trigger: '.element',
-    start: 'top 80%',
-    end: 'bottom 20%'
-  }
+    trigger: ".element",
+    start: "top 80%",
+    end: "bottom 20%",
+  },
 });
 ```
 
@@ -43,13 +43,13 @@ gsap.from('.element', {
 
 ```javascript
 ScrollTrigger.create({
-  trigger: '.section',
-  start: 'top center',
-  end: 'bottom center',
-  onEnter: () => console.log('Entered'),
-  onLeave: () => console.log('Left'),
-  onEnterBack: () => console.log('Entered back'),
-  onLeaveBack: () => console.log('Left back')
+  trigger: ".section",
+  start: "top center",
+  end: "bottom center",
+  onEnter: () => console.log("Entered"),
+  onLeave: () => console.log("Left"),
+  onEnterBack: () => console.log("Entered back"),
+  onLeaveBack: () => console.log("Left back"),
 });
 ```
 
@@ -102,15 +102,15 @@ scrollTrigger: {
 
 ```javascript
 ScrollTrigger.create({
-  trigger: '.element',
-  start: 'top center',
-  toggleClass: 'active',  // Add class when active
+  trigger: ".element",
+  start: "top center",
+  toggleClass: "active", // Add class when active
 
   // Or with custom class
   toggleClass: {
-    targets: '.element, .other-element',
-    className: 'is-visible'
-  }
+    targets: ".element, .other-element",
+    className: "is-visible",
+  },
 });
 ```
 
@@ -143,11 +143,11 @@ ScrollTrigger.defaults({
 
 ```javascript
 ScrollTrigger.create({
-  trigger: '.sticky-section',
-  start: 'top top',
-  end: '+=100%',  // Pin for 100% of viewport height
+  trigger: ".sticky-section",
+  start: "top top",
+  end: "+=100%", // Pin for 100% of viewport height
   pin: true,
-  pinSpacing: true  // Add space for pinned duration
+  pinSpacing: true, // Add space for pinned duration
 });
 ```
 
@@ -156,12 +156,12 @@ ScrollTrigger.create({
 ```javascript
 // Content scrolls over pinned element
 ScrollTrigger.create({
-  trigger: '.hero',
-  start: 'top top',
-  end: 'bottom top',
+  trigger: ".hero",
+  start: "top top",
+  end: "bottom top",
   pin: true,
-  pinSpacing: false,  // No extra scroll space
-  anticipatePin: 1    // Smooth pin on slow scroll
+  pinSpacing: false, // No extra scroll space
+  anticipatePin: 1, // Smooth pin on slow scroll
 });
 ```
 
@@ -169,27 +169,27 @@ ScrollTrigger.create({
 
 ```javascript
 ScrollTrigger.create({
-  trigger: '.section',
-  start: 'top top',
-  end: 'bottom bottom',
-  pin: '.sticky-sidebar',  // Pin sidebar, not trigger
-  pinSpacing: false
+  trigger: ".section",
+  start: "top top",
+  end: "bottom bottom",
+  pin: ".sticky-sidebar", // Pin sidebar, not trigger
+  pinSpacing: false,
 });
 ```
 
 ### Pin with Animation
 
 ```javascript
-gsap.to('.progress-bar', {
+gsap.to(".progress-bar", {
   scaleX: 1,
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '.article',
-    start: 'top top',
-    end: 'bottom bottom',
-    pin: '.progress-container',
-    scrub: true
-  }
+    trigger: ".article",
+    start: "top top",
+    end: "bottom bottom",
+    pin: ".progress-container",
+    scrub: true,
+  },
 });
 ```
 
@@ -202,49 +202,49 @@ Scrub ties animation progress to scroll position.
 ### Basic Scrub
 
 ```javascript
-gsap.to('.element', {
+gsap.to(".element", {
   x: 500,
   rotation: 360,
   scrollTrigger: {
-    trigger: '.section',
-    start: 'top bottom',
-    end: 'bottom top',
-    scrub: true  // Direct 1:1 with scroll
-  }
+    trigger: ".section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true, // Direct 1:1 with scroll
+  },
 });
 ```
 
 ### Smoothed Scrub
 
 ```javascript
-gsap.to('.element', {
+gsap.to(".element", {
   y: -200,
   scrollTrigger: {
-    trigger: '.section',
-    scrub: 0.5,  // 0.5 second smoothing
+    trigger: ".section",
+    scrub: 0.5, // 0.5 second smoothing
     // scrub: 1,   // 1 second smoothing
     // scrub: 2,   // 2 second smoothing (buttery smooth)
-  }
+  },
 });
 ```
 
 ### Scrub with Snap
 
 ```javascript
-gsap.to('.carousel', {
-  xPercent: -75,  // 4 panels
-  ease: 'none',
+gsap.to(".carousel", {
+  xPercent: -75, // 4 panels
+  ease: "none",
   scrollTrigger: {
-    trigger: '.carousel-wrapper',
+    trigger: ".carousel-wrapper",
     pin: true,
     scrub: 1,
     snap: {
-      snapTo: 1/3,  // Snap to 0, 0.33, 0.66, 1
+      snapTo: 1 / 3, // Snap to 0, 0.33, 0.66, 1
       duration: { min: 0.2, max: 0.5 },
       delay: 0.1,
-      ease: 'power1.inOut'
-    }
-  }
+      ease: "power1.inOut",
+    },
+  },
 });
 ```
 
@@ -255,53 +255,54 @@ gsap.to('.carousel', {
 ### Basic Horizontal Scroll
 
 ```javascript
-const panels = gsap.utils.toArray('.panel');
+const panels = gsap.utils.toArray(".panel");
 
 gsap.to(panels, {
   xPercent: -100 * (panels.length - 1),
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '.horizontal-container',
+    trigger: ".horizontal-container",
     pin: true,
     scrub: 1,
     snap: 1 / (panels.length - 1),
-    end: () => '+=' + document.querySelector('.horizontal-container').scrollWidth
-  }
+    end: () =>
+      "+=" + document.querySelector(".horizontal-container").scrollWidth,
+  },
 });
 ```
 
 ### Horizontal with Varying Panel Widths
 
 ```javascript
-const container = document.querySelector('.horizontal-container');
-const panels = gsap.utils.toArray('.panel');
+const container = document.querySelector(".horizontal-container");
+const panels = gsap.utils.toArray(".panel");
 
 gsap.to(panels, {
   x: () => -(container.scrollWidth - window.innerWidth),
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
     trigger: container,
     pin: true,
     scrub: 1,
-    end: () => '+=' + (container.scrollWidth - window.innerWidth),
-    invalidateOnRefresh: true  // Recalculate on resize
-  }
+    end: () => "+=" + (container.scrollWidth - window.innerWidth),
+    invalidateOnRefresh: true, // Recalculate on resize
+  },
 });
 ```
 
 ### Horizontal with Per-Panel Animations
 
 ```javascript
-const panels = gsap.utils.toArray('.panel');
+const panels = gsap.utils.toArray(".panel");
 
 const tl = gsap.timeline({
   scrollTrigger: {
-    trigger: '.horizontal-container',
+    trigger: ".horizontal-container",
     pin: true,
     scrub: 1,
     snap: 1 / (panels.length - 1),
-    end: () => '+=' + (panels.length * window.innerWidth)
-  }
+    end: () => "+=" + panels.length * window.innerWidth,
+  },
 });
 
 panels.forEach((panel, i) => {
@@ -309,10 +310,14 @@ panels.forEach((panel, i) => {
   tl.to(panels, { xPercent: -100 * i }, i);
 
   // Animate content within panel
-  tl.from(panel.querySelector('.content'), {
-    opacity: 0,
-    y: 50
-  }, i);
+  tl.from(
+    panel.querySelector(".content"),
+    {
+      opacity: 0,
+      y: 50,
+    },
+    i,
+  );
 });
 ```
 
@@ -323,15 +328,15 @@ panels.forEach((panel, i) => {
 ### Simple Parallax
 
 ```javascript
-gsap.to('.parallax-bg', {
+gsap.to(".parallax-bg", {
   y: -100,
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '.parallax-section',
-    start: 'top bottom',
-    end: 'bottom top',
-    scrub: true
-  }
+    trigger: ".parallax-section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
 });
 ```
 
@@ -339,21 +344,21 @@ gsap.to('.parallax-bg', {
 
 ```javascript
 const layers = [
-  { element: '.layer-1', speed: 0.5 },
-  { element: '.layer-2', speed: 0.8 },
-  { element: '.layer-3', speed: 1.2 },
+  { element: ".layer-1", speed: 0.5 },
+  { element: ".layer-2", speed: 0.8 },
+  { element: ".layer-3", speed: 1.2 },
 ];
 
-layers.forEach(layer => {
+layers.forEach((layer) => {
   gsap.to(layer.element, {
     y: () => -window.innerHeight * layer.speed,
-    ease: 'none',
+    ease: "none",
     scrollTrigger: {
-      trigger: '.parallax-section',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
-    }
+      trigger: ".parallax-section",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+    },
   });
 });
 ```
@@ -361,15 +366,15 @@ layers.forEach(layer => {
 ### Parallax Text
 
 ```javascript
-gsap.to('.parallax-text', {
+gsap.to(".parallax-text", {
   yPercent: -50,
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '.text-section',
-    start: 'top bottom',
-    end: 'bottom top',
-    scrub: true
-  }
+    trigger: ".text-section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
 });
 ```
 
@@ -380,24 +385,24 @@ gsap.to('.parallax-text', {
 Efficiently animate many elements that enter viewport.
 
 ```javascript
-ScrollTrigger.batch('.card', {
-  onEnter: batch => {
+ScrollTrigger.batch(".card", {
+  onEnter: (batch) => {
     gsap.from(batch, {
       opacity: 0,
       y: 50,
       stagger: 0.1,
       duration: 0.6,
-      ease: 'power3.out'
+      ease: "power3.out",
     });
   },
-  onLeave: batch => {
+  onLeave: (batch) => {
     gsap.to(batch, { opacity: 0.5 });
   },
-  onEnterBack: batch => {
+  onEnterBack: (batch) => {
     gsap.to(batch, { opacity: 1 });
   },
-  start: 'top 85%',
-  batchMax: 5  // Max elements per batch
+  start: "top 85%",
+  batchMax: 5, // Max elements per batch
 });
 ```
 
@@ -408,31 +413,31 @@ ScrollTrigger.batch('.card', {
 ### Progress Indicator
 
 ```javascript
-gsap.to('.progress-bar', {
+gsap.to(".progress-bar", {
   scaleX: 1,
-  transformOrigin: 'left center',
-  ease: 'none',
+  transformOrigin: "left center",
+  ease: "none",
   scrollTrigger: {
     trigger: document.body,
-    start: 'top top',
-    end: 'bottom bottom',
-    scrub: true
-  }
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+  },
 });
 ```
 
 ### Section Counter
 
 ```javascript
-const sections = gsap.utils.toArray('.section');
-const counter = document.querySelector('.section-counter');
+const sections = gsap.utils.toArray(".section");
+const counter = document.querySelector(".section-counter");
 
 sections.forEach((section, i) => {
   ScrollTrigger.create({
     trigger: section,
-    start: 'top center',
-    onEnter: () => counter.textContent = `${i + 1} / ${sections.length}`,
-    onEnterBack: () => counter.textContent = `${i + 1} / ${sections.length}`
+    start: "top center",
+    onEnter: () => (counter.textContent = `${i + 1} / ${sections.length}`),
+    onEnterBack: () => (counter.textContent = `${i + 1} / ${sections.length}`),
   });
 });
 ```
@@ -441,7 +446,7 @@ sections.forEach((section, i) => {
 
 ```javascript
 let scrollVelocity = 0;
-const skewElement = document.querySelector('.skew-on-scroll');
+const skewElement = document.querySelector(".skew-on-scroll");
 
 ScrollTrigger.create({
   onUpdate: (self) => {
@@ -450,23 +455,23 @@ ScrollTrigger.create({
     gsap.to(skewElement, {
       skewY: scrollVelocity,
       duration: 0.2,
-      ease: 'power3.out'
+      ease: "power3.out",
     });
-  }
+  },
 });
 ```
 
 ### Reveal with Clip Path
 
 ```javascript
-gsap.from('.reveal-section', {
-  clipPath: 'inset(100% 0 0 0)',
+gsap.from(".reveal-section", {
+  clipPath: "inset(100% 0 0 0)",
   duration: 1.5,
-  ease: 'power4.out',
+  ease: "power4.out",
   scrollTrigger: {
-    trigger: '.reveal-section',
-    start: 'top 80%'
-  }
+    trigger: ".reveal-section",
+    start: "top 80%",
+  },
 });
 ```
 
@@ -484,7 +489,7 @@ trigger.kill();  // Remove this trigger
 ### All ScrollTriggers
 
 ```javascript
-ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 ```
 
 ### With Context (Recommended)
@@ -517,13 +522,13 @@ setTimeout(() => ScrollTrigger.refresh(), 100);
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add('(prefers-reduced-motion: no-preference)', () => {
+mm.add("(prefers-reduced-motion: no-preference)", () => {
   // Full scroll animations
 });
 
-mm.add('(prefers-reduced-motion: reduce)', () => {
+mm.add("(prefers-reduced-motion: reduce)", () => {
   // Static or simple fade-only versions
-  gsap.set('.animated', { opacity: 1, y: 0 });
+  gsap.set(".animated", { opacity: 1, y: 0 });
 });
 ```
 

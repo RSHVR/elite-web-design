@@ -13,13 +13,13 @@ Brands are living systems. They grow, adapt, and occasionally transform.
 
 ## Refresh vs Rebrand
 
-| | Refresh | Rebrand |
-|-|---------|---------|
-| **Scope** | Modernize existing elements | Fundamental identity change |
-| **Triggers** | Dated visuals, new medium requirements | New positioning, merger, reputation reset |
-| **Timeline** | Weeks to months | Months to years |
-| **Risk** | Low — gradual, recognizable | High — can alienate existing audience |
-| **Brand equity** | Preserved | Partially sacrificed |
+|                  | Refresh                                | Rebrand                                   |
+| ---------------- | -------------------------------------- | ----------------------------------------- |
+| **Scope**        | Modernize existing elements            | Fundamental identity change               |
+| **Triggers**     | Dated visuals, new medium requirements | New positioning, merger, reputation reset |
+| **Timeline**     | Weeks to months                        | Months to years                           |
+| **Risk**         | Low — gradual, recognizable            | High — can alienate existing audience     |
+| **Brand equity** | Preserved                              | Partially sacrificed                      |
 
 Most brands need refreshes, not rebrands. A rebrand should be the last resort.
 
@@ -41,6 +41,7 @@ Most brands need refreshes, not rebrands. A rebrand should be the last resort.
 ### Evolutionary (Low Risk)
 
 Change one element at a time:
+
 1. Update the color palette (modernize tones)
 2. Swap typography (fresher fonts, same personality)
 3. Refine the logo (simplify, not replace)
@@ -49,6 +50,7 @@ Change one element at a time:
 ### Seasonal/Campaign Variations
 
 Temporary brand expressions for campaigns, seasons, or events:
+
 - Modified color palette (holiday accents)
 - Special edition imagery
 - Campaign-specific messaging

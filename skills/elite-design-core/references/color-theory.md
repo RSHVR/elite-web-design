@@ -140,30 +140,30 @@ Map primitives to semantic tokens for maintainability.
 ### WCAG Requirements
 
 | Level | Normal Text | Large Text (18px+ or 14px+ bold) |
-|-------|-------------|----------------------------------|
-| AA | 4.5:1 | 3:1 |
-| AAA | 7:1 | 4.5:1 |
+| ----- | ----------- | -------------------------------- |
+| AA    | 4.5:1       | 3:1                              |
+| AAA   | 7:1         | 4.5:1                            |
 
 ### Testing Contrast
 
 ```css
 /* PASSES AA for normal text (4.5:1+) */
 .text-primary {
-  color: #171717;      /* neutral-900 */
+  color: #171717; /* neutral-900 */
   background: #fafafa; /* neutral-50 */
   /* Contrast: 18.2:1 ✓ */
 }
 
 /* PASSES AA for normal text */
 .text-secondary {
-  color: #525252;      /* neutral-600 */
+  color: #525252; /* neutral-600 */
   background: #fafafa; /* neutral-50 */
   /* Contrast: 7.5:1 ✓ */
 }
 
 /* FAILS AA for normal text */
 .text-muted {
-  color: #a3a3a3;      /* neutral-400 */
+  color: #a3a3a3; /* neutral-400 */
   background: #fafafa; /* neutral-50 */
   /* Contrast: 3.0:1 ✗ - Only use for large text */
 }
@@ -173,26 +173,26 @@ Map primitives to semantic tokens for maintainability.
 
 ```css
 /* Light backgrounds */
---safe-text-on-light: var(--neutral-800);  /* 12.6:1 on white */
---safe-secondary-on-light: var(--neutral-600);  /* 7.5:1 on white */
+--safe-text-on-light: var(--neutral-800); /* 12.6:1 on white */
+--safe-secondary-on-light: var(--neutral-600); /* 7.5:1 on white */
 
 /* Dark backgrounds */
---safe-text-on-dark: var(--neutral-100);  /* 15.9:1 on neutral-900 */
---safe-secondary-on-dark: var(--neutral-300);  /* 9.7:1 on neutral-900 */
+--safe-text-on-dark: var(--neutral-100); /* 15.9:1 on neutral-900 */
+--safe-secondary-on-dark: var(--neutral-300); /* 9.7:1 on neutral-900 */
 
 /* Accent on light */
---safe-accent: var(--blue-700);  /* 4.6:1 on white - just passes AA */
+--safe-accent: var(--blue-700); /* 4.6:1 on white - just passes AA */
 ```
 
 ### APCA (Advanced Perceptual Contrast Algorithm)
 
 APCA is the emerging standard, more accurate for modern displays:
 
-| Content Type | APCA Target |
-|--------------|-------------|
-| Body text | Lc 75-90 |
-| Large headlines | Lc 45-60 |
-| Placeholder text | Lc 60+ |
+| Content Type     | APCA Target |
+| ---------------- | ----------- |
+| Body text        | Lc 75-90    |
+| Large headlines  | Lc 45-60    |
+| Placeholder text | Lc 60+      |
 
 ---
 
@@ -228,9 +228,9 @@ Dark mode isn't simply inverting colors. Key principles:
     --color-text-secondary: var(--neutral-400);
     --color-bg-primary: var(--neutral-950);
     --color-bg-secondary: var(--neutral-900);
-    --color-bg-elevated: var(--neutral-800);  /* Lighter = elevated */
+    --color-bg-elevated: var(--neutral-800); /* Lighter = elevated */
     --color-border: var(--neutral-800);
-    --color-accent: var(--blue-400);  /* Lighter accent for dark bg */
+    --color-accent: var(--blue-400); /* Lighter accent for dark bg */
   }
 }
 ```
@@ -240,7 +240,9 @@ Dark mode isn't simply inverting colors. Key principles:
 ```css
 /* System preference */
 @media (prefers-color-scheme: dark) {
-  :root { /* dark tokens */ }
+  :root {
+    /* dark tokens */
+  }
 }
 
 /* Manual override via data attribute */
@@ -261,7 +263,8 @@ Dark mode isn't simply inverting colors. Key principles:
 // Toggle theme
 function toggleTheme() {
   const current = document.documentElement.dataset.theme;
-  document.documentElement.dataset.theme = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme =
+    current === "dark" ? "light" : "dark";
 }
 ```
 
@@ -270,10 +273,10 @@ function toggleTheme() {
 ```css
 /* Dark mode: lighter = higher elevation */
 :root[data-theme="dark"] {
-  --color-surface-0: var(--neutral-950);  /* Base layer */
-  --color-surface-1: var(--neutral-900);  /* Cards, panels */
-  --color-surface-2: var(--neutral-800);  /* Elevated cards, dropdowns */
-  --color-surface-3: var(--neutral-700);  /* Modals, popovers */
+  --color-surface-0: var(--neutral-950); /* Base layer */
+  --color-surface-1: var(--neutral-900); /* Cards, panels */
+  --color-surface-2: var(--neutral-800); /* Elevated cards, dropdowns */
+  --color-surface-3: var(--neutral-700); /* Modals, popovers */
 }
 ```
 
@@ -289,15 +292,15 @@ function toggleTheme() {
 
 ```css
 body {
-  background: var(--color-bg-primary);  /* 60% */
+  background: var(--color-bg-primary); /* 60% */
 }
 
 .card {
-  background: var(--color-bg-secondary);  /* 30% */
+  background: var(--color-bg-secondary); /* 30% */
 }
 
 .btn-primary {
-  background: var(--color-accent);  /* 10% */
+  background: var(--color-accent); /* 10% */
 }
 ```
 
@@ -305,13 +308,19 @@ body {
 
 ```css
 /* Primary content - full contrast */
-.heading { color: var(--color-text-primary); }
+.heading {
+  color: var(--color-text-primary);
+}
 
 /* Supporting content - reduced contrast */
-.subheading { color: var(--color-text-secondary); }
+.subheading {
+  color: var(--color-text-secondary);
+}
 
 /* Metadata - minimal contrast */
-.meta { color: var(--color-text-muted); }
+.meta {
+  color: var(--color-text-muted);
+}
 ```
 
 ### Color for State
@@ -418,7 +427,7 @@ Real-world color architectures from production sites, showing how token systems 
 Tailwind v4 uses `@theme {}` inside CSS (replacing `tailwind.config.js`). Tokens become utility classes automatically:
 
 ```css
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-void: #1a1614;
@@ -427,7 +436,7 @@ Tailwind v4 uses `@theme {}` inside CSS (replacing `tailwind.config.js`). Tokens
   --color-accent: #f97316;
   --color-accent-hover: #ea580c;
   --color-accent-glow: rgba(249, 115, 22, 0.15);
-  --color-highlight: #D5FA71;
+  --color-highlight: #d5fa71;
 
   --color-text-light: #f5f3ef;
   --color-text-light-muted: rgba(245, 243, 239, 0.55);

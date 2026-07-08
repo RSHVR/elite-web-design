@@ -15,9 +15,9 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --property-name {
-  syntax: '<type>';      /* Required: What type of value */
-  initial-value: value;  /* Required: Starting value */
-  inherits: true|false;  /* Required: Does it inherit? */
+  syntax: "<type>"; /* Required: What type of value */
+  initial-value: value; /* Required: Starting value */
+  inherits: true|false; /* Required: Does it inherit? */
 }
 ```
 
@@ -44,23 +44,21 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --gradient-angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
 
 .gradient-bg {
   --gradient-angle: 0deg;
-  background: linear-gradient(
-    var(--gradient-angle),
-    #667eea,
-    #764ba2
-  );
+  background: linear-gradient(var(--gradient-angle), #667eea, #764ba2);
   animation: rotate-gradient 3s linear infinite;
 }
 
 @keyframes rotate-gradient {
-  to { --gradient-angle: 360deg; }
+  to {
+    --gradient-angle: 360deg;
+  }
 }
 ```
 
@@ -68,7 +66,7 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --progress {
-  syntax: '<number>';
+  syntax: "<number>";
   initial-value: 0;
   inherits: false;
 }
@@ -95,13 +93,13 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --color-1 {
-  syntax: '<color>';
+  syntax: "<color>";
   initial-value: #667eea;
   inherits: false;
 }
 
 @property --color-2 {
-  syntax: '<color>';
+  syntax: "<color>";
   initial-value: #764ba2;
   inherits: false;
 }
@@ -123,7 +121,7 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --border-angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
@@ -136,7 +134,7 @@ Animate CSS custom properties that previously couldn't be animated.
 }
 
 .gradient-border::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -2px;
   border-radius: inherit;
@@ -152,7 +150,9 @@ Animate CSS custom properties that previously couldn't be animated.
 }
 
 @keyframes rotate-border {
-  to { --border-angle: 360deg; }
+  to {
+    --border-angle: 360deg;
+  }
 }
 ```
 
@@ -164,7 +164,7 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --num {
-  syntax: '<integer>';
+  syntax: "<integer>";
   initial-value: 0;
   inherits: false;
 }
@@ -180,7 +180,9 @@ Animate CSS custom properties that previously couldn't be animated.
 }
 
 @keyframes count {
-  to { --num: 100; }
+  to {
+    --num: 100;
+  }
 }
 ```
 
@@ -188,7 +190,7 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --percent {
-  syntax: '<integer>';
+  syntax: "<integer>";
   initial-value: 0;
   inherits: false;
 }
@@ -200,7 +202,7 @@ Animate CSS custom properties that previously couldn't be animated.
 }
 
 .percentage::after {
-  content: counter(percent) '%';
+  content: counter(percent) "%";
 }
 
 /* Set via JS or :hover */
@@ -213,7 +215,7 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --fill {
-  syntax: '<percentage>';
+  syntax: "<percentage>";
   initial-value: 0%;
   inherits: false;
 }
@@ -241,13 +243,13 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --blob-1 {
-  syntax: '<percentage>';
+  syntax: "<percentage>";
   initial-value: 60%;
   inherits: false;
 }
 
 @property --blob-2 {
-  syntax: '<percentage>';
+  syntax: "<percentage>";
   initial-value: 40%;
   inherits: false;
 }
@@ -269,19 +271,21 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --cursor-opacity {
-  syntax: '<number>';
+  syntax: "<number>";
   initial-value: 1;
   inherits: false;
 }
 
 .typewriter::after {
-  content: '|';
+  content: "|";
   opacity: var(--cursor-opacity);
   animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-  50% { --cursor-opacity: 0; }
+  50% {
+    --cursor-opacity: 0;
+  }
 }
 ```
 
@@ -289,7 +293,7 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --shadow-spread {
-  syntax: '<length>';
+  syntax: "<length>";
   initial-value: 0px;
   inherits: false;
 }
@@ -301,7 +305,9 @@ Animate CSS custom properties that previously couldn't be animated.
 }
 
 @keyframes pulse-glow {
-  50% { --shadow-spread: 20px; }
+  50% {
+    --shadow-spread: 20px;
+  }
 }
 ```
 
@@ -309,7 +315,7 @@ Animate CSS custom properties that previously couldn't be animated.
 
 ```css
 @property --wave-offset {
-  syntax: '<length>';
+  syntax: "<length>";
   initial-value: 0px;
   inherits: false;
 }
@@ -321,7 +327,10 @@ Animate CSS custom properties that previously couldn't be animated.
 }
 
 @keyframes wave {
-  50% { --wave-offset: -10px; transform: translateY(var(--wave-offset)); }
+  50% {
+    --wave-offset: -10px;
+    transform: translateY(var(--wave-offset));
+  }
 }
 ```
 
@@ -361,7 +370,7 @@ Animate CSS custom properties that previously couldn't be animated.
 
 @supports (animation-timeline: scroll()) {
   @property --gradient-angle {
-    syntax: '<angle>';
+    syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
   }

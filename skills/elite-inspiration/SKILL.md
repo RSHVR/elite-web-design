@@ -10,16 +10,16 @@ Curated references from Awwwards, FWA, and CSS Design Awards.
 
 ## Quick Reference
 
-| Pattern | Reference File |
-|---------|---------------|
-| Horizontal Scroll | [horizontal-scroll-sites.md](references/horizontal-scroll-sites.md) |
-| Bento Grids | [bento-grid-sites.md](references/bento-grid-sites.md) |
-| Text Animations | [text-animation-sites.md](references/text-animation-sites.md) |
-| Parallax | [parallax-sites.md](references/parallax-sites.md) |
-| Product Configurators | [product-configurators.md](references/product-configurators.md) |
-| Agency Portfolios | [agency-portfolios.md](references/agency-portfolios.md) |
-| Micro-interactions | [micro-interactions.md](references/micro-interactions.md) |
-| Archetype case studies | [archetype-case-studies.md](references/archetype-case-studies.md) |
+| Pattern                | Reference File                                                      |
+| ---------------------- | ------------------------------------------------------------------- |
+| Horizontal Scroll      | [horizontal-scroll-sites.md](references/horizontal-scroll-sites.md) |
+| Bento Grids            | [bento-grid-sites.md](references/bento-grid-sites.md)               |
+| Text Animations        | [text-animation-sites.md](references/text-animation-sites.md)       |
+| Parallax               | [parallax-sites.md](references/parallax-sites.md)                   |
+| Product Configurators  | [product-configurators.md](references/product-configurators.md)     |
+| Agency Portfolios      | [agency-portfolios.md](references/agency-portfolios.md)             |
+| Micro-interactions     | [micro-interactions.md](references/micro-interactions.md)           |
+| Archetype case studies | [archetype-case-studies.md](references/archetype-case-studies.md)   |
 
 ---
 
@@ -48,40 +48,48 @@ When studying award-winning sites:
 ## Award Platforms
 
 ### Awwwards
+
 **URL**: https://www.awwwards.com
 
 Best for: Cutting-edge techniques, design trends, agency work
 
 Key sections:
+
 - [Sites of the Day](https://www.awwwards.com/websites/sites_of_the_day/)
 - [Honorable Mentions](https://www.awwwards.com/websites/honorable-mentions/)
 - [Developer Awards](https://www.awwwards.com/websites/developer/)
 
 ### FWA (Favourite Website Awards)
+
 **URL**: https://thefwa.com
 
 Best for: Experimental work, interactive experiences, WebGL
 
 Key sections:
+
 - [Site of the Day](https://thefwa.com/site-of-the-day)
 - [Mobile of the Day](https://thefwa.com/mobile-of-the-day)
 
 ### CSS Design Awards
+
 **URL**: https://www.cssdesignawards.com
 
 Best for: CSS-focused design, clean implementations
 
 ### Godly
+
 **URL**: https://godly.website
 
 Best for: Curated landing pages, SaaS design inspiration
 
 ### Landbook
+
 **URL**: https://land-book.com
 
 Best for: Landing page patterns, conversion-focused design
 
 ### SaaS Landing Page
+
 **URL**: https://saaslandingpage.com
 
 Best for: B2B SaaS design patterns
@@ -95,6 +103,7 @@ Best for: B2B SaaS design patterns
 Used for: Portfolios, case studies, storytelling
 
 Key techniques:
+
 - GSAP ScrollTrigger pin
 - CSS scroll-snap
 - Progress indicators
@@ -109,6 +118,7 @@ Key techniques:
 Used for: Feature showcases, product pages, dashboards
 
 Key techniques:
+
 - CSS Grid with spans
 - Responsive reflow
 - Card hover effects
@@ -123,6 +133,7 @@ Key techniques:
 Used for: Hero sections, headlines, storytelling
 
 Key techniques:
+
 - SplitText character/word animation
 - Masked reveals
 - Stagger patterns
@@ -137,6 +148,7 @@ Key techniques:
 Used for: Depth, immersion, storytelling
 
 Key techniques:
+
 - Multi-layer depth
 - Scroll-based transforms
 - Sticky sections
@@ -151,6 +163,7 @@ Key techniques:
 Used for: E-commerce, SaaS, customization
 
 Key techniques:
+
 - 3D model integration
 - Color/option switching
 - Real-time preview
@@ -165,6 +178,7 @@ Key techniques:
 Used for: Creative studios, freelancers
 
 Key techniques:
+
 - Case study navigation
 - Project hover previews
 - Custom cursors
@@ -179,6 +193,7 @@ Key techniques:
 Used for: Buttons, forms, navigation, feedback
 
 Key techniques:
+
 - State transitions
 - Loading states
 - Hover feedback
@@ -194,24 +209,24 @@ These studios consistently produce award-winning work:
 
 ### Development-Focused
 
-| Studio | Known For | Location |
-|--------|-----------|----------|
-| **Active Theory** | WebGL, interactive | LA, USA |
-| **Build in Amsterdam** | Smooth animations | Amsterdam |
-| **Locomotive** | Scroll experiences | Montreal |
-| **Resn** | Experimental | Wellington |
-| **Studio Freight** | Motion design | Brooklyn |
-| **Basement Studio** | Cutting-edge tech | Buenos Aires |
+| Studio                 | Known For          | Location     |
+| ---------------------- | ------------------ | ------------ |
+| **Active Theory**      | WebGL, interactive | LA, USA      |
+| **Build in Amsterdam** | Smooth animations  | Amsterdam    |
+| **Locomotive**         | Scroll experiences | Montreal     |
+| **Resn**               | Experimental       | Wellington   |
+| **Studio Freight**     | Motion design      | Brooklyn     |
+| **Basement Studio**    | Cutting-edge tech  | Buenos Aires |
 
 ### Design-Focused
 
-| Studio | Known For | Location |
-|--------|-----------|----------|
-| **Basic/Dept** | Clean, minimal | San Diego |
-| **Huge** | Enterprise scale | Brooklyn |
-| **Fantasy** | Product design | SF |
-| **Ueno** | Brand experiences | Reykjavik |
-| **Rally** | Startups | SF |
+| Studio         | Known For         | Location  |
+| -------------- | ----------------- | --------- |
+| **Basic/Dept** | Clean, minimal    | San Diego |
+| **Huge**       | Enterprise scale  | Brooklyn  |
+| **Fantasy**    | Product design    | SF        |
+| **Ueno**       | Brand experiences | Reykjavik |
+| **Rally**      | Startups          | SF        |
 
 ---
 
@@ -220,6 +235,7 @@ These studios consistently produce award-winning work:
 ### GSAP Usage
 
 Most award-winning sites use GSAP for:
+
 - Scroll-driven animations (ScrollTrigger)
 - Text reveals (SplitText)
 - Layout changes (Flip)
@@ -228,6 +244,7 @@ Most award-winning sites use GSAP for:
 ### WebGL/Three.js
 
 Common in:
+
 - 3D product showcases
 - Interactive backgrounds
 - Particle effects
@@ -236,6 +253,7 @@ Common in:
 ### Frameworks
 
 Common stacks:
+
 - **Next.js** - React SSR, performance
 - **Nuxt** - Vue SSR
 - **SvelteKit** - Svelte SSR
@@ -249,12 +267,12 @@ How awards judge sites:
 
 ### Awwwards Criteria
 
-| Category | Weight | What They Look For |
-|----------|--------|-------------------|
-| Design | 40% | Visual impact, creativity, trends |
-| Usability | 30% | Navigation, accessibility, mobile |
-| Creativity | 15% | Innovation, uniqueness |
-| Content | 15% | Quality, relevance |
+| Category   | Weight | What They Look For                |
+| ---------- | ------ | --------------------------------- |
+| Design     | 40%    | Visual impact, creativity, trends |
+| Usability  | 30%    | Navigation, accessibility, mobile |
+| Creativity | 15%    | Innovation, uniqueness            |
+| Content    | 15%    | Quality, relevance                |
 
 ### What Makes "SOTD" (Site of the Day)
 
@@ -281,6 +299,7 @@ How awards judge sites:
 ### Bookmarking System
 
 Organize inspiration by:
+
 - **Pattern type** (horizontal scroll, bento, etc.)
 - **Technique** (scroll animation, 3D, text effects)
 - **Industry** (SaaS, fashion, agency)

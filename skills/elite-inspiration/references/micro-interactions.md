@@ -7,19 +7,24 @@ Subtle animations that bring interfaces to life.
 ## Button Interactions
 
 ### Stripe
+
 **URL**: https://stripe.com
 **What to study**:
+
 - Button hover states
 - Loading indicators
 - Success animations
 - Gradient button effects
 
 **Patterns**:
+
 ```css
 /* Stripe-style button */
 .btn {
   background: linear-gradient(135deg, #667eea, #764ba2);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .btn:hover {
@@ -35,8 +40,10 @@ Subtle animations that bring interfaces to life.
 ---
 
 ### Linear
+
 **URL**: https://linear.app
 **What to study**:
+
 - Subtle hover lifts
 - Icon animations in buttons
 - Loading spinners
@@ -45,8 +52,10 @@ Subtle animations that bring interfaces to life.
 ---
 
 ### Vercel
+
 **URL**: https://vercel.com
 **What to study**:
+
 - Deploy button states
 - Copy code feedback
 - Navigation highlights
@@ -57,8 +66,10 @@ Subtle animations that bring interfaces to life.
 ## Form Interactions
 
 ### Typeform
+
 **URL**: https://www.typeform.com
 **What to study**:
+
 - Field focus states
 - Input validation feedback
 - Progress indication
@@ -67,8 +78,10 @@ Subtle animations that bring interfaces to life.
 ---
 
 ### Stripe Elements
+
 **URL**: https://stripe.com/docs/payments/elements
 **What to study**:
+
 - Card input formatting
 - Real-time validation
 - Error messaging
@@ -77,8 +90,10 @@ Subtle animations that bring interfaces to life.
 ---
 
 ### Framer
+
 **URL**: https://www.framer.com
 **What to study**:
+
 - Placeholder animations
 - Label transitions
 - Dropdown menus
@@ -89,8 +104,10 @@ Subtle animations that bring interfaces to life.
 ## Navigation Interactions
 
 ### Apple
+
 **URL**: https://www.apple.com
 **What to study**:
+
 - Nav hover underlines
 - Dropdown reveals
 - Mega menu animations
@@ -99,8 +116,10 @@ Subtle animations that bring interfaces to life.
 ---
 
 ### Stripe (Nav)
+
 **URL**: https://stripe.com
 **What to study**:
+
 - Products dropdown
 - Hover timing
 - Background transitions
@@ -109,8 +128,10 @@ Subtle animations that bring interfaces to life.
 ---
 
 ### Linear (Nav)
+
 **URL**: https://linear.app
 **What to study**:
+
 - Minimal nav hover
 - Command palette (⌘K)
 - Keyboard navigation
@@ -121,8 +142,10 @@ Subtle animations that bring interfaces to life.
 ## Feedback & States
 
 ### Notion
+
 **URL**: https://www.notion.so
 **What to study**:
+
 - Drag and drop feedback
 - Checkbox animations
 - Page loading states
@@ -131,8 +154,10 @@ Subtle animations that bring interfaces to life.
 ---
 
 ### Figma
+
 **URL**: https://www.figma.com
 **What to study**:
+
 - Cursor multiplayer
 - Selection feedback
 - Tool switching
@@ -141,8 +166,10 @@ Subtle animations that bring interfaces to life.
 ---
 
 ### GitHub
+
 **URL**: https://github.com
 **What to study**:
+
 - Contribution graph hover
 - Diff highlighting
 - Copy feedback
@@ -227,9 +254,12 @@ Error:
 ## Implementation Reference
 
 ### Hover Lift
+
 ```css
 .card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .card:hover {
@@ -239,24 +269,25 @@ Error:
 ```
 
 ### Button Loading
+
 ```javascript
 async function handleSubmit(btn) {
-  btn.classList.add('loading');
+  btn.classList.add("loading");
   btn.disabled = true;
 
   try {
     await submitForm();
-    btn.classList.remove('loading');
-    btn.classList.add('success');
+    btn.classList.remove("loading");
+    btn.classList.add("success");
 
     // Reset after delay
     setTimeout(() => {
-      btn.classList.remove('success');
+      btn.classList.remove("success");
       btn.disabled = false;
     }, 2000);
   } catch (error) {
-    btn.classList.remove('loading');
-    btn.classList.add('error');
+    btn.classList.remove("loading");
+    btn.classList.add("error");
     // Handle error
   }
 }
@@ -272,7 +303,7 @@ async function handleSubmit(btn) {
 }
 
 .btn.loading::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 16px;
   height: 16px;
@@ -283,11 +314,14 @@ async function handleSubmit(btn) {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 ```
 
 ### Checkbox Animation
+
 ```css
 .checkbox-custom {
   width: 20px;
@@ -295,11 +329,13 @@ async function handleSubmit(btn) {
   border: 2px solid var(--color-border);
   border-radius: 4px;
   position: relative;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
 }
 
 .checkbox-custom::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 6px;
   top: 2px;
@@ -323,17 +359,19 @@ input:checked + .checkbox-custom::after {
 ```
 
 ### Toast Notification
+
 ```javascript
-function showToast(message, type = 'info') {
-  const toast = document.createElement('div');
+function showToast(message, type = "info") {
+  const toast = document.createElement("div");
   toast.className = `toast toast-${type}`;
   toast.textContent = message;
   document.body.appendChild(toast);
 
   // Animate in
-  gsap.fromTo(toast,
+  gsap.fromTo(
+    toast,
     { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 0.3 }
+    { opacity: 1, y: 0, duration: 0.3 },
   );
 
   // Auto dismiss
@@ -342,24 +380,25 @@ function showToast(message, type = 'info') {
       opacity: 0,
       y: -20,
       duration: 0.3,
-      onComplete: () => toast.remove()
+      onComplete: () => toast.remove(),
     });
   }, 3000);
 }
 ```
 
 ### Copy to Clipboard
+
 ```javascript
 async function copyToClipboard(text, button) {
   await navigator.clipboard.writeText(text);
 
   const originalText = button.textContent;
-  button.textContent = 'Copied!';
-  button.classList.add('copied');
+  button.textContent = "Copied!";
+  button.classList.add("copied");
 
   setTimeout(() => {
     button.textContent = originalText;
-    button.classList.remove('copied');
+    button.classList.remove("copied");
   }, 2000);
 }
 ```
@@ -370,14 +409,14 @@ async function copyToClipboard(text, button) {
 
 ### By Interaction Type
 
-| Interaction | Duration | Easing |
-|-------------|----------|--------|
-| Hover | 150-200ms | ease-out |
-| Click feedback | 100ms | ease-out |
+| Interaction     | Duration  | Easing      |
+| --------------- | --------- | ----------- |
+| Hover           | 150-200ms | ease-out    |
+| Click feedback  | 100ms     | ease-out    |
 | Page transition | 300-500ms | ease-in-out |
-| Loading appear | 200ms | ease-out |
-| Toast enter | 300ms | ease-out |
-| Toast exit | 200ms | ease-in |
+| Loading appear  | 200ms     | ease-out    |
+| Toast enter     | 300ms     | ease-out    |
+| Toast exit      | 200ms     | ease-in     |
 
 ### Rule of Thumb
 

@@ -21,12 +21,12 @@ Every interaction is a brand moment. Consistency across touchpoints builds recog
 
 ### Social Media Images
 
-| Platform | Size | Content |
-|----------|------|---------|
-| Open Graph | 1200×630 | Feature image with logo and brief text |
-| Twitter Card | 1200×628 | Similar to OG, test in card validator |
-| LinkedIn | 1200×627 | Professional variant |
-| Instagram | 1080×1080 | Visual-first, minimal text |
+| Platform     | Size      | Content                                |
+| ------------ | --------- | -------------------------------------- |
+| Open Graph   | 1200×630  | Feature image with logo and brief text |
+| Twitter Card | 1200×628  | Similar to OG, test in card validator  |
+| LinkedIn     | 1200×627  | Professional variant                   |
+| Instagram    | 1080×1080 | Visual-first, minimal text             |
 
 All should feel immediately recognizable as the same brand.
 
@@ -70,9 +70,16 @@ Subtle code-level details that reinforce brand:
 ### Custom Scrollbar
 
 ```css
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--color-bg-secondary); }
-::-webkit-scrollbar-thumb { background: var(--color-neutral-400); border-radius: 4px; }
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-400);
+  border-radius: 4px;
+}
 ```
 
 ### Focus Rings

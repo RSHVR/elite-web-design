@@ -10,13 +10,13 @@ Making motion-rich websites accessible to everyone.
 
 ## Quick Reference
 
-| Topic | Reference File |
-|-------|---------------|
-| Reduced motion | [reduced-motion.md](references/reduced-motion.md) |
-| WCAG contrast | [wcag-contrast.md](references/wcag-contrast.md) |
-| Focus & keyboard | [focus-keyboard.md](references/focus-keyboard.md) |
+| Topic                | Reference File                                                |
+| -------------------- | ------------------------------------------------------------- |
+| Reduced motion       | [reduced-motion.md](references/reduced-motion.md)             |
+| WCAG contrast        | [wcag-contrast.md](references/wcag-contrast.md)               |
+| Focus & keyboard     | [focus-keyboard.md](references/focus-keyboard.md)             |
 | Inclusive aesthetics | [inclusive-aesthetics.md](references/inclusive-aesthetics.md) |
-| Touch interaction | [touch-interaction.md](references/touch-interaction.md) |
+| Touch interaction    | [touch-interaction.md](references/touch-interaction.md)       |
 
 ---
 
@@ -65,19 +65,19 @@ This is non-negotiable for elite web design.
 // ALWAYS use gsap.matchMedia() for motion preferences
 const mm = gsap.matchMedia();
 
-mm.add('(prefers-reduced-motion: no-preference)', () => {
+mm.add("(prefers-reduced-motion: no-preference)", () => {
   // Full animations for users who want them
-  gsap.from('.hero-content', {
+  gsap.from(".hero-content", {
     opacity: 0,
     y: 50,
     duration: 1,
-    stagger: 0.2
+    stagger: 0.2,
   });
 });
 
-mm.add('(prefers-reduced-motion: reduce)', () => {
+mm.add("(prefers-reduced-motion: reduce)", () => {
   // Instant state for users who prefer reduced motion
-  gsap.set('.hero-content', { opacity: 1, y: 0 });
+  gsap.set(".hero-content", { opacity: 1, y: 0 });
 });
 ```
 
@@ -107,14 +107,14 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
 
 Don't just disable animations - provide alternatives:
 
-| Full Animation | Reduced Motion Alternative |
-|----------------|---------------------------|
-| Slide in from side | Instant appear or fade only |
-| Parallax scrolling | Static positioning |
-| Scroll-triggered reveals | Content visible by default |
-| Bouncing/pulsing | Static or subtle opacity change |
-| Page transitions | Instant navigation |
-| Auto-playing carousels | Static slide, manual controls |
+| Full Animation           | Reduced Motion Alternative      |
+| ------------------------ | ------------------------------- |
+| Slide in from side       | Instant appear or fade only     |
+| Parallax scrolling       | Static positioning              |
+| Scroll-triggered reveals | Content visible by default      |
+| Bouncing/pulsing         | Static or subtle opacity change |
+| Page transitions         | Instant navigation              |
+| Auto-playing carousels   | Static slide, manual controls   |
 
 ### Example: Reveal Animation
 
@@ -122,29 +122,29 @@ Don't just disable animations - provide alternatives:
 const mm = gsap.matchMedia();
 
 // Full experience
-mm.add('(prefers-reduced-motion: no-preference)', () => {
-  gsap.from('.card', {
+mm.add("(prefers-reduced-motion: no-preference)", () => {
+  gsap.from(".card", {
     opacity: 0,
     y: 30,
     duration: 0.6,
     stagger: 0.1,
     scrollTrigger: {
-      trigger: '.cards-section',
-      start: 'top 80%'
-    }
+      trigger: ".cards-section",
+      start: "top 80%",
+    },
   });
 });
 
 // Reduced motion: simple fade, no movement
-mm.add('(prefers-reduced-motion: reduce)', () => {
-  gsap.from('.card', {
+mm.add("(prefers-reduced-motion: reduce)", () => {
+  gsap.from(".card", {
     opacity: 0,
-    duration: 0.3,  // Shorter
-    stagger: 0.05,  // Faster stagger
+    duration: 0.3, // Shorter
+    stagger: 0.05, // Faster stagger
     scrollTrigger: {
-      trigger: '.cards-section',
-      start: 'top 80%'
-    }
+      trigger: ".cards-section",
+      start: "top 80%",
+    },
   });
 });
 ```
@@ -181,15 +181,19 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
 ## Testing Reduced Motion
 
 ### macOS
+
 System Preferences → Accessibility → Display → Reduce motion
 
 ### Windows
+
 Settings → Ease of Access → Display → Show animations in Windows (off)
 
 ### iOS
+
 Settings → Accessibility → Motion → Reduce Motion
 
 ### Chrome DevTools
+
 1. Open DevTools (F12)
 2. Cmd/Ctrl + Shift + P → "Render"
 3. Find "Emulate CSS media feature prefers-reduced-motion"
@@ -200,16 +204,17 @@ Settings → Accessibility → Motion → Reduce Motion
 
 ### WCAG Requirements
 
-| Content | AA (Minimum) | AAA (Enhanced) |
-|---------|--------------|----------------|
-| Normal text | 4.5:1 | 7:1 |
-| Large text (18px+) | 3:1 | 4.5:1 |
-| UI components | 3:1 | 3:1 |
-| Focus indicators | 3:1 | 3:1 |
+| Content            | AA (Minimum) | AAA (Enhanced) |
+| ------------------ | ------------ | -------------- |
+| Normal text        | 4.5:1        | 7:1            |
+| Large text (18px+) | 3:1          | 4.5:1          |
+| UI components      | 3:1          | 3:1            |
+| Focus indicators   | 3:1          | 3:1            |
 
 ### Quick Test
 
 Use browser extensions:
+
 - [axe DevTools](https://www.deque.com/axe/)
 - [WAVE](https://wave.webaim.org/)
 - [Stark](https://www.getstark.co/)

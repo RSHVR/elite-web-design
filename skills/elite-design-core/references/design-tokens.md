@@ -21,7 +21,7 @@ A complete token system creates consistency and enables rapid theming. This refe
 Tailwind v4 replaces `tailwind.config.js` with CSS-native `@theme {}` blocks. All tokens defined here automatically become utility classes.
 
 ```css
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   /* ── Color palette ──────────────────────── */
@@ -30,12 +30,12 @@ Tailwind v4 replaces `tailwind.config.js` with CSS-native `@theme {}` blocks. Al
   --color-surface: #f5f3ef;
   --color-accent: #f97316;
   --color-accent-hover: #ea580c;
-  --color-highlight: #D5FA71;
+  --color-highlight: #d5fa71;
 
   /* ── Typography ─────────────────────────── */
-  --font-display: 'Space Grotesk Variable', system-ui, sans-serif;
-  --font-sans: 'Inter Variable', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* ── Fluid spacing ──────────────────────── */
   --spacing-section: clamp(7rem, 14vw, 12rem);
@@ -63,12 +63,12 @@ Tailwind v4 replaces `tailwind.config.js` with CSS-native `@theme {}` blocks. Al
 
 Different industries need different spatial density:
 
-| Archetype | --spacing-section | Feel |
-|-----------|-------------------|------|
-| Digital Studio | `clamp(7rem, 14vw, 12rem)` | Generous, airy |
-| Luxury E-commerce | `clamp(4rem, 8vw, 8rem)` | Moderate, editorial |
-| Mental Health Clinic | `clamp(4rem, 10vw, 7rem)` | Balanced, calm |
-| Criminal Defense Firm | `clamp(5rem, 10vw, 9rem)` | Confident, spacious |
+| Archetype             | --spacing-section          | Feel                |
+| --------------------- | -------------------------- | ------------------- |
+| Digital Studio        | `clamp(7rem, 14vw, 12rem)` | Generous, airy      |
+| Luxury E-commerce     | `clamp(4rem, 8vw, 8rem)`   | Moderate, editorial |
+| Mental Health Clinic  | `clamp(4rem, 10vw, 7rem)`  | Balanced, calm      |
+| Criminal Defense Firm | `clamp(5rem, 10vw, 9rem)`  | Confident, spacious |
 
 ### Standard Fluid Tokens
 
@@ -117,7 +117,9 @@ A predictable z-index system prevents stacking wars:
 
 /* Sharp aesthetic (legal, editorial) */
 /* Enforce globally: */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   border-radius: 0 !important;
 }
 ```
@@ -140,6 +142,7 @@ Radius is a powerful brand signal. Rounded corners feel approachable and modern;
 ```
 
 Production easing values:
+
 - `cubic-bezier(0.22, 1, 0.36, 1)` — primary ease-out, used for UI transitions (nav, accordion, hover)
 - `cubic-bezier(0.4, 0, 0.2, 1)` — standard ease, used for button and icon transitions
 - `cubic-bezier(0.34, 1.56, 0.64, 1)` — spring ease, used for playful bounces
@@ -259,7 +262,7 @@ A subtle film grain overlay adds sophistication and depth. Used across multiple 
 }
 
 .grain-overlay::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -273,12 +276,12 @@ A subtle film grain overlay adds sophistication and depth. Used across multiple 
 
 ### Tuning Parameters
 
-| Parameter | Subtle (dark bg) | Moderate (light bg) |
-|-----------|-----------------|-------------------|
-| `opacity` | 0.035 | 0.08 |
-| `baseFrequency` | 0.9 | 0.8 |
-| `numOctaves` | 4 | 4 |
-| `background-size` | 256px 256px | 256px 256px |
+| Parameter         | Subtle (dark bg) | Moderate (light bg) |
+| ----------------- | ---------------- | ------------------- |
+| `opacity`         | 0.035            | 0.08                |
+| `baseFrequency`   | 0.9              | 0.8                 |
+| `numOctaves`      | 4                | 4                   |
+| `background-size` | 256px 256px      | 256px 256px         |
 
 The `256px` tile with `repeat` is GPU-friendly. Always include `pointer-events: none` so the overlay doesn't block clicks, and set a `z-index` above content backgrounds but below interactive elements.
 
@@ -342,6 +345,7 @@ Always use SVG icons (Heroicons, Lucide, Phosphor). Never emojis:
 ### Icon Consistency
 
 Within a single product, all icons must share:
+
 - Same **stroke width** (e.g., 1.5px or 2px)
 - Same **corner radius** (matching the brand: rounded or sharp)
 - Same **visual weight** (consistent fill density)
@@ -351,11 +355,11 @@ Within a single product, all icons must share:
 
 Every interactive element must have visually distinct states:
 
-| State | Visual Treatment |
-|-------|-----------------|
-| Default | Base appearance |
-| Hover | Subtle background/border change, cursor: pointer |
-| Pressed/Active | Darkened background or scale (0.96) |
-| Focused | 2px outline + 2px offset (keyboard) |
-| Disabled | Opacity 0.4, cursor: not-allowed |
-| Loading | Spinner or skeleton replacing content |
+| State          | Visual Treatment                                 |
+| -------------- | ------------------------------------------------ |
+| Default        | Base appearance                                  |
+| Hover          | Subtle background/border change, cursor: pointer |
+| Pressed/Active | Darkened background or scale (0.96)              |
+| Focused        | 2px outline + 2px offset (keyboard)              |
+| Disabled       | Opacity 0.4, cursor: not-allowed                 |
+| Loading        | Spinner or skeleton replacing content            |

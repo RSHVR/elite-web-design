@@ -15,45 +15,45 @@ After completing brand discovery (personality, positioning, colors, typography, 
 
 Collect these from the brand discovery process before generating:
 
-| Variable | Source | Example |
-|----------|--------|---------|
-| `{{brand-name}}` | Discovery Phase 1 | Example Studio |
-| `{{brand-tagline}}` | Discovery Phase 2 | Brand, Digital, and AI for firms that lead |
-| `{{archetype}}` | Discovery Phase 2 | Modern/Bold |
-| `{{color-primary}}` | Discovery Phase 3 | #5f5289 |
-| `{{color-primary-rgb}}` | Derived | 95, 82, 137 |
-| `{{color-accent}}` | Discovery Phase 3 | #f97316 |
-| `{{color-accent-rgb}}` | Derived | 249, 115, 22 |
-| `{{color-surface}}` | Discovery Phase 3 | #faf6f1 |
-| `{{color-surface-dark}}` | Discovery Phase 3 | #1a1614 |
-| `{{color-text}}` | Derived | #1a1614 |
-| `{{color-text-light}}` | Derived | #f5f3ef |
-| `{{font-heading}}` | Discovery Phase 3 | Fraunces |
-| `{{font-heading-stack}}` | Derived | 'Fraunces', Georgia, serif |
-| `{{font-body}}` | Discovery Phase 3 | Inter Variable |
-| `{{font-body-stack}}` | Derived | 'Inter Variable', system-ui, sans-serif |
-| `{{font-mono}}` | Optional | JetBrains Mono |
-| `{{radius-value}}` | From archetype | 0.75rem |
-| `{{grain-opacity}}` | From archetype | 0.035 |
-| `{{shadow-tint-rgb}}` | From primary | 95, 82, 137 |
-| `{{spacing-section}}` | From archetype | clamp(5rem, 10vw, 8rem) |
-| `{{initial-letter}}` | From brand-name | T |
-| `{{voice-formality}}` | Discovery Phase 4 | Casual |
-| `{{voice-energy}}` | Discovery Phase 4 | Enthusiastic |
-| `{{headline-example}}` | Discovery Phase 4 | We build what others can't |
-| `{{cta-example}}` | Discovery Phase 4 | Start a project |
+| Variable                 | Source            | Example                                    |
+| ------------------------ | ----------------- | ------------------------------------------ |
+| `{{brand-name}}`         | Discovery Phase 1 | Example Studio                             |
+| `{{brand-tagline}}`      | Discovery Phase 2 | Brand, Digital, and AI for firms that lead |
+| `{{archetype}}`          | Discovery Phase 2 | Modern/Bold                                |
+| `{{color-primary}}`      | Discovery Phase 3 | #5f5289                                    |
+| `{{color-primary-rgb}}`  | Derived           | 95, 82, 137                                |
+| `{{color-accent}}`       | Discovery Phase 3 | #f97316                                    |
+| `{{color-accent-rgb}}`   | Derived           | 249, 115, 22                               |
+| `{{color-surface}}`      | Discovery Phase 3 | #faf6f1                                    |
+| `{{color-surface-dark}}` | Discovery Phase 3 | #1a1614                                    |
+| `{{color-text}}`         | Derived           | #1a1614                                    |
+| `{{color-text-light}}`   | Derived           | #f5f3ef                                    |
+| `{{font-heading}}`       | Discovery Phase 3 | Fraunces                                   |
+| `{{font-heading-stack}}` | Derived           | 'Fraunces', Georgia, serif                 |
+| `{{font-body}}`          | Discovery Phase 3 | Inter Variable                             |
+| `{{font-body-stack}}`    | Derived           | 'Inter Variable', system-ui, sans-serif    |
+| `{{font-mono}}`          | Optional          | JetBrains Mono                             |
+| `{{radius-value}}`       | From archetype    | 0.75rem                                    |
+| `{{grain-opacity}}`      | From archetype    | 0.035                                      |
+| `{{shadow-tint-rgb}}`    | From primary      | 95, 82, 137                                |
+| `{{spacing-section}}`    | From archetype    | clamp(5rem, 10vw, 8rem)                    |
+| `{{initial-letter}}`     | From brand-name   | T                                          |
+| `{{voice-formality}}`    | Discovery Phase 4 | Casual                                     |
+| `{{voice-energy}}`       | Discovery Phase 4 | Enthusiastic                               |
+| `{{headline-example}}`   | Discovery Phase 4 | We build what others can't                 |
+| `{{cta-example}}`        | Discovery Phase 4 | Start a project                            |
 
 ### Archetype Defaults
 
 If the user hasn't specified every value, use these defaults based on archetype:
 
-| Value | Modern/Bold | Luxury/Editorial | Warm/Inclusive | Authoritative | Professional |
-|-------|-------------|-----------------|----------------|---------------|-------------|
-| radius | 0.75rem | 0.5rem | 1rem | 0 | 0.5rem |
-| grain-opacity | 0.035 | 0 | 0 | 0.08 | 0 |
-| shadow-tint | primary-rgb | 0,0,0 | primary-rgb | 0,0,0 | 0,0,0 |
+| Value           | Modern/Bold              | Luxury/Editorial       | Warm/Inclusive          | Authoritative           | Professional           |
+| --------------- | ------------------------ | ---------------------- | ----------------------- | ----------------------- | ---------------------- |
+| radius          | 0.75rem                  | 0.5rem                 | 1rem                    | 0                       | 0.5rem                 |
+| grain-opacity   | 0.035                    | 0                      | 0                       | 0.08                    | 0                      |
+| shadow-tint     | primary-rgb              | 0,0,0                  | primary-rgb             | 0,0,0                   | 0,0,0                  |
 | spacing-section | clamp(7rem, 14vw, 12rem) | clamp(4rem, 8vw, 8rem) | clamp(4rem, 10vw, 7rem) | clamp(5rem, 10vw, 9rem) | clamp(3rem, 6vw, 5rem) |
-| logo-shape | rounded-rect | circle | circle | sharp-rect | rounded-rect |
+| logo-shape      | rounded-rect             | circle                 | circle                  | sharp-rect              | rounded-rect           |
 
 ---
 
@@ -329,7 +329,7 @@ Adjust viewBox width based on brand name length (~12px per character at font-siz
 
 ```css
 /* {{brand-name}} — Base Styles */
-@import './tokens/design-tokens.css';
+@import "./tokens/design-tokens.css";
 
 /* Fonts — adjust imports based on chosen fonts */
 /* @import '@fontsource-variable/{{font-heading-lowercase}}'; */
@@ -357,24 +357,45 @@ body {
 }
 
 /* ── Headings ─────────────────────────────── */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(2.25rem, 1.75rem + 2.5vw, 3.815rem); font-weight: 700; }
-h2 { font-size: clamp(1.75rem, 1.4rem + 1.75vw, 2.441rem); font-weight: 600; }
-h3 { font-size: clamp(1.375rem, 1.2rem + 0.875vw, 1.953rem); font-weight: 500; }
-h4 { font-size: 1.563rem; font-weight: 500; }
+h1 {
+  font-size: clamp(2.25rem, 1.75rem + 2.5vw, 3.815rem);
+  font-weight: 700;
+}
+h2 {
+  font-size: clamp(1.75rem, 1.4rem + 1.75vw, 2.441rem);
+  font-weight: 600;
+}
+h3 {
+  font-size: clamp(1.375rem, 1.2rem + 0.875vw, 1.953rem);
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.563rem;
+  font-weight: 500;
+}
 
-p { max-width: 65ch; line-height: 1.65; }
+p {
+  max-width: 65ch;
+  line-height: 1.65;
+}
 
 /* ── Links ────────────────────────────────── */
 a {
   color: var(--color-accent-active);
   text-decoration-color: transparent;
-  transition: color var(--duration-fast) var(--ease-default),
+  transition:
+    color var(--duration-fast) var(--ease-default),
     text-decoration-color var(--duration-fast) var(--ease-default);
 }
 
@@ -402,11 +423,15 @@ a:hover {
   text-decoration: none;
 }
 
-.skip-to-content:focus { left: 0; }
+.skip-to-content:focus {
+  left: 0;
+}
 
 /* ── Reduced Motion ───────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -630,14 +655,14 @@ The {{brand-name}} logo consists of three variations:
 
 ## Color Palette
 
-| Name | Hex | RGB | Usage |
-|------|-----|-----|-------|
-| Primary | {{color-primary}} | {{color-primary-rgb}} | Brand identity, headings on dark |
-| Accent | {{color-accent}} | {{color-accent-rgb}} | CTAs, links, interactive elements |
-| Surface | {{color-surface}} | — | Primary background |
-| Surface Dark | {{color-surface-dark}} | — | Dark sections, footer |
-| Text | {{color-text}} | — | Body copy, headings |
-| Text Light | {{color-text-light}} | — | Text on dark backgrounds |
+| Name         | Hex                    | RGB                   | Usage                             |
+| ------------ | ---------------------- | --------------------- | --------------------------------- |
+| Primary      | {{color-primary}}      | {{color-primary-rgb}} | Brand identity, headings on dark  |
+| Accent       | {{color-accent}}       | {{color-accent-rgb}}  | CTAs, links, interactive elements |
+| Surface      | {{color-surface}}      | —                     | Primary background                |
+| Surface Dark | {{color-surface-dark}} | —                     | Dark sections, footer             |
+| Text         | {{color-text}}         | —                     | Body copy, headings               |
+| Text Light   | {{color-text-light}}   | —                     | Text on dark backgrounds          |
 
 Full shade scales (50-950) defined in `tokens/design-tokens.css`.
 
@@ -645,11 +670,11 @@ Full shade scales (50-950) defined in `tokens/design-tokens.css`.
 
 ## Typography
 
-| Role | Font | Weight | Usage |
-|------|------|--------|-------|
-| Headings | {{font-heading}} | 600-700 | h1-h4, hero text, display |
-| Body | {{font-body}} | 400-500 | Paragraphs, UI text, labels |
-| Mono | {{font-mono}} | 400 | Code, technical labels |
+| Role     | Font             | Weight  | Usage                       |
+| -------- | ---------------- | ------- | --------------------------- |
+| Headings | {{font-heading}} | 600-700 | h1-h4, hero text, display   |
+| Body     | {{font-body}}    | 400-500 | Paragraphs, UI text, labels |
+| Mono     | {{font-mono}}    | 400     | Code, technical labels      |
 
 ### Type Scale
 
@@ -686,12 +711,14 @@ Full shade scales (50-950) defined in `tokens/design-tokens.css`.
 ## Do / Don't
 
 ### Do
+
 - Use design tokens from design-tokens.css (never hardcode values)
 - Follow the type scale (don't invent new sizes)
 - Maintain brand-tinted shadows
 - Include prefers-reduced-motion handling on all animations
 
 ### Don't
+
 - Use more than 2 font families
 - Animate width, height, margin, or padding
 - Use color as the only means of conveying information

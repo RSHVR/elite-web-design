@@ -7,10 +7,12 @@ Award-winning sites featuring horizontal scroll sections.
 ## Portfolio Style
 
 ### Studio Freight
+
 **URL**: https://www.studiofreight.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Smooth horizontal project gallery
 - Project preview on hover
 - Seamless transition to project detail
@@ -21,10 +23,12 @@ Award-winning sites featuring horizontal scroll sections.
 ---
 
 ### Lusion
+
 **URL**: https://lusion.co
 **Award**: Awwwards SOTD, FWA
 
 **What to study**:
+
 - WebGL-enhanced horizontal scroll
 - Depth and parallax within sections
 - Fluid project transitions
@@ -35,10 +39,12 @@ Award-winning sites featuring horizontal scroll sections.
 ---
 
 ### Active Theory
+
 **URL**: https://activetheory.net
 **Award**: Multiple Awwwards
 
 **What to study**:
+
 - Immersive horizontal case studies
 - Project preview animations
 - Navigation system for long scrolls
@@ -51,10 +57,12 @@ Award-winning sites featuring horizontal scroll sections.
 ## Storytelling Style
 
 ### Apple AirPods Pro
+
 **URL**: https://www.apple.com/airpods-pro/
 **Award**: Industry standard
 
 **What to study**:
+
 - Product features revealed horizontally
 - Text and product sync
 - Mobile adaptation
@@ -65,10 +73,12 @@ Award-winning sites featuring horizontal scroll sections.
 ---
 
 ### Locomotive
+
 **URL**: https://locomotive.ca
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Smooth-as-butter scroll feel
 - Subtle parallax within horizontal
 - Typography hierarchy
@@ -79,10 +89,12 @@ Award-winning sites featuring horizontal scroll sections.
 ---
 
 ### Resn
+
 **URL**: https://resn.co.nz
 **Award**: Multiple FWA, Awwwards
 
 **What to study**:
+
 - Experimental horizontal navigation
 - Project cards with depth
 - Playful micro-interactions
@@ -95,10 +107,12 @@ Award-winning sites featuring horizontal scroll sections.
 ## Gallery Style
 
 ### ETQ Amsterdam
+
 **URL**: https://www.etq-amsterdam.com
 **Award**: Awwwards Honorable Mention
 
 **What to study**:
+
 - Product image gallery horizontal scroll
 - Clean, minimal aesthetic
 - E-commerce integration
@@ -109,10 +123,12 @@ Award-winning sites featuring horizontal scroll sections.
 ---
 
 ### Moooi
+
 **URL**: https://www.moooi.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Furniture showcases
 - Image quality and loading
 - Horizontal to vertical transitions
@@ -161,41 +177,44 @@ Best practices from these sites:
 Based on patterns from these sites:
 
 ### Basic Structure
+
 ```javascript
 // Common to most sites
-gsap.to('.track', {
+gsap.to(".track", {
   x: () => -(trackWidth - windowWidth),
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '.container',
+    trigger: ".container",
     pin: true,
     scrub: 1,
-    end: () => `+=${trackWidth}`
-  }
+    end: () => `+=${trackWidth}`,
+  },
 });
 ```
 
 ### Parallax Within Horizontal
+
 ```javascript
 // Used by Locomotive, Lusion
-gsap.to('.section-bg', {
+gsap.to(".section-bg", {
   x: -100,
   scrollTrigger: {
-    trigger: '.section',
-    containerAnimation: scrollTween,  // Link to main horizontal
-    scrub: true
-  }
+    trigger: ".section",
+    containerAnimation: scrollTween, // Link to main horizontal
+    scrub: true,
+  },
 });
 ```
 
 ### Progress Indicator
+
 ```javascript
 // Common pattern
 ScrollTrigger.create({
-  trigger: '.container',
-  onUpdate: self => {
+  trigger: ".container",
+  onUpdate: (self) => {
     progressBar.style.transform = `scaleX(${self.progress})`;
-  }
+  },
 });
 ```
 

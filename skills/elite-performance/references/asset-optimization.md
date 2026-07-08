@@ -15,28 +15,22 @@ Optimize images, fonts, and media for fast loading.
 
 ### Format Selection
 
-| Format | Use Case | Browser Support |
-|--------|----------|-----------------|
+| Format   | Use Case                                 | Browser Support         |
+| -------- | ---------------------------------------- | ----------------------- |
 | **AVIF** | Photos, illustrations (best compression) | Chrome 85+, Firefox 93+ |
-| **WebP** | Photos, illustrations (good fallback) | All modern browsers |
-| **PNG** | Transparency, screenshots | Universal |
-| **SVG** | Icons, logos, illustrations | Universal |
-| **JPEG** | Photos (legacy fallback) | Universal |
+| **WebP** | Photos, illustrations (good fallback)    | All modern browsers     |
+| **PNG**  | Transparency, screenshots                | Universal               |
+| **SVG**  | Icons, logos, illustrations              | Universal               |
+| **JPEG** | Photos (legacy fallback)                 | Universal               |
 
 ### Picture Element with Fallbacks
 
 ```html
 <picture>
   <!-- Best quality: AVIF -->
-  <source
-    srcset="image.avif 1x, image@2x.avif 2x"
-    type="image/avif"
-  >
+  <source srcset="image.avif 1x, image@2x.avif 2x" type="image/avif" />
   <!-- Good fallback: WebP -->
-  <source
-    srcset="image.webp 1x, image@2x.webp 2x"
-    type="image/webp"
-  >
+  <source srcset="image.webp 1x, image@2x.webp 2x" type="image/webp" />
   <!-- Universal fallback: JPEG -->
   <img
     src="image.jpg"
@@ -46,7 +40,7 @@ Optimize images, fonts, and media for fast loading.
     height="600"
     loading="lazy"
     decoding="async"
-  >
+  />
 </picture>
 ```
 
@@ -56,8 +50,8 @@ Optimize images, fonts, and media for fast loading.
 <img
   src="image-800.jpg"
   srcset="
-    image-400.jpg 400w,
-    image-800.jpg 800w,
+    image-400.jpg   400w,
+    image-800.jpg   800w,
     image-1200.jpg 1200w,
     image-1600.jpg 1600w
   "
@@ -69,24 +63,24 @@ Optimize images, fonts, and media for fast loading.
   alt="Description"
   loading="lazy"
   decoding="async"
->
+/>
 ```
 
 ### Image Compression Targets
 
-| Image Type | Quality | Max File Size |
-|------------|---------|---------------|
-| Hero images | 80-85% | < 200KB |
-| Product images | 75-80% | < 100KB |
-| Thumbnails | 70-75% | < 30KB |
-| Icons (PNG) | Lossless | < 10KB |
-| Icons (SVG) | Optimized | < 5KB |
+| Image Type     | Quality   | Max File Size |
+| -------------- | --------- | ------------- |
+| Hero images    | 80-85%    | < 200KB       |
+| Product images | 75-80%    | < 100KB       |
+| Thumbnails     | 70-75%    | < 30KB        |
+| Icons (PNG)    | Lossless  | < 10KB        |
+| Icons (SVG)    | Optimized | < 5KB         |
 
 ### Build-Time Optimization
 
 ```javascript
 // vite.config.js
-import viteImagemin from 'vite-plugin-imagemin';
+import viteImagemin from "vite-plugin-imagemin";
 
 export default {
   plugins: [
@@ -95,9 +89,9 @@ export default {
       mozjpeg: { quality: 80 },
       pngquant: { quality: [0.7, 0.9] },
       webp: { quality: 80 },
-      avif: { quality: 65 }
-    })
-  ]
+      avif: { quality: 65 },
+    }),
+  ],
 };
 ```
 
@@ -105,18 +99,18 @@ export default {
 
 ```javascript
 // vite.config.js
-import svgo from 'vite-plugin-svgo';
+import svgo from "vite-plugin-svgo";
 
 export default {
   plugins: [
     svgo({
       plugins: [
-        { name: 'removeViewBox', active: false },
-        { name: 'removeDimensions', active: true },
-        { name: 'removeUselessStrokeAndFill', active: true }
-      ]
-    })
-  ]
+        { name: "removeViewBox", active: false },
+        { name: "removeDimensions", active: true },
+        { name: "removeUselessStrokeAndFill", active: true },
+      ],
+    }),
+  ],
 };
 ```
 
@@ -125,21 +119,21 @@ export default {
 ```css
 /* Use modern formats in CSS */
 .hero {
-  background-image: url('hero.jpg');
+  background-image: url("hero.jpg");
 }
 
-@supports (background-image: url('test.avif')) {
+@supports (background-image: url("test.avif")) {
   .hero {
-    background-image: url('hero.avif');
+    background-image: url("hero.avif");
   }
 }
 
 /* Or use image-set */
 .hero {
   background-image: image-set(
-    url('hero.avif') type('image/avif'),
-    url('hero.webp') type('image/webp'),
-    url('hero.jpg') type('image/jpeg')
+    url("hero.avif") type("image/avif"),
+    url("hero.webp") type("image/webp"),
+    url("hero.jpg") type("image/jpeg")
   );
 }
 ```
@@ -162,22 +156,22 @@ glyphhanger --whitelist="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012
 ```css
 /* Use font-display */
 @font-face {
-  font-family: 'CustomFont';
-  src: url('font.woff2') format('woff2');
+  font-family: "CustomFont";
+  src: url("font.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;  /* Show fallback immediately, swap when loaded */
+  font-display: swap; /* Show fallback immediately, swap when loaded */
 }
 ```
 
 ### font-display Values
 
-| Value | Behavior |
-|-------|----------|
-| `swap` | Show fallback immediately, swap when ready |
-| `fallback` | Short block (100ms), short swap (3s) |
+| Value      | Behavior                                        |
+| ---------- | ----------------------------------------------- |
+| `swap`     | Show fallback immediately, swap when ready      |
+| `fallback` | Short block (100ms), short swap (3s)            |
 | `optional` | Short block, no swap (may not show custom font) |
-| `block` | Long invisible period (not recommended) |
+| `block`    | Long invisible period (not recommended)         |
 
 ### Preload Critical Fonts
 
@@ -189,14 +183,14 @@ glyphhanger --whitelist="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012
     as="font"
     type="font/woff2"
     crossorigin
-  >
+  />
   <link
     rel="preload"
     href="/fonts/body.woff2"
     as="font"
     type="font/woff2"
     crossorigin
-  >
+  />
 </head>
 ```
 
@@ -205,17 +199,25 @@ glyphhanger --whitelist="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012
 ```css
 /* Single file for all weights */
 @font-face {
-  font-family: 'Inter';
-  src: url('Inter-Variable.woff2') format('woff2-variations');
-  font-weight: 100 900;  /* Full range */
+  font-family: "Inter";
+  src: url("Inter-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900; /* Full range */
   font-display: swap;
 }
 
 /* Use any weight */
-.light { font-weight: 300; }
-.regular { font-weight: 400; }
-.semibold { font-weight: 600; }
-.bold { font-weight: 700; }
+.light {
+  font-weight: 300;
+}
+.regular {
+  font-weight: 400;
+}
+.semibold {
+  font-weight: 600;
+}
+.bold {
+  font-weight: 700;
+}
 ```
 
 ### System Font Stack (Fastest)
@@ -224,13 +226,8 @@ glyphhanger --whitelist="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012
 /* Zero font loading */
 body {
   font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
 }
 ```
 
@@ -242,7 +239,7 @@ body {
 
 ```html
 <!-- Images -->
-<img src="image.jpg" loading="lazy" alt="">
+<img src="image.jpg" loading="lazy" alt="" />
 
 <!-- Iframes -->
 <iframe src="video.html" loading="lazy"></iframe>
@@ -252,76 +249,85 @@ body {
 
 ```javascript
 // Lazy load images
-const lazyImages = document.querySelectorAll('img[data-src]');
+const lazyImages = document.querySelectorAll("img[data-src]");
 
-const imageObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const img = entry.target;
-      img.src = img.dataset.src;
-      img.removeAttribute('data-src');
-      imageObserver.unobserve(img);
-    }
-  });
-}, {
-  rootMargin: '50px 0px',  // Load 50px before visible
-  threshold: 0.01
-});
+const imageObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.removeAttribute("data-src");
+        imageObserver.unobserve(img);
+      }
+    });
+  },
+  {
+    rootMargin: "50px 0px", // Load 50px before visible
+    threshold: 0.01,
+  },
+);
 
-lazyImages.forEach(img => imageObserver.observe(img));
+lazyImages.forEach((img) => imageObserver.observe(img));
 ```
 
 ### Lazy Load Components
 
 ```javascript
 // Lazy load heavy components
-const heavySections = document.querySelectorAll('[data-component]');
+const heavySections = document.querySelectorAll("[data-component]");
 
-const componentObserver = new IntersectionObserver((entries) => {
-  entries.forEach(async (entry) => {
-    if (entry.isIntersecting) {
-      const section = entry.target;
-      const componentName = section.dataset.component;
+const componentObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(async (entry) => {
+      if (entry.isIntersecting) {
+        const section = entry.target;
+        const componentName = section.dataset.component;
 
-      // Dynamic import
-      const module = await import(`./components/${componentName}.js`);
-      module.init(section);
+        // Dynamic import
+        const module = await import(`./components/${componentName}.js`);
+        module.init(section);
 
-      componentObserver.unobserve(section);
-    }
-  });
-}, {
-  rootMargin: '100px 0px'
-});
+        componentObserver.unobserve(section);
+      }
+    });
+  },
+  {
+    rootMargin: "100px 0px",
+  },
+);
 
-heavySections.forEach(section => componentObserver.observe(section));
+heavySections.forEach((section) => componentObserver.observe(section));
 ```
 
 ### Lazy Load GSAP Animations
 
 ```javascript
 // Only initialize animations when visible
-const animatedSections = document.querySelectorAll('.animate-section');
+const animatedSections = document.querySelectorAll(".animate-section");
 
-const animationObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      initSectionAnimation(entry.target);
-      animationObserver.unobserve(entry.target);
-    }
-  });
-}, {
-  rootMargin: '50px 0px'
-});
+const animationObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        initSectionAnimation(entry.target);
+        animationObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    rootMargin: "50px 0px",
+  },
+);
 
-animatedSections.forEach(section => animationObserver.observe(section));
+animatedSections.forEach((section) => animationObserver.observe(section));
 
 function initSectionAnimation(section) {
-  gsap.from(section.querySelectorAll('.animate-item'), {
+  gsap.from(section.querySelectorAll(".animate-item"), {
     opacity: 0,
     y: 30,
     stagger: 0.1,
-    duration: 0.6
+    duration: 0.6,
   });
 }
 ```
@@ -332,7 +338,7 @@ function initSectionAnimation(section) {
 /* Browser skips rendering until near viewport */
 .lazy-section {
   content-visibility: auto;
-  contain-intrinsic-size: 0 500px;  /* Estimated height */
+  contain-intrinsic-size: 0 500px; /* Estimated height */
 }
 ```
 
@@ -347,8 +353,14 @@ function initSectionAnimation(section) {
   <!-- Critical CSS inline -->
   <style>
     /* Above-the-fold styles only */
-    body { margin: 0; font-family: sans-serif; }
-    .hero { min-height: 100vh; display: flex; }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+    }
     /* ... minimal critical styles ... */
   </style>
 
@@ -358,9 +370,9 @@ function initSectionAnimation(section) {
     href="styles.css"
     media="print"
     onload="this.media='all'"
-  >
+  />
   <noscript>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </noscript>
 </head>
 ```
@@ -369,25 +381,23 @@ function initSectionAnimation(section) {
 
 ```javascript
 // vite.config.js
-import critical from 'rollup-plugin-critical';
+import critical from "rollup-plugin-critical";
 
 export default {
   plugins: [
     critical({
-      criticalUrl: 'http://localhost:3000',
-      criticalBase: './dist',
-      criticalPages: [
-        { uri: '/', template: 'index' }
-      ],
+      criticalUrl: "http://localhost:3000",
+      criticalBase: "./dist",
+      criticalPages: [{ uri: "/", template: "index" }],
       criticalConfig: {
         inline: true,
         dimensions: [
           { width: 375, height: 667 },
-          { width: 1440, height: 900 }
-        ]
-      }
-    })
-  ]
+          { width: 1440, height: 900 },
+        ],
+      },
+    }),
+  ],
 };
 ```
 
@@ -396,18 +406,24 @@ export default {
 ```html
 <head>
   <!-- Preconnect to external origins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://cdn.example.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://cdn.example.com" crossorigin />
 
   <!-- DNS prefetch for less critical origins -->
-  <link rel="dns-prefetch" href="https://analytics.example.com">
+  <link rel="dns-prefetch" href="https://analytics.example.com" />
 
   <!-- Preload critical assets -->
-  <link rel="preload" href="hero.webp" as="image">
-  <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="hero.webp" as="image" />
+  <link
+    rel="preload"
+    href="font.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
 
   <!-- Prefetch next page assets -->
-  <link rel="prefetch" href="/about.html">
+  <link rel="prefetch" href="/about.html" />
 </head>
 ```
 
@@ -431,8 +447,8 @@ export default {
 
 ```html
 <!-- Preload modules for faster execution -->
-<link rel="modulepreload" href="/js/main.js">
-<link rel="modulepreload" href="/js/gsap-core.js">
+<link rel="modulepreload" href="/js/main.js" />
+<link rel="modulepreload" href="/js/gsap-core.js" />
 ```
 
 ---
@@ -440,6 +456,7 @@ export default {
 ## Complete Optimization Checklist
 
 ### Images
+
 - [ ] Using AVIF/WebP with JPEG fallback
 - [ ] Responsive images with srcset/sizes
 - [ ] Proper width/height attributes (prevents CLS)
@@ -448,6 +465,7 @@ export default {
 - [ ] SVGs optimized with SVGO
 
 ### Fonts
+
 - [ ] Using WOFF2 format
 - [ ] Subsetted to needed characters
 - [ ] font-display: swap applied
@@ -455,6 +473,7 @@ export default {
 - [ ] Variable fonts where appropriate
 
 ### Loading
+
 - [ ] Critical CSS inlined
 - [ ] Full CSS async loaded
 - [ ] Scripts deferred/async
@@ -463,6 +482,7 @@ export default {
 - [ ] content-visibility on sections
 
 ### Build
+
 - [ ] Assets minified
 - [ ] Gzip/Brotli compression
 - [ ] Code splitting by route
@@ -477,22 +497,22 @@ Self-hosted fonts via `@fontsource` eliminate external HTTP requests, remove Goo
 
 ```css
 /* Variable fonts — single file covers all weights */
-@import '@fontsource-variable/inter';
-@import '@fontsource-variable/fraunces';
-@import '@fontsource-variable/space-grotesk';
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/space-grotesk";
 
 /* Static fonts — import only weights you need */
-@import '@fontsource/poppins/400.css';
-@import '@fontsource/poppins/500.css';
-@import '@fontsource/poppins/600.css';
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
 ```
 
 ### Variable vs Static
 
-| Approach | File Count | Total Size | Use When |
-|----------|-----------|-----------|----------|
-| Variable font | 1 file per family | ~80-150KB | Using 3+ weights, need axis control |
-| Static weights | 1 file per weight | ~20-30KB each | Using 1-2 specific weights |
+| Approach       | File Count        | Total Size    | Use When                            |
+| -------------- | ----------------- | ------------- | ----------------------------------- |
+| Variable font  | 1 file per family | ~80-150KB     | Using 3+ weights, need axis control |
+| Static weights | 1 file per weight | ~20-30KB each | Using 1-2 specific weights          |
 
 Variable fonts are preferred for display fonts (headings) where you want precise weight control and axis features like `font-variation-settings: 'SOFT' 50`. Static weights are fine for body fonts where you only need 400 and 600.
 
@@ -514,7 +534,7 @@ Film grain overlays use inline SVG `feTurbulence` filters. Optimization tips:
 
 ```css
 .grain::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -528,11 +548,11 @@ Film grain overlays use inline SVG `feTurbulence` filters. Optimization tips:
 
 ### Tuning Parameters
 
-| Parameter | Subtle (dark backgrounds) | Moderate (light backgrounds) |
-|-----------|--------------------------|------------------------------|
-| `opacity` | 0.035 | 0.08 |
-| `baseFrequency` | 0.9 (finer grain) | 0.8 (coarser grain) |
-| `numOctaves` | 4 | 4 |
+| Parameter       | Subtle (dark backgrounds) | Moderate (light backgrounds) |
+| --------------- | ------------------------- | ---------------------------- |
+| `opacity`       | 0.035                     | 0.08                         |
+| `baseFrequency` | 0.9 (finer grain)         | 0.8 (coarser grain)          |
+| `numOctaves`    | 4                         | 4                            |
 
 ### Performance Notes
 
@@ -607,9 +627,15 @@ Provide degraded experience for slow connections:
 ```css
 /* Reduce motion and effects on slow connections */
 @media (prefers-reduced-data: reduce) {
-  .hero-video { display: none; }
-  .hero-image { display: block; }
-  .grain-overlay::after { display: none; }
+  .hero-video {
+    display: none;
+  }
+  .hero-image {
+    display: block;
+  }
+  .grain-overlay::after {
+    display: none;
+  }
 }
 ```
 
@@ -636,13 +662,13 @@ Prefer `dvh` over `vh` on mobile to account for browser chrome:
 
 Choose the right loading indicator based on context:
 
-| Pattern | When to Use | Duration |
-|---------|-------------|----------|
-| **Nothing** | Load completes in <300ms | <300ms |
+| Pattern              | When to Use                                         | Duration |
+| -------------------- | --------------------------------------------------- | -------- |
+| **Nothing**          | Load completes in <300ms                            | <300ms   |
 | **Skeleton/Shimmer** | Content layout is known, replacing existing content | 300ms–5s |
-| **Spinner** | Action in progress (button submit, form save) | 300ms–3s |
-| **Progress bar** | Upload/download, known total size | Any |
-| **Percentage** | Long operation with measurable progress | >3s |
+| **Spinner**          | Action in progress (button submit, form save)       | 300ms–3s |
+| **Progress bar**     | Upload/download, known total size                   | Any      |
+| **Percentage**       | Long operation with measurable progress             | >3s      |
 
 ### Decision Framework
 
@@ -671,7 +697,7 @@ Is the layout shape predictable?
 }
 
 .btn-loading::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   margin: auto;
@@ -684,7 +710,9 @@ Is the layout shape predictable?
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 ```
 
@@ -706,10 +734,13 @@ function debounce(fn, delay = 300) {
 }
 
 // Usage: Only fires 300ms after user stops typing
-const searchInput = document.querySelector('#search');
-searchInput.addEventListener('input', debounce((e) => {
-  fetchResults(e.target.value);
-}, 300));
+const searchInput = document.querySelector("#search");
+searchInput.addEventListener(
+  "input",
+  debounce((e) => {
+    fetchResults(e.target.value);
+  }, 300),
+);
 ```
 
 ### Throttle
@@ -723,26 +754,32 @@ function throttle(fn, limit = 100) {
     if (waiting) return;
     fn(...args);
     waiting = true;
-    setTimeout(() => { waiting = false; }, limit);
+    setTimeout(() => {
+      waiting = false;
+    }, limit);
   };
 }
 
 // Usage: Fires at most every 100ms during scroll
-window.addEventListener('scroll', throttle(() => {
-  updateScrollProgress();
-}, 100), { passive: true });
+window.addEventListener(
+  "scroll",
+  throttle(() => {
+    updateScrollProgress();
+  }, 100),
+  { passive: true },
+);
 ```
 
 ### When to Use Which
 
-| Scenario | Pattern | Delay |
-|----------|---------|-------|
-| Search input / autocomplete | Debounce | 300ms |
-| Form autosave | Debounce | 2000-3000ms |
-| Window resize recalc | Debounce | 150ms |
-| Scroll progress indicator | Throttle | 50-100ms |
-| Mousemove tracking | Throttle | 16ms (1 frame) |
-| Infinite scroll fetch | Throttle | 200ms |
+| Scenario                    | Pattern  | Delay          |
+| --------------------------- | -------- | -------------- |
+| Search input / autocomplete | Debounce | 300ms          |
+| Form autosave               | Debounce | 2000-3000ms    |
+| Window resize recalc        | Debounce | 150ms          |
+| Scroll progress indicator   | Throttle | 50-100ms       |
+| Mousemove tracking          | Throttle | 16ms (1 frame) |
+| Infinite scroll fetch       | Throttle | 200ms          |
 
 **Note:** GSAP's ScrollTrigger already handles scroll optimization internally — don't wrap ScrollTrigger callbacks in throttle/debounce.
 
@@ -757,12 +794,12 @@ window.addEventListener('scroll', throttle(() => {
 const isOnline = navigator.onLine;
 
 // Listen for changes
-window.addEventListener('online', () => {
+window.addEventListener("online", () => {
   hideOfflineBanner();
   retryFailedRequests();
 });
 
-window.addEventListener('offline', () => {
+window.addEventListener("offline", () => {
   showOfflineBanner();
 });
 ```
@@ -798,21 +835,21 @@ Adapt content quality based on connection speed:
 ```javascript
 function getNetworkQuality() {
   const conn = navigator.connection;
-  if (!conn) return 'unknown';
+  if (!conn) return "unknown";
 
   // effectiveType: 'slow-2g', '2g', '3g', '4g'
-  if (conn.effectiveType === '4g' && !conn.saveData) return 'high';
-  if (conn.effectiveType === '3g') return 'medium';
-  return 'low';
+  if (conn.effectiveType === "4g" && !conn.saveData) return "high";
+  if (conn.effectiveType === "3g") return "medium";
+  return "low";
 }
 
 // Adapt loading strategy
 const quality = getNetworkQuality();
 
-if (quality === 'high') {
+if (quality === "high") {
   loadHighResImages();
   enableAnimations();
-} else if (quality === 'medium') {
+} else if (quality === "medium") {
   loadStandardImages();
   enableAnimations();
 } else {
@@ -825,33 +862,36 @@ if (quality === 'high') {
 
 ```javascript
 // sw.js — Cache critical assets for offline access
-const CACHE_NAME = 'v1';
-const CRITICAL_ASSETS = ['/', '/styles.css', '/app.js'];
+const CACHE_NAME = "v1";
+const CRITICAL_ASSETS = ["/", "/styles.css", "/app.js"];
 
-self.addEventListener('install', (event) => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(CRITICAL_ASSETS))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(CRITICAL_ASSETS)),
   );
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((cached) => {
-      return cached || fetch(event.request).catch(() => {
-        // Return offline fallback for navigation requests
-        if (event.request.mode === 'navigate') {
-          return caches.match('/');
-        }
-      });
-    })
+      return (
+        cached ||
+        fetch(event.request).catch(() => {
+          // Return offline fallback for navigation requests
+          if (event.request.mode === "navigate") {
+            return caches.match("/");
+          }
+        })
+      );
+    }),
   );
 });
 ```
 
 ```javascript
 // Register in main app
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js');
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js");
 }
 ```
 
@@ -859,10 +899,18 @@ if ('serviceWorker' in navigator) {
 
 ```css
 @media (prefers-reduced-data: reduce) {
-  .hero-video { display: none; }
-  .hero-image { display: block; }
-  .grain-overlay::after { display: none; }
-  .parallax-bg { background-attachment: scroll; }
+  .hero-video {
+    display: none;
+  }
+  .hero-image {
+    display: block;
+  }
+  .grain-overlay::after {
+    display: none;
+  }
+  .parallax-bg {
+    background-attachment: scroll;
+  }
 }
 ```
 

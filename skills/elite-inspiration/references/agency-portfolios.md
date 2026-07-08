@@ -7,10 +7,12 @@ Award-winning creative agency and studio portfolio sites.
 ## Horizontal Navigation
 
 ### Studio Freight
+
 **URL**: https://www.studiofreight.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Horizontal project showcase
 - Project preview on hover
 - Custom cursor integration
@@ -21,10 +23,12 @@ Award-winning creative agency and studio portfolio sites.
 ---
 
 ### Active Theory
+
 **URL**: https://activetheory.net
 **Award**: Multiple awards
 
 **What to study**:
+
 - WebGL-enhanced navigation
 - Immersive project entries
 - Sound design integration
@@ -35,10 +39,12 @@ Award-winning creative agency and studio portfolio sites.
 ---
 
 ### Resn
+
 **URL**: https://resn.co.nz
 **Award**: Multiple FWA, Awwwards
 
 **What to study**:
+
 - Playful, experimental navigation
 - Project card interactions
 - Personality through motion
@@ -51,10 +57,12 @@ Award-winning creative agency and studio portfolio sites.
 ## Grid-Based
 
 ### Basic/Dept
+
 **URL**: https://www.basicagency.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Clean grid layout
 - Filter/sort with FLIP
 - Project hover reveals
@@ -65,10 +73,12 @@ Award-winning creative agency and studio portfolio sites.
 ---
 
 ### Huge
+
 **URL**: https://www.hugeinc.com
 **Award**: Multiple awards
 
 **What to study**:
+
 - Enterprise-scale portfolio
 - Case study depth
 - Clear categorization
@@ -79,10 +89,12 @@ Award-winning creative agency and studio portfolio sites.
 ---
 
 ### Fantasy
+
 **URL**: https://fantasy.co
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Work grid with video previews
 - Smooth filtering
 - Case study transitions
@@ -95,10 +107,12 @@ Award-winning creative agency and studio portfolio sites.
 ## Immersive/Experimental
 
 ### Locomotive
+
 **URL**: https://locomotive.ca
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Smooth scroll feel
 - Typography hierarchy
 - Subtle animations
@@ -109,10 +123,12 @@ Award-winning creative agency and studio portfolio sites.
 ---
 
 ### Lusion
+
 **URL**: https://lusion.co
 **Award**: Awwwards SOTD, FWA
 
 **What to study**:
+
 - WebGL integration
 - Sound design
 - Immersive project entries
@@ -123,10 +139,12 @@ Award-winning creative agency and studio portfolio sites.
 ---
 
 ### Aristide Benoist
+
 **URL**: https://aristidebenoist.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Personal portfolio style
 - Typography as hero
 - Character animations
@@ -139,10 +157,12 @@ Award-winning creative agency and studio portfolio sites.
 ## Minimal/Type-Focused
 
 ### Rally
+
 **URL**: https://rallyinteractive.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Clean, minimal design
 - Strong typography
 - Subtle motion
@@ -153,10 +173,12 @@ Award-winning creative agency and studio portfolio sites.
 ---
 
 ### Pentagram
+
 **URL**: https://www.pentagram.com
 **Award**: Design classic
 
 **What to study**:
+
 - Design firm standard
 - Project archive system
 - Partner showcases
@@ -167,10 +189,12 @@ Award-winning creative agency and studio portfolio sites.
 ---
 
 ### Ueno
+
 **URL**: https://ueno.co
 **Award**: Multiple awards
 
 **What to study**:
+
 - Brand personality
 - Case study depth
 - Team culture showcase
@@ -235,12 +259,13 @@ Typical flow:
 ## Implementation Reference
 
 ### Project Hover Preview
-```javascript
-const projects = document.querySelectorAll('.project-item');
-const preview = document.querySelector('.project-preview');
 
-projects.forEach(project => {
-  project.addEventListener('mouseenter', () => {
+```javascript
+const projects = document.querySelectorAll(".project-item");
+const preview = document.querySelector(".project-preview");
+
+projects.forEach((project) => {
+  project.addEventListener("mouseenter", () => {
     const image = project.dataset.image;
     preview.style.backgroundImage = `url(${image})`;
 
@@ -248,74 +273,77 @@ projects.forEach(project => {
       opacity: 1,
       scale: 1,
       duration: 0.4,
-      ease: 'power2.out'
+      ease: "power2.out",
     });
   });
 
-  project.addEventListener('mouseleave', () => {
+  project.addEventListener("mouseleave", () => {
     gsap.to(preview, {
       opacity: 0,
       scale: 0.95,
-      duration: 0.3
+      duration: 0.3,
     });
   });
 });
 ```
 
 ### Custom Cursor
-```javascript
-const cursor = document.querySelector('.custom-cursor');
 
-document.addEventListener('mousemove', (e) => {
+```javascript
+const cursor = document.querySelector(".custom-cursor");
+
+document.addEventListener("mousemove", (e) => {
   gsap.to(cursor, {
     x: e.clientX,
     y: e.clientY,
     duration: 0.15,
-    ease: 'power2.out'
+    ease: "power2.out",
   });
 });
 
 // Cursor states
-document.querySelectorAll('[data-cursor]').forEach(el => {
-  el.addEventListener('mouseenter', () => {
+document.querySelectorAll("[data-cursor]").forEach((el) => {
+  el.addEventListener("mouseenter", () => {
     cursor.classList.add(el.dataset.cursor);
   });
-  el.addEventListener('mouseleave', () => {
+  el.addEventListener("mouseleave", () => {
     cursor.classList.remove(el.dataset.cursor);
   });
 });
 ```
 
 ### Project Filter
-```javascript
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projects = document.querySelectorAll('.project');
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
+```javascript
+const filterBtns = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project");
+
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
     const filter = btn.dataset.filter;
 
     // Capture state
     const state = Flip.getState(projects);
 
     // Apply filter
-    projects.forEach(project => {
-      const show = filter === 'all' || project.dataset.category === filter;
-      project.style.display = show ? '' : 'none';
+    projects.forEach((project) => {
+      const show = filter === "all" || project.dataset.category === filter;
+      project.style.display = show ? "" : "none";
     });
 
     // Animate
     Flip.from(state, {
       duration: 0.5,
-      ease: 'power2.inOut',
+      ease: "power2.inOut",
       stagger: 0.02,
-      absolute: true
+      absolute: true,
     });
   });
 });
 ```
 
 ### Page Transition
+
 ```javascript
 // Using View Transitions API
 function navigateToProject(url) {
@@ -324,11 +352,9 @@ function navigateToProject(url) {
       const response = await fetch(url);
       const html = await response.text();
       const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      document.querySelector('main').replaceWith(
-        doc.querySelector('main')
-      );
-      history.pushState({}, '', url);
+      const doc = parser.parseFromString(html, "text/html");
+      document.querySelector("main").replaceWith(doc.querySelector("main"));
+      history.pushState({}, "", url);
     });
   } else {
     window.location = url;

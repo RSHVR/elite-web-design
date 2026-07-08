@@ -17,6 +17,7 @@ Critical interaction patterns for touch devices. These rules are CRITICAL priori
 ## Touch Targets
 
 Minimum interactive area:
+
 - **Apple HIG**: 44×44pt
 - **Material Design**: 48×48dp
 - **WCAG 2.2**: 24×24px minimum, 44×44px recommended
@@ -37,7 +38,7 @@ When the visual element is smaller than the minimum (e.g., a 24px icon), expand 
 }
 
 .icon-button::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: -8px; /* Expands hit area by 8px on each side */
 }
@@ -107,14 +108,16 @@ Provide visual response within **100ms** of tap. Options:
 }
 
 .ripple::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(0,0,0,0.12) 10%, transparent 10%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.12) 10%, transparent 10%);
   background-size: 1000%;
   background-position: center;
   opacity: 0;
-  transition: background-size 0.4s, opacity 0.3s;
+  transition:
+    background-size 0.4s,
+    opacity 0.3s;
 }
 
 .ripple:active::after {

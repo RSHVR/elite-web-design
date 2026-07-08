@@ -57,12 +57,20 @@ Comprehensive patterns for form interactions, user feedback, and state communica
 }
 
 @keyframes toast-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .toast { animation: none; }
+  .toast {
+    animation: none;
+  }
 }
 ```
 
@@ -158,7 +166,12 @@ For forms with multiple errors, show a summary at the top with anchor links:
 ```html
 <div class="field">
   <label for="email">Email</label>
-  <input id="email" type="email" aria-describedby="email-error" aria-invalid="true" />
+  <input
+    id="email"
+    type="email"
+    aria-describedby="email-error"
+    aria-invalid="true"
+  />
   <p id="email-error" class="error-message" aria-live="polite">
     Please enter a valid email address
   </p>
@@ -174,8 +187,12 @@ For forms with multiple errors, show a summary at the top with anchor links:
 Mark required fields clearly — asterisk with explanation:
 
 ```html
-<p class="form-note">Fields marked with <span aria-hidden="true">*</span> are required</p>
-<label for="name">Full name <span class="required" aria-label="required">*</span></label>
+<p class="form-note">
+  Fields marked with <span aria-hidden="true">*</span> are required
+</p>
+<label for="name"
+  >Full name <span class="required" aria-label="required">*</span></label
+>
 ```
 
 ### Disabled State
@@ -218,6 +235,7 @@ Read-only is NOT disabled: text is selectable, tab-focusable, and visually less 
 ### Success Feedback
 
 After completed actions, provide brief visual confirmation:
+
 - Checkmark icon replacing submit button (300ms, then reset)
 - Success toast ("Changes saved")
 - Color flash on the saved field (green border, 1s fade)
@@ -258,8 +276,13 @@ After completed actions, provide brief visual confirmation:
   font-size: var(--text-sm);
 }
 
-.step.completed { color: var(--color-success); }
-.step.active { color: var(--color-accent); font-weight: 600; }
+.step.completed {
+  color: var(--color-success);
+}
+.step.active {
+  color: var(--color-accent);
+  font-weight: 600;
+}
 ```
 
 ---
@@ -273,7 +296,7 @@ After completed actions, provide brief visual confirmation:
 ```javascript
 // Autosave pattern
 let saveTimeout;
-form.addEventListener('input', () => {
+form.addEventListener("input", () => {
   clearTimeout(saveTimeout);
   saveTimeout = setTimeout(() => {
     saveDraft(new FormData(form));

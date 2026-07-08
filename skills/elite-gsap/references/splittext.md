@@ -16,8 +16,8 @@ Split text into characters, words, and lines for animation.
 ## Basic Setup
 
 ```javascript
-import gsap from 'gsap';
-import { SplitText } from 'gsap/SplitText';
+import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(SplitText);
 ```
@@ -25,20 +25,20 @@ gsap.registerPlugin(SplitText);
 ### Basic Split
 
 ```javascript
-const split = new SplitText('.headline', {
-  type: 'chars,words,lines'
+const split = new SplitText(".headline", {
+  type: "chars,words,lines",
 });
 
-console.log(split.chars);  // Array of character elements
-console.log(split.words);  // Array of word elements
-console.log(split.lines);  // Array of line elements
+console.log(split.chars); // Array of character elements
+console.log(split.words); // Array of word elements
+console.log(split.lines); // Array of line elements
 
 // Animate
 gsap.from(split.chars, {
   opacity: 0,
   y: 50,
   stagger: 0.02,
-  duration: 0.8
+  duration: 0.8,
 });
 
 // IMPORTANT: Revert when done to restore original HTML
@@ -52,59 +52,59 @@ split.revert();
 ### Characters Only
 
 ```javascript
-const split = new SplitText('.text', { type: 'chars' });
+const split = new SplitText(".text", { type: "chars" });
 
 gsap.from(split.chars, {
   opacity: 0,
   y: 20,
   rotationX: -90,
-  stagger: 0.02
+  stagger: 0.02,
 });
 ```
 
 ### Words Only
 
 ```javascript
-const split = new SplitText('.text', { type: 'words' });
+const split = new SplitText(".text", { type: "words" });
 
 gsap.from(split.words, {
   opacity: 0,
   y: 30,
-  stagger: 0.05
+  stagger: 0.05,
 });
 ```
 
 ### Lines Only
 
 ```javascript
-const split = new SplitText('.text', { type: 'lines' });
+const split = new SplitText(".text", { type: "lines" });
 
 gsap.from(split.lines, {
   opacity: 0,
   y: 50,
-  stagger: 0.1
+  stagger: 0.1,
 });
 ```
 
 ### Combined (All Three)
 
 ```javascript
-const split = new SplitText('.text', { type: 'chars,words,lines' });
+const split = new SplitText(".text", { type: "chars,words,lines" });
 
 // Access each level
-split.chars;  // Individual characters
-split.words;  // Words (contain chars)
-split.lines;  // Lines (contain words)
+split.chars; // Individual characters
+split.words; // Words (contain chars)
+split.lines; // Lines (contain words)
 ```
 
 ### With Custom Classes
 
 ```javascript
-const split = new SplitText('.text', {
-  type: 'chars,words,lines',
-  charsClass: 'char',
-  wordsClass: 'word',
-  linesClass: 'line'
+const split = new SplitText(".text", {
+  type: "chars,words,lines",
+  charsClass: "char",
+  wordsClass: "word",
+  linesClass: "line",
 });
 ```
 
@@ -115,7 +115,7 @@ const split = new SplitText('.text', {
 ### Character Cascade
 
 ```javascript
-const split = new SplitText('.headline', { type: 'chars' });
+const split = new SplitText(".headline", { type: "chars" });
 
 gsap.from(split.chars, {
   opacity: 0,
@@ -123,31 +123,31 @@ gsap.from(split.chars, {
   rotationX: -90,
   stagger: 0.02,
   duration: 0.8,
-  ease: 'power4.out'
+  ease: "power4.out",
 });
 ```
 
 ### Wave Effect
 
 ```javascript
-const split = new SplitText('.headline', { type: 'chars' });
+const split = new SplitText(".headline", { type: "chars" });
 
 gsap.from(split.chars, {
   opacity: 0,
   y: 100,
   stagger: {
     each: 0.02,
-    from: 'center'  // Wave from center
+    from: "center", // Wave from center
   },
   duration: 0.8,
-  ease: 'power4.out'
+  ease: "power4.out",
 });
 ```
 
 ### Random Reveal
 
 ```javascript
-const split = new SplitText('.headline', { type: 'chars' });
+const split = new SplitText(".headline", { type: "chars" });
 
 gsap.from(split.chars, {
   opacity: 0,
@@ -155,56 +155,56 @@ gsap.from(split.chars, {
   rotation: gsap.utils.random(-45, 45),
   stagger: {
     each: 0.02,
-    from: 'random'
+    from: "random",
   },
   duration: 0.6,
-  ease: 'power3.out'
+  ease: "power3.out",
 });
 ```
 
 ### Word by Word
 
 ```javascript
-const split = new SplitText('.paragraph', { type: 'words' });
+const split = new SplitText(".paragraph", { type: "words" });
 
 gsap.from(split.words, {
   opacity: 0,
   y: 20,
   stagger: 0.05,
   duration: 0.5,
-  ease: 'power2.out'
+  ease: "power2.out",
 });
 ```
 
 ### Line by Line
 
 ```javascript
-const split = new SplitText('.text-block', { type: 'lines' });
+const split = new SplitText(".text-block", { type: "lines" });
 
 gsap.from(split.lines, {
   opacity: 0,
   y: 40,
   stagger: 0.15,
   duration: 0.8,
-  ease: 'power3.out'
+  ease: "power3.out",
 });
 ```
 
 ### 3D Flip Characters
 
 ```javascript
-const split = new SplitText('.headline', { type: 'chars' });
+const split = new SplitText(".headline", { type: "chars" });
 
 // Set perspective on parent
-gsap.set('.headline', { perspective: 400 });
+gsap.set(".headline", { perspective: 400 });
 
 gsap.from(split.chars, {
   opacity: 0,
   rotationY: 90,
-  transformOrigin: '50% 50% -50',
+  transformOrigin: "50% 50% -50",
   stagger: 0.02,
   duration: 0.8,
-  ease: 'power4.out'
+  ease: "power4.out",
 });
 ```
 
@@ -217,15 +217,15 @@ The most premium text animation pattern.
 ### Line Mask Reveal
 
 ```javascript
-const split = new SplitText('.headline', {
-  type: 'lines',
-  linesClass: 'line'
+const split = new SplitText(".headline", {
+  type: "lines",
+  linesClass: "line",
 });
 
 // Wrap each line in overflow:hidden container
-split.lines.forEach(line => {
-  const wrapper = document.createElement('div');
-  wrapper.style.overflow = 'hidden';
+split.lines.forEach((line) => {
+  const wrapper = document.createElement("div");
+  wrapper.style.overflow = "hidden";
   line.parentNode.insertBefore(wrapper, line);
   wrapper.appendChild(line);
 });
@@ -234,40 +234,40 @@ gsap.from(split.lines, {
   yPercent: 100,
   duration: 1,
   stagger: 0.1,
-  ease: 'power4.out'
+  ease: "power4.out",
 });
 ```
 
 ### With SplitText Mask Option (2026)
 
 ```javascript
-const split = new SplitText('.headline', {
-  type: 'lines',
-  mask: true  // Built-in masking
+const split = new SplitText(".headline", {
+  type: "lines",
+  mask: true, // Built-in masking
 });
 
 gsap.from(split.lines, {
   yPercent: 100,
   duration: 1,
   stagger: 0.1,
-  ease: 'power4.out'
+  ease: "power4.out",
 });
 ```
 
 ### Word Mask Reveal
 
 ```javascript
-const split = new SplitText('.text', {
-  type: 'words',
-  wordsClass: 'word'
+const split = new SplitText(".text", {
+  type: "words",
+  wordsClass: "word",
 });
 
 // Wrap words in mask containers
-split.words.forEach(word => {
-  const wrapper = document.createElement('span');
-  wrapper.style.display = 'inline-block';
-  wrapper.style.overflow = 'hidden';
-  wrapper.style.verticalAlign = 'top';
+split.words.forEach((word) => {
+  const wrapper = document.createElement("span");
+  wrapper.style.display = "inline-block";
+  wrapper.style.overflow = "hidden";
+  wrapper.style.verticalAlign = "top";
   word.parentNode.insertBefore(wrapper, word);
   wrapper.appendChild(word);
 });
@@ -276,7 +276,7 @@ gsap.from(split.words, {
   yPercent: 100,
   duration: 0.8,
   stagger: 0.03,
-  ease: 'power4.out'
+  ease: "power4.out",
 });
 ```
 
@@ -287,7 +287,7 @@ gsap.from(split.words, {
 ### Basic Scroll Reveal
 
 ```javascript
-const split = new SplitText('.headline', { type: 'chars' });
+const split = new SplitText(".headline", { type: "chars" });
 
 gsap.from(split.chars, {
   opacity: 0,
@@ -295,46 +295,46 @@ gsap.from(split.chars, {
   stagger: 0.02,
   duration: 0.8,
   scrollTrigger: {
-    trigger: '.headline',
-    start: 'top 80%',
-    toggleActions: 'play none none none'
-  }
+    trigger: ".headline",
+    start: "top 80%",
+    toggleActions: "play none none none",
+  },
 });
 ```
 
 ### Scrubbed Text Reveal
 
 ```javascript
-const split = new SplitText('.scroll-text', { type: 'chars' });
+const split = new SplitText(".scroll-text", { type: "chars" });
 
 gsap.from(split.chars, {
   opacity: 0.2,
   stagger: 0.05,
   scrollTrigger: {
-    trigger: '.scroll-text',
-    start: 'top 70%',
-    end: 'bottom 30%',
-    scrub: true
-  }
+    trigger: ".scroll-text",
+    start: "top 70%",
+    end: "bottom 30%",
+    scrub: true,
+  },
 });
 ```
 
 ### Per-Section Headlines
 
 ```javascript
-gsap.utils.toArray('.section-title').forEach(title => {
-  const split = new SplitText(title, { type: 'chars,words' });
+gsap.utils.toArray(".section-title").forEach((title) => {
+  const split = new SplitText(title, { type: "chars,words" });
 
   gsap.from(split.chars, {
     opacity: 0,
     y: 30,
     stagger: 0.02,
     duration: 0.6,
-    ease: 'power3.out',
+    ease: "power3.out",
     scrollTrigger: {
       trigger: title,
-      start: 'top 85%'
-    }
+      start: "top 85%",
+    },
   });
 });
 ```
@@ -353,13 +353,13 @@ function initSplit() {
   if (split) split.revert();
 
   // Create new split
-  split = new SplitText('.headline', { type: 'lines' });
+  split = new SplitText(".headline", { type: "lines" });
 
   // Animate
   gsap.from(split.lines, {
     opacity: 0,
     y: 40,
-    stagger: 0.1
+    stagger: 0.1,
   });
 }
 
@@ -367,7 +367,7 @@ initSplit();
 
 // Debounced resize handler
 let resizeTimer;
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(initSplit, 250);
 });
@@ -381,23 +381,23 @@ let split;
 function setupTextAnimation() {
   if (split) split.revert();
 
-  split = new SplitText('.headline', { type: 'lines' });
+  split = new SplitText(".headline", { type: "lines" });
 
   gsap.from(split.lines, {
     opacity: 0,
     y: 50,
     stagger: 0.1,
     scrollTrigger: {
-      trigger: '.headline',
-      start: 'top 80%'
-    }
+      trigger: ".headline",
+      start: "top 80%",
+    },
   });
 }
 
 setupTextAnimation();
 
 // On resize, revert and refresh
-ScrollTrigger.addEventListener('refresh', setupTextAnimation);
+ScrollTrigger.addEventListener("refresh", setupTextAnimation);
 ```
 
 ### MediaQuery-Based Split
@@ -405,27 +405,27 @@ ScrollTrigger.addEventListener('refresh', setupTextAnimation);
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add('(min-width: 768px)', () => {
+mm.add("(min-width: 768px)", () => {
   // Desktop: Character animation
-  const split = new SplitText('.headline', { type: 'chars' });
+  const split = new SplitText(".headline", { type: "chars" });
 
   gsap.from(split.chars, {
     opacity: 0,
     y: 50,
-    stagger: 0.02
+    stagger: 0.02,
   });
 
-  return () => split.revert();  // Cleanup on media query change
+  return () => split.revert(); // Cleanup on media query change
 });
 
-mm.add('(max-width: 767px)', () => {
+mm.add("(max-width: 767px)", () => {
   // Mobile: Simpler word animation
-  const split = new SplitText('.headline', { type: 'words' });
+  const split = new SplitText(".headline", { type: "words" });
 
   gsap.from(split.words, {
     opacity: 0,
     y: 20,
-    stagger: 0.05
+    stagger: 0.05,
   });
 
   return () => split.revert();
@@ -439,24 +439,24 @@ mm.add('(max-width: 767px)', () => {
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add('(prefers-reduced-motion: no-preference)', () => {
-  const split = new SplitText('.headline', { type: 'chars' });
+mm.add("(prefers-reduced-motion: no-preference)", () => {
+  const split = new SplitText(".headline", { type: "chars" });
 
   gsap.from(split.chars, {
     opacity: 0,
     y: 50,
     stagger: 0.02,
-    duration: 0.8
+    duration: 0.8,
   });
 
   return () => split.revert();
 });
 
-mm.add('(prefers-reduced-motion: reduce)', () => {
+mm.add("(prefers-reduced-motion: reduce)", () => {
   // Simple fade, no split needed
-  gsap.from('.headline', {
+  gsap.from(".headline", {
     opacity: 0,
-    duration: 0.3
+    duration: 0.3,
   });
 });
 ```
@@ -473,7 +473,7 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
 
 ```javascript
 const ctx = gsap.context(() => {
-  const split = new SplitText('.headline', { type: 'chars' });
+  const split = new SplitText(".headline", { type: "chars" });
 
   gsap.from(split.chars, { opacity: 0, y: 50 });
 
@@ -512,7 +512,7 @@ SplitText works best with block-level text elements. For inline elements:
 
 ```css
 .split-target {
-  display: inline-block;  /* or block */
+  display: inline-block; /* or block */
 }
 ```
 
@@ -526,16 +526,16 @@ GSAP 3.14 introduced built-in mask support for SplitText, eliminating the need f
 
 ```javascript
 const split = new SplitText(element, {
-  type: 'words',
-  mask: 'words'  // Creates overflow mask per word
+  type: "words",
+  mask: "words", // Creates overflow mask per word
 });
 
 // Slide words up from below the mask
 gsap.from(split.words, {
-  yPercent: 110,    // 110% pushes text fully below mask
+  yPercent: 110, // 110% pushes text fully below mask
   duration: 0.8,
   stagger: 0.04,
-  ease: 'power4.out'
+  ease: "power4.out",
 });
 ```
 
@@ -546,19 +546,19 @@ With `mask: 'words'`, each word gets an `overflow: hidden` container automatical
 ```javascript
 // MASK MODE: Clean "reveal from behind" effect
 gsap.from(split.words, {
-  yPercent: 110,         // No opacity needed
+  yPercent: 110, // No opacity needed
   duration: 0.8,
   stagger: 0.04,
-  ease: 'power4.out'
+  ease: "power4.out",
 });
 
 // NON-MASK MODE: Traditional fade + slide
 gsap.from(split.words, {
   y: 20,
-  opacity: 0,           // Opacity needed
+  opacity: 0, // Opacity needed
   duration: 0.8,
   stagger: 0.04,
-  ease: 'power4.out'
+  ease: "power4.out",
 });
 ```
 
@@ -568,32 +568,36 @@ gsap.from(split.words, {
 
 ```javascript
 function splitReveal(element, opts = {}) {
-  const { mask = true, type = 'words' } = opts;
+  const { mask = true, type = "words" } = opts;
   let split = null;
 
   const ctx = gsap.context(() => {
     const mm = gsap.matchMedia();
 
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       split = new SplitText(element, {
         type,
-        ...(mask && { mask: type })
+        ...(mask && { mask: type }),
       });
 
-      const targets = type === 'chars' ? split.chars :
-                      type === 'lines' ? split.lines : split.words;
+      const targets =
+        type === "chars"
+          ? split.chars
+          : type === "lines"
+            ? split.lines
+            : split.words;
 
       gsap.from(targets, {
         ...(mask ? { yPercent: 110 } : { y: 20, opacity: 0 }),
         duration: 0.8,
         stagger: 0.04,
-        ease: 'power4.out'
+        ease: "power4.out",
       });
 
       return () => split?.revert();
     });
 
-    mm.add('(prefers-reduced-motion: reduce)', () => {
+    mm.add("(prefers-reduced-motion: reduce)", () => {
       // Instant appearance
       gsap.from(element, { opacity: 0, duration: 0.01 });
     });

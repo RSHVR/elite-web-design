@@ -28,6 +28,7 @@ Stats:
 ### Personalization Types
 
 **Content personalization:**
+
 ```
 - Dynamic headlines based on traffic source
 - Industry-specific messaging
@@ -41,6 +42,7 @@ From LinkedIn: "Marketing Platform for B2B Teams"
 ```
 
 **Product recommendations:**
+
 ```
 - "Frequently bought together"
 - "Based on your browsing"
@@ -49,6 +51,7 @@ From LinkedIn: "Marketing Platform for B2B Teams"
 ```
 
 **Pricing/offer personalization:**
+
 ```
 - Returning customer offers
 - Abandoned cart incentives
@@ -88,6 +91,7 @@ Then advance:
 ### Patterns
 
 **Live chat for conversion:**
+
 ```
 Placement:
 - Bottom right (standard)
@@ -102,6 +106,7 @@ Best practices:
 ```
 
 **Chatbot for qualification:**
+
 ```
 Use cases:
 - Lead qualification
@@ -117,6 +122,7 @@ Flow:
 ```
 
 **Conversational landing pages:**
+
 ```
 Replace forms with conversation:
 "Hi! What brings you here today?"
@@ -153,6 +159,7 @@ Key metrics:
 ### PLG Patterns
 
 **Freemium strategies:**
+
 ```
 What's changing:
 - Unlimited free declining
@@ -166,6 +173,7 @@ Example (not "free forever"):
 ```
 
 **Reverse trials:**
+
 ```
 Pattern:
 1. Start with premium features
@@ -180,6 +188,7 @@ Why it works:
 ```
 
 **Product-qualified leads:**
+
 ```
 PQL signals:
 - Used core feature X times
@@ -245,6 +254,7 @@ Quiz structure:
 ```
 
 **Quiz examples:**
+
 ```
 E-commerce:
 "Find your perfect skincare routine"
@@ -345,6 +355,7 @@ Example:
 ### Referral Program Design
 
 **Double-sided rewards:**
+
 ```
 Best practice:
 - Both parties get value
@@ -359,6 +370,7 @@ Examples:
 ```
 
 **Referral UX:**
+
 ```
 Components:
 - Unique referral link
@@ -373,6 +385,7 @@ Make sharing effortless.
 ### Organic Virality
 
 **Built-in shareability:**
+
 ```
 Features that spread:
 - Public profiles/pages
@@ -385,6 +398,7 @@ Features that spread:
 ```
 
 **User-generated content:**
+
 ```
 Encourage:
 - Reviews and testimonials

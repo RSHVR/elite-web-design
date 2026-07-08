@@ -83,10 +83,10 @@ Component-level responsive design based on container size, not viewport.
 ```css
 .card {
   /* Container query length units */
-  padding: 5cqi;    /* 5% of container inline size */
-  font-size: 3cqw;  /* 3% of container width */
-  margin: 2cqh;     /* 2% of container height */
-  gap: 2cqmin;      /* 2% of smaller dimension */
+  padding: 5cqi; /* 5% of container inline size */
+  font-size: 3cqw; /* 3% of container width */
+  margin: 2cqh; /* 2% of container height */
+  gap: 2cqmin; /* 2% of smaller dimension */
   border-radius: 1cqmax; /* 1% of larger dimension */
 }
 ```
@@ -100,7 +100,7 @@ Component-level responsive design based on container size, not viewport.
 ```html
 <div class="card-container">
   <article class="card">
-    <img class="card-image" src="image.jpg" alt="">
+    <img class="card-image" src="image.jpg" alt="" />
     <div class="card-content">
       <h3 class="card-title">Card Title</h3>
       <p class="card-description">Card description text...</p>
@@ -636,7 +636,7 @@ Component-level responsive design based on container size, not viewport.
 
 ```css
 .theme-container {
-  container-type: normal;  /* No size containment needed */
+  container-type: normal; /* No size containment needed */
   --theme: light;
 }
 
@@ -771,12 +771,22 @@ Container queries are supported in all modern browsers (2026):
 
 ```css
 /* Prefer named containers for clarity */
-.sidebar { container: sidebar / inline-size; }
-.main { container: main / inline-size; }
-.card { container: card / inline-size; }
+.sidebar {
+  container: sidebar / inline-size;
+}
+.main {
+  container: main / inline-size;
+}
+.card {
+  container: card / inline-size;
+}
 
-@container sidebar (min-width: 300px) { /* ... */ }
-@container card (min-width: 400px) { /* ... */ }
+@container sidebar (min-width: 300px) {
+  /* ... */
+}
+@container card (min-width: 400px) {
+  /* ... */
+}
 ```
 
 ### Avoid Deep Nesting
@@ -805,9 +815,15 @@ Container queries are supported in all modern browsers (2026):
   --card-large: 600px;
 }
 
-@container card (min-width: 300px) { /* Compact */ }
-@container card (min-width: 400px) { /* Medium */ }
-@container card (min-width: 600px) { /* Large */ }
+@container card (min-width: 300px) {
+  /* Compact */
+}
+@container card (min-width: 400px) {
+  /* Medium */
+}
+@container card (min-width: 600px) {
+  /* Large */
+}
 ```
 
 ### Combine with Grid

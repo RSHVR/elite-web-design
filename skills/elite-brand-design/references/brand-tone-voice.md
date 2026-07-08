@@ -32,13 +32,13 @@ Matter-of-fact ◄─────────► Enthusiastic
 
 ### Archetype Positions
 
-| Archetype | Formal/Casual | Serious/Playful | Respectful/Irreverent | Matter-of-fact/Enthusiastic |
-|-----------|:---:|:---:|:---:|:---:|
-| Modern/Bold | ●●●○○ | ●●●○○ | ○○●●● | ●●●●○ |
-| Luxury/Editorial | ●●●●○ | ●●●○○ | ●●●●○ | ○○●●● |
-| Warm/Inclusive | ○○●●● | ○●●●○ | ●●●●● | ○○●●● |
-| Authoritative | ●●●●● | ●●●●○ | ●●●●○ | ●●●●● |
-| Professional | ●●●○○ | ●●●○○ | ●●●●○ | ○●●●○ |
+| Archetype        | Formal/Casual | Serious/Playful | Respectful/Irreverent | Matter-of-fact/Enthusiastic |
+| ---------------- | :-----------: | :-------------: | :-------------------: | :-------------------------: |
+| Modern/Bold      |     ●●●○○     |      ●●●○○      |         ○○●●●         |            ●●●●○            |
+| Luxury/Editorial |     ●●●●○     |      ●●●○○      |         ●●●●○         |            ○○●●●            |
+| Warm/Inclusive   |     ○○●●●     |      ○●●●○      |         ●●●●●         |            ○○●●●            |
+| Authoritative    |     ●●●●●     |      ●●●●○      |         ●●●●○         |            ●●●●●            |
+| Professional     |     ●●●○○     |      ●●●○○      |         ●●●●○         |            ○●●●○            |
 
 ---
 
@@ -85,11 +85,11 @@ Matter-of-fact ◄─────────► Enthusiastic
 
 ### CTAs by Brand Personality
 
-| Context | Bold | Luxury | Warm | Authoritative | Professional |
-|---------|------|--------|------|--------------|-------------|
-| Primary action | "Start a project" | "Explore" | "Get started" | "Book now" | "Learn more" |
-| Secondary | "View work" | "Discover more" | "How it works" | "View results" | "Contact us" |
-| Newsletter | "Stay sharp" | "Join our world" | "Stay connected" | "Get updates" | "Subscribe" |
+| Context        | Bold              | Luxury           | Warm             | Authoritative  | Professional |
+| -------------- | ----------------- | ---------------- | ---------------- | -------------- | ------------ |
+| Primary action | "Start a project" | "Explore"        | "Get started"    | "Book now"     | "Learn more" |
+| Secondary      | "View work"       | "Discover more"  | "How it works"   | "View results" | "Contact us" |
+| Newsletter     | "Stay sharp"      | "Join our world" | "Stay connected" | "Get updates"  | "Subscribe"  |
 
 ### Empty States
 

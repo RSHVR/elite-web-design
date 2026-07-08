@@ -183,7 +183,7 @@ Emma Coats (former Pixar story artist) tweeted these in 2011. They're the operat
 1. You admire a character for _trying_ more than for their successes.
 2. Keep in mind what's interesting to the audience, not what's fun to do as a writer.
 3. Trying for theme is important, but you won't see what the story is actually about till you're at the end of it. Now rewrite.
-4. **The Story Spine:** Once upon a time there was **_. Every day, _**. One day **_. Because of that, _**. Because of that, **_. Until finally _**.
+4. **The Story Spine:** Once upon a time there was **\_. Every day, _**. One day **\_. Because of that, _**. Because of that, **\_. Until finally _**.
 5. Simplify. Focus. Combine characters. Hop over detours. You'll feel like you're losing valuable stuff but it sets you free.
 6. What is your character good at, comfortable with? Throw the polar opposite at them. Challenge them. How do they deal?
 7. Come up with your ending before you figure out your middle. Endings are hard; get yours working up front.

@@ -105,61 +105,64 @@ Application:
 
 ### Landing Page Conversion Rates
 
-| Performance | Conversion Rate |
-|-------------|-----------------|
-| Poor | < 2% |
-| Below average | 2-3% |
-| Average | 3-5% |
-| Good | 5-10% |
-| Excellent | 10-15% |
-| Top performers | 15%+ |
+| Performance    | Conversion Rate |
+| -------------- | --------------- |
+| Poor           | < 2%            |
+| Below average  | 2-3%            |
+| Average        | 3-5%            |
+| Good           | 5-10%           |
+| Excellent      | 10-15%          |
+| Top performers | 15%+            |
 
 **By traffic source:**
-| Source | Average CR |
-|--------|------------|
-| Email | 4-6% |
-| Organic search | 2-4% |
-| Paid search | 2-5% |
-| Social | 1-3% |
-| Display | 0.5-2% |
+
+| Source         | Average CR |
+| -------------- | ---------- |
+| Email          | 4-6%       |
+| Organic search | 2-4%       |
+| Paid search    | 2-5%       |
+| Social         | 1-3%       |
+| Display        | 0.5-2%     |
 
 ### E-commerce Benchmarks
 
-| Metric | Average | Good | Excellent |
-|--------|---------|------|-----------|
-| Overall conversion | 2-3% | 3-5% | 5%+ |
-| Add to cart rate | 8-12% | 12-15% | 15%+ |
-| Cart abandonment | 70-75% | 65-70% | < 65% |
-| Checkout abandonment | 20-25% | 15-20% | < 15% |
+| Metric               | Average | Good   | Excellent |
+| -------------------- | ------- | ------ | --------- |
+| Overall conversion   | 2-3%    | 3-5%   | 5%+       |
+| Add to cart rate     | 8-12%   | 12-15% | 15%+      |
+| Cart abandonment     | 70-75%  | 65-70% | < 65%     |
+| Checkout abandonment | 20-25%  | 15-20% | < 15%     |
 
 **By device:**
-| Device | Conversion Rate |
-|--------|-----------------|
-| Desktop | 3-4% |
-| Tablet | 2-3% |
-| Mobile | 1.5-2.5% |
+
+| Device  | Conversion Rate |
+| ------- | --------------- |
+| Desktop | 3-4%            |
+| Tablet  | 2-3%            |
+| Mobile  | 1.5-2.5%        |
 
 ### SaaS Benchmarks
 
-| Metric | Average | Good | Excellent |
-|--------|---------|------|-----------|
-| Free trial signup | 2-5% | 5-10% | 10%+ |
-| Trial to paid | 10-15% | 15-25% | 25%+ |
-| Freemium to paid | 2-5% | 5-10% | 10%+ |
-| Demo request | 1-3% | 3-5% | 5%+ |
+| Metric            | Average | Good   | Excellent |
+| ----------------- | ------- | ------ | --------- |
+| Free trial signup | 2-5%    | 5-10%  | 10%+      |
+| Trial to paid     | 10-15%  | 15-25% | 25%+      |
+| Freemium to paid  | 2-5%    | 5-10%  | 10%+      |
+| Demo request      | 1-3%    | 3-5%   | 5%+       |
 
 **PQL vs MQL conversion:**
+
 - MQL to customer: 5-10%
 - PQL to customer: 25-30%
 
 ### Email Capture Benchmarks
 
-| Type | Average | Good |
-|------|---------|------|
-| Popup | 2-4% | 5%+ |
-| Inline form | 1-2% | 3%+ |
-| Landing page | 20-30% | 40%+ |
-| Exit intent | 2-4% | 5%+ |
+| Type         | Average | Good |
+| ------------ | ------- | ---- |
+| Popup        | 2-4%    | 5%+  |
+| Inline form  | 1-2%    | 3%+  |
+| Landing page | 20-30%  | 40%+ |
+| Exit intent  | 2-4%    | 5%+  |
 
 ### Mobile vs Desktop Gap
 

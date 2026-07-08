@@ -49,7 +49,7 @@ button:focus {
 }
 
 button:focus:not(:focus-visible) {
-  outline: none;  /* Hide on mouse click */
+  outline: none; /* Hide on mouse click */
 }
 ```
 
@@ -85,17 +85,18 @@ button:focus:not(:focus-visible) {
 ### Focus Contrast Requirements
 
 Focus indicators must have 3:1 contrast ratio with:
+
 - Adjacent colors (the unfocused state)
 - Background colors
 
 ```css
 /* Example: Blue button needs visible focus */
 .btn-primary {
-  background: #2563eb;  /* Blue */
+  background: #2563eb; /* Blue */
 }
 
 .btn-primary:focus-visible {
-  outline: 2px solid white;  /* White contrasts with blue */
+  outline: 2px solid white; /* White contrasts with blue */
   outline-offset: 2px;
 }
 ```
@@ -106,18 +107,19 @@ Focus indicators must have 3:1 contrast ratio with:
 
 ### Standard Patterns
 
-| Key | Action |
-|-----|--------|
-| Tab | Move to next focusable element |
-| Shift + Tab | Move to previous focusable element |
-| Enter | Activate buttons, links |
-| Space | Activate buttons, toggle checkboxes |
-| Arrow keys | Navigate within components (tabs, menus) |
-| Escape | Close modals, menus, popovers |
+| Key         | Action                                   |
+| ----------- | ---------------------------------------- |
+| Tab         | Move to next focusable element           |
+| Shift + Tab | Move to previous focusable element       |
+| Enter       | Activate buttons, links                  |
+| Space       | Activate buttons, toggle checkboxes      |
+| Arrow keys  | Navigate within components (tabs, menus) |
+| Escape      | Close modals, menus, popovers            |
 
 ### Focusable Elements
 
 Naturally focusable:
+
 - `<a href="...">` (links with href)
 - `<button>`
 - `<input>`, `<select>`, `<textarea>`
@@ -125,6 +127,7 @@ Naturally focusable:
 - Elements with `tabindex="0"`
 
 Not focusable:
+
 - `<div>`, `<span>` (without tabindex)
 - `<a>` without href
 - Disabled elements
@@ -158,8 +161,8 @@ element.focus();
 element.focus({ preventScroll: true });
 
 // Make non-interactive element focusable
-element.setAttribute('tabindex', '-1');
-element.focus();  // Can focus programmatically
+element.setAttribute("tabindex", "-1");
+element.focus(); // Can focus programmatically
 // User can't tab to it, but screen readers can
 ```
 
@@ -171,9 +174,7 @@ Allow keyboard users to skip repetitive content:
 
 ```html
 <body>
-  <a href="#main-content" class="skip-link">
-    Skip to main content
-  </a>
+  <a href="#main-content" class="skip-link"> Skip to main content </a>
 
   <header>
     <!-- Navigation here -->
@@ -240,7 +241,7 @@ Keep focus within modals and dialogs:
 ```javascript
 function trapFocus(element) {
   const focusableElements = element.querySelectorAll(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
   );
   const firstFocusable = focusableElements[0];
   const lastFocusable = focusableElements[focusableElements.length - 1];
@@ -252,7 +253,7 @@ function trapFocus(element) {
   firstFocusable.focus();
 
   function handleKeydown(e) {
-    if (e.key !== 'Tab') return;
+    if (e.key !== "Tab") return;
 
     if (e.shiftKey) {
       // Shift + Tab
@@ -269,11 +270,11 @@ function trapFocus(element) {
     }
   }
 
-  element.addEventListener('keydown', handleKeydown);
+  element.addEventListener("keydown", handleKeydown);
 
   // Return cleanup function
   return () => {
-    element.removeEventListener('keydown', handleKeydown);
+    element.removeEventListener("keydown", handleKeydown);
     previouslyFocused?.focus();
   };
 }
@@ -291,9 +292,13 @@ function openModal(modal) {
 
   modal.showModal();
 
-  modal.addEventListener('close', () => {
-    previouslyFocused?.focus();
-  }, { once: true });
+  modal.addEventListener(
+    "close",
+    () => {
+      previouslyFocused?.focus();
+    },
+    { once: true },
+  );
 }
 ```
 
@@ -317,7 +322,7 @@ function openModal(modal) {
 
 ```javascript
 function handleKeydown(event) {
-  if (event.key === 'Enter' || event.key === ' ') {
+  if (event.key === "Enter" || event.key === " ") {
     event.preventDefault();
     handleClick();
   }
@@ -327,9 +332,7 @@ function handleKeydown(event) {
 **Better: Just use a button**
 
 ```html
-<button type="button" onclick="handleClick()">
-  Click me
-</button>
+<button type="button" onclick="handleClick()">Click me</button>
 ```
 
 ### Custom Tabs
@@ -356,46 +359,35 @@ function handleKeydown(event) {
   </button>
 </div>
 
-<div
-  role="tabpanel"
-  id="panel-1"
-  aria-labelledby="tab-1"
-  tabindex="0"
->
+<div role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
   Panel 1 content
 </div>
 
-<div
-  role="tabpanel"
-  id="panel-2"
-  aria-labelledby="tab-2"
-  tabindex="0"
-  hidden
->
+<div role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
   Panel 2 content
 </div>
 ```
 
 ```javascript
 // Arrow key navigation within tabs
-tablist.addEventListener('keydown', (e) => {
+tablist.addEventListener("keydown", (e) => {
   const tabs = [...tablist.querySelectorAll('[role="tab"]')];
   const currentIndex = tabs.indexOf(document.activeElement);
 
   let newIndex;
   switch (e.key) {
-    case 'ArrowLeft':
+    case "ArrowLeft":
       newIndex = currentIndex - 1;
       if (newIndex < 0) newIndex = tabs.length - 1;
       break;
-    case 'ArrowRight':
+    case "ArrowRight":
       newIndex = currentIndex + 1;
       if (newIndex >= tabs.length) newIndex = 0;
       break;
-    case 'Home':
+    case "Home":
       newIndex = 0;
       break;
-    case 'End':
+    case "End":
       newIndex = tabs.length - 1;
       break;
     default:
@@ -421,11 +413,7 @@ tablist.addEventListener('keydown', (e) => {
     Menu
   </button>
 
-  <ul
-    id="dropdown-menu"
-    role="menu"
-    hidden
-  >
+  <ul id="dropdown-menu" role="menu" hidden>
     <li role="menuitem" tabindex="-1">Option 1</li>
     <li role="menuitem" tabindex="-1">Option 2</li>
     <li role="menuitem" tabindex="-1">Option 3</li>
@@ -435,9 +423,9 @@ tablist.addEventListener('keydown', (e) => {
 
 ```javascript
 // Open menu
-button.addEventListener('click', () => {
-  const isOpen = button.getAttribute('aria-expanded') === 'true';
-  button.setAttribute('aria-expanded', !isOpen);
+button.addEventListener("click", () => {
+  const isOpen = button.getAttribute("aria-expanded") === "true";
+  button.setAttribute("aria-expanded", !isOpen);
   menu.hidden = isOpen;
 
   if (!isOpen) {
@@ -447,21 +435,21 @@ button.addEventListener('click', () => {
 });
 
 // Arrow navigation in menu
-menu.addEventListener('keydown', (e) => {
+menu.addEventListener("keydown", (e) => {
   const items = [...menu.querySelectorAll('[role="menuitem"]')];
   const currentIndex = items.indexOf(document.activeElement);
 
   switch (e.key) {
-    case 'ArrowDown':
+    case "ArrowDown":
       e.preventDefault();
       items[(currentIndex + 1) % items.length].focus();
       break;
-    case 'ArrowUp':
+    case "ArrowUp":
       e.preventDefault();
       items[(currentIndex - 1 + items.length) % items.length].focus();
       break;
-    case 'Escape':
-      button.setAttribute('aria-expanded', 'false');
+    case "Escape":
+      button.setAttribute("aria-expanded", "false");
       menu.hidden = true;
       button.focus();
       break;
@@ -494,7 +482,7 @@ Replace the default browser blue focus ring with brand-appropriate colors:
 ```css
 /* Digital studio — coral accent */
 :focus-visible {
-  outline: 2px solid var(--color-accent);  /* #f97316 */
+  outline: 2px solid var(--color-accent); /* #f97316 */
   outline-offset: 2px;
 }
 

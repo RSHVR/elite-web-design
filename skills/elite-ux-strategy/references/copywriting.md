@@ -103,13 +103,13 @@ so you focus on buyers and stop wasting time (benefit)."
 
 **FAB Examples:**
 
-| Feature | Advantage | Benefit |
-|---------|-----------|---------|
-| Real-time sync | Always up-to-date | Never work with old data |
-| One-click export | Reports in seconds | More time for strategy |
-| Mobile app | Access anywhere | Work from anywhere |
-| 256-bit encryption | Bank-level security | Your data is safe |
-| 24/7 support | Help when you need it | Never stuck alone |
+| Feature            | Advantage             | Benefit                  |
+| ------------------ | --------------------- | ------------------------ |
+| Real-time sync     | Always up-to-date     | Never work with old data |
+| One-click export   | Reports in seconds    | More time for strategy   |
+| Mobile app         | Access anywhere       | Work from anywhere       |
+| 256-bit encryption | Bank-level security   | Your data is safe        |
+| 24/7 support       | Help when you need it | Never stuck alone        |
 
 ---
 
@@ -176,13 +176,13 @@ Strategy: Make it easy, add urgency
 
 ### Copy by Awareness Level
 
-| Level | Headline Focus | CTA Style |
-|-------|----------------|-----------|
-| Unaware | Curiosity, questions | "Learn more" |
-| Problem-aware | Pain point | "See how" |
-| Solution-aware | Approach/method | "Discover" |
-| Product-aware | Benefits, proof | "Try free" |
-| Most aware | Offer, urgency | "Buy now" |
+| Level          | Headline Focus       | CTA Style    |
+| -------------- | -------------------- | ------------ |
+| Unaware        | Curiosity, questions | "Learn more" |
+| Problem-aware  | Pain point           | "See how"    |
+| Solution-aware | Approach/method      | "Discover"   |
+| Product-aware  | Benefits, proof      | "Try free"   |
+| Most aware     | Offer, urgency       | "Buy now"    |
 
 ---
 
@@ -191,6 +191,7 @@ Strategy: Make it easy, add urgency
 ### Headline Formulas
 
 **Number-based:**
+
 ```
 "7 Ways to [Achieve Desired Outcome]"
 "The 3-Step System for [Goal]"
@@ -198,6 +199,7 @@ Strategy: Make it easy, add urgency
 ```
 
 **How-to:**
+
 ```
 "How to [Achieve Goal] Without [Pain]"
 "How [Specific Group] [Achieve Outcome]"
@@ -205,6 +207,7 @@ Strategy: Make it easy, add urgency
 ```
 
 **Question:**
+
 ```
 "Want to [Desired Outcome]?"
 "What If You Could [Dream Scenario]?"
@@ -212,6 +215,7 @@ Strategy: Make it easy, add urgency
 ```
 
 **Testimonial/Proof:**
+
 ```
 "How [Customer] Achieved [Specific Result]"
 "[X] [People/Companies] Trust Us to [Outcome]"
@@ -219,6 +223,7 @@ Strategy: Make it easy, add urgency
 ```
 
 **Direct benefit:**
+
 ```
 "[Outcome] Guaranteed"
 "Get [Benefit] Today"
@@ -237,6 +242,7 @@ Strategy: Make it easy, add urgency
 ### Headline Testing Priorities
 
 Test in this order:
+
 1. Benefit vs feature focus
 2. Specific vs general claims
 3. Question vs statement
@@ -250,6 +256,7 @@ Test in this order:
 ### CTA Formulas
 
 **Action + Outcome:**
+
 ```
 "Start growing" > "Sign up"
 "Get more leads" > "Submit"
@@ -257,6 +264,7 @@ Test in this order:
 ```
 
 **First-person:**
+
 ```
 "Get my free trial" > "Get your free trial"
 "Start my account" > "Start an account"
@@ -264,6 +272,7 @@ Test in this order:
 ```
 
 **Risk reversal:**
+
 ```
 "Try free for 14 days"
 "Start free - no credit card"
@@ -271,6 +280,7 @@ Test in this order:
 ```
 
 **Specific outcome:**
+
 ```
 "See your revenue potential"
 "Get your personalized plan"
@@ -279,16 +289,17 @@ Test in this order:
 
 ### CTA by Funnel Stage
 
-| Stage | CTA Examples |
-|-------|--------------|
-| Awareness | "Learn more", "See how it works" |
-| Interest | "Watch demo", "Take the tour" |
-| Desire | "Start free trial", "See pricing" |
-| Action | "Get started", "Buy now", "Subscribe" |
+| Stage     | CTA Examples                          |
+| --------- | ------------------------------------- |
+| Awareness | "Learn more", "See how it works"      |
+| Interest  | "Watch demo", "Take the tour"         |
+| Desire    | "Start free trial", "See pricing"     |
+| Action    | "Get started", "Buy now", "Subscribe" |
 
 ### CTA Context Patterns
 
 **Primary CTA (high commitment):**
+
 ```
 Prominent button, contrasting color
 "Start free trial"
@@ -297,6 +308,7 @@ Prominent button, contrasting color
 ```
 
 **Secondary CTA (lower commitment):**
+
 ```
 Text link or ghost button
 "See pricing"
@@ -305,6 +317,7 @@ Text link or ghost button
 ```
 
 **Tertiary CTA (minimal):**
+
 ```
 Plain text link
 "Contact sales"
@@ -348,6 +361,7 @@ with AI-powered popups that don't annoy visitors"
 ### Value Prop Examples
 
 **SaaS:**
+
 ```
 Weak: "Project management software"
 Strong: "Ship projects 2x faster with the tool
@@ -355,6 +369,7 @@ Strong: "Ship projects 2x faster with the tool
 ```
 
 **E-commerce:**
+
 ```
 Weak: "Quality shoes online"
 Strong: "Premium leather shoes that get
@@ -363,6 +378,7 @@ Strong: "Premium leather shoes that get
 ```
 
 **Service:**
+
 ```
 Weak: "Marketing agency services"
 Strong: "We've helped 200+ SaaS companies
@@ -372,6 +388,7 @@ Strong: "We've helped 200+ SaaS companies
 ### Clarity Test
 
 Your value prop should answer:
+
 1. What do you offer?
 2. Who is it for?
 3. Why should I care?
@@ -472,6 +489,7 @@ Near sensitive fields:
 ### What to Test
 
 **High impact:**
+
 - Headlines (biggest impact usually)
 - CTA copy
 - Value proposition
@@ -479,12 +497,14 @@ Near sensitive fields:
 - Form field labels
 
 **Medium impact:**
+
 - Subheadlines
 - Button colors (with copy changes)
 - Testimonial selection
 - Benefit ordering
 
 **Lower impact:**
+
 - Body copy tweaks
 - Image selection
 - Minor wording changes
@@ -502,6 +522,7 @@ Near sensitive fields:
 ### Copy Swipe File
 
 Keep a collection of:
+
 - Headlines that caught your attention
 - CTAs that made you click
 - Emails that you actually read

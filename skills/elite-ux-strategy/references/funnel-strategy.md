@@ -58,14 +58,14 @@ RETENTION                            ADVOCACY
 
 ### Funnel Metrics
 
-| Stage | Key Metrics | Target |
-|-------|-------------|--------|
-| Awareness | Bounce rate, Time on page | < 50% bounce, > 30s |
-| Interest | Scroll depth, Clicks | > 50% scroll, engagement |
-| Desire | Pricing page views, Demo requests | High intent signals |
-| Action | Conversion rate, Abandonment | 3-10%+ conversion |
-| Retention | DAU/MAU, Churn rate | < 5% monthly churn |
-| Referral | NPS, Viral coefficient | NPS > 50, K > 1 |
+| Stage     | Key Metrics                       | Target                   |
+| --------- | --------------------------------- | ------------------------ |
+| Awareness | Bounce rate, Time on page         | < 50% bounce, > 30s      |
+| Interest  | Scroll depth, Clicks              | > 50% scroll, engagement |
+| Desire    | Pricing page views, Demo requests | High intent signals      |
+| Action    | Conversion rate, Abandonment      | 3-10%+ conversion        |
+| Retention | DAU/MAU, Churn rate               | < 5% monthly churn       |
+| Referral  | NPS, Viral coefficient            | NPS > 50, K > 1          |
 
 ---
 
@@ -76,6 +76,7 @@ RETENTION                            ADVOCACY
 ### The 5-Second Test
 
 Can a stranger answer these questions after 5 seconds?
+
 1. What does this company do?
 2. How does it benefit me?
 3. What should I do next?
@@ -106,6 +107,7 @@ Can a stranger answer these questions after 5 seconds?
 ### Headline Formulas
 
 **Value-first:**
+
 ```
 [End result] without [pain point]
 "Grow your email list without annoying popups"
@@ -115,6 +117,7 @@ Can a stranger answer these questions after 5 seconds?
 ```
 
 **Problem-first:**
+
 ```
 Stop [pain point]. Start [desired state].
 "Stop losing leads. Start converting visitors."
@@ -124,6 +127,7 @@ Stop [pain point]. Start [desired state].
 ```
 
 **Social proof-first:**
+
 ```
 [X users] trust [product] to [outcome]
 "50,000 marketers trust Mailchimp to grow their audience"
@@ -151,11 +155,11 @@ Join [specific group] who [achieve outcome]
 
 **Features tell, benefits sell:**
 
-| Feature | Benefit |
-|---------|---------|
+| Feature                | Benefit                                                    |
+| ---------------------- | ---------------------------------------------------------- |
 | "AI-powered analytics" | "Know exactly what's working without digging through data" |
-| "Real-time sync" | "Your team is always on the same page" |
-| "One-click export" | "Reports ready in seconds, not hours" |
+| "Real-time sync"       | "Your team is always on the same page"                     |
+| "One-click export"     | "Reports ready in seconds, not hours"                      |
 
 ### How It Works Section
 
@@ -169,16 +173,19 @@ Step 1: [Action verb]          Step 2: [Action verb]          Step 3: [Outcome]
 ### Interest Stage Patterns
 
 **Bento grid features:**
+
 - Visual variety maintains attention
 - Different sizes signal hierarchy
 - Interactive elements reward exploration
 
 **Scroll-triggered reveals:**
+
 - Progressive disclosure maintains interest
 - Animation draws eye to new content
 - Pacing prevents overwhelm
 
 **Interactive demos:**
+
 - Let users experience value
 - No commitment required
 - "Aha moment" before signup
@@ -202,6 +209,7 @@ Position social proof:
 ### Testimonial Hierarchy
 
 **Most effective:**
+
 ```
 1. Video testimonials from similar users
    - Highest trust, hardest to fake
@@ -225,6 +233,7 @@ Position social proof:
 ```
 
 **Avoid:**
+
 - Anonymous quotes
 - Generic praise without specifics
 - Testimonials that could apply to anything
@@ -232,6 +241,7 @@ Position social proof:
 ### Emotional Triggers
 
 **Transformation narrative:**
+
 ```
 Before: [Pain state]
 "Spending hours on manual data entry"
@@ -244,6 +254,7 @@ Bridge: [Your solution]
 ```
 
 **FOMO (Fear of Missing Out):**
+
 ```
 - Real-time activity ("X people viewing this")
 - Social proof numbers ("Join 50,000+")
@@ -260,6 +271,7 @@ Bridge: [Your solution]
 ### CTA Optimization
 
 **Copy formulas:**
+
 ```
 Action + Outcome:
 "Start growing" > "Sign up"
@@ -272,6 +284,7 @@ Risk reversal:
 ```
 
 **Visual hierarchy:**
+
 ```
 Primary CTA: High contrast, prominent
 Secondary CTA: Lower contrast, supporting
@@ -281,6 +294,7 @@ Tertiary: Text link, minimal emphasis
 ### Form Optimization
 
 **Field reduction:**
+
 ```
 Every field you remove increases conversion.
 
@@ -297,6 +311,7 @@ Minimum viable form:
 ```
 
 **Form UX patterns:**
+
 ```
 - Inline validation (immediate feedback)
 - Smart defaults (pre-fill when possible)
@@ -308,6 +323,7 @@ Minimum viable form:
 ### Reducing Abandonment
 
 **Exit-intent triggers:**
+
 ```
 Ethical exit-intent:
 - Offer to save progress
@@ -342,6 +358,7 @@ Near payment/signup, include:
 ### Onboarding Patterns
 
 **Progressive onboarding:**
+
 ```
 Day 0: Core value quickly
 - Get to "aha moment" fast
@@ -360,6 +377,7 @@ Day 8-30: Deepen engagement
 ```
 
 **Empty state design:**
+
 ```
 Empty states are onboarding opportunities:
 - Show what's possible
@@ -371,6 +389,7 @@ Empty states are onboarding opportunities:
 ### Habit Formation
 
 **Hook Model (Nir Eyal):**
+
 ```
 1. Trigger (external/internal)
    - Email notification
@@ -396,6 +415,7 @@ Empty states are onboarding opportunities:
 ### Reducing Churn
 
 **Churn signals to watch:**
+
 ```
 - Declining login frequency
 - Feature non-adoption
@@ -405,6 +425,7 @@ Empty states are onboarding opportunities:
 ```
 
 **Intervention patterns:**
+
 ```
 - Re-engagement emails
 - Feature discovery prompts
@@ -421,6 +442,7 @@ Empty states are onboarding opportunities:
 ### Viral Mechanics
 
 **Viral coefficient (K):**
+
 ```
 K = invites sent × conversion rate
 
@@ -436,6 +458,7 @@ Example:
 ### Referral Program Design
 
 **Double-sided rewards:**
+
 ```
 Best structure:
 - Referrer gets: [Value that drives referral]
@@ -448,6 +471,7 @@ Examples:
 ```
 
 **Referral UX:**
+
 ```
 Make it easy:
 1. One-click share options
@@ -460,6 +484,7 @@ Make it easy:
 ### Organic Virality
 
 **Built-in shareability:**
+
 ```
 - Public profiles/pages (backlinks)
 - Shareable outputs (reports, designs)
@@ -469,6 +494,7 @@ Make it easy:
 ```
 
 **User-generated content:**
+
 ```
 - Encourage reviews/testimonials
 - Feature user stories
@@ -483,42 +509,42 @@ Make it easy:
 
 ### Cold Traffic vs Warm Traffic
 
-| Aspect | Cold Traffic | Warm Traffic |
-|--------|--------------|--------------|
-| Awareness level | Low | High |
-| Trust level | None | Some established |
-| Content needs | Education, proof | Specifics, comparison |
-| CTA approach | Low commitment | Higher commitment OK |
-| Social proof | Heavy, prominent | Supporting |
+| Aspect          | Cold Traffic     | Warm Traffic          |
+| --------------- | ---------------- | --------------------- |
+| Awareness level | Low              | High                  |
+| Trust level     | None             | Some established      |
+| Content needs   | Education, proof | Specifics, comparison |
+| CTA approach    | Low commitment   | Higher commitment OK  |
+| Social proof    | Heavy, prominent | Supporting            |
 
 ### High-Ticket vs Low-Ticket
 
-| Aspect | High-Ticket ($1000+) | Low-Ticket (< $100) |
-|--------|----------------------|---------------------|
-| Decision time | Long (weeks/months) | Short (minutes/days) |
-| Decision makers | Multiple | Individual |
-| Content | Comprehensive, detailed | Scannable, benefit-focused |
-| Trust needs | Very high | Moderate |
-| Sales process | Consultative, human | Self-serve, automated |
-| CTA | "Talk to sales", "Book demo" | "Start free", "Buy now" |
+| Aspect          | High-Ticket ($1000+)         | Low-Ticket (< $100)        |
+| --------------- | ---------------------------- | -------------------------- |
+| Decision time   | Long (weeks/months)          | Short (minutes/days)       |
+| Decision makers | Multiple                     | Individual                 |
+| Content         | Comprehensive, detailed      | Scannable, benefit-focused |
+| Trust needs     | Very high                    | Moderate                   |
+| Sales process   | Consultative, human          | Self-serve, automated      |
+| CTA             | "Talk to sales", "Book demo" | "Start free", "Buy now"    |
 
 ### B2B vs B2C
 
-| Aspect | B2B | B2C |
-|--------|-----|-----|
-| Buyer | Committee/role | Individual |
-| Motivation | ROI, efficiency, career | Emotional, lifestyle |
-| Content | Case studies, ROI | Reviews, lifestyle |
-| Trust signals | Security, compliance | Social proof, popularity |
-| Sales cycle | Longer, nurture needed | Shorter, impulse OK |
-| Pricing | Often hidden, custom | Transparent, simple |
+| Aspect        | B2B                     | B2C                      |
+| ------------- | ----------------------- | ------------------------ |
+| Buyer         | Committee/role          | Individual               |
+| Motivation    | ROI, efficiency, career | Emotional, lifestyle     |
+| Content       | Case studies, ROI       | Reviews, lifestyle       |
+| Trust signals | Security, compliance    | Social proof, popularity |
+| Sales cycle   | Longer, nurture needed  | Shorter, impulse OK      |
+| Pricing       | Often hidden, custom    | Transparent, simple      |
 
 ### SaaS vs E-commerce vs Lead Gen
 
-| Aspect | SaaS | E-commerce | Lead Gen |
-|--------|------|------------|----------|
-| Goal | Signup/trial | Purchase | Form submission |
-| Friction | Medium (account) | High (payment) | Low (form) |
-| Key metric | Trial-to-paid | AOV, conversion | Lead quality |
-| Trust focus | Security, reliability | Payment, shipping | Privacy, spam |
-| Urgency | Feature releases | Stock, sales | Offer expiry |
+| Aspect      | SaaS                  | E-commerce        | Lead Gen        |
+| ----------- | --------------------- | ----------------- | --------------- |
+| Goal        | Signup/trial          | Purchase          | Form submission |
+| Friction    | Medium (account)      | High (payment)    | Low (form)      |
+| Key metric  | Trial-to-paid         | AOV, conversion   | Lead quality    |
+| Trust focus | Security, reliability | Payment, shipping | Privacy, spam   |
+| Urgency     | Feature releases      | Stock, sales      | Offer expiry    |

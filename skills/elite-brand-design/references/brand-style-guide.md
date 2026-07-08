@@ -89,6 +89,7 @@ Brand Guide
 ### When to Break the Rules
 
 A style guide is a living document. If a rule consistently causes problems:
+
 1. Document the exception
 2. Discuss with the team
 3. Update the guide if the exception is the better pattern

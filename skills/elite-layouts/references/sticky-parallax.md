@@ -19,11 +19,12 @@ Layered, depth-driven layouts with sticky positioning and parallax effects.
 ```css
 .sticky-element {
   position: sticky;
-  top: 0;  /* Sticks when reaching top of viewport */
+  top: 0; /* Sticks when reaching top of viewport */
 }
 ```
 
 **Key requirements:**
+
 1. Parent must have scrollable height
 2. Sticky element needs `top`, `bottom`, `left`, or `right`
 3. Parent can't have `overflow: hidden`
@@ -48,11 +49,15 @@ Layered, depth-driven layouts with sticky positioning and parallax effects.
 
 ```javascript
 // Add shadow when scrolled
-const header = document.querySelector('.sticky-header');
+const header = document.querySelector(".sticky-header");
 
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 50);
-}, { passive: true });
+window.addEventListener(
+  "scroll",
+  () => {
+    header.classList.toggle("scrolled", window.scrollY > 50);
+  },
+  { passive: true },
+);
 ```
 
 ### Sticky Sidebar
@@ -116,10 +121,18 @@ window.addEventListener('scroll', () => {
 }
 
 /* Stack with increasing z-index */
-.stacking-section:nth-child(1) { z-index: 1; }
-.stacking-section:nth-child(2) { z-index: 2; }
-.stacking-section:nth-child(3) { z-index: 3; }
-.stacking-section:nth-child(4) { z-index: 4; }
+.stacking-section:nth-child(1) {
+  z-index: 1;
+}
+.stacking-section:nth-child(2) {
+  z-index: 2;
+}
+.stacking-section:nth-child(3) {
+  z-index: 3;
+}
+.stacking-section:nth-child(4) {
+  z-index: 4;
+}
 ```
 
 ### Cards Stacking with Offset
@@ -132,10 +145,22 @@ window.addEventListener('scroll', () => {
   padding-top: calc(var(--index, 0) * 4rem);
 }
 
-.stacking-section:nth-child(1) { --index: 0; z-index: 1; }
-.stacking-section:nth-child(2) { --index: 1; z-index: 2; }
-.stacking-section:nth-child(3) { --index: 2; z-index: 3; }
-.stacking-section:nth-child(4) { --index: 3; z-index: 4; }
+.stacking-section:nth-child(1) {
+  --index: 0;
+  z-index: 1;
+}
+.stacking-section:nth-child(2) {
+  --index: 1;
+  z-index: 2;
+}
+.stacking-section:nth-child(3) {
+  --index: 2;
+  z-index: 3;
+}
+.stacking-section:nth-child(4) {
+  --index: 3;
+  z-index: 4;
+}
 
 .section-card {
   background: var(--color-bg-secondary);
@@ -158,7 +183,9 @@ window.addEventListener('scroll', () => {
 .section-content {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 /* Use Intersection Observer to trigger */
@@ -169,17 +196,20 @@ window.addEventListener('scroll', () => {
 ```
 
 ```javascript
-const sections = document.querySelectorAll('.stacking-section');
+const sections = document.querySelectorAll(".stacking-section");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    entry.target.classList.toggle('in-view', entry.isIntersecting);
-  });
-}, {
-  threshold: 0.5
-});
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("in-view", entry.isIntersecting);
+    });
+  },
+  {
+    threshold: 0.5,
+  },
+);
 
-sections.forEach(section => observer.observe(section));
+sections.forEach((section) => observer.observe(section));
 ```
 
 ---
@@ -191,63 +221,65 @@ sections.forEach(section => observer.observe(section));
 ```javascript
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to('.pinned-section', {
+gsap.to(".pinned-section", {
   scrollTrigger: {
-    trigger: '.pinned-section',
+    trigger: ".pinned-section",
     pin: true,
-    start: 'top top',
-    end: '+=100%',  // Pin for 100vh of scrolling
-    scrub: true
-  }
+    start: "top top",
+    end: "+=100%", // Pin for 100vh of scrolling
+    scrub: true,
+  },
 });
 ```
 
 ### Pin with Content Animation
 
 ```javascript
-gsap.timeline({
-  scrollTrigger: {
-    trigger: '.feature-section',
-    pin: true,
-    start: 'top top',
-    end: '+=300%',  // Pin for 3 screens worth of scroll
-    scrub: 1
-  }
-})
-.from('.feature-1', { opacity: 0, y: 100 })
-.to('.feature-1', { opacity: 0, y: -100 })
-.from('.feature-2', { opacity: 0, y: 100 })
-.to('.feature-2', { opacity: 0, y: -100 })
-.from('.feature-3', { opacity: 0, y: 100 });
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".feature-section",
+      pin: true,
+      start: "top top",
+      end: "+=300%", // Pin for 3 screens worth of scroll
+      scrub: 1,
+    },
+  })
+  .from(".feature-1", { opacity: 0, y: 100 })
+  .to(".feature-1", { opacity: 0, y: -100 })
+  .from(".feature-2", { opacity: 0, y: 100 })
+  .to(".feature-2", { opacity: 0, y: -100 })
+  .from(".feature-3", { opacity: 0, y: 100 });
 ```
 
 ### Pin with Progress-Based Content
 
 ```javascript
-const features = gsap.utils.toArray('.feature');
+const features = gsap.utils.toArray(".feature");
 
-gsap.timeline({
-  scrollTrigger: {
-    trigger: '.features-container',
-    pin: true,
-    start: 'top top',
-    end: `+=${features.length * 100}%`,
-    scrub: 1
-  }
-})
-.to('.features-track', {
-  y: () => -(features.length - 1) * window.innerHeight,
-  ease: 'none'
-});
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".features-container",
+      pin: true,
+      start: "top top",
+      end: `+=${features.length * 100}%`,
+      scrub: 1,
+    },
+  })
+  .to(".features-track", {
+    y: () => -(features.length - 1) * window.innerHeight,
+    ease: "none",
+  });
 ```
 
 ### Pin Spacer Styling
 
 ```javascript
 ScrollTrigger.create({
-  trigger: '.section',
+  trigger: ".section",
   pin: true,
-  pinSpacing: true,  // Default - adds spacer
+  pinSpacing: true, // Default - adds spacer
   // pinSpacing: false,  // No spacer - content overlaps
   // pinSpacing: "margin",  // Uses margin instead of spacer
 });
@@ -256,15 +288,15 @@ ScrollTrigger.create({
 ### Multiple Pinned Sections
 
 ```javascript
-const sections = gsap.utils.toArray('.pin-section');
+const sections = gsap.utils.toArray(".pin-section");
 
 sections.forEach((section, i) => {
   ScrollTrigger.create({
     trigger: section,
     pin: true,
-    start: 'top top',
-    end: '+=100%',
-    pinSpacing: i === sections.length - 1  // Only last has spacing
+    start: "top top",
+    end: "+=100%",
+    pinSpacing: i === sections.length - 1, // Only last has spacing
   });
 });
 ```
@@ -312,8 +344,12 @@ sections.forEach((section, i) => {
   }
 
   @keyframes parallax {
-    from { transform: translateY(0); }
-    to { transform: translateY(-20%); }
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-20%);
+    }
   }
 }
 ```
@@ -321,38 +357,38 @@ sections.forEach((section, i) => {
 ### GSAP Parallax Layers
 
 ```javascript
-gsap.to('.parallax-bg', {
-  y: '-30%',
-  ease: 'none',
+gsap.to(".parallax-bg", {
+  y: "-30%",
+  ease: "none",
   scrollTrigger: {
-    trigger: '.parallax-section',
-    start: 'top bottom',
-    end: 'bottom top',
-    scrub: true
-  }
+    trigger: ".parallax-section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
 });
 
-gsap.to('.parallax-mid', {
-  y: '-15%',
-  ease: 'none',
+gsap.to(".parallax-mid", {
+  y: "-15%",
+  ease: "none",
   scrollTrigger: {
-    trigger: '.parallax-section',
-    start: 'top bottom',
-    end: 'bottom top',
-    scrub: true
-  }
+    trigger: ".parallax-section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
 });
 
 // Foreground moves slower or opposite
-gsap.to('.parallax-fg', {
-  y: '10%',
-  ease: 'none',
+gsap.to(".parallax-fg", {
+  y: "10%",
+  ease: "none",
   scrollTrigger: {
-    trigger: '.parallax-section',
-    start: 'top bottom',
-    end: 'bottom top',
-    scrub: true
-  }
+    trigger: ".parallax-section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
 });
 ```
 
@@ -361,32 +397,32 @@ gsap.to('.parallax-fg', {
 ```javascript
 const heroTl = gsap.timeline({
   scrollTrigger: {
-    trigger: '.hero',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: true
-  }
+    trigger: ".hero",
+    start: "top top",
+    end: "bottom top",
+    scrub: true,
+  },
 });
 
 heroTl
-  .to('.hero-bg', { y: '30%', scale: 1.1 }, 0)
-  .to('.hero-content', { y: '50%', opacity: 0 }, 0)
-  .to('.hero-overlay', { opacity: 0.8 }, 0);
+  .to(".hero-bg", { y: "30%", scale: 1.1 }, 0)
+  .to(".hero-content", { y: "50%", opacity: 0 }, 0)
+  .to(".hero-overlay", { opacity: 0.8 }, 0);
 ```
 
 ### Text Parallax
 
 ```javascript
-gsap.utils.toArray('.parallax-text').forEach(text => {
+gsap.utils.toArray(".parallax-text").forEach((text) => {
   gsap.to(text, {
     y: -100,
-    ease: 'none',
+    ease: "none",
     scrollTrigger: {
       trigger: text,
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: 0.5
-    }
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 0.5,
+    },
   });
 });
 ```
@@ -400,16 +436,16 @@ gsap.utils.toArray('.parallax-text').forEach(text => {
 ```html
 <section class="layered-section">
   <div class="layer layer-bg">
-    <img src="bg.jpg" alt="">
+    <img src="bg.jpg" alt="" />
   </div>
   <div class="layer layer-mid">
-    <img src="mountains.png" alt="">
+    <img src="mountains.png" alt="" />
   </div>
   <div class="layer layer-content">
     <h1>Discover Nature</h1>
   </div>
   <div class="layer layer-fg">
-    <img src="trees.png" alt="">
+    <img src="trees.png" alt="" />
   </div>
 </section>
 ```
@@ -435,64 +471,75 @@ gsap.utils.toArray('.parallax-text').forEach(text => {
   object-fit: cover;
 }
 
-.layer-bg { z-index: 1; }
-.layer-mid { z-index: 2; }
-.layer-content { z-index: 3; }
-.layer-fg { z-index: 4; pointer-events: none; }
+.layer-bg {
+  z-index: 1;
+}
+.layer-mid {
+  z-index: 2;
+}
+.layer-content {
+  z-index: 3;
+}
+.layer-fg {
+  z-index: 4;
+  pointer-events: none;
+}
 ```
 
 ```javascript
-gsap.timeline({
-  scrollTrigger: {
-    trigger: '.layered-section',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: true
-  }
-})
-.to('.layer-bg', { y: '20%', scale: 1.1 }, 0)
-.to('.layer-mid', { y: '30%' }, 0)
-.to('.layer-content', { y: '60%', opacity: 0 }, 0)
-.to('.layer-fg', { y: '5%' }, 0);
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".layered-section",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  })
+  .to(".layer-bg", { y: "20%", scale: 1.1 }, 0)
+  .to(".layer-mid", { y: "30%" }, 0)
+  .to(".layer-content", { y: "60%", opacity: 0 }, 0)
+  .to(".layer-fg", { y: "5%" }, 0);
 ```
 
 ### Reveal with Mask
 
 ```javascript
-gsap.timeline({
-  scrollTrigger: {
-    trigger: '.masked-section',
-    pin: true,
-    start: 'top top',
-    end: '+=150%',
-    scrub: 1
-  }
-})
-.from('.reveal-mask', {
-  clipPath: 'circle(0% at 50% 50%)',
-  ease: 'none'
-})
-.to('.reveal-mask', {
-  clipPath: 'circle(150% at 50% 50%)',
-  ease: 'none'
-});
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".masked-section",
+      pin: true,
+      start: "top top",
+      end: "+=150%",
+      scrub: 1,
+    },
+  })
+  .from(".reveal-mask", {
+    clipPath: "circle(0% at 50% 50%)",
+    ease: "none",
+  })
+  .to(".reveal-mask", {
+    clipPath: "circle(150% at 50% 50%)",
+    ease: "none",
+  });
 ```
 
 ### Scale and Fade Layers
 
 ```javascript
-const layers = gsap.utils.toArray('.scale-layer');
+const layers = gsap.utils.toArray(".scale-layer");
 
 layers.forEach((layer, i) => {
   gsap.from(layer, {
     scale: 0.8,
     opacity: 0,
     scrollTrigger: {
-      trigger: '.scale-section',
+      trigger: ".scale-section",
       start: `top+=${i * 20}% center`,
       end: `top+=${(i + 1) * 20}% center`,
-      scrub: true
-    }
+      scrub: true,
+    },
   });
 });
 ```
@@ -505,9 +552,9 @@ layers.forEach((layer, i) => {
 <section class="feature-showcase">
   <div class="feature-sticky">
     <div class="feature-visual">
-      <img class="feature-image" data-feature="1" src="feature1.jpg" alt="">
-      <img class="feature-image" data-feature="2" src="feature2.jpg" alt="">
-      <img class="feature-image" data-feature="3" src="feature3.jpg" alt="">
+      <img class="feature-image" data-feature="1" src="feature1.jpg" alt="" />
+      <img class="feature-image" data-feature="2" src="feature2.jpg" alt="" />
+      <img class="feature-image" data-feature="3" src="feature3.jpg" alt="" />
     </div>
   </div>
 
@@ -566,7 +613,9 @@ layers.forEach((layer, i) => {
   border-radius: 16px;
   opacity: 0;
   transform: scale(0.95);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .feature-image.active {
@@ -601,22 +650,22 @@ layers.forEach((layer, i) => {
 ```
 
 ```javascript
-const featureItems = gsap.utils.toArray('.feature-item');
-const featureImages = gsap.utils.toArray('.feature-image');
+const featureItems = gsap.utils.toArray(".feature-item");
+const featureImages = gsap.utils.toArray(".feature-image");
 
 featureItems.forEach((item, i) => {
   ScrollTrigger.create({
     trigger: item,
-    start: 'top center',
-    end: 'bottom center',
+    start: "top center",
+    end: "bottom center",
     onEnter: () => setActiveFeature(i),
-    onEnterBack: () => setActiveFeature(i)
+    onEnterBack: () => setActiveFeature(i),
   });
 });
 
 function setActiveFeature(index) {
   featureImages.forEach((img, i) => {
-    img.classList.toggle('active', i === index);
+    img.classList.toggle("active", i === index);
   });
 }
 
@@ -631,22 +680,24 @@ setActiveFeature(0);
 ### Reduced Motion
 
 ```javascript
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+);
 
 if (prefersReducedMotion.matches) {
   // Disable parallax effects
-  ScrollTrigger.getAll().forEach(st => st.kill());
+  ScrollTrigger.getAll().forEach((st) => st.kill());
 
   // Show all content immediately
-  gsap.set('.parallax-element', { clearProps: 'all' });
+  gsap.set(".parallax-element", { clearProps: "all" });
 }
 ```
 
 ### Keyboard Navigation for Pinned Sections
 
 ```javascript
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowDown" || e.key === "PageDown") {
     // Allow natural scroll, don't interfere
   }
 });
@@ -655,7 +706,10 @@ document.addEventListener('keydown', (e) => {
 ### Screen Reader Consideration
 
 ```html
-<section class="sticky-section" aria-label="Feature showcase with scrolling images">
+<section
+  class="sticky-section"
+  aria-label="Feature showcase with scrolling images"
+>
   <div class="sticky-visual" aria-hidden="true">
     <!-- Decorative parallax elements -->
   </div>
@@ -725,7 +779,11 @@ body {
 
 /* Hide on desktop */
 @media (min-width: 768px) {
-  .mobile-bar { display: none; }
-  body { padding-bottom: 0; }
+  .mobile-bar {
+    display: none;
+  }
+  body {
+    padding-bottom: 0;
+  }
 }
 ```

@@ -7,10 +7,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ## Product Showcases
 
 ### Apple (Various Products)
+
 **URL**: https://www.apple.com/iphone-16-pro/
 **Standard**: Industry defining
 
 **What to study**:
+
 - Feature highlight cards
 - Icon + text + visual balance
 - Responsive grid reflow
@@ -21,10 +23,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ---
 
 ### Linear
+
 **URL**: https://linear.app
 **Award**: Awwwards Honorable Mention
 
 **What to study**:
+
 - SaaS feature grid
 - Dark theme execution
 - Card depth and shadows
@@ -35,10 +39,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ---
 
 ### Raycast
+
 **URL**: https://www.raycast.com
 **Award**: Multiple design awards
 
 **What to study**:
+
 - Clean bento for features
 - Interactive demo cards
 - Gradient backgrounds
@@ -51,10 +57,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ## Dashboard Style
 
 ### Vercel
+
 **URL**: https://vercel.com
 **Award**: Awwwards Honorable Mention
 
 **What to study**:
+
 - Metrics and stats cards
 - Code preview cards
 - Integration logos grid
@@ -65,10 +73,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ---
 
 ### Stripe
+
 **URL**: https://stripe.com
 **Award**: Multiple awards
 
 **What to study**:
+
 - Payment flow illustrations
 - Animated product demos
 - Developer tool cards
@@ -79,10 +89,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ---
 
 ### Notion
+
 **URL**: https://www.notion.so
 **Award**: Awwwards Honorable Mention
 
 **What to study**:
+
 - Feature blocks layout
 - Template gallery grid
 - Use case cards
@@ -95,10 +107,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ## Portfolio/Agency Style
 
 ### Basic/Dept
+
 **URL**: https://www.basicagency.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Case study grid
 - Image hover effects
 - Staggered reveal animations
@@ -109,10 +123,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ---
 
 ### Pentagram
+
 **URL**: https://www.pentagram.com
 **Award**: Design classic
 
 **What to study**:
+
 - Project grid masonry
 - Category filtering
 - Image quality handling
@@ -123,10 +139,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ---
 
 ### Fantasy
+
 **URL**: https://fantasy.co
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Work showcase grid
 - Video previews
 - Smooth filtering
@@ -139,10 +157,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ## E-commerce Style
 
 ### Allbirds
+
 **URL**: https://www.allbirds.com
 **Award**: Awwwards Honorable Mention
 
 **What to study**:
+
 - Product category grid
 - Sustainability feature cards
 - Image optimization
@@ -153,10 +173,12 @@ Award-winning sites featuring asymmetric, Apple-style grids.
 ---
 
 ### Glossier
+
 **URL**: https://www.glossier.com
 **Award**: Design recognition
 
 **What to study**:
+
 - Product feature grid
 - UGC integration cards
 - Pink brand consistency
@@ -217,6 +239,7 @@ Typical card structure:
 ## Implementation Reference
 
 ### Basic Bento Structure
+
 ```css
 .bento-grid {
   display: grid;
@@ -232,6 +255,7 @@ Typical card structure:
 ```
 
 ### Apple-Style Card
+
 ```css
 .bento-card {
   background: rgba(255, 255, 255, 0.05);
@@ -243,20 +267,21 @@ Typical card structure:
 ```
 
 ### Staggered Reveal
+
 ```javascript
-gsap.from('.bento-card', {
+gsap.from(".bento-card", {
   opacity: 0,
   y: 50,
   scale: 0.95,
   stagger: {
     amount: 0.8,
-    grid: 'auto',
-    from: 'start'
+    grid: "auto",
+    from: "start",
   },
   scrollTrigger: {
-    trigger: '.bento-grid',
-    start: 'top 80%'
-  }
+    trigger: ".bento-grid",
+    start: "top 80%",
+  },
 });
 ```
 
