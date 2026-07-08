@@ -10,12 +10,12 @@ Modern CSS animation capabilities - when JavaScript isn't needed.
 
 ## Quick Reference
 
-| Topic | Reference File |
-|-------|---------------|
+| Topic             | Reference File                                          |
+| ----------------- | ------------------------------------------------------- |
 | Scroll-Driven API | [scroll-driven-api.md](references/scroll-driven-api.md) |
-| View Transitions | [view-transitions.md](references/view-transitions.md) |
-| @property Rule | [property-rule.md](references/property-rule.md) |
-| Visual Effects | [visual-effects.md](references/visual-effects.md) |
+| View Transitions  | [view-transitions.md](references/view-transitions.md)   |
+| @property Rule    | [property-rule.md](references/property-rule.md)         |
+| Visual Effects    | [visual-effects.md](references/visual-effects.md)       |
 
 ---
 
@@ -46,34 +46,37 @@ CSS for simple interactions, GSAP for complex sequences:
 ```css
 /* CSS: Hover states, simple transitions */
 .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 ```
 
 ```javascript
 // GSAP: Complex scroll-driven sequences
-gsap.timeline({
-  scrollTrigger: { trigger: '.section', scrub: 1 }
-})
-.from('.title', { opacity: 0, y: 50 })
-.from('.content', { opacity: 0 }, '-=0.3');
+gsap
+  .timeline({
+    scrollTrigger: { trigger: ".section", scrub: 1 },
+  })
+  .from(".title", { opacity: 0, y: 50 })
+  .from(".content", { opacity: 0 }, "-=0.3");
 ```
 
 ---
 
 ## Browser Support (2026)
 
-| Feature | Chrome | Firefox | Safari | Edge |
-|---------|--------|---------|--------|------|
-| Scroll-Driven Animations | ✓ 115+ | ✓ 132+ | ✗ (polyfill) | ✓ 115+ |
-| View Transitions | ✓ 111+ | ✗ | ✓ 18+ | ✓ 111+ |
-| @property | ✓ 85+ | ✓ 128+ | ✓ 15.4+ | ✓ 85+ |
-| clip-path animations | ✓ | ✓ | ✓ | ✓ |
-| backdrop-filter | ✓ | ✓ | ✓ | ✓ |
+| Feature                  | Chrome | Firefox | Safari       | Edge   |
+| ------------------------ | ------ | ------- | ------------ | ------ |
+| Scroll-Driven Animations | ✓ 115+ | ✓ 132+  | ✗ (polyfill) | ✓ 115+ |
+| View Transitions         | ✓ 111+ | ✗       | ✓ 18+        | ✓ 111+ |
+| @property                | ✓ 85+  | ✓ 128+  | ✓ 15.4+      | ✓ 85+  |
+| clip-path animations     | ✓      | ✓       | ✓            | ✓      |
+| backdrop-filter          | ✓      | ✓       | ✓            | ✓      |
 
 ---
 
@@ -89,7 +92,17 @@ gsap.timeline({
 }
 
 @keyframes progress {
-  to { transform: scaleX(1); }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Respect motion preference — show the full bar, no scroll-linked motion */
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar {
+    transform: scaleX(1);
+    animation: none;
+  }
 }
 ```
 
@@ -104,8 +117,14 @@ gsap.timeline({
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 ```
 
@@ -140,11 +159,15 @@ document.startViewTransition(() => {
 }
 
 @keyframes fade-out {
-  to { opacity: 0; }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
+  from {
+    opacity: 0;
+  }
 }
 ```
 
@@ -158,7 +181,7 @@ Animate CSS custom properties that previously couldn't animate:
 
 ```css
 @property --progress {
-  syntax: '<number>';
+  syntax: "<number>";
   initial-value: 0;
   inherits: false;
 }
@@ -246,7 +269,9 @@ See [visual-effects.md](references/visual-effects.md) for creative patterns.
 ```css
 /* GOOD - GPU accelerated */
 .card {
-  transition: transform 0.3s, opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 .card:hover {
@@ -258,7 +283,7 @@ See [visual-effects.md](references/visual-effects.md) for creative patterns.
 .card:hover {
   width: 110%;
   margin-left: -5%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 ```
 
@@ -312,13 +337,21 @@ See [visual-effects.md](references/visual-effects.md) for creative patterns.
   animation: fadeIn 0.5s ease forwards;
 }
 
-.item:nth-child(1) { animation-delay: 0.1s; }
-.item:nth-child(2) { animation-delay: 0.2s; }
-.item:nth-child(3) { animation-delay: 0.3s; }
+.item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.item:nth-child(3) {
+  animation-delay: 0.3s;
+}
 /* ... or use CSS custom properties */
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 ```
 
@@ -335,7 +368,9 @@ See [visual-effects.md](references/visual-effects.md) for creative patterns.
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 ```
 

@@ -48,13 +48,27 @@ Asymmetric, visually dynamic grids inspired by Apple's product pages.
   gap: 1rem;
 }
 
-.bento-hero { grid-area: hero; }
-.bento-side1 { grid-area: side1; }
-.bento-side2 { grid-area: side2; }
-.bento-side3 { grid-area: side3; }
-.bento-wide { grid-area: wide; }
-.bento-tall { grid-area: tall; }
-.bento-small { grid-area: small; }
+.bento-hero {
+  grid-area: hero;
+}
+.bento-side1 {
+  grid-area: side1;
+}
+.bento-side2 {
+  grid-area: side2;
+}
+.bento-side3 {
+  grid-area: side3;
+}
+.bento-wide {
+  grid-area: wide;
+}
+.bento-tall {
+  grid-area: tall;
+}
+.bento-small {
+  grid-area: small;
+}
 ```
 
 ---
@@ -65,13 +79,23 @@ Asymmetric, visually dynamic grids inspired by Apple's product pages.
 
 ```css
 /* Column spans */
-.bento-item.span-2 { grid-column: span 2; }
-.bento-item.span-3 { grid-column: span 3; }
-.bento-item.span-4 { grid-column: span 4; }
+.bento-item.span-2 {
+  grid-column: span 2;
+}
+.bento-item.span-3 {
+  grid-column: span 3;
+}
+.bento-item.span-4 {
+  grid-column: span 4;
+}
 
 /* Row spans */
-.bento-item.tall { grid-row: span 2; }
-.bento-item.taller { grid-row: span 3; }
+.bento-item.tall {
+  grid-row: span 2;
+}
+.bento-item.taller {
+  grid-row: span 3;
+}
 
 /* Combined */
 .bento-item.featured {
@@ -154,23 +178,27 @@ Asymmetric, visually dynamic grids inspired by Apple's product pages.
 ```css
 /* Gradient background */
 .bento-item.gradient-bg {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
   color: white;
 }
 
 /* Image background with overlay */
 .bento-item.image-bg {
-  background-image: url('image.jpg');
+  background-image: url("image.jpg");
   background-size: cover;
   background-position: center;
   color: white;
 }
 
 .bento-item.image-bg::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   z-index: 0;
 }
 
@@ -281,10 +309,7 @@ Asymmetric, visually dynamic grids inspired by Apple's product pages.
 /* No breakpoints needed */
 .bento-grid-fluid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%, 280px), 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: clamp(0.75rem, 2vw, 1.5rem);
 }
 
@@ -301,20 +326,33 @@ Asymmetric, visually dynamic grids inspired by Apple's product pages.
 ### Scroll-Driven Reveal
 
 ```css
-@media (prefers-reduced-motion: no-preference) {
-  .bento-item {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-    animation: revealBento linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 30%;
-  }
+/* @supports guard is essential: browsers without scroll-driven animation
+   (Firefox stable through 2026) would otherwise apply opacity: 0 with no
+   timeline to animate it back — leaving every card permanently invisible. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .bento-item {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      animation: revealBento linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
 
-  /* Stagger effect via delay */
-  .bento-item:nth-child(1) { animation-range: entry 0% cover 25%; }
-  .bento-item:nth-child(2) { animation-range: entry 5% cover 30%; }
-  .bento-item:nth-child(3) { animation-range: entry 10% cover 35%; }
-  .bento-item:nth-child(4) { animation-range: entry 15% cover 40%; }
+    /* Stagger effect via delay */
+    .bento-item:nth-child(1) {
+      animation-range: entry 0% cover 25%;
+    }
+    .bento-item:nth-child(2) {
+      animation-range: entry 5% cover 30%;
+    }
+    .bento-item:nth-child(3) {
+      animation-range: entry 10% cover 35%;
+    }
+    .bento-item:nth-child(4) {
+      animation-range: entry 15% cover 40%;
+    }
+  }
 }
 
 @keyframes revealBento {
@@ -328,21 +366,21 @@ Asymmetric, visually dynamic grids inspired by Apple's product pages.
 ### GSAP Staggered Reveal
 
 ```javascript
-gsap.from('.bento-item', {
+gsap.from(".bento-item", {
   opacity: 0,
   y: 50,
   scale: 0.95,
   duration: 0.8,
-  ease: 'power3.out',
+  ease: "power3.out",
   stagger: {
     amount: 1,
-    grid: 'auto',
-    from: 'start'
+    grid: "auto",
+    from: "start",
   },
   scrollTrigger: {
-    trigger: '.bento-grid',
-    start: 'top 80%'
-  }
+    trigger: ".bento-grid",
+    start: "top 80%",
+  },
 });
 ```
 
@@ -350,7 +388,9 @@ gsap.from('.bento-item', {
 
 ```css
 .bento-item {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .bento-item:hover {
@@ -372,35 +412,36 @@ gsap.from('.bento-item', {
 
 ```javascript
 // Filter buttons
-filterButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
+filterButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
     const filter = btn.dataset.filter;
 
     // Capture current state
-    const state = Flip.getState('.bento-item');
+    const state = Flip.getState(".bento-item");
 
     // Apply filter
-    document.querySelectorAll('.bento-item').forEach(item => {
-      if (filter === 'all' || item.dataset.category === filter) {
-        item.style.display = '';
+    document.querySelectorAll(".bento-item").forEach((item) => {
+      if (filter === "all" || item.dataset.category === filter) {
+        item.style.display = "";
       } else {
-        item.style.display = 'none';
+        item.style.display = "none";
       }
     });
 
     // Animate
     Flip.from(state, {
       duration: 0.6,
-      ease: 'power2.inOut',
+      ease: "power2.inOut",
       stagger: 0.05,
       absolute: true,
-      onEnter: elements => gsap.fromTo(elements,
-        { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 0.4 }
-      ),
-      onLeave: elements => gsap.to(elements,
-        { opacity: 0, scale: 0.8, duration: 0.4 }
-      )
+      onEnter: (elements) =>
+        gsap.fromTo(
+          elements,
+          { opacity: 0, scale: 0.8 },
+          { opacity: 1, scale: 1, duration: 0.4 },
+        ),
+      onLeave: (elements) =>
+        gsap.to(elements, { opacity: 0, scale: 0.8, duration: 0.4 }),
     });
   });
 });
@@ -509,7 +550,7 @@ filterButtons.forEach(btn => {
 
     <!-- Image item -->
     <article class="bento-item image-item">
-      <img src="product.jpg" alt="Product showcase" loading="lazy">
+      <img src="product.jpg" alt="Product showcase" loading="lazy" />
     </article>
   </div>
 </section>

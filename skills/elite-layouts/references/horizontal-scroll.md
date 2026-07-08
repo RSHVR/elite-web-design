@@ -5,10 +5,11 @@ Immersive horizontal scrolling patterns for storytelling and galleries.
 ## Table of Contents
 
 1. [CSS-Only Approach](#css-only-approach)
-2. [GSAP ScrollTrigger](#gsap-scrolltrigger)
-3. [Progress Indicators](#progress-indicators)
-4. [Content Patterns](#content-patterns)
-5. [Mobile Considerations](#mobile-considerations)
+2. [Native CSS Carousel](#native-css-carousel-scroll-markers--buttons)
+3. [GSAP ScrollTrigger](#gsap-scrolltrigger)
+4. [Progress Indicators](#progress-indicators)
+5. [Content Patterns](#content-patterns)
+6. [Mobile Considerations](#mobile-considerations)
 
 ---
 
@@ -22,18 +23,19 @@ Immersive horizontal scrolling patterns for storytelling and galleries.
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  scrollbar-width: none;  /* Firefox */
+  scrollbar-width: none; /* Firefox */
 }
 
 .horizontal-container::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari */
+  display: none; /* Chrome, Safari */
 }
 
 .horizontal-section {
   flex: 0 0 100vw;
   min-width: 100vw;
-  height: 100vh;
+  height: 100dvh; /* dvh: don't get clipped behind the mobile URL bar */
   scroll-snap-align: start;
+  scroll-snap-stop: always; /* land on every panel — fast swipes can't skip */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,16 +88,99 @@ Immersive horizontal scrolling patterns for storytelling and galleries.
 ### Pros and Cons
 
 **Pros:**
+
 - No JavaScript required
 - Native performance
 - Touch/trackpad friendly
 - Browser handles momentum
 
 **Cons:**
+
 - Less control over animation
 - Can't pin while scrolling vertically
 - Limited progress tracking
 - No scrub animation support
+
+---
+
+## Native CSS Carousel (Scroll Markers & Buttons)
+
+Chrome 135+ and Safari 19+ ship pseudo-elements that generate carousel dots
+and prev/next buttons in pure CSS — keyboard-focusable and announced by the
+browser as a tablist, no JS. Firefox is behind a flag (2026), so treat this as
+progressive enhancement layered on a scroll-snap container: unsupported
+browsers keep a working scroller, just without generated controls.
+
+```css
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-marker-group: after; /* render the generated dot row after the track */
+}
+
+.carousel > .slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+/* One dot per slide — generated, needs no markup. content is required
+   for the pseudo-element to be created. */
+.carousel > .slide::scroll-marker {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  transition: background 0.3s ease;
+}
+
+/* The dot for the slide currently in view */
+.carousel > .slide::scroll-marker:target-current {
+  background: var(--color-accent);
+}
+
+/* Container holding the generated dots */
+.carousel::scroll-marker-group {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  padding-block: 1rem;
+}
+
+/* Prev / next buttons — the browser auto-applies :disabled at each end */
+.carousel::scroll-button(left) {
+  content: "‹";
+}
+.carousel::scroll-button(right) {
+  content: "›";
+}
+.carousel::scroll-button(left),
+.carousel::scroll-button(right) {
+  border: none;
+  background: var(--color-bg-secondary);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+.carousel::scroll-button(left):disabled,
+.carousel::scroll-button(right):disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+```
+
+This supersedes the JavaScript in [Progress Indicators](#progress-indicators)
+for the common case: the browser handles active-dot tracking
+(`:target-current`), click-to-navigate, end-of-track button disabling, and
+focus/ARIA for free — a genuine accessibility upgrade over hand-rolled dots
+that are usually `aria-hidden`. Reach for the JS version only when you need a
+scrubbed progress _bar_ or custom snap physics.
+
+> **Accessibility note:** because scroll markers are exposed as a real tablist,
+> you get keyboard and screen-reader navigation without writing any of it.
+> Confirm focus order still matches visual order if you reorder slides.
 
 ---
 
@@ -138,19 +223,19 @@ Immersive horizontal scrolling patterns for storytelling and galleries.
 ```javascript
 gsap.registerPlugin(ScrollTrigger);
 
-const track = document.querySelector('.horizontal-track');
-const panels = gsap.utils.toArray('.horizontal-panel');
+const track = document.querySelector(".horizontal-track");
+const panels = gsap.utils.toArray(".horizontal-panel");
 
 gsap.to(track, {
   x: () => -(track.scrollWidth - window.innerWidth),
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '.horizontal-wrapper',
+    trigger: ".horizontal-wrapper",
     pin: true,
     scrub: 1,
     end: () => `+=${track.scrollWidth}`,
-    invalidateOnRefresh: true
-  }
+    invalidateOnRefresh: true,
+  },
 });
 ```
 
@@ -159,26 +244,26 @@ gsap.to(track, {
 ```javascript
 gsap.registerPlugin(ScrollTrigger);
 
-const track = document.querySelector('.horizontal-track');
-const panels = gsap.utils.toArray('.horizontal-panel');
+const track = document.querySelector(".horizontal-track");
+const panels = gsap.utils.toArray(".horizontal-panel");
 
 // Main horizontal scroll
 const scrollTween = gsap.to(track, {
   x: () => -(track.scrollWidth - window.innerWidth),
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '.horizontal-wrapper',
+    trigger: ".horizontal-wrapper",
     pin: true,
     scrub: 1,
     end: () => `+=${track.scrollWidth}`,
-    invalidateOnRefresh: true
-  }
+    invalidateOnRefresh: true,
+  },
 });
 
 // Animate each panel's content
 panels.forEach((panel, i) => {
-  const content = panel.querySelector('.panel-content');
-  const title = panel.querySelector('.panel-title');
+  const content = panel.querySelector(".panel-content");
+  const title = panel.querySelector(".panel-title");
 
   gsap.from(content, {
     opacity: 0,
@@ -186,10 +271,10 @@ panels.forEach((panel, i) => {
     scrollTrigger: {
       trigger: panel,
       containerAnimation: scrollTween,
-      start: 'left 80%',
-      end: 'left 20%',
-      scrub: true
-    }
+      start: "left 80%",
+      end: "left 20%",
+      scrub: true,
+    },
   });
 
   gsap.from(title, {
@@ -198,9 +283,9 @@ panels.forEach((panel, i) => {
     scrollTrigger: {
       trigger: panel,
       containerAnimation: scrollTween,
-      start: 'left center',
-      toggleActions: 'play none none reverse'
-    }
+      start: "left center",
+      toggleActions: "play none none reverse",
+    },
   });
 });
 ```
@@ -236,25 +321,25 @@ panels.forEach((panel, i) => {
 ### Snap Points with GSAP
 
 ```javascript
-const panels = gsap.utils.toArray('.horizontal-panel');
+const panels = gsap.utils.toArray(".horizontal-panel");
 const snapPoints = panels.map((panel, i) => {
   return i / (panels.length - 1);
 });
 
 gsap.to(track, {
   x: () => -(track.scrollWidth - window.innerWidth),
-  ease: 'none',
+  ease: "none",
   scrollTrigger: {
-    trigger: '.horizontal-wrapper',
+    trigger: ".horizontal-wrapper",
     pin: true,
     scrub: 0.5,
     snap: {
       snapTo: snapPoints,
       duration: { min: 0.2, max: 0.5 },
-      ease: 'power1.inOut'
+      ease: "power1.inOut",
     },
-    end: () => `+=${track.scrollWidth}`
-  }
+    end: () => `+=${track.scrollWidth}`,
+  },
 });
 ```
 
@@ -318,7 +403,9 @@ gsap.to(track, {
   background: rgba(255, 255, 255, 0.3);
   border: none;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
 .progress-dot.active {
@@ -328,33 +415,33 @@ gsap.to(track, {
 ```
 
 ```javascript
-const progressFill = document.querySelector('.progress-fill');
-const dots = document.querySelectorAll('.progress-dot');
-const panels = gsap.utils.toArray('.horizontal-panel');
+const progressFill = document.querySelector(".progress-fill");
+const dots = document.querySelectorAll(".progress-dot");
+const panels = gsap.utils.toArray(".horizontal-panel");
 
 ScrollTrigger.create({
-  trigger: '.horizontal-wrapper',
-  start: 'top top',
+  trigger: ".horizontal-wrapper",
+  start: "top top",
   end: () => `+=${track.scrollWidth}`,
   onUpdate: (self) => {
     // Update progress bar
     gsap.to(progressFill, {
       scaleX: self.progress,
       duration: 0.1,
-      overwrite: true
+      overwrite: true,
     });
 
     // Update active dot
     const activeIndex = Math.round(self.progress * (panels.length - 1));
     dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === activeIndex);
+      dot.classList.toggle("active", i === activeIndex);
     });
-  }
+  },
 });
 
 // Click to navigate
 dots.forEach((dot, i) => {
-  dot.addEventListener('click', () => {
+  dot.addEventListener("click", () => {
     const progress = i / (panels.length - 1);
     const scrollTo = progress * (track.scrollWidth - window.innerWidth);
     const scrollTriggerProgress = progress * track.scrollWidth;
@@ -362,10 +449,10 @@ dots.forEach((dot, i) => {
     gsap.to(window, {
       scrollTo: {
         y: `.horizontal-wrapper`,
-        offsetY: -scrollTriggerProgress
+        offsetY: -scrollTriggerProgress,
       },
       duration: 1,
-      ease: 'power2.inOut'
+      ease: "power2.inOut",
     });
   });
 });
@@ -396,22 +483,23 @@ dots.forEach((dot, i) => {
   font-weight: 700;
 }
 
-.divider, .total {
+.divider,
+.total {
   opacity: 0.5;
 }
 ```
 
 ```javascript
-const counter = document.querySelector('.section-counter .current');
+const counter = document.querySelector(".section-counter .current");
 
 ScrollTrigger.create({
-  trigger: '.horizontal-wrapper',
-  start: 'top top',
+  trigger: ".horizontal-wrapper",
+  start: "top top",
   end: () => `+=${track.scrollWidth}`,
   onUpdate: (self) => {
     const index = Math.round(self.progress * (panels.length - 1)) + 1;
-    counter.textContent = String(index).padStart(2, '0');
-  }
+    counter.textContent = String(index).padStart(2, "0");
+  },
 });
 ```
 
@@ -424,7 +512,7 @@ ScrollTrigger.create({
 ```html
 <div class="horizontal-panel project-panel">
   <div class="project-image">
-    <img src="project.jpg" alt="Project name" loading="lazy">
+    <img src="project.jpg" alt="Project name" loading="lazy" />
   </div>
   <div class="project-info">
     <span class="project-number">01</span>
@@ -479,14 +567,14 @@ ScrollTrigger.create({
 <div class="horizontal-gallery">
   <div class="gallery-track">
     <figure class="gallery-item large">
-      <img src="image1.jpg" alt="">
+      <img src="image1.jpg" alt="" />
       <figcaption>Caption text</figcaption>
     </figure>
     <figure class="gallery-item">
-      <img src="image2.jpg" alt="">
+      <img src="image2.jpg" alt="" />
     </figure>
     <figure class="gallery-item tall">
-      <img src="image3.jpg" alt="">
+      <img src="image3.jpg" alt="" />
     </figure>
     <!-- More items -->
   </div>
@@ -582,17 +670,17 @@ ScrollTrigger.create({
 ```javascript
 const mm = gsap.matchMedia();
 
-mm.add('(min-width: 768px)', () => {
+mm.add("(min-width: 768px)", () => {
   // Desktop horizontal scroll
   gsap.to(track, {
     x: () => -(track.scrollWidth - window.innerWidth),
-    ease: 'none',
+    ease: "none",
     scrollTrigger: {
-      trigger: '.horizontal-wrapper',
+      trigger: ".horizontal-wrapper",
       pin: true,
       scrub: 1,
-      end: () => `+=${track.scrollWidth}`
-    }
+      end: () => `+=${track.scrollWidth}`,
+    },
   });
 
   return () => {
@@ -600,7 +688,7 @@ mm.add('(min-width: 768px)', () => {
   };
 });
 
-mm.add('(max-width: 767px)', () => {
+mm.add("(max-width: 767px)", () => {
   // Mobile: Stack vertically
   gsap.set(track, { x: 0 });
 });
@@ -651,9 +739,7 @@ mm.add('(max-width: 767px)', () => {
 ### Skip Link
 
 ```html
-<a href="#after-horizontal" class="skip-link">
-  Skip horizontal gallery
-</a>
+<a href="#after-horizontal" class="skip-link"> Skip horizontal gallery </a>
 
 <section class="horizontal-wrapper" aria-label="Project gallery">
   <!-- Content -->
@@ -665,30 +751,33 @@ mm.add('(max-width: 767px)', () => {
 ### Keyboard Navigation
 
 ```javascript
-const wrapper = document.querySelector('.horizontal-wrapper');
+const wrapper = document.querySelector(".horizontal-wrapper");
 
-wrapper.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight') {
+wrapper.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") {
     e.preventDefault();
-    navigateToPanel('next');
+    navigateToPanel("next");
   }
-  if (e.key === 'ArrowLeft') {
+  if (e.key === "ArrowLeft") {
     e.preventDefault();
-    navigateToPanel('prev');
+    navigateToPanel("prev");
   }
 });
 
 function navigateToPanel(direction) {
   const current = Math.round(scrollTrigger.progress * (panels.length - 1));
-  const next = direction === 'next'
-    ? Math.min(current + 1, panels.length - 1)
-    : Math.max(current - 1, 0);
+  const next =
+    direction === "next"
+      ? Math.min(current + 1, panels.length - 1)
+      : Math.max(current - 1, 0);
 
   const progress = next / (panels.length - 1);
   gsap.to(window, {
-    scrollTo: scrollTrigger.start + progress * (scrollTrigger.end - scrollTrigger.start),
+    scrollTo:
+      scrollTrigger.start +
+      progress * (scrollTrigger.end - scrollTrigger.start),
     duration: 0.8,
-    ease: 'power2.inOut'
+    ease: "power2.inOut",
   });
 }
 ```
@@ -696,37 +785,39 @@ function navigateToPanel(direction) {
 ### Screen Reader Announcements
 
 ```javascript
-const liveRegion = document.getElementById('live-region');
+const liveRegion = document.getElementById("live-region");
 
 ScrollTrigger.create({
-  trigger: '.horizontal-wrapper',
-  start: 'top top',
+  trigger: ".horizontal-wrapper",
+  start: "top top",
   end: () => `+=${track.scrollWidth}`,
   onUpdate: (self) => {
     const index = Math.round(self.progress * (panels.length - 1));
     const panel = panels[index];
-    const title = panel.querySelector('h2')?.textContent;
+    const title = panel.querySelector("h2")?.textContent;
 
     if (title && panel !== currentPanel) {
       currentPanel = panel;
       liveRegion.textContent = `Now viewing: ${title}`;
     }
-  }
+  },
 });
 ```
 
 ### Reduced Motion
 
 ```javascript
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+);
 
 if (prefersReducedMotion.matches) {
   // Fall back to native scroll
-  wrapper.style.overflowX = 'auto';
-  wrapper.style.scrollSnapType = 'x mandatory';
-  track.style.display = 'flex';
-  panels.forEach(panel => {
-    panel.style.scrollSnapAlign = 'start';
+  wrapper.style.overflowX = "auto";
+  wrapper.style.scrollSnapType = "x mandatory";
+  track.style.display = "flex";
+  panels.forEach((panel) => {
+    panel.style.scrollSnapAlign = "start";
   });
 } else {
   // GSAP implementation

@@ -10,12 +10,12 @@ Premium layout patterns that define modern award-winning websites.
 
 ## Quick Reference
 
-| Topic | Reference File |
-|-------|---------------|
-| Bento Grids | [bento-grids.md](references/bento-grids.md) |
-| Horizontal Scroll | [horizontal-scroll.md](references/horizontal-scroll.md) |
-| Sticky & Parallax | [sticky-parallax.md](references/sticky-parallax.md) |
-| Container Queries | [container-queries.md](references/container-queries.md) |
+| Topic              | Reference File                                            |
+| ------------------ | --------------------------------------------------------- |
+| Bento Grids        | [bento-grids.md](references/bento-grids.md)               |
+| Horizontal Scroll  | [horizontal-scroll.md](references/horizontal-scroll.md)   |
+| Sticky & Parallax  | [sticky-parallax.md](references/sticky-parallax.md)       |
+| Container Queries  | [container-queries.md](references/container-queries.md)   |
 | Editorial patterns | [editorial-patterns.md](references/editorial-patterns.md) |
 
 ---
@@ -24,14 +24,14 @@ Premium layout patterns that define modern award-winning websites.
 
 ### By Project Type
 
-| Project | Primary Layout | Key Patterns |
-|---------|---------------|--------------|
-| Portfolio | Bento + Horizontal | Feature work, case studies |
-| E-commerce | Container queries | Product grids, responsive cards |
-| Landing page | Sticky parallax | Hero → Features → CTA flow |
-| Dashboard | Bento + Container | Resizable panels, widgets |
-| Blog/Magazine | Asymmetric grid | Editorial feel, visual hierarchy |
-| Agency | Horizontal + Bento | Immersive, exploratory |
+| Project       | Primary Layout     | Key Patterns                     |
+| ------------- | ------------------ | -------------------------------- |
+| Portfolio     | Bento + Horizontal | Feature work, case studies       |
+| E-commerce    | Container queries  | Product grids, responsive cards  |
+| Landing page  | Sticky parallax    | Hero → Features → CTA flow       |
+| Dashboard     | Bento + Container  | Resizable panels, widgets        |
+| Blog/Magazine | Asymmetric grid    | Editorial feel, visual hierarchy |
+| Agency        | Horizontal + Bento | Immersive, exploratory           |
 
 ### Pattern Selection
 
@@ -87,17 +87,35 @@ Need all of the above? → Combine strategically
 
 ```css
 /* Column spans */
-.col-span-1 { grid-column: span 1; }
-.col-span-2 { grid-column: span 2; }
-.col-span-3 { grid-column: span 3; }
-.col-span-4 { grid-column: span 4; }
-.col-span-6 { grid-column: span 6; }
-.col-span-8 { grid-column: span 8; }
-.col-span-12 { grid-column: span 12; }
+.col-span-1 {
+  grid-column: span 1;
+}
+.col-span-2 {
+  grid-column: span 2;
+}
+.col-span-3 {
+  grid-column: span 3;
+}
+.col-span-4 {
+  grid-column: span 4;
+}
+.col-span-6 {
+  grid-column: span 6;
+}
+.col-span-8 {
+  grid-column: span 8;
+}
+.col-span-12 {
+  grid-column: span 12;
+}
 
 /* Row spans */
-.row-span-2 { grid-row: span 2; }
-.row-span-3 { grid-row: span 3; }
+.row-span-2 {
+  grid-row: span 2;
+}
+.row-span-3 {
+  grid-row: span 3;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -179,15 +197,19 @@ See [bento-grids.md](references/bento-grids.md) for advanced patterns.
 ### GSAP ScrollTrigger (pinned)
 
 ```javascript
-gsap.to('.horizontal-track', {
-  x: () => -(document.querySelector('.horizontal-track').scrollWidth - window.innerWidth),
-  ease: 'none',
+gsap.to(".horizontal-track", {
+  x: () =>
+    -(
+      document.querySelector(".horizontal-track").scrollWidth -
+      window.innerWidth
+    ),
+  ease: "none",
   scrollTrigger: {
-    trigger: '.horizontal-container',
+    trigger: ".horizontal-container",
     pin: true,
     scrub: 1,
-    end: () => `+=${document.querySelector('.horizontal-track').scrollWidth}`
-  }
+    end: () => `+=${document.querySelector(".horizontal-track").scrollWidth}`,
+  },
 });
 ```
 
@@ -214,26 +236,36 @@ See [horizontal-scroll.md](references/horizontal-scroll.md) for complete pattern
 }
 
 /* Stack sections with z-index */
-.sticky-section:nth-child(1) { z-index: 1; background: var(--color-bg-1); }
-.sticky-section:nth-child(2) { z-index: 2; background: var(--color-bg-2); }
-.sticky-section:nth-child(3) { z-index: 3; background: var(--color-bg-3); }
+.sticky-section:nth-child(1) {
+  z-index: 1;
+  background: var(--color-bg-1);
+}
+.sticky-section:nth-child(2) {
+  z-index: 2;
+  background: var(--color-bg-2);
+}
+.sticky-section:nth-child(3) {
+  z-index: 3;
+  background: var(--color-bg-3);
+}
 ```
 
 ### GSAP Pin with Animation
 
 ```javascript
-gsap.timeline({
-  scrollTrigger: {
-    trigger: '.pinned-section',
-    pin: true,
-    scrub: 1,
-    start: 'top top',
-    end: '+=200%'
-  }
-})
-.from('.content-1', { opacity: 0, y: 50 })
-.from('.content-2', { opacity: 0, y: 50 })
-.from('.content-3', { opacity: 0, y: 50 });
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".pinned-section",
+      pin: true,
+      scrub: 1,
+      start: "top top",
+      end: "+=200%",
+    },
+  })
+  .from(".content-1", { opacity: 0, y: 50 })
+  .from(".content-2", { opacity: 0, y: 50 })
+  .from(".content-3", { opacity: 0, y: 50 });
 ```
 
 See [sticky-parallax.md](references/sticky-parallax.md) for layered effects.
@@ -288,25 +320,27 @@ See [container-queries.md](references/container-queries.md) for advanced pattern
 ### Animating Grid Items
 
 ```css
-/* Prepare items for animation */
-.grid-item {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-/* Animate with scroll-driven */
-@media (prefers-reduced-motion: no-preference) {
-  .grid-item {
-    animation: revealItem linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 30%;
+/* Hide items ONLY when scroll-driven animation is supported AND motion is
+   allowed. If either is false, items render visible by default — so Firefox
+   (still flag-gated in 2026) and reduced-motion users are never stranded at
+   opacity: 0 with no timeline to reveal them. Feature-detect view()
+   specifically because it's the timeline this reveal uses. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .grid-item {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: revealItem linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
   }
 }
 
 @keyframes revealItem {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 ```
@@ -314,18 +348,18 @@ See [container-queries.md](references/container-queries.md) for advanced pattern
 ### GSAP Grid Animation
 
 ```javascript
-gsap.from('.grid-item', {
+gsap.from(".grid-item", {
   opacity: 0,
   y: 50,
   stagger: {
     amount: 0.8,
-    grid: 'auto',
-    from: 'start'
+    grid: "auto",
+    from: "start",
   },
   scrollTrigger: {
-    trigger: '.grid-container',
-    start: 'top 80%'
-  }
+    trigger: ".grid-container",
+    start: "top 80%",
+  },
 });
 ```
 
@@ -333,7 +367,7 @@ gsap.from('.grid-item', {
 
 ```javascript
 // Before layout change
-const state = Flip.getState('.grid-item');
+const state = Flip.getState(".grid-item");
 
 // Change layout (filter, sort, resize)
 filterItems();
@@ -341,9 +375,9 @@ filterItems();
 // Animate the change
 Flip.from(state, {
   duration: 0.6,
-  ease: 'power2.inOut',
+  ease: "power2.inOut",
   stagger: 0.05,
-  absolute: true
+  absolute: true,
 });
 ```
 
@@ -394,10 +428,7 @@ Flip.from(state, {
 /* Auto-fit columns */
 .fluid-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%, 300px), 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: clamp(1rem, 3vw, 2rem);
 }
 
@@ -407,6 +438,41 @@ Flip.from(state, {
   padding-inline: clamp(1rem, 5vw, 6rem);
 }
 ```
+
+---
+
+## Content-Aware Layouts with `:has()`
+
+Layouts that respond to their _content_, not just the viewport. `:has()` is
+Baseline across all major browsers (since late 2023) — no fallback needed.
+
+```css
+/* Quantity queries: the grid restructures as items are added */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.card-grid:has(> :nth-child(2)) {
+  grid-template-columns: repeat(2, 1fr);
+}
+.card-grid:has(> :nth-child(4)) {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Give an article a sidebar only when it actually contains a figure */
+.article:has(> figure) {
+  grid-template-columns: 1fr 320px;
+}
+
+/* Collapse a section's chrome when it has no items (empty state) */
+.gallery:not(:has(.gallery-item)) {
+  display: none;
+}
+```
+
+Prefer this over JavaScript that counts children and toggles classes — it's
+declarative, reflows with the DOM automatically, and has zero runtime cost.
 
 ---
 
@@ -461,7 +527,32 @@ Flip.from(state, {
 }
 ```
 
-### Masonry-Like (CSS Grid)
+### Masonry
+
+Native masonry is arriving — Safari 26.4 shipped it first (2026); Chrome and
+Firefox are behind flags, stabilizing through 2026. The syntax is still settling
+(`grid-template-rows: masonry` vs. the newer `display: grid-lanes` / Item Flow
+proposal), so **feature-detect, never version-sniff**, and keep the JS fallback
+below for production.
+
+```css
+/* Enhancement: native masonry where supported */
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+@supports (grid-template-rows: masonry) {
+  .masonry {
+    grid-template-rows: masonry; /* rows pack tightly up each column */
+  }
+}
+```
+
+#### Fallback (production-safe today)
+
+Grid with fixed-height rows and JS-computed spans works everywhere now:
 
 ```css
 .masonry-grid {
@@ -480,14 +571,14 @@ Flip.from(state, {
 ```javascript
 // Calculate row spans based on content
 function setMasonrySpans() {
-  const grid = document.querySelector('.masonry-grid');
+  const grid = document.querySelector(".masonry-grid");
   const rowHeight = 10;
   const gap = 16;
 
-  grid.querySelectorAll('.masonry-item').forEach(item => {
-    const content = item.querySelector('.content');
+  grid.querySelectorAll(".masonry-item").forEach((item) => {
+    const content = item.querySelector(".content");
     const span = Math.ceil((content.offsetHeight + gap) / (rowHeight + gap));
-    item.style.setProperty('--row-span', span);
+    item.style.setProperty("--row-span", span);
   });
 }
 ```
@@ -516,26 +607,26 @@ function setMasonrySpans() {
 
 ```javascript
 // BAD: Forces layout per item
-items.forEach(item => {
-  item.style.width = item.offsetWidth + 10 + 'px';
+items.forEach((item) => {
+  item.style.width = item.offsetWidth + 10 + "px";
 });
 
 // GOOD: Batch reads, then writes
-const widths = items.map(item => item.offsetWidth);
+const widths = items.map((item) => item.offsetWidth);
 items.forEach((item, i) => {
-  item.style.width = widths[i] + 10 + 'px';
+  item.style.width = widths[i] + 10 + "px";
 });
 ```
 
 ### CSS Grid vs Flexbox
 
-| Use Grid | Use Flexbox |
-|----------|-------------|
-| 2D layouts | 1D layouts |
-| Known structure | Unknown item count |
+| Use Grid          | Use Flexbox          |
+| ----------------- | -------------------- |
+| 2D layouts        | 1D layouts           |
+| Known structure   | Unknown item count   |
 | Overlapping items | Content distribution |
-| Magazine/bento | Navigation, cards |
-| Complex alignment | Simple alignment |
+| Magazine/bento    | Navigation, cards    |
+| Complex alignment | Simple alignment     |
 
 ---
 
@@ -559,12 +650,18 @@ items.forEach((item, i) => {
 
 ```javascript
 // Allow arrow key navigation in horizontal scroll
-horizontalContainer.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight') {
-    horizontalContainer.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+horizontalContainer.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") {
+    horizontalContainer.scrollBy({
+      left: window.innerWidth,
+      behavior: "smooth",
+    });
   }
-  if (e.key === 'ArrowLeft') {
-    horizontalContainer.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+  if (e.key === "ArrowLeft") {
+    horizontalContainer.scrollBy({
+      left: -window.innerWidth,
+      behavior: "smooth",
+    });
   }
 });
 ```
@@ -573,9 +670,27 @@ horizontalContainer.addEventListener('keydown', (e) => {
 
 ```javascript
 // For dynamic layout changes (filtering)
-const liveRegion = document.getElementById('live-region');
+const liveRegion = document.getElementById("live-region");
 liveRegion.textContent = `Showing ${visibleItems.length} of ${totalItems} items`;
 ```
+
+### Keep Reading Order in Sync
+
+When grid placement (named areas, `order`, or `grid-row`/`grid-column`) moves
+items away from their DOM order, keyboard and screen-reader users still follow
+source order — a WCAG 2.4.3 (Focus Order) failure. The durable fix is to keep
+DOM order matching the primary visual order. As a progressive enhancement,
+`reading-flow` (Chrome 137+, Chromium-only in 2026) can realign focus/reading
+order to the visual flow:
+
+```css
+.bento-grid {
+  display: grid;
+  reading-flow: grid-order; /* focus follows visual grid order where supported */
+}
+```
+
+Treat it as an enhancement, not a substitute for sensible source order.
 
 ---
 
@@ -583,5 +698,10 @@ liveRegion.textContent = `Showing ${visibleItems.length} of ${totalItems} items`
 
 - [MDN: CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout)
 - [MDN: Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+- [MDN: Creating CSS carousels](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Overflow/Carousels)
+- [MDN: Scroll-driven animations](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations)
+- [MDN: Native masonry layout](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Masonry_layout)
+- [MDN: `:has()` selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:has)
+- [Chrome: `reading-flow` for focus order](https://developer.chrome.com/blog/reading-flow)
 - [CSS Tricks: Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
 - [GSAP ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)

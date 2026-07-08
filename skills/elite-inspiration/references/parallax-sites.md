@@ -7,10 +7,12 @@ Award-winning sites with depth and scroll-driven movement.
 ## Multi-Layer Parallax
 
 ### Apple iPhone
+
 **URL**: https://www.apple.com/iphone/
 **Standard**: Industry defining
 
 **What to study**:
+
 - Product depth layers
 - Text and device sync
 - Performance optimization
@@ -21,10 +23,12 @@ Award-winning sites with depth and scroll-driven movement.
 ---
 
 ### Porsche (Various)
+
 **URL**: https://www.porsche.com
 **Award**: Multiple awards
 
 **What to study**:
+
 - Car photography layers
 - Dramatic reveal sequences
 - Brand storytelling
@@ -35,10 +39,12 @@ Award-winning sites with depth and scroll-driven movement.
 ---
 
 ### Locomotive
+
 **URL**: https://locomotive.ca
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Subtle parallax throughout
 - Text/image layer separation
 - Smooth scroll feel
@@ -51,10 +57,12 @@ Award-winning sites with depth and scroll-driven movement.
 ## Immersive Storytelling
 
 ### NASA (Various Projects)
+
 **URL**: https://eyes.nasa.gov
 **Award**: Multiple Webby Awards
 
 **What to study**:
+
 - Space exploration narratives
 - Data visualization parallax
 - Educational sequencing
@@ -65,10 +73,12 @@ Award-winning sites with depth and scroll-driven movement.
 ---
 
 ### The Boat
+
 **URL**: https://www.sbs.com.au/theboat/
 **Award**: FWA, Awwwards
 
 **What to study**:
+
 - Graphic novel scroll
 - Illustration layers
 - Emotional pacing
@@ -79,10 +89,12 @@ Award-winning sites with depth and scroll-driven movement.
 ---
 
 ### Bear Creek Distillery
+
 **URL**: https://bearcreekdistillery.com
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Rural landscape layers
 - Product integration
 - Atmospheric depth
@@ -95,10 +107,12 @@ Award-winning sites with depth and scroll-driven movement.
 ## Sticky Section Parallax
 
 ### Zajno
+
 **URL**: https://zajno.com
 **Award**: Multiple Awwwards
 
 **What to study**:
+
 - Pinned section reveals
 - Content within pinned areas
 - Transition choreography
@@ -109,10 +123,12 @@ Award-winning sites with depth and scroll-driven movement.
 ---
 
 ### Fantasy
+
 **URL**: https://fantasy.co
 **Award**: Awwwards SOTD
 
 **What to study**:
+
 - Case study reveals
 - Image/text parallax offset
 - Smooth section transitions
@@ -125,10 +141,12 @@ Award-winning sites with depth and scroll-driven movement.
 ## Product Showcase Parallax
 
 ### Apple AirPods
+
 **URL**: https://www.apple.com/airpods-pro/
 **Award**: Industry standard
 
 **What to study**:
+
 - Product floating in space
 - Feature callouts sync
 - 360° product rotation
@@ -139,10 +157,12 @@ Award-winning sites with depth and scroll-driven movement.
 ---
 
 ### Google Pixel
+
 **URL**: https://store.google.com/product/pixel_9_pro
 **Award**: Design excellence
 
 **What to study**:
+
 - Device showcase
 - Feature highlighting
 - Color option changes
@@ -201,31 +221,33 @@ Product parallax:
 ## Implementation Reference
 
 ### Basic Multi-Layer
+
 ```javascript
-gsap.to('.layer-bg', {
-  y: '-30%',
-  ease: 'none',
+gsap.to(".layer-bg", {
+  y: "-30%",
+  ease: "none",
   scrollTrigger: {
-    trigger: '.parallax-section',
-    start: 'top bottom',
-    end: 'bottom top',
-    scrub: true
-  }
+    trigger: ".parallax-section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
 });
 
-gsap.to('.layer-mid', {
-  y: '-15%',
-  ease: 'none',
+gsap.to(".layer-mid", {
+  y: "-15%",
+  ease: "none",
   scrollTrigger: {
-    trigger: '.parallax-section',
-    start: 'top bottom',
-    end: 'bottom top',
-    scrub: true
-  }
+    trigger: ".parallax-section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: true,
+  },
 });
 ```
 
 ### CSS-Only Parallax
+
 ```css
 .parallax-container {
   perspective: 1px;
@@ -249,15 +271,25 @@ gsap.to('.layer-mid', {
 ```
 
 ### Scroll-Driven API
+
 ```css
-.parallax-bg {
-  animation: parallax linear;
-  animation-timeline: scroll();
+/* Parallax is a vestibular trigger — gate it behind the motion query.
+   The base state stays put (translateY(0)), so reduced-motion users and
+   browsers without scroll-driven support get a static image, not a jump. */
+@media (prefers-reduced-motion: no-preference) {
+  .parallax-bg {
+    animation: parallax linear;
+    animation-timeline: scroll();
+  }
 }
 
 @keyframes parallax {
-  from { transform: translateY(0); }
-  to { transform: translateY(-30%); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-30%);
+  }
 }
 ```
 
