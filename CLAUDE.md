@@ -4,18 +4,19 @@ A collection of specialized skills for producing premium, award-winning frontend
 
 ## Skill Overview
 
-| Skill                  | Triggers                                                                       | Purpose                                      |
-| ---------------------- | ------------------------------------------------------------------------------ | -------------------------------------------- |
-| `elite-design-core`    | "elite design", "premium website", "design system"                             | Design philosophy, process, skill navigation |
-| `elite-gsap`           | "GSAP", "ScrollTrigger", "SplitText", "animation library"                      | Complete GSAP ecosystem                      |
-| `elite-css-animations` | "CSS animation", "scroll-driven", "view transition"                            | CSS-native animations                        |
-| `elite-layouts`        | "bento grid", "horizontal scroll", "sticky section"                            | Layout patterns                              |
-| `elite-performance`    | "performance", "60fps", "Core Web Vitals", "Vite"                              | Build and optimization                       |
-| `elite-accessibility`  | "prefers-reduced-motion", "WCAG", "a11y"                                       | Motion accessibility                         |
-| `elite-inspiration`    | "inspiration", "Awwwards", "FWA", "reference sites"                            | Curated site examples                        |
-| `elite-ux-strategy`    | "conversion", "CRO", "pricing page", "CTA", "copywriting"                      | Conversion optimization                      |
-| `elite-brand-design`   | "brand design", "visual identity", "logo", "brand guidelines", "tone of voice" | Brand identity creation                      |
-| `elite-audit`          | "audit", "review", "QA", "pre-launch", "check quality", "is this ready"        | Quality verification & remediation           |
+| Skill                  | Triggers                                                                                             | Purpose                                                         |
+| ---------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `elite-design-core`    | "elite design", "premium website", "design system"                                                   | Design philosophy, process, skill navigation                    |
+| `elite-gsap`           | "GSAP", "ScrollTrigger", "SplitText", "animation library"                                            | Complete GSAP ecosystem                                         |
+| `elite-css-animations` | "CSS animation", "scroll-driven", "view transition"                                                  | CSS-native animations                                           |
+| `elite-layouts`        | "bento grid", "horizontal scroll", "sticky section"                                                  | Layout patterns                                                 |
+| `elite-performance`    | "performance", "60fps", "Core Web Vitals", "Vite"                                                    | Build and optimization                                          |
+| `elite-accessibility`  | "prefers-reduced-motion", "WCAG", "a11y"                                                             | Motion accessibility                                            |
+| `elite-inspiration`    | "inspiration", "Awwwards", "FWA", "reference sites"                                                  | Curated site examples                                           |
+| `elite-ux-strategy`    | "conversion", "CRO", "pricing page", "CTA", "copywriting"                                            | Conversion optimization                                         |
+| `elite-brand-design`   | "brand design", "visual identity", "logo", "brand guidelines", "tone of voice"                       | Brand identity creation                                         |
+| `elite-audit`          | "audit", "review", "QA", "pre-launch", "check quality", "is this ready"                              | Quality verification & remediation                              |
+| `elite-product-demos`  | "product demo", "demo video", "shotlist", "record the mockup", "drive the demo", "walkthrough video" | Recorded product demo pipeline: story → driver → capture → edit |
 
 ## Code Style Guidelines
 
