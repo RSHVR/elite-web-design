@@ -18,6 +18,7 @@ Match the **most specific** row first. If the query clearly spans multiple rows 
 
 | If the user is...                                         | Load these skills                                                                     |
 | --------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Producing a recorded product demo**                     | `elite-product-demos` (story → driver → capture → edit)                               |
 | **Defining a brand identity**                             | `elite-brand-design` (runs discovery → generates brand package)                       |
 | **Building with GSAP animations**                         | `elite-gsap` + `elite-accessibility` (always together)                                |
 | **Building CSS-only effects**                             | `elite-css-animations` + `elite-accessibility` (always together)                      |
@@ -25,6 +26,7 @@ Match the **most specific** row first. If the query clearly spans multiple rows 
 | **Optimizing performance**                                | `elite-performance`                                                                   |
 | **Improving accessibility**                               | `elite-accessibility` + `elite-design-core`                                           |
 | **Choosing a style/direction**                            | `elite-brand-design` + `elite-inspiration` + `elite-design-core`                      |
+| **Writing or auditing copy**                              | `elite-copywriting` + `elite-design-core`                                             |
 | **Optimizing for conversion**                             | `elite-ux-strategy` + `elite-design-core`                                             |
 | **Reviewing/auditing**                                    | `elite-audit` (orchestrates other skills on failure)                                  |
 | **Improving/polishing existing work**                     | `elite-design-core` + `elite-audit`                                                   |
@@ -56,6 +58,7 @@ After loading, verify the dependency table is satisfied:
 | `elite-ux-strategy`    | `elite-design-core`   |
 | `elite-brand-design`   | `elite-design-core`   |
 | `elite-inspiration`    | `elite-design-core`   |
+| `elite-copywriting`    | `elite-design-core`   |
 
 If a dependency isn't loaded yet, load it.
 
@@ -73,6 +76,8 @@ If a dependency isn't loaded yet, load it.
 | `elite-ux-strategy`    | Conversion, pricing, CTAs, navigation, forms, social proof                  | "conversion", "CRO", "pricing", "navigation", "forms" |
 | `elite-brand-design`   | Brand identity, personality, color psychology, tone of voice, brand package | "brand", "logo", "visual identity", "tone of voice"   |
 | `elite-audit`          | Quality audit (~190 rules), remediation loop, pre-launch checklist          | "audit", "review", "QA", "pre-launch"                 |
+| `elite-copywriting`    | Positioning, persuasion, audience research, channels, voice, copy teardowns | "copy", "headline", "sales page", "positioning"       |
+| `elite-product-demos`  | Demo story + shotlist, UI autopilot, screen recording, VO, edit             | "product demo", "demo video", "shotlist", "record"    |
 
 ## Common Workflows
 

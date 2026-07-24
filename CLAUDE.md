@@ -16,6 +16,7 @@ A collection of specialized skills for producing premium, award-winning frontend
 | `elite-ux-strategy`    | "conversion", "CRO", "pricing page", "CTA", "copywriting"                                            | Conversion optimization                                         |
 | `elite-brand-design`   | "brand design", "visual identity", "logo", "brand guidelines", "tone of voice"                       | Brand identity creation                                         |
 | `elite-audit`          | "audit", "review", "QA", "pre-launch", "check quality", "is this ready"                              | Quality verification & remediation                              |
+| `elite-copywriting`    | "copy", "copywriting", "headline", "hero copy", "sales page", "positioning", "microcopy"             | Conversion copy, positioning, persuasion                        |
 | `elite-product-demos`  | "product demo", "demo video", "shotlist", "record the mockup", "drive the demo", "walkthrough video" | Recorded product demo pipeline: story → driver → capture → edit |
 
 ## Code Style Guidelines
@@ -78,6 +79,8 @@ When a skill is loaded, also load its dependencies for complete coverage:
 | `elite-ux-strategy`    | `elite-design-core`                   | Conversion patterns depend on visual hierarchy    |
 | `elite-brand-design`   | `elite-design-core`                   | Brand decisions map to design tokens              |
 | `elite-audit`          | (triggers teaching skills on failure) | Orchestrates fixes via relevant skill             |
+| `elite-copywriting`    | `elite-design-core`                   | Type/grid set the length and rhythm copy reads at |
+| `elite-product-demos`  | —                                     | Loads standalone                                  |
 
 When starting a new project, load `elite-design-core` first to establish foundations.
 When building charts/dashboards, load `elite-design-core` (data-visualization reference).

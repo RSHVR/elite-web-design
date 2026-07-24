@@ -112,6 +112,11 @@ Load skills based on the task:
 | "Pre-launch check"        | elite-audit          | -                         |
 | "Review accessibility"    | elite-audit          | elite-accessibility       |
 | "Is this ready to ship"   | elite-audit          | -                         |
+| "Write the copy"          | elite-copywriting    | elite-design-core         |
+| "Headline / hero copy"    | elite-copywriting    | elite-ux-strategy         |
+| "Sales page copy"         | elite-copywriting    | elite-brand-design        |
+| "Record a product demo"   | elite-product-demos  | -                         |
+| "Demo video / shotlist"   | elite-product-demos  | -                         |
 
 ## Common Pitfalls to Avoid
 
