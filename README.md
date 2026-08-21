@@ -17,7 +17,7 @@ A collection of specialized skills for Claude Code that enable premium, award-wi
 | **elite-ux-strategy**    | Conversion optimization, psychology, copywriting, pricing pages                                                                                                                   | ~5,700  |
 | **elite-brand-design**   | Brand identity, personality, color psychology, typography as voice, tone of voice                                                                                                 | ~1,800  |
 | **elite-audit**          | Quality audit with ~190 rules, remediation loop, pre-launch checklist                                                                                                             | ~1,700  |
-| **elite-copywriting**    | Canon, persuasion science, sales methodology, audience research, decision-makers, objection prediction, channels, voice, AI-era workflow, teardowns, audit-existing-copy workflow | ~15,300 |
+| **elite-copywriting**    | Canon, persuasion science, sales methodology, audience research, decision-makers, objection prediction, channels, voice, AI-era workflow, teardowns | ~15,300 |
 | **elite-product-demos**  | Demo story + shotlist, shot-clock autopilot driving the real UI, ScreenCaptureKit recording, AI voiceover, Palmier Pro edit                                                       | ~1,300  |
 
 **Total: ~48,400 lines** of specialized knowledge

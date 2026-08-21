@@ -6,7 +6,9 @@
 event log of the take.
 
   afconvert -f WAVE -d LEI16@48000 -c 1 take.mov take.wav
-  uv run audio_events.py take.wav <name> [beats.tsv]
+  uv run audio_events.py take.wav <name> [beats.tsv] [outdir]
+
+Writes audio-events-<name>.tsv to outdir (default: $DEMO_OUTDIR or the current directory).
 
 beats.tsv (t_seconds<TAB>label, e.g. from clock_lint.py) labels each onset with its
 nearest expected driver beat (press latency ~1.15s after until())."""
@@ -14,7 +16,7 @@ import numpy as np, wave, sys, os
 
 WAV = sys.argv[1]
 NAME = sys.argv[2] if len(sys.argv) > 2 else "take"
-OUTDIR = "."
+OUTDIR = sys.argv[4] if len(sys.argv) > 4 else os.environ.get("DEMO_OUTDIR", ".")
 
 w = wave.open(WAV)
 sr = w.getframerate()

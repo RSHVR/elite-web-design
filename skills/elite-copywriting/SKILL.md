@@ -43,11 +43,9 @@ The single highest-leverage diagnostic is in [awareness-sophistication.md](refer
 | Channel-specific copy conventions (15+ channels)                          | [channels.md](references/channels.md)                                 |
 | Voice & tone (NN/g 4 dimensions, voice constraint cards, Provost rhythm)  | [voice-tone.md](references/voice-tone.md)                             |
 | Industry playbooks (SaaS, eCom, agency, courses, creator, local)          | [industry-playbooks.md](references/industry-playbooks.md)             |
-| **Agency-services selling** (Enns, proposals, premium positioning)        | [agency-selling.md](references/agency-selling.md)                     |
 | AI-era workflow (tools, prompts, anti-slop, voice matching)               | [ai-workflow.md](references/ai-workflow.md)                           |
 | Annotated teardowns (line-by-line analysis of winning copy)               | [teardowns.md](references/teardowns.md)                               |
 | **Workflows** (8-phase copy-development + RMBC + Wiebe + brief template)  | [workflows.md](references/workflows.md)                               |
-| **Auditing existing copy** (audit-rewrite pattern + brand-doc overrides)  | [auditing-existing-copy.md](references/auditing-existing-copy.md)     |
 | Checklists (pre-writing, edit-pass, page-audit, AI-slop, objection-audit) | [checklists.md](references/checklists.md)                             |
 | Headlines & hooks library (40+ headline templates + 20+ hooks)            | [headlines-hooks-library.md](references/headlines-hooks-library.md)   |
 | Reading list & practitioner directory                                     | [reading-list.md](references/reading-list.md)                         |
@@ -82,7 +80,7 @@ For shorter projects (ads, single emails, LinkedIn posts), collapse Phase 1–3 
 
 ## Audit & Diagnosis (when reviewing existing copy)
 
-For any project that already has existing copy AND/OR a brand voice doc, start with [auditing-existing-copy.md](references/auditing-existing-copy.md) — it defines the audit-first/rewrite-second pattern, the hierarchy of authority (brand voice doc > skill defaults), the constraint-card extraction process, and the verification checks. This is the workflow that produced the the client and the studio dogfoods.
+For any project that already has existing copy AND/OR a brand voice doc, audit first and rewrite second: the brand voice doc outranks skill defaults, extract it into a constraint card before touching a line, and verify every rewrite against the card.
 
 Plus run [checklists.md](references/checklists.md):
 
